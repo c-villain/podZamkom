@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoteVC">
+            <connections>
+                <outlet property="deleteNote" destination="7pa-Yk-21M" id="8bK-6q-lat"/>
+                <outlet property="lblNote" destination="Muv-QM-1wQ" id="dN4-jt-Lgm"/>
+                <outlet property="lblTitle" destination="LZJ-WJ-uqT" id="rpH-hb-8OD"/>
+                <outlet property="noteContent" destination="yto-d4-jcw" id="Peq-9V-zjt"/>
+                <outlet property="noteTitle" destination="2PF-3R-jrv" id="nOH-DV-Djy"/>
+                <outlet property="sendNote" destination="Hz6-kL-jfb" id="Khd-fN-mvP"/>
+                <outlet property="view" destination="1" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="top" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="НАЗВАНИЕ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZJ-WJ-uqT">
+                    <rect key="frame" x="13" y="4" width="287" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="287" id="28K-xZ-zSN"/>
+                        <constraint firstAttribute="height" constant="21" id="nRt-oF-icu"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123456789012345678901234567890" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="287" translatesAutoresizingMaskIntoConstraints="NO" id="2PF-3R-jrv">
+                    <rect key="frame" x="13" y="33" width="287" height="46"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="287" id="Lrc-yZ-Wl0"/>
+                        <constraint firstAttribute="height" constant="46" id="e0m-TY-4l1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="19"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="cHy-Wo-lQ4">
+                    <rect key="frame" x="0.0" y="87" width="320" height="2"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="o40-6R-aCU"/>
+                        <constraint firstAttribute="height" constant="2" id="ucd-f0-fOY"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ЗАМЕТКА" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Muv-QM-1wQ">
+                    <rect key="frame" x="13" y="97" width="287" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="287" id="20W-Em-LVz"/>
+                        <constraint firstAttribute="height" constant="21" id="qY6-3X-ciD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yto-d4-jcw">
+                    <rect key="frame" x="8" y="120" width="301" height="256"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="256" id="0Wz-iK-JkB"/>
+                        <constraint firstAttribute="width" constant="301" id="Hr1-9i-r5q"/>
+                    </constraints>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="AIb-3g-oNQ">
+                    <rect key="frame" x="0.0" y="384" width="320" height="2"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="59L-Cc-n0N"/>
+                        <constraint firstAttribute="height" constant="2" id="gcZ-Kj-k1J"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7pa-Yk-21M">
+                    <rect key="frame" x="0.0" y="394" width="320" height="51"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.97254901959999995" green="0.18823529410000001" blue="0.2784313725" alpha="1" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="dco-Pc-7MA"/>
+                        <constraint firstAttribute="height" constant="51" id="ofb-lT-vpc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
+                    <state key="normal" title="УДАЛИТЬ ЗАМЕТКУ">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-kL-jfb">
+                    <rect key="frame" x="0.0" y="453" width="320" height="51"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.28235294119999998" green="0.53333333329999999" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="Pcd-Yg-jQd"/>
+                        <constraint firstAttribute="height" constant="51" id="tyh-xZ-Jwx"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
+                    <state key="normal" title="ОТПРАВИТЬ ЗАМЕТКУ">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="yto-d4-jcw" firstAttribute="top" secondItem="Muv-QM-1wQ" secondAttribute="bottom" constant="2" id="3GJ-6e-dm2"/>
+                <constraint firstItem="2PF-3R-jrv" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="13" id="Bm5-55-pM1"/>
+                <constraint firstItem="AIb-3g-oNQ" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="E5N-Fz-CBe"/>
+                <constraint firstItem="7pa-Yk-21M" firstAttribute="top" secondItem="AIb-3g-oNQ" secondAttribute="bottom" constant="8" id="El6-vW-k0D"/>
+                <constraint firstAttribute="bottom" secondItem="Hz6-kL-jfb" secondAttribute="bottom" id="K2j-6C-GPm"/>
+                <constraint firstItem="cHy-Wo-lQ4" firstAttribute="top" secondItem="2PF-3R-jrv" secondAttribute="bottom" constant="8" id="LAN-rI-fP4"/>
+                <constraint firstItem="LZJ-WJ-uqT" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="13" id="M04-6p-Jub"/>
+                <constraint firstItem="Hz6-kL-jfb" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="QpA-HH-59x"/>
+                <constraint firstItem="Muv-QM-1wQ" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="13" id="Zty-Yo-EwF"/>
+                <constraint firstItem="yto-d4-jcw" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="8" id="aFR-vj-hcP"/>
+                <constraint firstItem="Hz6-kL-jfb" firstAttribute="top" secondItem="7pa-Yk-21M" secondAttribute="bottom" constant="8" id="g8O-Hy-Nga"/>
+                <constraint firstItem="Muv-QM-1wQ" firstAttribute="top" secondItem="cHy-Wo-lQ4" secondAttribute="bottom" constant="8" id="iNb-Pi-sey"/>
+                <constraint firstItem="7pa-Yk-21M" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="lBQ-0V-2cR"/>
+                <constraint firstItem="cHy-Wo-lQ4" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="nvi-Ev-nkp"/>
+                <constraint firstItem="LZJ-WJ-uqT" firstAttribute="top" secondItem="1" secondAttribute="top" constant="4" id="uHA-WH-Ziw"/>
+                <constraint firstItem="2PF-3R-jrv" firstAttribute="top" secondItem="LZJ-WJ-uqT" secondAttribute="bottom" constant="8" id="v04-Qm-PDg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="divider_goriz.png" width="1" height="2"/>
+    </resources>
+</document>

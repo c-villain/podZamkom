@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PasswordVC.h"
+#import "MainTableVC.h"
+#import "Security.h"
+#import "SWRevealViewController.h"
+#import "LeftMenuVC.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@class SWRevealViewController;
+@interface AppDelegate : UIResponder <UIApplicationDelegate, PasswordVCDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
