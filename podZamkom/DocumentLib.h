@@ -3,3 +3,4 @@
 #import "Note.h"
 #import "CreditCard.h"
 #import "Passport.h"
+#import "BankAccount.h"

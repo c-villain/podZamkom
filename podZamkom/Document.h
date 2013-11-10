@@ -18,7 +18,7 @@ typedef enum {
 
 @interface Document : NSObject
 
-@property (nonatomic, strong) NSString *idDoc; //id документа
+@property (nonatomic, assign) NSInteger idDoc; //id документа
 @property (nonatomic, assign) DocTypeEnum docType;
 @property (nonatomic, strong) NSString *docName; // имя документа
 @property (nonatomic, strong) NSString *detail; // детали документа

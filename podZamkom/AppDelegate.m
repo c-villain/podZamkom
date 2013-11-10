@@ -102,7 +102,6 @@
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     MainTableVC *mainVC = [storyboard instantiateViewControllerWithIdentifier:@"main"];
-//    MainVC *mainVC = [storyboard instantiateViewControllerWithIdentifier:@"main"];
     LeftMenuVC *menuVC = [storyboard instantiateViewControllerWithIdentifier:@"leftMenu"];
     SWRevealViewController *mainRevealController = [[SWRevealViewController alloc] initWithRearViewController:menuVC frontViewController:mainVC];
     
