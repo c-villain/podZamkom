@@ -10,6 +10,34 @@
 
 @implementation DBadapter (DBSave)
 
++(BOOL)SaveDocument: (Document *) doc
+{
+    DBadapter *db = [[DBadapter alloc] init];
+    
+    BOOL result;
+    switch (doc.docType)
+    {
+        case NoteDoc:
+            result = [db SaveNote:(Note *)doc];
+            break;
+        case CardDoc:
+            result = [db SaveCreditCard:(CreditCard *)doc];
+            break;
+        case PassportDoc:
+            result = [db SavePassport:(Passport *)doc];
+            break;
+        case BankAccountDoc:
+            result = [db SaveBankAccount:(BankAccount *)doc];
+            break;
+        case LoginDoc:
+            result = [db SaveLogin:(Login *)doc];
+            break;
+        default:
+            break;
+    }
+    return result;
+}
+
 -(BOOL)SaveNote: (Note *) note //Yes - save to DB, no - not saved
 {
     sqlite3_stmt *statement;
@@ -113,6 +141,16 @@
         }
     }
     sqlite3_close(db);
+    return NO;
+}
+
+-(BOOL)SavePassport: (Passport *)passport
+{
+    return NO;
+}
+
+-(BOOL)SaveBankAccount:(BankAccount *)bankAccount
+{
     return NO;
 }
 

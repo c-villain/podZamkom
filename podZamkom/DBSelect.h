@@ -2,8 +2,8 @@
 
 @interface DBadapter (DBSelect)
 
--(Login *) GetLoginDocById: (NSString *) idDoc;
--(Note *) GetNoteDocById: (NSString *) idDoc;
--(CreditCard *) GetCreditCardDocById: (NSString *) idDoc;
+-(Login *) GetLoginDocById: (int) idDoc;
+-(Note *) GetNoteDocById: (int) idDoc;
+-(CreditCard *) GetCreditCardDocById: (int) idDoc;
 
 @end

@@ -76,7 +76,7 @@ CREATE  TABLE IF NOT EXISTS Login (pk_login_id INTEGER PRIMARY KEY  AUTOINCREMEN
 -(int)insertIntoDocList:(int)docType 
 {
     sqlite3_stmt *statement;
-    const char *insert_stmt = "INSERT INTO DocList(fk_type_id, date_of_creation) VALUES(?,?)";
+    const char *insert_stmt = "INSERT INTO DocList(doc_type, date_of_creation) VALUES(?,?)";
     sqlite3 *db;
     if (sqlite3_open([DBpath UTF8String], &db)==SQLITE_OK)
     {
@@ -272,10 +272,11 @@ CREATE  TABLE IF NOT EXISTS Login (pk_login_id INTEGER PRIMARY KEY  AUTOINCREMEN
             while (sqlite3_step(statement) == SQLITE_ROW)
             {
                 Document *document = [Document new];
-                document.idDoc = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)];
+                document.idDoc = sqlite3_column_int(statement, 0);
                 
                 int idDocType = sqlite3_column_int(statement, 1);
-                document.docName = [self getDocumentName:[document.idDoc intValue] withDocType:idDocType];
+                
+                document.docName = [self getDocumentName:document.idDoc withDocType:idDocType];
                 
                 document.detail = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 2)];
                 

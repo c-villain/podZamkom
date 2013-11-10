@@ -10,17 +10,17 @@
     
     for (NSUInteger docNum = 0; docNum < docCount; docNum ++)
     {
-        Document *doc = [documents objectAtIndex:docNum];
+//        Document *doc = [documents objectAtIndex:docNum];
         
-        NSString *docType = [dbAdapter getDocTypeByDocId:doc.idDoc];
+//        NSString *docType = [dbAdapter getDocTypeByDocId:doc.idDoc];
         
-        if ([docType isEqual: @"Заметка"])
-        {
+//        if ([docType isEqual: @"Заметка"])
+//        {
 //            Note *noteDoc = [Note new];
 //            noteDoc = [dbAdapter GetNoteDocById:doc.idDoc withPassword:oldPassword];
 //            [dbAdapter UpdateNote:noteDoc];
             
-        }
+//        }
 //        else if ([docType isEqual: @"Логин"])
 //        {
 //            Login *loginDoc = [Login new];
