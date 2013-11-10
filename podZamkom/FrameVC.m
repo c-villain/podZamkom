@@ -69,9 +69,7 @@
 
 -(void)showMainVC
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    UIViewController *myController = [storyboard instantiateViewControllerWithIdentifier:@"mainView"];
-    [self.navigationController pushViewController:myController animated:YES];
+
 }
 
 - (void)popCurrentViewController:(UIViewController *)onWhichViewController

@@ -95,14 +95,24 @@
     UIViewController *detailVC;
     
     Document *doc = [documents objectAtIndex:indexPath.row];
-    
-    NSString *docType = [dbAdapter getDocTypeByDocId:doc.idDoc];
-    if ([docType isEqual: @"Заметка"])
-    {
-        Note *noteDoc = [Note new];
-        noteDoc = [dbAdapter GetNoteDocById:doc.idDoc];
-        detailVC = [[NoteVC alloc] initWithNibName:@"NoteVC" bundle:nil Note:noteDoc];
+    switch (doc.docType) {
+        case NoteDoc:
+//            Note *note = [Note new];
+            doc = [dbAdapter GetNoteDocById:(int)doc.idDoc];
+            detailVC = [[NoteVC alloc] initWithNibName:@"NoteVC" bundle:nil Note:(Note *)doc];
+            break;
+            
+        default:
+            break;
     }
+    
+//    NSString *docType = [dbAdapter getDocTypeByDocId:doc.idDoc];
+//    if ([docType isEqual: @"Заметка"])
+//    {
+//        Note *noteDoc = [Note new];
+//        noteDoc = [dbAdapter GetNoteDocById:doc.idDoc];
+//        detailVC = [[NoteVC alloc] initWithNibName:@"NoteVC" bundle:nil Note:noteDoc];
+//    }
 //    else if ([docType isEqual: @"Логин"])
 //    {
 //        Login *loginDoc = [Login new];

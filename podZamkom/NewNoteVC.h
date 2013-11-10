@@ -11,19 +11,10 @@
 #import "FrameVC.h"
 
 @interface NewNoteVC : FrameVC
-{
-    UIImagePickerController *picker;
-    UIImage *newPhoto;
-    NSMutableArray *dataArray;
-}
 
 @property (strong) Note *selectedNote; //заметка для редактирования
 
 @property (nonatomic, retain) IBOutlet UITextField *noteTitle;
 @property (nonatomic, retain) IBOutlet UITextView *note;
-
-//- (IBAction)showUIActionSheet:(id)sender;
-//-(void)takePhoto; //сделать снимок
-//-(void)chooseExistingPhoto; //выбрать имеющийся
 
 @end

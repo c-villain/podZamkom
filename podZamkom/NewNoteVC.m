@@ -28,10 +28,12 @@
 
 -(void)saveBtnTapped
 {
-    DBadapter *db = [[DBadapter alloc] init];
-    [db SaveNote:self.noteTitle.text withContent:self.note.text];
-//    if (YES == [db SaveNote:self.fieldTitle.text withContent:self.fieldNote.text])
-//        [super showMainVC];
+    Note *note = [Note new];
+    note.title = self.noteTitle.text;
+    note.content = self.note.text;
+    note.docType = NoteDoc;
+    if ([DBadapter SaveDocument:note])
+        [super showMainVC];
 }
 
 - (void)didReceiveMemoryWarning
