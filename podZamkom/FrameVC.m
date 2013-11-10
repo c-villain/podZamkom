@@ -69,7 +69,7 @@
 
 -(void)showMainVC
 {
-
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)popCurrentViewController:(UIViewController *)onWhichViewController
