@@ -198,6 +198,11 @@
 //functionality.
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    //если текстовое поле имеет пикер, то запрещаем редактирование
+    if (((TextField*)textField).picker != nil)
+    {
+        return NO;
+    }
     if (((TextField*)textField).mask == nil)
         return YES;
     //If the length of used entered text is equals to mask length the user input must be cancelled
@@ -261,27 +266,24 @@
     [UIView commitAnimations];
 }
 
--(void)cardTypeSelected:(CardType *) type
+-(void)showSelectedPickerObjectInTextField:(PickerObject *)selectedPickerObject
 {
-    if (type ==nil)
+    if (selectedPickerObject ==nil)
         return;
     //else:
-//    [activeField setLeftViewMode:UITextFieldViewModeAlways];
     [activeField setRightViewMode:UITextFieldViewModeAlways];
     
     //140x84 - size of image
     //35x21
     //40x24
-    UIImageView *temp = [[UIImageView alloc] initWithImage:[UIImage imageNamed:type.image]];
-//    temp.frame = CGRectMake(15, 0, 40, 24);
+    //50x30
+    UIImageView *temp = [[UIImageView alloc] initWithImage:[UIImage imageNamed:selectedPickerObject.image]];
     temp.frame = CGRectMake(15, 0, 50, 30);
     
-//    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 54, 24)];
     UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 65, 30)];
     [paddingView insertSubview:temp atIndex:0];
     activeField.rightView = paddingView;
 //    [activeField setText:type.name];
-//    card.type = type;
 }
 
 @end
