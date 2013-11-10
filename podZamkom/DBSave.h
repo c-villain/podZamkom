@@ -2,8 +2,8 @@
 
 @interface DBadapter (DBSave)
 
--(BOOL)SaveNote: (NSString*) title withContent: (NSString*) content;
--(BOOL)SaveLogin: (NSString*) url withLogin: (NSString*) login andPassword: (NSString*) password;
+-(BOOL)SaveNote: (Note *) note;
+-(BOOL)SaveLogin: (Login *) login;
 -(BOOL)SaveCreditCard: (CreditCard*)creditCard;
 
 @end

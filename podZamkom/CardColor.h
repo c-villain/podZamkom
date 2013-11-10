@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PickerObject.h"
 
 typedef enum {
     grey = 0,
@@ -18,11 +19,9 @@ typedef enum {
     purple
 } CardColorEnum;
 
-@interface CardColor : NSObject
+@interface CardColor : PickerObject
 
-@property (nonatomic, strong) NSString *image;
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, assign) CardColorEnum enumObject;
+@property (nonatomic, assign) CardColorEnum cardColor;
 
 +(NSArray *)initCardColorArray;
 

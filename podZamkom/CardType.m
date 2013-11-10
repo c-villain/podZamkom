@@ -10,9 +10,7 @@
 
 @implementation CardType
 
-@synthesize image;
-@synthesize name;
-@synthesize enumObject;
+@synthesize cardType;
 
 
 +(NSArray *)initCardTypeArray

@@ -11,6 +11,7 @@
 @implementation Document
 
 @synthesize idDoc;
+@synthesize docType;
 @synthesize docName;
 @synthesize detail;
 @synthesize imageFile;

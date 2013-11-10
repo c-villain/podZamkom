@@ -21,13 +21,13 @@
 -(BOOL)DeleteDocFromDB:(NSString *)idDoc;
 
 
--(NSString *)getDocTypeByTypeId:(int)idType;
--(NSString *)getDocTypeByDocId:(NSString *)idDoc;
+//-(NSString *)getDocTypeByTypeId:(int)idType;
+//-(NSString *)getDocTypeByDocId:(NSString *)idDoc;
 
--(int)getIdOfDocType:(NSString*)docType;
--(NSString *)getDocumentName:(int)docId withDocType:(int)idDocType;
+//-(int)getIdOfDocType:(NSString*)docType;
+-(NSString *)getDocumentName:(int)docId withDocType:(DocTypeEnum)docType;
 
 -(int)insertIntoDocList:(int)docType;
--(int)getCardTypeIdByCardType:(CardType *)cardType;
+//-(int)getCardTypeIdByCardType:(CardType *)cardType;
 
 @end

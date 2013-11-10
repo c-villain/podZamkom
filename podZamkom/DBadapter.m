@@ -8,31 +8,14 @@
 
 #import "DBadapter.h"
 
-#define DB "CREATE TABLE IF NOT EXISTS DocType (pk_type_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE , type TEXT NOT NULL  UNIQUE ); \
-            CREATE TABLE IF NOT EXISTS DocList (pk_doc_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE , fk_type_id INTEGER NOT NULL, \
-                                                date_of_creation DATETIME NOT NULL, FOREIGN KEY(fk_type_id) REFERENCES DocumentType (pk_type_id) ); \
+#define DB "\
+CREATE TABLE IF NOT EXISTS DocList (pk_doc_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE , doc_type INTEGER NOT NULL, date_of_creation DATETIME NOT NULL); \
+\
 CREATE  TABLE IF NOT EXISTS Note (pk_note_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, fk_doc_id INTEGER, title BLOB, content BLOB, FOREIGN KEY(fk_doc_id) REFERENCES DocList (pk_doc_id));\
-CREATE  TABLE IF NOT EXISTS CardType (pk_type_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, type TEXT NOT NULL  UNIQUE);\
-INSERT OR IGNORE INTO CardType (type) VALUES ('VISA');\
-INSERT OR IGNORE INTO CardType (type) VALUES ('VISA Electron');\
-INSERT OR IGNORE INTO CardType (type) VALUES ('Mastercard');\
-INSERT OR IGNORE INTO CardType (type) VALUES ('Maestro');\
-INSERT OR IGNORE INTO CardType (type) VALUES ('Cirrus');\
-INSERT OR IGNORE INTO CardType (type) VALUES ('Discover');\
-INSERT OR IGNORE INTO CardType (type) VALUES ('JCB');\
-INSERT OR IGNORE INTO CardType (type) VALUES ('Carte Blanche');\
-INSERT OR IGNORE INTO CardType (type) VALUES ('American Express');\
-INSERT OR IGNORE INTO CardType (type) VALUES ('UnionPay');\
-INSERT OR IGNORE INTO CardType (type) VALUES ('Laser');\
-INSERT OR IGNORE INTO CardType (type) VALUES ('Diners Club');\
-CREATE  TABLE IF NOT EXISTS CreditCard (pk_card_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, fk_doc_id INTEGER, title BLOB, name BLOB, surname BLOB, fk_type_id INTEGER, number BLOB, expDate BLOB, cvc BLOB, pin BLOB, bank BLOB, phone BLOB, word BLOB, url BLOB, login BLOB, password BLOB, creditLimit BLOB, note BLOB, FOREIGN KEY(fk_doc_id) REFERENCES DocList (pk_doc_id), FOREIGN KEY(fk_type_id) REFERENCES CardType (pk_type_id)); \
-            CREATE  TABLE IF NOT EXISTS Login (pk_login_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, fk_doc_id INTEGER, \
-                                                url BLOB, user_name BLOB, password BLOB, FOREIGN KEY(fk_doc_id) REFERENCES DocList (pk_doc_id)); \
-            INSERT OR IGNORE INTO DocType (type) VALUES ('Заметка'); \
-            INSERT OR IGNORE INTO DocType (type) VALUES ('Логин');\
-            INSERT OR IGNORE INTO DocType (type) VALUES ('Паспорт'); \
-            INSERT OR IGNORE INTO DocType (type) VALUES ('Счет'); \
-            INSERT OR IGNORE INTO DocType (type) VALUES ('Кредитка');"
+\
+CREATE  TABLE IF NOT EXISTS CreditCard (pk_card_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, fk_doc_id INTEGER, bank BLOB, holder BLOB, card_type INTEGER, number BLOB, validThru BLOB, cvc BLOB, pin BLOB, card_color INTEGER, comments BLOB, FOREIGN KEY(fk_doc_id) REFERENCES DocList (pk_doc_id) ); \
+\
+CREATE  TABLE IF NOT EXISTS Login (pk_login_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, fk_doc_id INTEGER, url BLOB, user_name BLOB, password BLOB, comments BLOB, FOREIGN KEY(fk_doc_id) REFERENCES DocList (pk_doc_id)); "
 
 @implementation DBadapter
 
@@ -113,6 +96,7 @@ CREATE  TABLE IF NOT EXISTS CreditCard (pk_card_id INTEGER PRIMARY KEY  AUTOINCR
     return 0;
 }
 
+/*
 -(int)getIdOfDocType:(NSString*)docType
 {
     sqlite3_stmt *statement;
@@ -132,7 +116,8 @@ CREATE  TABLE IF NOT EXISTS CreditCard (pk_card_id INTEGER PRIMARY KEY  AUTOINCR
     sqlite3_close(db);
     return typeId;
 }
-
+*/
+/*
 -(int)getCardTypeIdByCardType:(CardType *)cardType
 {
     sqlite3_stmt *statement;
@@ -152,7 +137,9 @@ CREATE  TABLE IF NOT EXISTS CreditCard (pk_card_id INTEGER PRIMARY KEY  AUTOINCR
     sqlite3_close(db);
     return typeId;
 }
+*/
 
+/*
 -(NSString *)getDocTypeByTypeId:(int)idType
 {
     sqlite3_stmt *statement;
@@ -172,7 +159,8 @@ CREATE  TABLE IF NOT EXISTS CreditCard (pk_card_id INTEGER PRIMARY KEY  AUTOINCR
     sqlite3_close(db);
     return docType;
 }
-
+*/
+/*
 -(NSString *)getDocTypeByDocId:(NSString *)idDoc
 {
     sqlite3_stmt *statement;
@@ -197,37 +185,34 @@ CREATE  TABLE IF NOT EXISTS CreditCard (pk_card_id INTEGER PRIMARY KEY  AUTOINCR
     sqlite3_close(db);
     return docType;
 }
+*/
 
-
--(NSString *)getDocumentName:(int)docId withDocType:(int)idDocType
+//для главного экрана для каждого из документов ищет, что показать в разделе название документа
+-(NSString *)getDocumentName:(int)docId withDocType:(DocTypeEnum)docType
 {
     sqlite3_stmt *statement;
     NSString *querySQL;
-    NSString *docType = [self getDocTypeByTypeId:idDocType];
     NSString *docName;
-    if ([docType isEqual: @"Заметка"])
+    
+    switch (docType)
     {
-        querySQL = [NSString stringWithFormat: @"SELECT title FROM Note WHERE fk_doc_id = %d", docId];
-    }
-    else if ([docType isEqual: @"Логин"])
-    {
-        querySQL = [NSString stringWithFormat: @"SELECT url FROM Login WHERE fk_doc_id = %d", docId];
-        
-    }
-    else if ([docType isEqual: @"Счет"])
-    {
-        querySQL = [NSString stringWithFormat: @"SELECT url FROM Login WHERE fk_doc_id = %d", docId];
-        
-    }
-    else if ([docType isEqual: @"Паспорт"])
-    {
-        querySQL = [NSString stringWithFormat: @"SELECT url FROM Login WHERE fk_doc_id = %d", docId];
-        
-    }
-    else if ([docType isEqual: @"Кредитка"])
-    {
-        querySQL = [NSString stringWithFormat: @"SELECT title FROM CreditCard WHERE fk_doc_id = %d", docId];
-        
+        case NoteDoc:
+            querySQL = [NSString stringWithFormat: @"SELECT title FROM Note WHERE fk_doc_id = %d", docId];
+            break;
+        case CardDoc:
+            querySQL = [NSString stringWithFormat: @"SELECT bank FROM CreditCard WHERE fk_doc_id = %d", docId];
+            break;
+        case PassportDoc:
+//            querySQL = [NSString stringWithFormat: @"SELECT url FROM Login WHERE fk_doc_id = %d", docId];
+            break;
+        case BankAccountDoc:
+//            querySQL = [NSString stringWithFormat: @"SELECT url FROM Login WHERE fk_doc_id = %d", docId];
+            break;
+        case LoginDoc:
+            querySQL = [NSString stringWithFormat: @"SELECT url FROM Login WHERE fk_doc_id = %d", docId];
+            break;
+        default:
+            break;
     }
     //don't change this code!
     const char *query_stmt = [querySQL UTF8String];
@@ -247,20 +232,25 @@ CREATE  TABLE IF NOT EXISTS CreditCard (pk_card_id INTEGER PRIMARY KEY  AUTOINCR
 
 //Ставит документу картинку в соответствии с его типом
 //постоянно дополнять
--(void)setDocImage:(Document*)doc withDocType:(int)idDocType
+-(void)setDocImage:(Document*)doc withDocType:(DocTypeEnum)docType
 {
-     NSString *docType = [self getDocTypeByTypeId:idDocType];
-    if ([docType isEqual: @"Заметка"])
+    switch (docType)
     {
-        doc.imageFile = @"addNotes.png";
-    }
-    else if ([docType isEqual: @"Логин"])
-    {
-        doc.imageFile = @"addLogin.png";
-    }
-    else if ([docType isEqual: @"Кредитка"])
-    {
-        doc.imageFile = @"addCredit.png";
+        case NoteDoc:
+            doc.imageFile = @"addNotes.png";
+            break;
+        case CardDoc:
+            doc.imageFile = @"addCredit.png";
+            break;
+        case PassportDoc:
+            break;
+        case BankAccountDoc:
+            break;
+        case LoginDoc:
+            doc.imageFile = @"addLogin.png";
+            break;
+        default:
+            break;
     }
 }
 
@@ -300,7 +290,7 @@ CREATE  TABLE IF NOT EXISTS CreditCard (pk_card_id INTEGER PRIMARY KEY  AUTOINCR
     return documents;
 }
 
-
+//удаляет выбранный по id документ из базы
 -(BOOL)DeleteDocFromDB:(NSString *)idDoc
 {
     sqlite3 *database;

@@ -10,10 +10,7 @@
 
 @implementation CardColor
 
-
-@synthesize image;
-@synthesize name;
-@synthesize enumObject;
+@synthesize cardColor;
 
 
 +(NSArray *)initCardColorArray

@@ -41,14 +41,15 @@
     [(TextField *)self.validThruDate initWithMask:@"99/99"];
     [(TextField *)self.cvcField initWithMask:@"9999"];
 //    cardTypes = [CardType initCardTypeArray];
-    ((TextField *)self.typeField).picker = [CardTypePicker createPickerWithData:[CardType initCardTypeArray] andPickerDelegate:self];
+    ((TextField *)self.typeField).picker = [Picker createPickerWithData:[CardType initCardTypeArray] andPickerDelegate:self];
+    ((TextField *)self.colorField).picker = [Picker createPickerWithData:[CardColor initCardColorArray] andPickerDelegate:self];
     [self.bankField becomeFirstResponder];
 }
 
 -(void)saveBtnTapped
 {
     //    TODO!
-    NSLog(@"SAVE!");
+    NSLog(@"%ld", (long)( (Picker *) ((TextField *)self.typeField).picker). selectedIndex);
 }
 
 

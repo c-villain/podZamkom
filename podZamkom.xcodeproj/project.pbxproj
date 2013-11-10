@@ -54,7 +54,8 @@
 		5AB3448B18297F5A0007F714 /* Passport.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB3448A18297F5A0007F714 /* Passport.m */; };
 		5ABA86FC181EFF300090004B /* KSEnhancedKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABA86FB181EFF300090004B /* KSEnhancedKeyboard.m */; };
 		5ABC676C182ADDBE00AAD71D /* FrameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC676B182ADDBE00AAD71D /* FrameVC.m */; };
-		5ABC677B182E343900AAD71D /* CardTypePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABC677A182E343900AAD71D /* CardTypePicker.m */; };
+		5AC8E9BF18301050008FCAE6 /* Picker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC8E9BE18301050008FCAE6 /* Picker.m */; };
+		5AC8E9C2183017CE008FCAE6 /* PickerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC8E9C1183017CE008FCAE6 /* PickerObject.m */; };
 		5AD72A09182E357B00342143 /* aex.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD729F0182E357B00342143 /* aex.png */; };
 		5AD72A0A182E357B00342143 /* aex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD729F1182E357B00342143 /* aex@2x.png */; };
 		5AD72A0B182E357B00342143 /* cb.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD729F2182E357B00342143 /* cb.png */; };
@@ -244,8 +245,10 @@
 		5ABA86FB181EFF300090004B /* KSEnhancedKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSEnhancedKeyboard.m; sourceTree = "<group>"; };
 		5ABC676A182ADDBE00AAD71D /* FrameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameVC.h; sourceTree = "<group>"; };
 		5ABC676B182ADDBE00AAD71D /* FrameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrameVC.m; sourceTree = "<group>"; };
-		5ABC6779182E343900AAD71D /* CardTypePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardTypePicker.h; sourceTree = "<group>"; };
-		5ABC677A182E343900AAD71D /* CardTypePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardTypePicker.m; sourceTree = "<group>"; };
+		5AC8E9BD18301050008FCAE6 /* Picker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Picker.h; sourceTree = "<group>"; };
+		5AC8E9BE18301050008FCAE6 /* Picker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Picker.m; sourceTree = "<group>"; };
+		5AC8E9C0183017CE008FCAE6 /* PickerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerObject.h; sourceTree = "<group>"; };
+		5AC8E9C1183017CE008FCAE6 /* PickerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerObject.m; sourceTree = "<group>"; };
 		5AD729F0182E357B00342143 /* aex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aex.png; path = "Resources/pickers/card types/aex.png"; sourceTree = "<group>"; };
 		5AD729F1182E357B00342143 /* aex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "aex@2x.png"; path = "Resources/pickers/card types/aex@2x.png"; sourceTree = "<group>"; };
 		5AD729F2182E357B00342143 /* cb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cb.png; path = "Resources/pickers/card types/cb.png"; sourceTree = "<group>"; };
@@ -622,8 +625,6 @@
 			isa = PBXGroup;
 			children = (
 				5AB34451182300C80007F714 /* DocumentLib.h */,
-				5AB3445F182301790007F714 /* CardType.h */,
-				5AB34460182301790007F714 /* CardType.m */,
 				5AD72A52182EACFE00342143 /* CreditCard.h */,
 				5AB34454182301620007F714 /* CreditCard.m */,
 				5AB34455182301620007F714 /* Document.h */,
@@ -634,8 +635,6 @@
 				5AB3445A182301620007F714 /* Note.m */,
 				5AB3448918297F5A0007F714 /* Passport.h */,
 				5AB3448A18297F5A0007F714 /* Passport.m */,
-				5AD72A56182EADD000342143 /* CardColor.h */,
-				5AD72A57182EADD000342143 /* CardColor.m */,
 			);
 			name = Documents;
 			sourceTree = "<group>";
@@ -664,10 +663,24 @@
 		5ABC676D182E335400AAD71D /* Pickers */ = {
 			isa = PBXGroup;
 			children = (
-				5ABC6779182E343900AAD71D /* CardTypePicker.h */,
-				5ABC677A182E343900AAD71D /* CardTypePicker.m */,
+				5AC8E9BD18301050008FCAE6 /* Picker.h */,
+				5AC8E9BE18301050008FCAE6 /* Picker.m */,
+				5AC8E9C31830194E008FCAE6 /* objects for picker */,
 			);
 			name = Pickers;
+			sourceTree = "<group>";
+		};
+		5AC8E9C31830194E008FCAE6 /* objects for picker */ = {
+			isa = PBXGroup;
+			children = (
+				5AB3445F182301790007F714 /* CardType.h */,
+				5AB34460182301790007F714 /* CardType.m */,
+				5AD72A56182EADD000342143 /* CardColor.h */,
+				5AD72A57182EADD000342143 /* CardColor.m */,
+				5AC8E9C0183017CE008FCAE6 /* PickerObject.h */,
+				5AC8E9C1183017CE008FCAE6 /* PickerObject.m */,
+			);
+			name = "objects for picker";
 			sourceTree = "<group>";
 		};
 		5AD729EE182E34FD00342143 /* Pickers */ = {
@@ -1209,6 +1222,7 @@
 			files = (
 				5AF633C01815CDCD00B9C540 /* NewNoteVC.m in Sources */,
 				5AB34477182302500007F714 /* DBRecrypt.m in Sources */,
+				5AC8E9BF18301050008FCAE6 /* Picker.m in Sources */,
 				5AF445AD1804655D00E7837C /* PasswordHelpVC.m in Sources */,
 				5AA46C8017FB63AB008EE800 /* KeychainItemWrapper.m in Sources */,
 				5AB3445D182301620007F714 /* Login.m in Sources */,
@@ -1224,6 +1238,7 @@
 				5AA46C4D17FB21B0008EE800 /* main.m in Sources */,
 				5AB3445C182301620007F714 /* Document.m in Sources */,
 				5AF445C0180C911800E7837C /* LeftMenuVC.m in Sources */,
+				5AC8E9C2183017CE008FCAE6 /* PickerObject.m in Sources */,
 				5AF445BC1807481300E7837C /* MainTableVC.m in Sources */,
 				5AA4A0DD1803199400DA9B54 /* PasswordTextField.m in Sources */,
 				5AB344481822FF740007F714 /* DBadapter.m in Sources */,
@@ -1237,7 +1252,6 @@
 				5AB34461182301790007F714 /* CardType.m in Sources */,
 				5AF6338E1814408400B9C540 /* ViewAppearance.m in Sources */,
 				5AB3448B18297F5A0007F714 /* Passport.m in Sources */,
-				5ABC677B182E343900AAD71D /* CardTypePicker.m in Sources */,
 				5AA46C7917FB2263008EE800 /* SWRevealViewController.m in Sources */,
 				5AF633A6181483F400B9C540 /* NewLoginVC.m in Sources */,
 				5ABA86FC181EFF300090004B /* KSEnhancedKeyboard.m in Sources */,

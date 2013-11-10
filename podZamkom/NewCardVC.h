@@ -10,7 +10,7 @@
 #import "FrameVC.h"
 #import "DBlib.h"
 #import "TextField.h"
-#import "CardTypePicker.h"
+#import "Picker.h"
 
 @interface NewCardVC : FrameVC
 {

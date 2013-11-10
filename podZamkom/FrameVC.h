@@ -10,9 +10,9 @@
 #import "ViewAppearance.h"
 #import "KSEnhancedKeyboard.h"
 #import "TextField.h"
-#import "CardTypePicker.h"
+#import "Picker.h"
 
-@interface FrameVC : UIViewController<UITextFieldDelegate, KSEnhancedKeyboardDelegate, UITextViewDelegate, CardTypePickerDelegate>
+@interface FrameVC : UIViewController<UITextFieldDelegate, KSEnhancedKeyboardDelegate, UITextViewDelegate, PickerDelegate>
 {
     UIToolbar *toolbar;
     UITextField *activeField;

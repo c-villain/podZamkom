@@ -8,9 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    NoteDoc = 0,
+    CardDoc = 1,
+    PassportDoc = 2,
+    BankAccountDoc = 3,
+    LoginDoc
+} DocTypeEnum;
+
 @interface Document : NSObject
 
 @property (nonatomic, strong) NSString *idDoc; //id документа
+@property (nonatomic, assign) DocTypeEnum docType;
 @property (nonatomic, strong) NSString *docName; // имя документа
 @property (nonatomic, strong) NSString *detail; // детали документа
 @property (nonatomic, strong) NSString *dateOfCreation; // дата создания документа

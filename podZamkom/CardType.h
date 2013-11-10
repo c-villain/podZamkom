@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PickerObject.h"
 
 typedef enum {
     Visa = 0,
@@ -23,11 +24,9 @@ typedef enum {
     DinersClub
 } CardTypeEnum;
 
-@interface CardType : NSObject
+@interface CardType : PickerObject
 
-@property (nonatomic, strong) NSString *image; 
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, assign) CardTypeEnum enumObject;
+@property (nonatomic, assign) CardTypeEnum cardType;
 
 +(NSArray *)initCardTypeArray;
 

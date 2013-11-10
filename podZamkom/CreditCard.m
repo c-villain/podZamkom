@@ -8,13 +8,13 @@
 
 @implementation CreditCard
 
+@synthesize bank;
+@synthesize holder;
 @synthesize type;
 @synthesize number;
 @synthesize validThru;
 @synthesize cvc;
 @synthesize pin;
-@synthesize bank;
-@synthesize holder;
 @synthesize color;
 @synthesize comments;
 
