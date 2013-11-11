@@ -274,13 +274,13 @@ CREATE  TABLE IF NOT EXISTS Login (pk_login_id INTEGER PRIMARY KEY  AUTOINCREMEN
                 Document *document = [Document new];
                 document.idDoc = sqlite3_column_int(statement, 0);
                 
-                int idDocType = sqlite3_column_int(statement, 1);
+                document.docType = sqlite3_column_int(statement, 1);
                 
-                document.docName = [self getDocumentName:document.idDoc withDocType:idDocType];
+                document.docName = [self getDocumentName:document.idDoc withDocType:document.docType];
                 
                 document.detail = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 2)];
                 
-                [self setDocImage:document withDocType:idDocType];
+                [self setDocImage:document withDocType:document.docType];
 
                 [documents addObject:document];
             }

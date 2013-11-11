@@ -1759,7 +1759,7 @@
         <!--New CardVC-->
         <scene sceneID="T7r-n3-EOJ">
             <objects>
-                <viewController id="ynx-Js-9Mw" customClass="NewCardVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newCard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ynx-Js-9Mw" customClass="NewCardVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QUI-BI-WwB"/>
                         <viewControllerLayoutGuide type="bottom" id="8AG-GO-Ykb"/>

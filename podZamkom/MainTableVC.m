@@ -97,7 +97,6 @@
     Document *doc = [documents objectAtIndex:indexPath.row];
     switch (doc.docType) {
         case NoteDoc:
-//            Note *note = [Note new];
             doc = [dbAdapter GetNoteDocById:(int)doc.idDoc];
             detailVC = [[NoteVC alloc] initWithNibName:@"NoteVC" bundle:nil Note:(Note *)doc];
             break;

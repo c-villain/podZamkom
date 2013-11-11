@@ -84,22 +84,22 @@ CreditCard (pk_card_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, fk_
             {
                 creditCardDoc.idDoc = sqlite3_column_int(statement, 0);
                 
-                creditCardDoc.bank = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)];
+                creditCardDoc.bank = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)] ];
                 
-                creditCardDoc.holder = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 2)];
+                creditCardDoc.holder = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 2)] ];
                 
                 creditCardDoc.type = sqlite3_column_int(statement, 3);
                 
-                creditCardDoc.number = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 4)];
+                creditCardDoc.number = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 4)] ];
                 
-                creditCardDoc.validThru = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 5)];
+                creditCardDoc.validThru = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 5)] ];
                 
-                creditCardDoc.cvc = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 6)];
+                creditCardDoc.cvc = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 6)] ];
                 
-                creditCardDoc.pin = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 7)];
+                creditCardDoc.pin = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 7)] ];
                 
                 creditCardDoc.color = sqlite3_column_int(statement, 8);
-                creditCardDoc.comments = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 9)];
+                creditCardDoc.comments = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 9)] ];
             }
             sqlite3_finalize(statement);
         }
