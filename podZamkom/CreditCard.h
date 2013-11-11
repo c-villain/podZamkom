@@ -14,12 +14,12 @@
 
 @property (nonatomic, strong) NSString *bank;
 @property (nonatomic, strong) NSString *holder;
-@property (nonatomic, assign) CardType *type;
+@property (nonatomic, assign) CardTypeEnum type;
 @property (nonatomic, strong) NSString *number;
 @property (nonatomic, strong) NSString *validThru;
 @property (nonatomic, strong) NSString *cvc;
 @property (nonatomic, strong) NSString *pin;
-@property (nonatomic, strong) CardColor *color;
+@property (nonatomic, assign) CardColorEnum color;
 @property (nonatomic, strong) NSString *comments;
 
 @end

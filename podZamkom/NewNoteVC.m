@@ -12,18 +12,23 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad:@"НОВАЯ ЗАМЕТКА"];
+    NSString* title = @"НОВАЯ ЗАМЕТКА";
+    
+    
 	// Do any additional setup after loading the view.
     
     self.noteTitle.text = @"";
     self.note.text = @"";
+    [self.noteTitle becomeFirstResponder];
     
     if (self.selectedNote != nil)
     {
+        title = self.selectedNote.title;
         self.noteTitle.text = self.selectedNote.title;
         self.note.text = self.selectedNote.content;
     }
-    [self.noteTitle becomeFirstResponder];
+    
+    [super viewDidLoad:title];
 }
 
 -(void)saveBtnTapped

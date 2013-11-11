@@ -125,12 +125,12 @@
             
             sqlite3_bind_text(statement, 2, [[FBEncryptorAES encryptString:creditCard.bank] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 3, [[FBEncryptorAES encryptString:creditCard.holder] UTF8String], -1, SQLITE_TRANSIENT);
-            sqlite3_bind_int(statement, 4, creditCard.type.cardType);
+            sqlite3_bind_int(statement, 4, creditCard.type);
             sqlite3_bind_text(statement, 5, [[FBEncryptorAES encryptString:creditCard.number] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 6, [[FBEncryptorAES encryptString:creditCard.validThru] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 7, [[FBEncryptorAES encryptString:creditCard.cvc] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 8, [[FBEncryptorAES encryptString:creditCard.pin] UTF8String], -1, SQLITE_TRANSIENT);
-            sqlite3_bind_int(statement, 9, creditCard.color.cardColor);
+            sqlite3_bind_int(statement, 9, creditCard.color);
             sqlite3_bind_text(statement, 10, [[FBEncryptorAES encryptString:creditCard.comments] UTF8String], -1, SQLITE_TRANSIENT);
             if (sqlite3_step(statement) == SQLITE_DONE)
             {

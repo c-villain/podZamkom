@@ -18,6 +18,9 @@
 		5A146EFF17FE09F900ED7275 /* login_screen_icon_visible@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A146EFB17FE09F900ED7275 /* login_screen_icon_visible@2x.png */; };
 		5A2AFE34181F01610032A228 /* TextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2AFE33181F01610032A228 /* TextField.m */; };
 		5A2AFE41181F1E890032A228 /* photo_icon_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A2AFE40181F1E890032A228 /* photo_icon_add@2x.png */; };
+		5A9F0BB618317D6A00B680A0 /* ShowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F0BB518317D6A00B680A0 /* ShowVC.m */; };
+		5A9F0BBA18317F2700B680A0 /* CardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F0BB818317F2700B680A0 /* CardVC.m */; };
+		5A9F0BBB18317F2700B680A0 /* CardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A9F0BB918317F2700B680A0 /* CardVC.xib */; };
 		5AA46C4117FB21B0008EE800 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4017FB21B0008EE800 /* Foundation.framework */; };
 		5AA46C4317FB21B0008EE800 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4217FB21B0008EE800 /* CoreGraphics.framework */; };
 		5AA46C4517FB21B0008EE800 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4417FB21B0008EE800 /* UIKit.framework */; };
@@ -181,6 +184,11 @@
 		5A2AFE32181F01610032A228 /* TextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextField.h; sourceTree = "<group>"; };
 		5A2AFE33181F01610032A228 /* TextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextField.m; sourceTree = "<group>"; };
 		5A2AFE40181F1E890032A228 /* photo_icon_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "photo_icon_add@2x.png"; path = "Resources/buttons/Edit/photo_icon_add@2x.png"; sourceTree = "<group>"; };
+		5A9F0BB418317D6A00B680A0 /* ShowVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowVC.h; sourceTree = "<group>"; };
+		5A9F0BB518317D6A00B680A0 /* ShowVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowVC.m; sourceTree = "<group>"; };
+		5A9F0BB718317F2700B680A0 /* CardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardVC.h; sourceTree = "<group>"; };
+		5A9F0BB818317F2700B680A0 /* CardVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardVC.m; sourceTree = "<group>"; };
+		5A9F0BB918317F2700B680A0 /* CardVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardVC.xib; sourceTree = "<group>"; };
 		5AA46C3D17FB21B0008EE800 /* podZamkom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = podZamkom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AA46C4017FB21B0008EE800 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5AA46C4217FB21B0008EE800 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -650,7 +658,7 @@
 				5ABC676D182E335400AAD71D /* Pickers */,
 				5A2AFE31181F014C0032A228 /* TextField */,
 				5ABA86F9181EFF1B0090004B /* Keyboard */,
-				5AF6338B18143FDE00B9C540 /* Appearance + FrameVC */,
+				5AF6338B18143FDE00B9C540 /* Appearance + FrameVC + ShowVC */,
 				5AB344331821BCB10007F714 /* PhotoBox */,
 			);
 			name = Frames;
@@ -867,15 +875,17 @@
 			name = "New doc screen";
 			sourceTree = "<group>";
 		};
-		5AF6338B18143FDE00B9C540 /* Appearance + FrameVC */ = {
+		5AF6338B18143FDE00B9C540 /* Appearance + FrameVC + ShowVC */ = {
 			isa = PBXGroup;
 			children = (
 				5AF6338C1814408400B9C540 /* ViewAppearance.h */,
 				5AF6338D1814408400B9C540 /* ViewAppearance.m */,
 				5ABC676A182ADDBE00AAD71D /* FrameVC.h */,
 				5ABC676B182ADDBE00AAD71D /* FrameVC.m */,
+				5A9F0BB418317D6A00B680A0 /* ShowVC.h */,
+				5A9F0BB518317D6A00B680A0 /* ShowVC.m */,
 			);
-			name = "Appearance + FrameVC";
+			name = "Appearance + FrameVC + ShowVC";
 			sourceTree = "<group>";
 		};
 		5AF6338F18145E2E00B9C540 /* Для title bar */ = {
@@ -1008,6 +1018,9 @@
 		5AF633B81815CB6400B9C540 /* show credit card */ = {
 			isa = PBXGroup;
 			children = (
+				5A9F0BB718317F2700B680A0 /* CardVC.h */,
+				5A9F0BB818317F2700B680A0 /* CardVC.m */,
+				5A9F0BB918317F2700B680A0 /* CardVC.xib */,
 			);
 			name = "show credit card";
 			sourceTree = "<group>";
@@ -1174,6 +1187,7 @@
 				5AD72A1C182E357B00342143 /* unionPay.png in Resources */,
 				5AD72A16182E357B00342143 /* laser.png in Resources */,
 				5AF6339818145E4B00B9C540 /* title_bar_icon_edit@2x.png in Resources */,
+				5A9F0BBB18317F2700B680A0 /* CardVC.xib in Resources */,
 				5AD72A1F182E357B00342143 /* visa@2x.png in Resources */,
 				5AF445DC180DD9B100E7837C /* menu_popular_active@2x.png in Resources */,
 				5AF445DB180DD9B100E7837C /* menu_passports@2x.png in Resources */,
@@ -1238,11 +1252,13 @@
 				5AF633BB1815CB7C00B9C540 /* NewCardVC.m in Sources */,
 				5AF6339F18145F8900B9C540 /* SettingsVC.m in Sources */,
 				5AB34479182302500007F714 /* DBSelect.m in Sources */,
+				5A9F0BB618317D6A00B680A0 /* ShowVC.m in Sources */,
 				5ABC676C182ADDBE00AAD71D /* FrameVC.m in Sources */,
 				5AF633B21814867300B9C540 /* NewBankAccountVC.m in Sources */,
 				5A2AFE34181F01610032A228 /* TextField.m in Sources */,
 				5AA46C4D17FB21B0008EE800 /* main.m in Sources */,
 				5AB3445C182301620007F714 /* Document.m in Sources */,
+				5A9F0BBA18317F2700B680A0 /* CardVC.m in Sources */,
 				5AF445C0180C911800E7837C /* LeftMenuVC.m in Sources */,
 				5AC8E9C2183017CE008FCAE6 /* PickerObject.m in Sources */,
 				5AF445BC1807481300E7837C /* MainTableVC.m in Sources */,

@@ -37,7 +37,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 //     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-        [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:35.0f/255.0f green:35.0f/255.0f blue:41.0f/255.0f alpha:1.0f]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:35.0f/255.0f green:35.0f/255.0f blue:41.0f/255.0f alpha:1.0f]];
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.translucent = NO;
     SWRevealViewController *revealController = self.revealViewController;
@@ -101,7 +101,10 @@
             doc = [dbAdapter GetNoteDocById:(int)doc.idDoc];
             detailVC = [[NoteVC alloc] initWithNibName:@"NoteVC" bundle:nil Note:(Note *)doc];
             break;
-            
+        case CardDoc:
+            doc = [dbAdapter GetCreditCardDocById:(int)doc.idDoc];
+            detailVC = [[CardVC alloc] initWithNibName:@"CardVC" bundle:nil Card:(CreditCard *) doc];
+            break;
         default:
             break;
     }

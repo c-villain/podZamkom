@@ -12,7 +12,7 @@
 
 @protocol PickerDelegate
 
--(void)showSelectedPickerObjectInTextField:(PickerObject *)selectedPickerObject;
+-(void)showSelectedPickerObjectInActiveField:(PickerObject *)selectedPickerObject;
 
 @end
 

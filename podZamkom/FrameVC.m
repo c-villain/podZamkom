@@ -264,12 +264,17 @@
     [UIView commitAnimations];
 }
 
--(void)showSelectedPickerObjectInTextField:(PickerObject *)selectedPickerObject
+-(void)showSelectedPickerObjectInActiveField:(PickerObject *)selectedPickerObject
+{
+    [self showInTextField:activeField selectedPickerObject:selectedPickerObject];
+}
+
+-(void)showInTextField:(UITextField*)textField selectedPickerObject:(PickerObject *)selectedPickerObject
 {
     if (selectedPickerObject ==nil)
         return;
     //else:
-    [activeField setRightViewMode:UITextFieldViewModeAlways];
+    [textField setRightViewMode:UITextFieldViewModeAlways];
     
     //140x84 - size of image
     //35x21
@@ -280,8 +285,7 @@
     
     UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 65, 30)];
     [paddingView insertSubview:temp atIndex:0];
-    activeField.rightView = paddingView;
-//    [activeField setText:type.name];
+    textField.rightView = paddingView;
+    //    [activeField setText:type.name];
 }
-
 @end

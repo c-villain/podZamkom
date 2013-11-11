@@ -54,7 +54,7 @@
 - (void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     PickerObject *object = [data objectAtIndex:row];
-    [self.pickerDelegate showSelectedPickerObjectInTextField:object];
+    [self.pickerDelegate showSelectedPickerObjectInActiveField:object];
     selectedIndex = row;
 }
 

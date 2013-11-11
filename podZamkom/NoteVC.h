@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ViewAppearance.h"
-#import "DocumentLib.h"
-#import "NewDocViews.h"
+#import "ShowVC.h"
 
-@interface NoteVC : UIViewController
+@interface NoteVC : ShowVC
 {
     Note *note;
 }
