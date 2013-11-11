@@ -27,8 +27,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblComment;
 @property (strong, nonatomic) IBOutlet UITextView *cardComment;
 
-@property (strong, nonatomic) IBOutlet UIButton *deleteNote;
-//@property (strong, nonatomic) IBOutlet UIButton *sendNote;
+@property (strong, nonatomic) IBOutlet UIButton *deleteCard;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil Card:(CreditCard*) cardDoc;
 
