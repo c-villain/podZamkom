@@ -33,16 +33,18 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     // Uncomment the following line to preserve selection between presentations.
-//     self.clearsSelectionOnViewWillAppear = NO;
+     self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:35.0f/255.0f green:35.0f/255.0f blue:41.0f/255.0f alpha:1.0f]];
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.translucent = NO;
     SWRevealViewController *revealController = self.revealViewController;
     [self.view addGestureRecognizer:revealController.panGestureRecognizer];
-}
+    
+    //убираю разделители между строками таблицы, чтобы кастомизировать их в функции
+    //- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone]; }
 
 - (void)didReceiveMemoryWarning
 {
@@ -84,6 +86,12 @@
     
     UILabel *docDetailLabel = (UILabel *)[cell viewWithTag:102];
     docDetailLabel.text = doc.detail;
+    
+    //"кастомизация разделителей" высота строки 90 пикселей, а высота моего изображения 2 пикселя, поэтому рисую на высоте 88:
+    UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 88, 320, 2)];/// change size as you need.
+    separatorLineView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"divider_goriz.png"]];// you can also put image here
+    
+    [cell.contentView addSubview:separatorLineView];
     
     return cell;
 }
