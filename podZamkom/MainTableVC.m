@@ -112,6 +112,10 @@
             doc = [dbAdapter GetCreditCardDocById:(int)doc.idDoc];
             detailVC = [[CardVC alloc] initWithNibName:@"CardVC" bundle:nil Card:(CreditCard *) doc];
             break;
+        case LoginDoc:
+            doc = [dbAdapter GetLoginDocById:(int)doc.idDoc];
+            detailVC = [[LoginVC alloc] initWithNibName:@"LoginVC" bundle:nil Login:(Login *) doc];
+            break;
         default:
             break;
     }

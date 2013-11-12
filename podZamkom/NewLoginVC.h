@@ -12,7 +12,7 @@
 
 @interface NewLoginVC : FrameVC
 
-@property (strong) Login *selectedLogin; //заметка для редактирования
+@property (strong) Login *selectedLogin; //логин для редактирования
 
 @property (nonatomic, retain) IBOutlet UITextField *urlField;
 @property (nonatomic, retain) IBOutlet UITextField *loginField;

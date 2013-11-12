@@ -33,8 +33,14 @@
 
 -(void)saveBtnTapped
 {
-    //    TODO!
-    NSLog(@"SAVE!");
+    Login *login = [Login new];
+    login.url = self.urlField.text;
+    login.login = self.loginField.text;
+    login.password = self.passwordField.text;
+    login.comment = self.loginNote.text;
+    login.docType = LoginDoc;
+    if ([DBadapter SaveDocument:login])
+        [super showMainVC];
 }
 
 

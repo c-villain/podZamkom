@@ -51,8 +51,8 @@
 {
     UIColor *color = [UIColor colorWithRed:52.0f/255.0f green:144.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
     label.layer.shadowColor = [color CGColor];
-    label.layer.shadowRadius = 4.0f;
-    label.layer.shadowOpacity = 0.77f;
+    label.layer.shadowRadius = 4.3f;
+    label.layer.shadowOpacity = 3.1f;
     label.layer.shadowOffset = CGSizeZero;
     label.layer.masksToBounds = NO;
 }

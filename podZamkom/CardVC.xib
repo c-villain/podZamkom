@@ -131,7 +131,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1f9-pe-Qqe">
-                    <rect key="frame" x="0.0" y="440" width="320" height="51"/>
+                    <rect key="frame" x="0.0" y="447" width="320" height="51"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.97254901959999995" green="0.18823529410000001" blue="0.2784313725" alpha="1" colorSpace="deviceRGB"/>
                     <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
