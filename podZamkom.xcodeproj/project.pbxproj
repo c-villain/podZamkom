@@ -31,6 +31,7 @@
 		5A3309CB1833FDF500ED3609 /* cek@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A3309CA1833FDF500ED3609 /* cek@2x.png */; };
 		5A3309CF1834049400ED3609 /* BankAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3309CD1834049400ED3609 /* BankAccountVC.m */; };
 		5A3309D01834049400ED3609 /* BankAccountVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A3309CE1834049400ED3609 /* BankAccountVC.xib */; };
+		5A3309D41834269F00ED3609 /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3309D31834269F00ED3609 /* Country.m */; };
 		5A9F0BB618317D6A00B680A0 /* ShowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F0BB518317D6A00B680A0 /* ShowVC.m */; };
 		5A9F0BBA18317F2700B680A0 /* CardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F0BB818317F2700B680A0 /* CardVC.m */; };
 		5A9F0BBB18317F2700B680A0 /* CardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A9F0BB918317F2700B680A0 /* CardVC.xib */; };
@@ -218,6 +219,8 @@
 		5A3309CC1834049400ED3609 /* BankAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankAccountVC.h; sourceTree = "<group>"; };
 		5A3309CD1834049400ED3609 /* BankAccountVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankAccountVC.m; sourceTree = "<group>"; };
 		5A3309CE1834049400ED3609 /* BankAccountVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankAccountVC.xib; sourceTree = "<group>"; };
+		5A3309D21834269F00ED3609 /* Country.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Country.h; sourceTree = "<group>"; };
+		5A3309D31834269F00ED3609 /* Country.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Country.m; sourceTree = "<group>"; };
 		5A9F0BB418317D6A00B680A0 /* ShowVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowVC.h; sourceTree = "<group>"; };
 		5A9F0BB518317D6A00B680A0 /* ShowVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowVC.m; sourceTree = "<group>"; };
 		5A9F0BB718317F2700B680A0 /* CardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardVC.h; sourceTree = "<group>"; };
@@ -751,6 +754,8 @@
 				5AC8E9C1183017CE008FCAE6 /* PickerObject.m */,
 				5A3309B01833CF5700ED3609 /* CurrencyType.h */,
 				5A3309B11833CF5700ED3609 /* CurrencyType.m */,
+				5A3309D21834269F00ED3609 /* Country.h */,
+				5A3309D31834269F00ED3609 /* Country.m */,
 			);
 			name = "objects for picker";
 			sourceTree = "<group>";
@@ -1333,6 +1338,7 @@
 				5AB3445D182301620007F714 /* Login.m in Sources */,
 				5AB3444F182300A30007F714 /* FBEncryptorAES.m in Sources */,
 				5AC8E9C618303C85008FCAE6 /* BankAccount.m in Sources */,
+				5A3309D41834269F00ED3609 /* Country.m in Sources */,
 				5AB34450182300A30007F714 /* NSData+Base64.m in Sources */,
 				5AA46C5117FB21B0008EE800 /* AppDelegate.m in Sources */,
 				5AF633BB1815CB7C00B9C540 /* NewCardVC.m in Sources */,

@@ -144,9 +144,46 @@
     return NO;
 }
 
+/*
+CREATE  TABLE IF NOT EXISTS Passport (pk_passport_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, fk_doc_id INTEGER, name BLOB, country INTEGER, number BLOB, department BLOB, date_of_issue BLOB, department_code BLOB, holder BLOB, birth_date BLOB, birth_place BLOB, FOREIGN KEY(fk_doc_id) REFERENCES DocList (pk_doc_id) );"
+*/
 -(BOOL)SavePassport: (Passport *)passport
 {
+    sqlite3_stmt *statement;
+    int typeid = BankAccountDoc;
+    int docListRowId = [self insertIntoDocList:typeid];
+    if (docListRowId == 0)
+        return NO;
+    
+    const char *insert_stmt = "INSERT INTO Passport(fk_doc_id, name, country, number, department, date_of_issue, department_code, holder, birth_date, birth_place) VALUES(?,?,?,?,?,?,?,?,?,?)";
+    
+    sqlite3 *db;
+    if (sqlite3_open([DBpath UTF8String], &db)==SQLITE_OK)
+    {
+        sqlite3_prepare_v2(db, insert_stmt, -1, &statement, NULL);
+        {
+            sqlite3_bind_int(statement, 1, docListRowId);
+            
+            sqlite3_bind_text(statement, 2, [[FBEncryptorAES encryptString:passport.docName] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_int(statement, 3, passport.country);
+            sqlite3_bind_text(statement, 4, [[FBEncryptorAES encryptString:passport.number] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 5, [[FBEncryptorAES encryptString:passport.department] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 6, [[FBEncryptorAES encryptString:passport.issueDate] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 7, [[FBEncryptorAES encryptString:passport.departmentCode] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 8, [[FBEncryptorAES encryptString:passport.holder] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 9, [[FBEncryptorAES encryptString:passport.birthDate] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 10, [[FBEncryptorAES encryptString:passport.birthPlace] UTF8String], -1, SQLITE_TRANSIENT);
+            if (sqlite3_step(statement) == SQLITE_DONE)
+            {
+                sqlite3_finalize(statement);
+                sqlite3_close(db);
+                return YES;
+            }
+        }
+    }
+    sqlite3_close(db);
     return NO;
+
 }
 
 -(BOOL)SaveBankAccount:(BankAccount *)bankAccount

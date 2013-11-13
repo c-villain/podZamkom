@@ -15,7 +15,7 @@
 @synthesize department;
 @synthesize issueDate;
 @synthesize departmentCode;
-@synthesize personName;
+@synthesize holder;
 @synthesize birthDate;
 @synthesize birthPlace;
 

@@ -17,8 +17,9 @@ CREATE  TABLE IF NOT EXISTS CreditCard (pk_card_id INTEGER PRIMARY KEY  AUTOINCR
 \
 CREATE  TABLE IF NOT EXISTS Login (pk_login_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, fk_doc_id INTEGER, url BLOB, user_name BLOB, password BLOB, comments BLOB, FOREIGN KEY(fk_doc_id) REFERENCES DocList (pk_doc_id)); \
 \
-CREATE  TABLE IF NOT EXISTS BankAccount (pk_account_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, fk_doc_id INTEGER, bank BLOB, account_number BLOB, currency_type INTEGER, bik BLOB, correspond_number BLOB, inn BLOB, kpp BLOB, comments BLOB, FOREIGN KEY(fk_doc_id) REFERENCES DocList (pk_doc_id) );"
-
+CREATE  TABLE IF NOT EXISTS BankAccount (pk_account_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, fk_doc_id INTEGER, bank BLOB, account_number BLOB, currency_type INTEGER, bik BLOB, correspond_number BLOB, inn BLOB, kpp BLOB, comments BLOB, FOREIGN KEY(fk_doc_id) REFERENCES DocList (pk_doc_id) );\
+\
+CREATE  TABLE IF NOT EXISTS Passport (pk_passport_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, fk_doc_id INTEGER, name BLOB, country INTEGER, number BLOB, department BLOB, date_of_issue BLOB, department_code BLOB, holder BLOB, birth_date BLOB, birth_place BLOB, FOREIGN KEY(fk_doc_id) REFERENCES DocList (pk_doc_id) );"
 
 @implementation DBadapter
 

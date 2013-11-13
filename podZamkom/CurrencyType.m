@@ -12,23 +12,6 @@
 
 @synthesize currencyType;
 
-/*
-BYR = 0, //Белорусский рубль
-CNY = 1, //китайский юань
-CHF = 2, //швейцарский франк
-CYP	= 3, //Кипрский фунт
-EUR = 4, //евро
-GBP, //фунты
-HKD, //	 Гонконгский доллар
-ILS, //Новый израильский шекель
-JPY, //японская йена
-RUR, //рубль
-SEK, //шведская крона
-SGD, //сингапурский доллар
-UAH, //Гривна
-USD //доллар
-*/
-
 +(NSArray *)initCurrencyTypeArray
 {
     CurrencyType *type1 = [CurrencyType new];

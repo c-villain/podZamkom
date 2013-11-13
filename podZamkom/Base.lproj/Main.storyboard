@@ -1025,6 +1025,17 @@
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="РОССИЙСКАЯ ФЕДЕРАЦИЯ" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yLs-kE-BUk">
+                                        <rect key="frame" x="124" y="59" width="176" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="a3c-HV-6lP"/>
+                                            <constraint firstAttribute="width" constant="176" id="aa9-ja-uRr"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="f1W-h9-TFe" firstAttribute="top" secondItem="fQN-WA-pX7" secondAttribute="bottom" constant="8" id="0CL-yw-m5X"/>
@@ -1060,11 +1071,13 @@
                                     <constraint firstItem="t0g-ZA-qaZ" firstAttribute="top" secondItem="aRu-eF-aAo" secondAttribute="bottom" constant="15" id="YKn-IJ-8gl"/>
                                     <constraint firstItem="hHq-1j-35e" firstAttribute="leading" secondItem="9ZJ-Py-R2V" secondAttribute="leading" constant="22" id="YkB-8F-Xf1"/>
                                     <constraint firstItem="L8i-W0-Jg2" firstAttribute="leading" secondItem="6tW-if-AtF" secondAttribute="trailing" constant="14" id="ZDj-BL-xXn"/>
+                                    <constraint firstItem="yLs-kE-BUk" firstAttribute="leading" secondItem="4Rh-OS-GqL" secondAttribute="trailing" constant="13" id="bjN-6n-13e"/>
                                     <constraint firstItem="L8i-W0-Jg2" firstAttribute="top" secondItem="9ZJ-Py-R2V" secondAttribute="top" constant="11" id="blL-dV-SUB"/>
                                     <constraint firstItem="gGA-Fm-Tmy" firstAttribute="leading" secondItem="U4u-OH-mv4" secondAttribute="trailing" constant="9" id="ccx-Cg-qen"/>
                                     <constraint firstItem="fQN-WA-pX7" firstAttribute="top" secondItem="ANO-cZ-SWe" secondAttribute="bottom" constant="15" id="dCz-JA-2O8"/>
                                     <constraint firstItem="aRu-eF-aAo" firstAttribute="leading" secondItem="9ZJ-Py-R2V" secondAttribute="leading" constant="1" id="dyT-zq-r2J"/>
                                     <constraint firstItem="ANO-cZ-SWe" firstAttribute="leading" secondItem="9ZJ-Py-R2V" secondAttribute="leading" constant="1" id="fFQ-RD-4E6"/>
+                                    <constraint firstItem="yLs-kE-BUk" firstAttribute="top" secondItem="DK7-Rh-Bvd" secondAttribute="bottom" constant="6" id="gKm-Od-zkM"/>
                                     <constraint firstItem="uTi-uS-2Ho" firstAttribute="leading" secondItem="t0g-ZA-qaZ" secondAttribute="trailing" constant="9" id="hOD-KK-Gn8"/>
                                     <constraint firstItem="1uM-P0-lQG" firstAttribute="top" secondItem="4Rh-OS-GqL" secondAttribute="bottom" constant="15" id="iOr-kx-nTr"/>
                                     <constraint firstAttribute="bottom" secondItem="6KM-0b-7xb" secondAttribute="bottom" constant="17" id="kbu-cb-2GZ"/>

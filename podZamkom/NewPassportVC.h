@@ -11,6 +11,5 @@
 #import "FrameVC.h"
 
 @interface NewPassportVC : FrameVC
-@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
