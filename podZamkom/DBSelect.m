@@ -108,4 +108,43 @@ CreditCard (pk_card_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, fk_
     return creditCardDoc;
 }
 
+-(BankAccount *) GetBankAccountDocById: (int) idDoc
+{
+    BankAccount * bankAccountDoc = [BankAccount new];
+    sqlite3 *db;
+    sqlite3_stmt *statement;
+    NSString *querySQL = [NSString stringWithFormat: @"SELECT pk_account_id, bank, account_number, currency_type, bik, correspond_number, inn, kpp, comments from BankAccount where fk_doc_id = %d", idDoc];
+    const char *query_stmt = [querySQL UTF8String];
+    
+    if (sqlite3_open([DBpath UTF8String], &db)==SQLITE_OK)
+    {
+        if (sqlite3_prepare_v2(db, query_stmt, -1, &statement, NULL)== SQLITE_OK)
+        {
+            while (sqlite3_step(statement) == SQLITE_ROW)
+            {
+                bankAccountDoc.idDoc = sqlite3_column_int(statement, 0);
+                
+                bankAccountDoc.bank = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)] ];
+                
+                bankAccountDoc.accountNumber = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 2)] ];
+                
+                bankAccountDoc.curType = sqlite3_column_int(statement, 3);
+                
+                bankAccountDoc.bik = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 4)] ];
+                
+                bankAccountDoc.corNumber = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 5)] ];
+                
+                bankAccountDoc.inn = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 6)] ];
+                
+                bankAccountDoc.kpp = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 7)] ];
+                
+                bankAccountDoc.comments = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 8)] ];
+            }
+            sqlite3_finalize(statement);
+        }
+    }
+    sqlite3_close(db);
+    return bankAccountDoc;
+
+}
 @end

@@ -15,7 +15,10 @@ CREATE  TABLE IF NOT EXISTS Note (pk_note_id INTEGER PRIMARY KEY  AUTOINCREMENT 
 \
 CREATE  TABLE IF NOT EXISTS CreditCard (pk_card_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, fk_doc_id INTEGER, bank BLOB, holder BLOB, card_type INTEGER, number BLOB, validThru BLOB, cvc BLOB, pin BLOB, card_color INTEGER, comments BLOB, FOREIGN KEY(fk_doc_id) REFERENCES DocList (pk_doc_id) ); \
 \
-CREATE  TABLE IF NOT EXISTS Login (pk_login_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, fk_doc_id INTEGER, url BLOB, user_name BLOB, password BLOB, comments BLOB, FOREIGN KEY(fk_doc_id) REFERENCES DocList (pk_doc_id)); "
+CREATE  TABLE IF NOT EXISTS Login (pk_login_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, fk_doc_id INTEGER, url BLOB, user_name BLOB, password BLOB, comments BLOB, FOREIGN KEY(fk_doc_id) REFERENCES DocList (pk_doc_id)); \
+\
+CREATE  TABLE IF NOT EXISTS BankAccount (pk_account_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, fk_doc_id INTEGER, bank BLOB, account_number BLOB, currency_type INTEGER, bik BLOB, correspond_number BLOB, inn BLOB, kpp BLOB, comments BLOB, FOREIGN KEY(fk_doc_id) REFERENCES DocList (pk_doc_id) );"
+
 
 @implementation DBadapter
 
@@ -206,7 +209,7 @@ CREATE  TABLE IF NOT EXISTS Login (pk_login_id INTEGER PRIMARY KEY  AUTOINCREMEN
 //            querySQL = [NSString stringWithFormat: @"SELECT url FROM Login WHERE fk_doc_id = %d", docId];
             break;
         case BankAccountDoc:
-//            querySQL = [NSString stringWithFormat: @"SELECT url FROM Login WHERE fk_doc_id = %d", docId];
+            querySQL = [NSString stringWithFormat: @"SELECT bank FROM BankAccount WHERE fk_doc_id = %d", docId];
             break;
         case LoginDoc:
             querySQL = [NSString stringWithFormat: @"SELECT url FROM Login WHERE fk_doc_id = %d", docId];

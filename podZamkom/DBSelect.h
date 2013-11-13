@@ -5,5 +5,7 @@
 -(Login *) GetLoginDocById: (int) idDoc;
 -(Note *) GetNoteDocById: (int) idDoc;
 -(CreditCard *) GetCreditCardDocById: (int) idDoc;
+-(BankAccount *) GetBankAccountDocById: (int) idDoc;
+
 
 @end

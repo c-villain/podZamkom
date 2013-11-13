@@ -12,8 +12,6 @@
 
 - (void)viewDidLoad
 {
-//    [super viewDidLoad:@"НОВАЯ КАРТА"];
-    
     NSString* title = @"НОВАЯ КАРТА";
     //забиваем маску для нужных текстовых полей:
     [(TextField *)self.numberField initWithMask:@"9999 9999 9999 9999"];
@@ -51,7 +49,7 @@
         [super showInTextField:self.colorField selectedPickerObject:[CardColor initCardColorArray][self.selectedCreditCard.color]];
         self.commentField.text = self.selectedCreditCard.comments;
     }
-    [super viewDidLoad:@"НОВАЯ КАРТА"];
+    [super viewDidLoad:title];
 }
 
 -(void)saveBtnTapped

@@ -10,4 +10,13 @@
 
 @implementation BankAccount
 
+@synthesize bank;
+@synthesize accountNumber;
+@synthesize curType;
+@synthesize bik;
+@synthesize corNumber;
+@synthesize inn;
+@synthesize kpp;
+@synthesize comments;
+
 @end

@@ -151,6 +151,38 @@
 
 -(BOOL)SaveBankAccount:(BankAccount *)bankAccount
 {
+    sqlite3_stmt *statement;
+    int typeid = BankAccountDoc;
+    int docListRowId = [self insertIntoDocList:typeid];
+    if (docListRowId == 0)
+        return NO;
+    
+    const char *insert_stmt = "INSERT INTO BankAccount(fk_doc_id, bank, account_number, currency_type, bik, correspond_number, inn, kpp, comments) VALUES(?,?,?,?,?,?,?,?,?)";
+    
+    sqlite3 *db;
+    if (sqlite3_open([DBpath UTF8String], &db)==SQLITE_OK)
+    {
+        sqlite3_prepare_v2(db, insert_stmt, -1, &statement, NULL);
+        {
+            sqlite3_bind_int(statement, 1, docListRowId);
+            
+            sqlite3_bind_text(statement, 2, [[FBEncryptorAES encryptString:bankAccount.bank] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 3, [[FBEncryptorAES encryptString:bankAccount.accountNumber] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_int(statement, 4, bankAccount.curType);
+            sqlite3_bind_text(statement, 5, [[FBEncryptorAES encryptString:bankAccount.bik] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 6, [[FBEncryptorAES encryptString:bankAccount.corNumber] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 7, [[FBEncryptorAES encryptString:bankAccount.inn] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 8, [[FBEncryptorAES encryptString:bankAccount.kpp] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 9, [[FBEncryptorAES encryptString:bankAccount.comments] UTF8String], -1, SQLITE_TRANSIENT);
+            if (sqlite3_step(statement) == SQLITE_DONE)
+            {
+                sqlite3_finalize(statement);
+                sqlite3_close(db);
+                return YES;
+            }
+        }
+    }
+    sqlite3_close(db);
     return NO;
 }
 

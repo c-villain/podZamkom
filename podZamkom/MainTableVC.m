@@ -116,6 +116,10 @@
             doc = [dbAdapter GetLoginDocById:(int)doc.idDoc];
             detailVC = [[LoginVC alloc] initWithNibName:@"LoginVC" bundle:nil Login:(Login *) doc];
             break;
+        case BankAccountDoc:
+            doc = [dbAdapter GetBankAccountDocById:(int)doc.idDoc];
+            detailVC = [[BankAccountVC alloc] initWithNibName:@"BankAccountVC" bundle:nil BankAccount:(BankAccount *) doc];
+            break;
         default:
             break;
     }

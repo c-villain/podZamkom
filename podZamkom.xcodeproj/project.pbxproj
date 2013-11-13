@@ -18,6 +18,19 @@
 		5A146EFF17FE09F900ED7275 /* login_screen_icon_visible@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A146EFB17FE09F900ED7275 /* login_screen_icon_visible@2x.png */; };
 		5A2AFE34181F01610032A228 /* TextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2AFE33181F01610032A228 /* TextField.m */; };
 		5A2AFE41181F1E890032A228 /* photo_icon_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A2AFE40181F1E890032A228 /* photo_icon_add@2x.png */; };
+		5A3309B21833CF5700ED3609 /* CurrencyType.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3309B11833CF5700ED3609 /* CurrencyType.m */; };
+		5A3309C11833FC4700ED3609 /* byr@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A3309B81833FC4700ED3609 /* byr@2x.png */; };
+		5A3309C21833FC4700ED3609 /* chf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A3309B91833FC4700ED3609 /* chf@2x.png */; };
+		5A3309C31833FC4700ED3609 /* eur@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A3309BA1833FC4700ED3609 /* eur@2x.png */; };
+		5A3309C41833FC4700ED3609 /* gbp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A3309BB1833FC4700ED3609 /* gbp@2x.png */; };
+		5A3309C51833FC4700ED3609 /* ils@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A3309BC1833FC4700ED3609 /* ils@2x.png */; };
+		5A3309C61833FC4700ED3609 /* jpy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A3309BD1833FC4700ED3609 /* jpy@2x.png */; };
+		5A3309C71833FC4700ED3609 /* rur@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A3309BE1833FC4700ED3609 /* rur@2x.png */; };
+		5A3309C81833FC4700ED3609 /* uah@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A3309BF1833FC4700ED3609 /* uah@2x.png */; };
+		5A3309C91833FC4700ED3609 /* usd@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A3309C01833FC4700ED3609 /* usd@2x.png */; };
+		5A3309CB1833FDF500ED3609 /* cek@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A3309CA1833FDF500ED3609 /* cek@2x.png */; };
+		5A3309CF1834049400ED3609 /* BankAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3309CD1834049400ED3609 /* BankAccountVC.m */; };
+		5A3309D01834049400ED3609 /* BankAccountVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A3309CE1834049400ED3609 /* BankAccountVC.xib */; };
 		5A9F0BB618317D6A00B680A0 /* ShowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F0BB518317D6A00B680A0 /* ShowVC.m */; };
 		5A9F0BBA18317F2700B680A0 /* CardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F0BB818317F2700B680A0 /* CardVC.m */; };
 		5A9F0BBB18317F2700B680A0 /* CardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A9F0BB918317F2700B680A0 /* CardVC.xib */; };
@@ -190,6 +203,21 @@
 		5A2AFE32181F01610032A228 /* TextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextField.h; sourceTree = "<group>"; };
 		5A2AFE33181F01610032A228 /* TextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextField.m; sourceTree = "<group>"; };
 		5A2AFE40181F1E890032A228 /* photo_icon_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "photo_icon_add@2x.png"; path = "Resources/buttons/Edit/photo_icon_add@2x.png"; sourceTree = "<group>"; };
+		5A3309B01833CF5700ED3609 /* CurrencyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyType.h; sourceTree = "<group>"; };
+		5A3309B11833CF5700ED3609 /* CurrencyType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyType.m; sourceTree = "<group>"; };
+		5A3309B81833FC4700ED3609 /* byr@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "byr@2x.png"; path = "Resources/pickers/currency types/byr@2x.png"; sourceTree = "<group>"; };
+		5A3309B91833FC4700ED3609 /* chf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chf@2x.png"; path = "Resources/pickers/currency types/chf@2x.png"; sourceTree = "<group>"; };
+		5A3309BA1833FC4700ED3609 /* eur@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "eur@2x.png"; path = "Resources/pickers/currency types/eur@2x.png"; sourceTree = "<group>"; };
+		5A3309BB1833FC4700ED3609 /* gbp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gbp@2x.png"; path = "Resources/pickers/currency types/gbp@2x.png"; sourceTree = "<group>"; };
+		5A3309BC1833FC4700ED3609 /* ils@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ils@2x.png"; path = "Resources/pickers/currency types/ils@2x.png"; sourceTree = "<group>"; };
+		5A3309BD1833FC4700ED3609 /* jpy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "jpy@2x.png"; path = "Resources/pickers/currency types/jpy@2x.png"; sourceTree = "<group>"; };
+		5A3309BE1833FC4700ED3609 /* rur@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rur@2x.png"; path = "Resources/pickers/currency types/rur@2x.png"; sourceTree = "<group>"; };
+		5A3309BF1833FC4700ED3609 /* uah@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "uah@2x.png"; path = "Resources/pickers/currency types/uah@2x.png"; sourceTree = "<group>"; };
+		5A3309C01833FC4700ED3609 /* usd@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "usd@2x.png"; path = "Resources/pickers/currency types/usd@2x.png"; sourceTree = "<group>"; };
+		5A3309CA1833FDF500ED3609 /* cek@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cek@2x.png"; path = "Resources/pickers/currency types/cek@2x.png"; sourceTree = "<group>"; };
+		5A3309CC1834049400ED3609 /* BankAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankAccountVC.h; sourceTree = "<group>"; };
+		5A3309CD1834049400ED3609 /* BankAccountVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankAccountVC.m; sourceTree = "<group>"; };
+		5A3309CE1834049400ED3609 /* BankAccountVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankAccountVC.xib; sourceTree = "<group>"; };
 		5A9F0BB418317D6A00B680A0 /* ShowVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowVC.h; sourceTree = "<group>"; };
 		5A9F0BB518317D6A00B680A0 /* ShowVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowVC.m; sourceTree = "<group>"; };
 		5A9F0BB718317F2700B680A0 /* CardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardVC.h; sourceTree = "<group>"; };
@@ -463,6 +491,23 @@
 			name = Edit;
 			sourceTree = "<group>";
 		};
+		5A3309B31833E57200ED3609 /* currency types */ = {
+			isa = PBXGroup;
+			children = (
+				5A3309CA1833FDF500ED3609 /* cek@2x.png */,
+				5A3309B81833FC4700ED3609 /* byr@2x.png */,
+				5A3309B91833FC4700ED3609 /* chf@2x.png */,
+				5A3309BA1833FC4700ED3609 /* eur@2x.png */,
+				5A3309BB1833FC4700ED3609 /* gbp@2x.png */,
+				5A3309BC1833FC4700ED3609 /* ils@2x.png */,
+				5A3309BD1833FC4700ED3609 /* jpy@2x.png */,
+				5A3309BE1833FC4700ED3609 /* rur@2x.png */,
+				5A3309BF1833FC4700ED3609 /* uah@2x.png */,
+				5A3309C01833FC4700ED3609 /* usd@2x.png */,
+			);
+			name = "currency types";
+			sourceTree = "<group>";
+		};
 		5AA46C3417FB21B0008EE800 = {
 			isa = PBXGroup;
 			children = (
@@ -704,6 +749,8 @@
 				5AD72A57182EADD000342143 /* CardColor.m */,
 				5AC8E9C0183017CE008FCAE6 /* PickerObject.h */,
 				5AC8E9C1183017CE008FCAE6 /* PickerObject.m */,
+				5A3309B01833CF5700ED3609 /* CurrencyType.h */,
+				5A3309B11833CF5700ED3609 /* CurrencyType.m */,
 			);
 			name = "objects for picker";
 			sourceTree = "<group>";
@@ -711,6 +758,7 @@
 		5AD729EE182E34FD00342143 /* Pickers */ = {
 			isa = PBXGroup;
 			children = (
+				5A3309B31833E57200ED3609 /* currency types */,
 				5AD72A33182EA4E500342143 /* card colors */,
 				5AD729EF182E350400342143 /* card types */,
 			);
@@ -1011,6 +1059,9 @@
 		5AF633AF1814864400B9C540 /* show bank account */ = {
 			isa = PBXGroup;
 			children = (
+				5A3309CC1834049400ED3609 /* BankAccountVC.h */,
+				5A3309CD1834049400ED3609 /* BankAccountVC.m */,
+				5A3309CE1834049400ED3609 /* BankAccountVC.xib */,
 			);
 			name = "show bank account";
 			sourceTree = "<group>";
@@ -1140,6 +1191,7 @@
 			files = (
 				5AD72A4A182EA80200342143 /* pink@2x.png in Resources */,
 				5A146EFF17FE09F900ED7275 /* login_screen_icon_visible@2x.png in Resources */,
+				5A3309C71833FC4700ED3609 /* rur@2x.png in Resources */,
 				5A9F0BCD18319B8900B680A0 /* card_green@2x.png in Resources */,
 				5AF633731810434100B9C540 /* new_doc_card_normal@2x.png in Resources */,
 				5AF6339918145E4B00B9C540 /* title_bar_icon_save@2x.png in Resources */,
@@ -1164,6 +1216,7 @@
 				5AD72A0B182E357B00342143 /* cb.png in Resources */,
 				5AF63354180F453700B9C540 /* divider_vertic@2x.png in Resources */,
 				5AF6339618145E4B00B9C540 /* title_bar_icon_back@2x.png in Resources */,
+				5A3309C91833FC4700ED3609 /* usd@2x.png in Resources */,
 				5AF445D2180DD9B100E7837C /* menu_bank_accounts@2x.png in Resources */,
 				5A9F0BD218319B8900B680A0 /* card_pink.png in Resources */,
 				5AF6337E1810434100B9C540 /* new_doc_passport_normal.png in Resources */,
@@ -1178,20 +1231,25 @@
 				5AF445B81805F7B300E7837C /* Password.storyboard in Resources */,
 				5AB344811823FB8F0007F714 /* NoteVC.xib in Resources */,
 				5AF63352180F3BDF00B9C540 /* divider_goriz@2x.png in Resources */,
+				5A3309D01834049400ED3609 /* BankAccountVC.xib in Resources */,
 				5AF445D9180DD9B100E7837C /* menu_notes@2x.png in Resources */,
 				5AF6339B18145E4B00B9C540 /* title_bar_icon_settings@2x.png in Resources */,
 				5A9F0BD118319B8900B680A0 /* card_orange@2x.png in Resources */,
 				5AF445DE180DD9B100E7837C /* menu_shadow.png in Resources */,
+				5A3309CB1833FDF500ED3609 /* cek@2x.png in Resources */,
 				5AF633721810434100B9C540 /* new_doc_card_normal.png in Resources */,
 				5AA46C5917FB21B0008EE800 /* Images.xcassets in Resources */,
 				5A146EFD17FE09F900ED7275 /* login_screen_icon_invisible@2x.png in Resources */,
+				5A3309C51833FC4700ED3609 /* ils@2x.png in Resources */,
 				5AD72A17182E357B00342143 /* laser@2x.png in Resources */,
+				5A3309C11833FC4700ED3609 /* byr@2x.png in Resources */,
 				5AD72A4D182EA93A00342143 /* grey@2x.png in Resources */,
 				5AF445D8180DD9B100E7837C /* menu_notes_active@2x.png in Resources */,
 				5A9F0BD018319B8900B680A0 /* card_orange.png in Resources */,
 				5AD72A14182E357B00342143 /* jcb.png in Resources */,
 				5A9F0BD418319B8900B680A0 /* card_purple.png in Resources */,
 				5AB344881825A75E0007F714 /* LoginVC.xib in Resources */,
+				5A3309C21833FC4700ED3609 /* chf@2x.png in Resources */,
 				5AD72A1E182E357B00342143 /* visa.png in Resources */,
 				5AF6337B1810434100B9C540 /* new_doc_note_normal@2x.png in Resources */,
 				5AD72A11182E357B00342143 /* dinersclub@2x.png in Resources */,
@@ -1207,10 +1265,12 @@
 				5AF6337F1810434100B9C540 /* new_doc_passport_normal@2x.png in Resources */,
 				5AD72A41182EA73800342143 /* red@2x.png in Resources */,
 				5AA46C5417FB21B0008EE800 /* Main.storyboard in Resources */,
+				5A3309C61833FC4700ED3609 /* jpy@2x.png in Resources */,
 				5AD72A1D182E357B00342143 /* unionPay@2x.png in Resources */,
 				5AD72A19182E357B00342143 /* maestro@2x.png in Resources */,
 				5AD72A1C182E357B00342143 /* unionPay.png in Resources */,
 				5AD72A16182E357B00342143 /* laser.png in Resources */,
+				5A3309C31833FC4700ED3609 /* eur@2x.png in Resources */,
 				5AF6339818145E4B00B9C540 /* title_bar_icon_edit@2x.png in Resources */,
 				5A9F0BBB18317F2700B680A0 /* CardVC.xib in Resources */,
 				5AD72A1F182E357B00342143 /* visa@2x.png in Resources */,
@@ -1226,10 +1286,12 @@
 				5A9F0BCC18319B8900B680A0 /* card_green.png in Resources */,
 				5AF445A71804640E00E7837C /* login_screen_forgot_password_arrow@2x.png in Resources */,
 				5AD72A13182E357B00342143 /* discover@2x.png in Resources */,
+				5A3309C81833FC4700ED3609 /* uah@2x.png in Resources */,
 				5A146EF617FDFCA000ED7275 /* login_screen_bg.png in Resources */,
 				5AD72A21182E357B00342143 /* visaelectron@2x.png in Resources */,
 				5AF633791810434100B9C540 /* new_doc_note_active@2x.png in Resources */,
 				5AD72A09182E357B00342143 /* aex.png in Resources */,
+				5A3309C41833FC4700ED3609 /* gbp@2x.png in Resources */,
 				5AF6337A1810434100B9C540 /* new_doc_note_normal.png in Resources */,
 				5AF633711810434100B9C540 /* new_doc_card_active@2x.png in Resources */,
 				5AD72A12182E357B00342143 /* discover.png in Resources */,
@@ -1279,7 +1341,9 @@
 				5A9F0BB618317D6A00B680A0 /* ShowVC.m in Sources */,
 				5ABC676C182ADDBE00AAD71D /* FrameVC.m in Sources */,
 				5AF633B21814867300B9C540 /* NewBankAccountVC.m in Sources */,
+				5A3309B21833CF5700ED3609 /* CurrencyType.m in Sources */,
 				5A2AFE34181F01610032A228 /* TextField.m in Sources */,
+				5A3309CF1834049400ED3609 /* BankAccountVC.m in Sources */,
 				5AA46C4D17FB21B0008EE800 /* main.m in Sources */,
 				5AB3445C182301620007F714 /* Document.m in Sources */,
 				5A9F0BBA18317F2700B680A0 /* CardVC.m in Sources */,

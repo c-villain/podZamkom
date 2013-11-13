@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="XSF-0G-7hP">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Main TableVC-->
@@ -1107,32 +1107,35 @@
         <!--New Bank AccountVC-->
         <scene sceneID="fzm-kt-16d">
             <objects>
-                <viewController id="1sY-9V-IQa" customClass="NewBankAccountVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newBankAccount" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1sY-9V-IQa" customClass="NewBankAccountVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GJp-CL-TO2"/>
                         <viewControllerLayoutGuide type="bottom" id="Q80-i6-afR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GqY-vo-xLG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="660"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="750"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PdJ-zE-PtU">
-                                <rect key="frame" x="0.0" y="64" width="320" height="596"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="686"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456789" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Krl-IU-omv">
-                                        <rect key="frame" x="140" y="174" width="160" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456789" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Krl-IU-omv" customClass="TextField">
+                                        <rect key="frame" x="140" y="212" width="160" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="160" id="V9l-2C-pbv"/>
                                             <constraint firstAttribute="height" constant="30" id="VBv-np-nMb"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="1sY-9V-IQa" id="ZBB-Me-Zs1"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="КПП БАНКА" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkX-On-3Ee">
-                                        <rect key="frame" x="20" y="337" width="99" height="21"/>
+                                        <rect key="frame" x="20" y="413" width="99" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="99" id="ssy-XE-c3j"/>
@@ -1143,7 +1146,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="P5M-Ka-gcO">
-                                        <rect key="frame" x="0.0" y="568" width="320" height="2"/>
+                                        <rect key="frame" x="0.0" y="644" width="320" height="2"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="15i-Vf-DO5"/>
@@ -1151,7 +1154,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ВАЛЮТА СЧЕТА" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdX-eE-jkJ">
-                                        <rect key="frame" x="20" y="125" width="128" height="21"/>
+                                        <rect key="frame" x="20" y="163" width="128" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="2Wp-wL-ERk"/>
@@ -1162,7 +1165,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="RJZ-H6-MTr">
-                                        <rect key="frame" x="0.0" y="108" width="320" height="2"/>
+                                        <rect key="frame" x="0.0" y="146" width="320" height="2"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="F8S-gj-KIa"/>
@@ -1170,7 +1173,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="КОММЕНТАРИИ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHk-pq-oTK">
-                                        <rect key="frame" x="20" y="388" width="280" height="21"/>
+                                        <rect key="frame" x="20" y="464" width="280" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="Hc8-Py-eOI"/>
@@ -1180,7 +1183,7 @@
                                         <color key="textColor" red="0.44705882349999998" green="0.50196078430000002" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ОАО &quot;АЛЬФА-БАНК&quot;" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GBc-zI-pab">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ОАО &quot;АЛЬФА-БАНК&quot;" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GBc-zI-pab" customClass="TextField">
                                         <rect key="frame" x="118" y="10" width="183" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
@@ -1189,7 +1192,10 @@
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="1sY-9V-IQa" id="stk-pP-QPJ"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="БАНК" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCA-k7-IWW">
                                         <rect key="frame" x="20" y="14" width="90" height="21"/>
@@ -1203,7 +1209,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="КОР.СЧЕТ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rj-eF-5kK">
-                                        <rect key="frame" x="20" y="231" width="90" height="21"/>
+                                        <rect key="frame" x="20" y="269" width="90" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="Gob-aW-HQj"/>
@@ -1214,7 +1220,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="aLD-TH-6up">
-                                        <rect key="frame" x="0.0" y="320" width="320" height="2"/>
+                                        <rect key="frame" x="0.0" y="396" width="320" height="2"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="Ukz-IE-YLt"/>
@@ -1222,7 +1228,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ИНН БАНКА" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUI-aT-ewI">
-                                        <rect key="frame" x="20" y="284" width="108" height="21"/>
+                                        <rect key="frame" x="20" y="360" width="108" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="6wz-1Y-fvE"/>
@@ -1233,37 +1239,43 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ll5-Ae-m8d">
-                                        <rect key="frame" x="0.0" y="373" width="320" height="2"/>
+                                        <rect key="frame" x="0.0" y="449" width="320" height="2"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="NbD-cG-aup"/>
                                             <constraint firstAttribute="width" constant="320" id="WJK-xK-BoJ"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12345 6789" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Quf-4z-xzp">
-                                        <rect key="frame" x="141" y="333" width="160" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="106" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12345 6789" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Quf-4z-xzp" customClass="TextField">
+                                        <rect key="frame" x="141" y="409" width="160" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="MtE-ge-vz1"/>
                                             <constraint firstAttribute="width" constant="160" id="u3M-g5-XNx"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="1sY-9V-IQa" id="TzU-p3-qLc"/>
+                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12345678901234567890" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O00-f7-4A1">
-                                        <rect key="frame" x="140" y="227" width="160" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12345678901234567890" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O00-f7-4A1" customClass="TextField">
+                                        <rect key="frame" x="20" y="298" width="281" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Zdh-nB-xjc"/>
-                                            <constraint firstAttribute="width" constant="160" id="wgQ-RO-9qw"/>
+                                            <constraint firstAttribute="width" constant="281" id="wgQ-RO-9qw"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="23"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="1sY-9V-IQa" id="qSF-Qa-BPb"/>
+                                        </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="Btm-mN-rHU">
-                                        <rect key="frame" x="0.0" y="267" width="320" height="2"/>
+                                        <rect key="frame" x="0.0" y="343" width="320" height="2"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="BgP-Mp-Xhn"/>
@@ -1271,15 +1283,15 @@
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lnr-84-Ree">
-                                        <rect key="frame" x="0.0" y="214" width="320" height="2"/>
+                                        <rect key="frame" x="0.0" y="252" width="320" height="2"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="7Yy-ha-ZkS"/>
                                             <constraint firstAttribute="width" constant="320" id="JWb-hR-UDI"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="RUR" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HZI-aV-jNj">
-                                        <rect key="frame" x="156" y="121" width="144" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="RUR" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HZI-aV-jNj" customClass="TextField">
+                                        <rect key="frame" x="156" y="159" width="144" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="144" id="NA7-1B-JiU"/>
@@ -1288,20 +1300,26 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="1sY-9V-IQa" id="zA7-bu-yBg"/>
+                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456789012" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nSD-T7-QZt">
-                                        <rect key="frame" x="140" y="280" width="160" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456789012" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nSD-T7-QZt" customClass="TextField">
+                                        <rect key="frame" x="140" y="356" width="160" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="160" id="G7L-mO-2Jd"/>
                                             <constraint firstAttribute="height" constant="30" id="bTo-R7-Os4"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="1sY-9V-IQa" id="oIH-ea-feE"/>
+                                        </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="geg-Vg-QG3">
-                                        <rect key="frame" x="0.0" y="161" width="320" height="2"/>
+                                        <rect key="frame" x="0.0" y="199" width="320" height="2"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="FYq-rp-RKo"/>
@@ -1320,7 +1338,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="БИК БАНКА" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyv-C8-bfK">
-                                        <rect key="frame" x="20" y="178" width="108" height="21"/>
+                                        <rect key="frame" x="20" y="216" width="108" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="14J-1L-Wd1"/>
@@ -1338,19 +1356,22 @@
                                             <constraint firstAttribute="height" constant="2" id="otN-KR-ce7"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12345678901234567890" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nzV-JJ-2zp">
-                                        <rect key="frame" x="140" y="68" width="160" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12345678901234567890" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nzV-JJ-2zp" customClass="TextField">
+                                        <rect key="frame" x="20" y="101" width="281" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="3yC-97-2v0"/>
-                                            <constraint firstAttribute="width" constant="160" id="h8E-rj-Kao"/>
+                                            <constraint firstAttribute="width" constant="281" id="h8E-rj-Kao"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="1sY-9V-IQa" id="wc8-4v-xlz"/>
+                                        </connections>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wj3-AP-gBT">
-                                        <rect key="frame" x="20" y="417" width="280" height="136"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="107" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wj3-AP-gBT">
+                                        <rect key="frame" x="20" y="493" width="280" height="136"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1361,22 +1382,25 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="1sY-9V-IQa" id="bEI-A3-gld"/>
+                                        </connections>
                                     </textView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="WEl-6I-WB8" firstAttribute="top" secondItem="GBc-zI-pab" secondAttribute="bottom" constant="15" id="0cu-l1-CSb"/>
-                                    <constraint firstItem="nzV-JJ-2zp" firstAttribute="top" secondItem="WEl-6I-WB8" secondAttribute="bottom" constant="11" id="130-Wl-AWY"/>
+                                    <constraint firstItem="nzV-JJ-2zp" firstAttribute="top" secondItem="WEl-6I-WB8" secondAttribute="bottom" constant="44" id="130-Wl-AWY"/>
                                     <constraint firstItem="qes-DO-e8y" firstAttribute="leading" secondItem="PdJ-zE-PtU" secondAttribute="leading" constant="20" id="2G7-Aj-BdE"/>
                                     <constraint firstItem="zyv-C8-bfK" firstAttribute="leading" secondItem="PdJ-zE-PtU" secondAttribute="leading" constant="20" id="2Mx-2w-Rs7"/>
-                                    <constraint firstItem="nzV-JJ-2zp" firstAttribute="leading" secondItem="qes-DO-e8y" secondAttribute="trailing" constant="3" id="2uC-4X-SzR"/>
+                                    <constraint firstItem="nzV-JJ-2zp" firstAttribute="leading" secondItem="qes-DO-e8y" secondAttribute="trailing" constant="-117" id="2uC-4X-SzR"/>
                                     <constraint firstItem="nSD-T7-QZt" firstAttribute="leading" secondItem="UUI-aT-ewI" secondAttribute="trailing" constant="12" id="3bx-eB-cFa"/>
                                     <constraint firstItem="ZCA-k7-IWW" firstAttribute="leading" secondItem="PdJ-zE-PtU" secondAttribute="leading" constant="20" id="59h-PO-9P9"/>
                                     <constraint firstItem="UUI-aT-ewI" firstAttribute="leading" secondItem="PdJ-zE-PtU" secondAttribute="leading" constant="20" id="5br-Dc-1qI"/>
                                     <constraint firstItem="GBc-zI-pab" firstAttribute="top" secondItem="PdJ-zE-PtU" secondAttribute="top" constant="10" id="6md-wB-i9z"/>
                                     <constraint firstItem="Lnr-84-Ree" firstAttribute="leading" secondItem="PdJ-zE-PtU" secondAttribute="leading" id="8Bh-dS-fTz"/>
                                     <constraint firstItem="6rj-eF-5kK" firstAttribute="top" secondItem="Lnr-84-Ree" secondAttribute="bottom" constant="15" id="8lS-bz-k6U"/>
-                                    <constraint firstItem="RJZ-H6-MTr" firstAttribute="top" secondItem="nzV-JJ-2zp" secondAttribute="bottom" constant="10" id="9Ff-sW-J7j"/>
-                                    <constraint firstItem="O00-f7-4A1" firstAttribute="leading" secondItem="6rj-eF-5kK" secondAttribute="trailing" constant="30" id="9o3-KA-DBb"/>
+                                    <constraint firstItem="RJZ-H6-MTr" firstAttribute="top" secondItem="nzV-JJ-2zp" secondAttribute="bottom" constant="15" id="9Ff-sW-J7j"/>
+                                    <constraint firstItem="O00-f7-4A1" firstAttribute="leading" secondItem="6rj-eF-5kK" secondAttribute="trailing" constant="-90" id="9o3-KA-DBb"/>
                                     <constraint firstItem="Krl-IU-omv" firstAttribute="top" secondItem="geg-Vg-QG3" secondAttribute="bottom" constant="11" id="9us-oG-m2R"/>
                                     <constraint firstItem="Ll5-Ae-m8d" firstAttribute="top" secondItem="Quf-4z-xzp" secondAttribute="bottom" constant="10" id="Bhw-vB-loz"/>
                                     <constraint firstItem="nkX-On-3Ee" firstAttribute="leading" secondItem="PdJ-zE-PtU" secondAttribute="leading" constant="20" id="Clg-gx-axX"/>
@@ -1384,7 +1408,7 @@
                                     <constraint firstItem="6rj-eF-5kK" firstAttribute="leading" secondItem="PdJ-zE-PtU" secondAttribute="leading" constant="20" id="EVB-WP-0v6"/>
                                     <constraint firstItem="wj3-AP-gBT" firstAttribute="top" secondItem="gHk-pq-oTK" secondAttribute="bottom" constant="8" id="Gcp-mx-r1z"/>
                                     <constraint firstItem="Quf-4z-xzp" firstAttribute="top" secondItem="aLD-TH-6up" secondAttribute="bottom" constant="11" id="Kcs-oG-qgP"/>
-                                    <constraint firstAttribute="trailing" secondItem="nzV-JJ-2zp" secondAttribute="trailing" constant="20" symbolic="YES" id="KwH-ww-eIF"/>
+                                    <constraint firstAttribute="trailing" secondItem="nzV-JJ-2zp" secondAttribute="trailing" constant="19" id="KwH-ww-eIF"/>
                                     <constraint firstItem="qes-DO-e8y" firstAttribute="top" secondItem="WEl-6I-WB8" secondAttribute="bottom" constant="15" id="LWU-j3-RCL"/>
                                     <constraint firstItem="nkX-On-3Ee" firstAttribute="top" secondItem="aLD-TH-6up" secondAttribute="bottom" constant="15" id="LYJ-8r-HRM"/>
                                     <constraint firstItem="UUI-aT-ewI" firstAttribute="top" secondItem="Btm-mN-rHU" secondAttribute="bottom" constant="15" id="Mpd-It-EWa"/>
@@ -1393,13 +1417,13 @@
                                     <constraint firstItem="Quf-4z-xzp" firstAttribute="leading" secondItem="nkX-On-3Ee" secondAttribute="trailing" constant="22" id="X8T-96-ayr"/>
                                     <constraint firstItem="zyv-C8-bfK" firstAttribute="top" secondItem="geg-Vg-QG3" secondAttribute="bottom" constant="15" id="Y4c-DA-cIp"/>
                                     <constraint firstItem="Btm-mN-rHU" firstAttribute="leading" secondItem="PdJ-zE-PtU" secondAttribute="leading" id="Ym9-iN-9as"/>
-                                    <constraint firstItem="Btm-mN-rHU" firstAttribute="top" secondItem="O00-f7-4A1" secondAttribute="bottom" constant="10" id="Yyy-xh-qHL"/>
+                                    <constraint firstItem="Btm-mN-rHU" firstAttribute="top" secondItem="O00-f7-4A1" secondAttribute="bottom" constant="15" id="Yyy-xh-qHL"/>
                                     <constraint firstItem="nSD-T7-QZt" firstAttribute="top" secondItem="Btm-mN-rHU" secondAttribute="bottom" constant="11" id="b2E-5M-eAP"/>
                                     <constraint firstItem="geg-Vg-QG3" firstAttribute="leading" secondItem="PdJ-zE-PtU" secondAttribute="leading" id="bIA-xZ-O7F"/>
                                     <constraint firstItem="WEl-6I-WB8" firstAttribute="leading" secondItem="PdJ-zE-PtU" secondAttribute="leading" id="cag-LJ-eAD"/>
                                     <constraint firstItem="Ll5-Ae-m8d" firstAttribute="leading" secondItem="PdJ-zE-PtU" secondAttribute="leading" id="fVa-Ia-nD1"/>
                                     <constraint firstItem="aLD-TH-6up" firstAttribute="top" secondItem="nSD-T7-QZt" secondAttribute="bottom" constant="10" id="gDW-T0-KC8"/>
-                                    <constraint firstItem="O00-f7-4A1" firstAttribute="top" secondItem="Lnr-84-Ree" secondAttribute="bottom" constant="11" id="kP0-y6-fI9"/>
+                                    <constraint firstItem="O00-f7-4A1" firstAttribute="top" secondItem="Lnr-84-Ree" secondAttribute="bottom" constant="44" id="kP0-y6-fI9"/>
                                     <constraint firstItem="geg-Vg-QG3" firstAttribute="top" secondItem="HZI-aV-jNj" secondAttribute="bottom" constant="10" id="nRp-qy-pmX"/>
                                     <constraint firstItem="P5M-Ka-gcO" firstAttribute="top" secondItem="wj3-AP-gBT" secondAttribute="bottom" constant="15" id="nkR-Z5-1Zp"/>
                                     <constraint firstItem="GBc-zI-pab" firstAttribute="leading" secondItem="ZCA-k7-IWW" secondAttribute="trailing" constant="8" id="o7W-qT-Avk"/>
@@ -1412,7 +1436,7 @@
                                     <constraint firstItem="aLD-TH-6up" firstAttribute="leading" secondItem="PdJ-zE-PtU" secondAttribute="leading" id="t9y-ez-1q4"/>
                                     <constraint firstItem="P5M-Ka-gcO" firstAttribute="leading" secondItem="PdJ-zE-PtU" secondAttribute="leading" id="tVY-k0-RsS"/>
                                     <constraint firstItem="Krl-IU-omv" firstAttribute="leading" secondItem="zyv-C8-bfK" secondAttribute="trailing" constant="12" id="w23-Zv-dpu"/>
-                                    <constraint firstAttribute="bottom" secondItem="P5M-Ka-gcO" secondAttribute="bottom" constant="26" id="w90-bY-JfX"/>
+                                    <constraint firstAttribute="bottom" secondItem="P5M-Ka-gcO" secondAttribute="bottom" constant="40" id="w90-bY-JfX"/>
                                     <constraint firstItem="HZI-aV-jNj" firstAttribute="leading" secondItem="vdX-eE-jkJ" secondAttribute="trailing" constant="8" id="yJ1-zp-hHV"/>
                                 </constraints>
                             </scrollView>
@@ -1427,10 +1451,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="1r8-iO-fOg"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="accountField" destination="nzV-JJ-2zp" id="W3S-RC-df4"/>
+                        <outlet property="bankField" destination="GBc-zI-pab" id="e5v-tZ-ReH"/>
+                        <outlet property="bikField" destination="Krl-IU-omv" id="mbZ-Ep-7kF"/>
+                        <outlet property="commentField" destination="wj3-AP-gBT" id="lbP-gq-MJT"/>
+                        <outlet property="corNumberField" destination="O00-f7-4A1" id="Sfn-jC-MCn"/>
+                        <outlet property="curTypeField" destination="HZI-aV-jNj" id="YgT-jH-GTe"/>
+                        <outlet property="innField" destination="nSD-T7-QZt" id="dJ5-7w-Kgd"/>
+                        <outlet property="kppField" destination="Quf-4z-xzp" id="Tgy-fC-aJX"/>
+                        <outlet property="scrollView" destination="PdJ-zE-PtU" id="CMc-rg-luw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FoM-HT-aWi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2605" y="121"/>
+            <point key="canvasLocation" x="2546" y="104"/>
         </scene>
         <!--New LoginVC-->
         <scene sceneID="bnk-oZ-Lr4">
@@ -1459,7 +1494,7 @@
                                         <color key="textColor" red="0.44705882349999998" green="0.50196078430000002" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="M9J-s2-NKw" customClass="TextField">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://www.cinemapark.ru/multiplexes/show/7" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="M9J-s2-NKw" customClass="TextField">
                                         <rect key="frame" x="20" y="44" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

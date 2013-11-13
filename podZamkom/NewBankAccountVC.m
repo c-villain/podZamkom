@@ -8,56 +8,68 @@
 
 #import "NewBankAccountVC.h"
 
-@interface NewBankAccountVC ()
-
-@end
-
 @implementation NewBankAccountVC
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    self.navigationItem.titleView = [ViewAppearance initViewWithGlowingTitle:@"НОВЫЙ СЧЕТ"];
-    //создаем кастомизированную кнопку back:
-    self.navigationItem.hidesBackButton = YES;
+    NSString* title = @"НОВЫЙ СЧЕТ";
+    //забиваем маску для нужных текстовых полей:
+    [(TextField *)self.innField initWithMask:@"999999999999"];
+    [(TextField *)self.bikField initWithMask:@"999999999"];
+    [(TextField *)self.kppField initWithMask:@"99999 9999"];
+    [(TextField *)self.accountField initWithMask:@"99999 99999 99999 99999"];
+    [(TextField *)self.corNumberField initWithMask:@"99999 99999 99999 99999"];
     
-    UIButton *backButton = [ViewAppearance initCustomButtonWithImage:@"title_bar_icon_close.png"];
-    [backButton addTarget:self action:@selector(backBtnTapped) forControlEvents:UIControlEventTouchUpInside]; //adding action
-    UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-    self.navigationItem.leftBarButtonItem = backBarButton;
-    
-    UIButton *saveButton = [ViewAppearance initCustomButtonWithImage:@"title_bar_icon_save.png"];
-    [saveButton addTarget:self action:@selector(saveBtnTapped) forControlEvents:UIControlEventTouchUpInside]; //adding action
-    UIBarButtonItem *saveBarButton = [[UIBarButtonItem alloc] initWithCustomView:saveButton];
-    self.navigationItem.rightBarButtonItem = saveBarButton;
-    
-    
-    //создаем подсветку навбара
-    [self.view addSubview:[ViewAppearance initGlowingBoarderForNavBar]];
-    
-}
+    //инициализируем пикеры (цвета и типа):
+    ((TextField *)self.curTypeField).picker = [Picker createPickerWithData:[CurrencyType initCurrencyTypeArray] andPickerDelegate:self];
 
--(void)backBtnTapped
-{
-    [self.navigationController popViewControllerAnimated:YES];
+    //по умолч. ставим везде пустые текстовые поля:
+    self.bankField.text = @"";
+    self.accountField.text = @"";
+    self.curTypeField.text = @"";
+    self.bikField.text = @"";
+    self.corNumberField.text = @"";
+    self.innField.text = @"";
+    self.kppField.text = @"";
+    self.commentField.text = @"";
+    
+    [self.bankField becomeFirstResponder];
+    
+    //если же мы находимся в режиме редактирования, то заполняем все поля:
+    if (self.selectedBankAccount != nil)
+    {
+        title = self.selectedBankAccount.bank;
+        self.bankField.text = self.selectedBankAccount.bank;
+        self.accountField.text = self.selectedBankAccount.accountNumber;
+        [super showInTextField:self.curTypeField selectedPickerObject:[CurrencyType initCurrencyTypeArray][self.selectedBankAccount.curType]];
+        self.bikField.text = self.selectedBankAccount.bik;
+        self.corNumberField.text = self.selectedBankAccount.corNumber;
+        self.innField.text = self.selectedBankAccount.inn;
+        self.kppField.text = self.selectedBankAccount.kpp;
+        self.commentField.text = self.selectedBankAccount.comments;
+    }
+    [super viewDidLoad:title];
 }
 
 -(void)saveBtnTapped
 {
-    //    TODO!
-    NSLog(@"SAVE!");
+    BankAccount *account = [BankAccount new];
+    account.docType = BankAccountDoc;
+    //    TODO! значение банка по умолчанию!
+    //    NSString *newString = [myString stringByReplacingOccurrencesOfString:@" " withString:@""];
+    //    if (self.bankField.text != )
+    account.bank = self.bankField.text;
+    account.accountNumber = self.accountField.text;
+    account.curType = ( (Picker *) ((TextField *)self.curTypeField).picker).selectedIndex;
+    account.bik = self.bikField.text;
+    account.corNumber = self.corNumberField.text;
+    account.inn = self.innField.text;
+    account.kpp = self.kppField.text;
+    account.comments = self.commentField.text;
+    
+    if ([DBadapter SaveDocument:account])
+        [super showMainVC];
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
