@@ -145,6 +145,46 @@ CreditCard (pk_card_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, fk_
     }
     sqlite3_close(db);
     return bankAccountDoc;
+}
 
+
+-(Passport *) GetPassportDocById: (int) idDoc
+{
+    Passport * passportDoc = [Passport new];
+    sqlite3 *db;
+    sqlite3_stmt *statement;
+    NSString *querySQL = [NSString stringWithFormat: @"SELECT pk_passport_id, name, country, number, department, date_of_issue, department_code, holder, birth_date, birth_place from Passport where fk_doc_id = %d", idDoc];
+    const char *query_stmt = [querySQL UTF8String];
+    
+    if (sqlite3_open([DBpath UTF8String], &db)==SQLITE_OK)
+    {
+        if (sqlite3_prepare_v2(db, query_stmt, -1, &statement, NULL)== SQLITE_OK)
+        {
+            while (sqlite3_step(statement) == SQLITE_ROW)
+            {
+                passportDoc.idDoc = sqlite3_column_int(statement, 0);
+                
+                passportDoc.docName = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)] ];
+                
+                passportDoc.country = sqlite3_column_int(statement, 2);
+                
+                passportDoc.number = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 3)] ];
+                
+                passportDoc.department = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 4)] ];
+                
+                passportDoc.issueDate = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 5)] ];
+                
+                passportDoc.departmentCode = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 6)] ];
+                
+                passportDoc.holder = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 7)] ];
+                
+                passportDoc.birthDate = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 8)] ];
+                passportDoc.birthPlace = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 9)] ];
+            }
+            sqlite3_finalize(statement);
+        }
+    }
+    sqlite3_close(db);
+    return passportDoc;
 }
 @end

@@ -32,6 +32,8 @@
 		5A3309CF1834049400ED3609 /* BankAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3309CD1834049400ED3609 /* BankAccountVC.m */; };
 		5A3309D01834049400ED3609 /* BankAccountVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A3309CE1834049400ED3609 /* BankAccountVC.xib */; };
 		5A3309D41834269F00ED3609 /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3309D31834269F00ED3609 /* Country.m */; };
+		5A3309D8183431B200ED3609 /* PassportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3309D6183431B200ED3609 /* PassportVC.m */; };
+		5A3309D9183431B200ED3609 /* PassportVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A3309D7183431B200ED3609 /* PassportVC.xib */; };
 		5A9F0BB618317D6A00B680A0 /* ShowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F0BB518317D6A00B680A0 /* ShowVC.m */; };
 		5A9F0BBA18317F2700B680A0 /* CardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F0BB818317F2700B680A0 /* CardVC.m */; };
 		5A9F0BBB18317F2700B680A0 /* CardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A9F0BB918317F2700B680A0 /* CardVC.xib */; };
@@ -221,6 +223,9 @@
 		5A3309CE1834049400ED3609 /* BankAccountVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankAccountVC.xib; sourceTree = "<group>"; };
 		5A3309D21834269F00ED3609 /* Country.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Country.h; sourceTree = "<group>"; };
 		5A3309D31834269F00ED3609 /* Country.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Country.m; sourceTree = "<group>"; };
+		5A3309D5183431B200ED3609 /* PassportVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassportVC.h; sourceTree = "<group>"; };
+		5A3309D6183431B200ED3609 /* PassportVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassportVC.m; sourceTree = "<group>"; };
+		5A3309D7183431B200ED3609 /* PassportVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PassportVC.xib; sourceTree = "<group>"; };
 		5A9F0BB418317D6A00B680A0 /* ShowVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowVC.h; sourceTree = "<group>"; };
 		5A9F0BB518317D6A00B680A0 /* ShowVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowVC.m; sourceTree = "<group>"; };
 		5A9F0BB718317F2700B680A0 /* CardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardVC.h; sourceTree = "<group>"; };
@@ -1030,6 +1035,9 @@
 		5AF633A8181484B700B9C540 /* show passport */ = {
 			isa = PBXGroup;
 			children = (
+				5A3309D5183431B200ED3609 /* PassportVC.h */,
+				5A3309D6183431B200ED3609 /* PassportVC.m */,
+				5A3309D7183431B200ED3609 /* PassportVC.xib */,
 			);
 			name = "show passport";
 			sourceTree = "<group>";
@@ -1232,6 +1240,7 @@
 				5AD72A0E182E357B00342143 /* cirrus@2x.png in Resources */,
 				5AF445D1180DD9B100E7837C /* menu_bank_accounts_active@2x.png in Resources */,
 				5A146EF017FDFBC800ED7275 /* login_screen_bg@2x.png in Resources */,
+				5A3309D9183431B200ED3609 /* PassportVC.xib in Resources */,
 				5AF633751810434100B9C540 /* new_doc_login_active@2x.png in Resources */,
 				5AF445B81805F7B300E7837C /* Password.storyboard in Resources */,
 				5AB344811823FB8F0007F714 /* NoteVC.xib in Resources */,
@@ -1334,6 +1343,7 @@
 				5AB34477182302500007F714 /* DBRecrypt.m in Sources */,
 				5AC8E9BF18301050008FCAE6 /* Picker.m in Sources */,
 				5AF445AD1804655D00E7837C /* PasswordHelpVC.m in Sources */,
+				5A3309D8183431B200ED3609 /* PassportVC.m in Sources */,
 				5AA46C8017FB63AB008EE800 /* KeychainItemWrapper.m in Sources */,
 				5AB3445D182301620007F714 /* Login.m in Sources */,
 				5AB3444F182300A30007F714 /* FBEncryptorAES.m in Sources */,

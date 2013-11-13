@@ -120,32 +120,13 @@
             doc = [dbAdapter GetBankAccountDocById:(int)doc.idDoc];
             detailVC = [[BankAccountVC alloc] initWithNibName:@"BankAccountVC" bundle:nil BankAccount:(BankAccount *) doc];
             break;
+        case PassportDoc:
+            doc = [dbAdapter GetPassportDocById:(int)doc.idDoc];
+            detailVC = [[PassportVC alloc] initWithNibName:@"PassportVC" bundle:nil Passport:(Passport *) doc];
+            break;
         default:
             break;
     }
-    
-//    NSString *docType = [dbAdapter getDocTypeByDocId:doc.idDoc];
-//    if ([docType isEqual: @"Заметка"])
-//    {
-//        Note *noteDoc = [Note new];
-//        noteDoc = [dbAdapter GetNoteDocById:doc.idDoc];
-//        detailVC = [[NoteVC alloc] initWithNibName:@"NoteVC" bundle:nil Note:noteDoc];
-//    }
-//    else if ([docType isEqual: @"Логин"])
-//    {
-//        Login *loginDoc = [Login new];
-//        loginDoc = [dbAdapter GetLoginDocById:doc.idDoc];
-//        detailVC = [[LoginDetailVC alloc] initWithNibName:@"LoginDetailVC" bundle:nil Login:loginDoc];
-//    }
-//    else if ([docType isEqual: @"Кредитка"])
-//    {
-//        CreditCard *creditCard = [CreditCard new];
-//        creditCard = [dbAdapter GetCreditCardDocById:doc.idDoc];
-//        detailVC = [[CreditDetailVC alloc] initWithNibName:@"CreditDetailVC" bundle:nil CreditCard:creditCard];
-//    }
-//    
-//    [self presentPopupViewController:detailVC animationType:MJPopupViewAnimationFade];
-//    [self presentViewController:detailVC animated:YES completion:nil];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
@@ -174,21 +155,6 @@
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }
-}
-*/
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
 }
 */
 

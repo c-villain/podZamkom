@@ -11,7 +11,7 @@
 
 @interface Passport : Document
 
-@property (nonatomic, assign) CountryEnum *country;
+@property (nonatomic, assign) CountryEnum country;
 @property (nonatomic, strong) NSString *number;
 @property (nonatomic, strong) NSString *department;
 @property (nonatomic, strong) NSString *issueDate;

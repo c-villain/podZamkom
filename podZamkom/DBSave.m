@@ -144,9 +144,6 @@
     return NO;
 }
 
-/*
-CREATE  TABLE IF NOT EXISTS Passport (pk_passport_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, fk_doc_id INTEGER, name BLOB, country INTEGER, number BLOB, department BLOB, date_of_issue BLOB, department_code BLOB, holder BLOB, birth_date BLOB, birth_place BLOB, FOREIGN KEY(fk_doc_id) REFERENCES DocList (pk_doc_id) );"
-*/
 -(BOOL)SavePassport: (Passport *)passport
 {
     sqlite3_stmt *statement;
