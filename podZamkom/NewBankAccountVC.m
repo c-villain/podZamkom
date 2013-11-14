@@ -55,10 +55,10 @@
 {
     BankAccount *account = [BankAccount new];
     account.docType = BankAccountDoc;
-    //    TODO! значение банка по умолчанию!
-    //    NSString *newString = [myString stringByReplacingOccurrencesOfString:@" " withString:@""];
-    //    if (self.bankField.text != )
-    account.bank = self.bankField.text;
+    account.bank = @"Банковский счет";
+    if (![[self.bankField.text stringByReplacingOccurrencesOfString:@" " withString:@""]  isEqual: @""])
+        account.bank = self.bankField.text;
+    
     account.accountNumber = self.accountField.text;
     account.curType = ( (Picker *) ((TextField *)self.curTypeField).picker).selectedIndex;
     account.bik = self.bikField.text;

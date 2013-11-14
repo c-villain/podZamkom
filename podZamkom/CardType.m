@@ -79,4 +79,18 @@
     return array;
 }
 
++(CardType *)getCurrentCardByType: (CardTypeEnum) type
+{
+    NSArray *array = [CardType initCardTypeArray];
+    int counter=[array count];
+    CardType* cardType = [CardType new];
+    for(int i=0;i<counter;i++)
+    {
+        CardType *currentType = [array objectAtIndex:i];
+        if (currentType.cardType == type)
+            cardType = currentType;
+    }
+    return cardType;
+}
+
 @end

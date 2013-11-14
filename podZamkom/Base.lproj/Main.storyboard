@@ -749,7 +749,7 @@
         <!--New PassportVC-->
         <scene sceneID="J7q-Se-LcM">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="YPy-ah-SzB" customClass="NewPassportVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newPassport" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YPy-ah-SzB" customClass="NewPassportVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2ls-xp-GUA"/>
                         <viewControllerLayoutGuide type="bottom" id="gxc-Gb-Iye"/>
@@ -869,7 +869,7 @@
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
                                             <outlet property="delegate" destination="YPy-ah-SzB" id="mIj-F4-w2s"/>
                                         </connections>
@@ -934,15 +934,16 @@
                                             <constraint firstAttribute="width" constant="320" id="3RP-Cy-eXD"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="106" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jzw-GN-hQL" customClass="TextField">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="106" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Иван Иванов" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jzw-GN-hQL" customClass="TextField">
                                         <rect key="frame" x="21" y="464" width="279" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="279" id="9V2-E3-5i7"/>
                                             <constraint firstAttribute="height" constant="30" id="ej1-Eq-shJ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="19"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                         <connections>
                                             <outlet property="delegate" destination="YPy-ah-SzB" id="uOo-dv-QVn"/>
                                         </connections>
@@ -967,7 +968,7 @@
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
                                             <outlet property="delegate" destination="YPy-ah-SzB" id="ewD-dZ-T9o"/>
                                         </connections>

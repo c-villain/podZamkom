@@ -34,8 +34,9 @@
 -(void)saveBtnTapped
 {
     Note *note = [Note new];
-    note.title = self.noteTitle.text;
-    note.content = self.note.text;
+    note.title = @"Заметка";
+    if (![[self.noteTitle.text stringByReplacingOccurrencesOfString:@" " withString:@""]  isEqual: @""])
+        note.content = self.note.text;
     note.docType = NoteDoc;
     if ([DBadapter SaveDocument:note])
         [super showMainVC];

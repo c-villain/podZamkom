@@ -207,7 +207,7 @@ CREATE  TABLE IF NOT EXISTS Passport (pk_passport_id INTEGER PRIMARY KEY  AUTOIN
             querySQL = [NSString stringWithFormat: @"SELECT bank FROM CreditCard WHERE fk_doc_id = %d", docId];
             break;
         case PassportDoc:
-//            querySQL = [NSString stringWithFormat: @"SELECT url FROM Login WHERE fk_doc_id = %d", docId];
+            querySQL = [NSString stringWithFormat: @"SELECT name FROM Passport WHERE fk_doc_id = %d", docId];
             break;
         case BankAccountDoc:
             querySQL = [NSString stringWithFormat: @"SELECT bank FROM BankAccount WHERE fk_doc_id = %d", docId];

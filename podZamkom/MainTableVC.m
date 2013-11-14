@@ -122,7 +122,7 @@
             break;
         case PassportDoc:
             doc = [dbAdapter GetPassportDocById:(int)doc.idDoc];
-            detailVC = [[PassportVC alloc] initWithNibName:@"PassportVC" bundle:nil Passport:(Passport *) doc];
+            detailVC = [[PassportVC alloc] initWithNibName:@"PassportVC" bundle:nil Passport:(Passport *)doc];
             break;
         default:
             break;

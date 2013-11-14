@@ -34,7 +34,11 @@
 -(void)saveBtnTapped
 {
     Login *login = [Login new];
-    login.url = self.urlField.text;
+    login.url = @"Логин";
+
+    if (![[self.urlField.text stringByReplacingOccurrencesOfString:@" " withString:@""]  isEqual: @""])
+        login.url = self.urlField.text;
+    
     login.login = self.loginField.text;
     login.password = self.passwordField.text;
     login.comment = self.loginNote.text;

@@ -169,4 +169,18 @@
     return array;
 }
 
++(Country *)getCurrentCountryByType: (CountryEnum) type
+{
+    NSArray *array = [Country initCountryArray];
+    int counter=[array count];
+    Country* country = [Country new];
+    for(int i=0;i<counter;i++)
+    {
+        Country *currentCountry=[array objectAtIndex:i];
+        if (currentCountry.country == type)
+            country = currentCountry;
+    }
+    return country;
+}
+
 @end

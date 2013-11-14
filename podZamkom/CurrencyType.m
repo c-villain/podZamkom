@@ -88,4 +88,18 @@
     return array;
 }
 
++(CurrencyType *)getCurrencyByType: (CurrencyTypeEnum) type
+{
+    NSArray *array = [CurrencyType initCurrencyTypeArray];
+    int counter=[array count];
+    CurrencyType* curType = [CurrencyType new];
+    for(int i=0;i<counter;i++)
+    {
+        CurrencyType *currentType = [array objectAtIndex:i];
+        if (currentType.currencyType == type)
+            curType = currentType;
+    }
+    return curType;
+}
+
 @end

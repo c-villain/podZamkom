@@ -29,5 +29,5 @@ typedef enum {
 @property (nonatomic, assign) CardTypeEnum cardType;
 
 +(NSArray *)initCardTypeArray;
-
++(CardType *)getCurrentCardByType: (CardTypeEnum) type;
 @end

@@ -20,6 +20,15 @@
     return self;
 }
 
+- (NSString *)getStringWithNumber:(NSString *)number andCurrency:(CurrencyTypeEnum) curType
+{
+    NSString *numberWithCur = number;
+    numberWithCur = [numberWithCur stringByAppendingString: @" ("];
+    numberWithCur = [numberWithCur stringByAppendingString:[CurrencyType getCurrencyByType:curType].name];
+    numberWithCur = [numberWithCur stringByAppendingString: @")"];
+    return numberWithCur;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad: bankAccount.bank];
@@ -33,62 +42,12 @@
     
     //забиваю значения:
     self.lblBank.text = bankAccount.bank;
-    self.accountNumberField.text = [bankAccount.accountNumber stringByAppendingString:[self convertCurTypeToString:bankAccount.curType]];
+    self.accountNumberField.text = [self getStringWithNumber:bankAccount.accountNumber andCurrency:bankAccount.curType];
     self.bikField.text = bankAccount.bik;
     self.innField.text = bankAccount.inn;
     self.kppField.text = bankAccount.kpp;
     self.corNumberField.text = bankAccount.corNumber;
     self.bankAccountComment.text = bankAccount.comments;
-}
-
-- (NSString *) convertCurTypeToString:(CurrencyTypeEnum) type
-{
-    NSString *result = @"";
-    
-    switch(type) {
-        case BYR:
-            result = @"(BYR)";
-            break;
-        case CNY:
-            result = @"(CNY)";
-            break;
-        case CHF:
-            result = @"(CHF)";
-            break;
-        case CYP:
-            result = @"(CYP)";
-            break;
-        case EUR:
-            result = @"(EUR)";
-            break;
-        case GBP:
-            result = @"(GBP)";
-            break;
-        case HKD:
-            result = @"(HKD)";
-            break;
-        case ILS:
-            result = @"(ILS)";
-            break;
-        case JPY:
-            result = @"(JPY)";
-            break;
-        case RUR:
-            result = @"(RUR)";
-            break;
-        case SGD:
-            result = @"(SGD)";
-            break;
-        case UAH:
-            result = @"(UAH)";
-            break;
-        case USD:
-        default:
-            result = @"(USD)";
-            break;
-    }
-    
-    return result;
 }
 
 -(void)editBtnTapped

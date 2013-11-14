@@ -147,7 +147,7 @@
 -(BOOL)SavePassport: (Passport *)passport
 {
     sqlite3_stmt *statement;
-    int typeid = BankAccountDoc;
+    int typeid = PassportDoc;
     int docListRowId = [self insertIntoDocList:typeid];
     if (docListRowId == 0)
         return NO;

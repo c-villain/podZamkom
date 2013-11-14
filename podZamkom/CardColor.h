@@ -24,5 +24,5 @@ typedef enum {
 @property (nonatomic, assign) CardColorEnum cardColor;
 
 +(NSArray *)initCardColorArray;
-
++(CardColor *)getCardColorByType: (CardColorEnum) color;
 @end

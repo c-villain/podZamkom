@@ -56,10 +56,12 @@
 {
     CreditCard *card = [CreditCard new];
     card.docType = CardDoc;
-//    TODO! значение банка по умолчанию!
-//    NSString *newString = [myString stringByReplacingOccurrencesOfString:@" " withString:@""];
-//    if (self.bankField.text != )
-    card.bank = self.bankField.text;
+    
+    card.bank = @"Банк";
+    if (![[self.bankField.text stringByReplacingOccurrencesOfString:@" " withString:@""]  isEqual: @""])
+        card.bank = self.bankField.text;
+    
+    
     card.holder = self.cardHolderField.text;
     card.type = ( (Picker *) ((TextField *)self.typeField).picker).selectedIndex;
     card.number = self.numberField.text;

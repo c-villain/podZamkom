@@ -14,6 +14,9 @@
 {
     NSString* title = @"НОВЫЙ ПАСПОРТ";
     
+    [(TextField *)self.dateIssueField initWithMask:@"99.99.9999"];
+    [(TextField *)self.birthDateField initWithMask:@"99.99.9999"];
+    
     //инициализируем пикер (страны):
     ((TextField *)self.countryField).picker = [Picker createPickerWithData:[Country initCountryArray] andPickerDelegate:self];
 
@@ -36,7 +39,7 @@
     {
         title = self.selectedPassport.docName;
         self.nameField.text = self.selectedPassport.docName;
-//        [super showInTextField:self.countryField selectedPickerObject:[Country initCountryArray][self.selectedPassport.country]];
+        [super showInTextField:self.countryField selectedPickerObject:[Country initCountryArray][self.selectedPassport.country]];
         self.numberField.text = self.selectedPassport.number;
         
         self.depField.text = self.selectedPassport.department;
@@ -54,10 +57,11 @@
 {
     Passport *passport = [Passport new];
     passport.docType = PassportDoc;
-    //    TODO! значение банка по умолчанию!
-    //    NSString *newString = [myString stringByReplacingOccurrencesOfString:@" " withString:@""];
-    //    if (self.bankField.text != )
-    passport.docName = self.nameField.text;
+    passport.docName = @"Паспорт";
+    
+    if (![[self.nameField.text stringByReplacingOccurrencesOfString:@" " withString:@""]  isEqual: @""])
+        passport.docName = self.nameField.text;
+    
     passport.country = ( (Picker *) ((TextField *)self.countryField).picker).selectedIndex;
     passport.number = self.numberField.text;
     passport.department = self.depField.text;

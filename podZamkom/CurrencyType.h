@@ -30,5 +30,6 @@ typedef enum {
 @property (nonatomic, assign) CurrencyTypeEnum currencyType;
 
 +(NSArray *)initCurrencyTypeArray;
++(CurrencyType *)getCurrencyByType: (CurrencyTypeEnum) type;
 
 @end

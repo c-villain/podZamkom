@@ -54,6 +54,20 @@
     return array;
 }
 
++(CardColor *)getCardColorByType: (CardColorEnum) color
+{
+    NSArray *array = [CardColor initCardColorArray];
+    int counter=[array count];
+    CardColor* cardColor = [CardColor new];
+    for(int i=0;i<counter;i++)
+    {
+        CardColor *currentColor = [array objectAtIndex:i];
+        if (currentColor.cardColor == color)
+            cardColor = currentColor;
+    }
+    return cardColor;
+}
+
 @end
 
 

@@ -47,5 +47,5 @@ typedef enum {
 @property (nonatomic, assign) CountryEnum country;
 
 +(NSArray *)initCountryArray;
-
++(Country *)getCurrentCountryByType: (CountryEnum) type;
 @end
