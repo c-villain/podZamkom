@@ -800,7 +800,7 @@
                                             <constraint firstAttribute="height" constant="2" id="gns-mg-ADn"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="45 10 215406" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGA-Fm-Tmy">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="45 10 215406" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGA-Fm-Tmy" customClass="TextField">
                                         <rect key="frame" x="168" y="112" width="133" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
@@ -810,6 +810,9 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="YPy-ah-SzB" id="pmM-Uc-une"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="КЕМ ВЫДАН" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQN-WA-pX7">
                                         <rect key="frame" x="21" y="169" width="138" height="21"/>
@@ -822,7 +825,7 @@
                                         <color key="textColor" red="0.44705882349999998" green="0.50196078430000002" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1W-h9-TFe">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="103" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1W-h9-TFe">
                                         <rect key="frame" x="16" y="198" width="293" height="89"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -834,6 +837,9 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="YPy-ah-SzB" id="BCt-b4-LwE"/>
+                                        </connections>
                                     </textView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="KHH-34-HuT">
                                         <rect key="frame" x="1" y="302" width="320" height="2"/>
@@ -854,7 +860,7 @@
                                         <color key="textColor" red="0.44705882349999998" green="0.50196078430000002" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="45 10 215406" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yxh-cL-U9t">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="45 10 215406" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yxh-cL-U9t" customClass="TextField">
                                         <rect key="frame" x="168" y="315" width="133" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
@@ -864,6 +870,9 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="YPy-ah-SzB" id="mIj-F4-w2s"/>
+                                        </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="dOt-er-w0J">
                                         <rect key="frame" x="1" y="360" width="320" height="2"/>
@@ -884,7 +893,7 @@
                                         <color key="textColor" red="0.44705882349999998" green="0.50196078430000002" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="770 111" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PX4-w5-NDO">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="770 111" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PX4-w5-NDO" customClass="TextField">
                                         <rect key="frame" x="214" y="373" width="87" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
@@ -894,6 +903,9 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="YPy-ah-SzB" id="Oko-tj-CPd"/>
+                                        </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="acK-gn-TaW">
                                         <rect key="frame" x="1" y="418" width="320" height="2"/>
@@ -922,7 +934,7 @@
                                             <constraint firstAttribute="width" constant="320" id="3RP-Cy-eXD"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jzw-GN-hQL">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="106" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jzw-GN-hQL" customClass="TextField">
                                         <rect key="frame" x="21" y="464" width="279" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
@@ -931,6 +943,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="YPy-ah-SzB" id="uOo-dv-QVn"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ДАТА РОЖДЕНИЯ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0g-ZA-qaZ">
                                         <rect key="frame" x="21" y="526" width="138" height="21"/>
@@ -943,7 +958,7 @@
                                         <color key="textColor" red="0.44705882349999998" green="0.50196078430000002" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="09.07.1989" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uTi-uS-2Ho">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="107" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="09.07.1989" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uTi-uS-2Ho" customClass="TextField">
                                         <rect key="frame" x="168" y="522" width="133" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
@@ -953,6 +968,9 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="YPy-ah-SzB" id="ewD-dZ-T9o"/>
+                                        </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="RB6-1M-vEU">
                                         <rect key="frame" x="1" y="567" width="320" height="2"/>
@@ -973,7 +991,7 @@
                                         <color key="textColor" red="0.44705882349999998" green="0.50196078430000002" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e3M-XX-xbW">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="108" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e3M-XX-xbW">
                                         <rect key="frame" x="16" y="613" width="293" height="89"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -985,6 +1003,9 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="YPy-ah-SzB" id="Cb3-hk-wOe"/>
+                                        </connections>
                                     </textView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="6KM-0b-7xb">
                                         <rect key="frame" x="1" y="717" width="320" height="2"/>
@@ -1013,7 +1034,7 @@
                                             <constraint firstAttribute="height" constant="2" id="njC-V5-aqO"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="мой Паспорт РФ" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L8i-W0-Jg2">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="мой Паспорт РФ" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L8i-W0-Jg2" customClass="TextField">
                                         <rect key="frame" x="124" y="11" width="176" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
@@ -1024,8 +1045,11 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="YPy-ah-SzB" id="9jj-of-sx1"/>
+                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="РОССИЙСКАЯ ФЕДЕРАЦИЯ" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yLs-kE-BUk">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="РОССИЙСКАЯ ФЕДЕРАЦИЯ" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yLs-kE-BUk" customClass="TextField">
                                         <rect key="frame" x="124" y="59" width="176" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
@@ -1035,6 +1059,9 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="YPy-ah-SzB" id="tlV-wg-xOF"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -1109,6 +1136,15 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="birthDateField" destination="uTi-uS-2Ho" id="Wyp-Oq-drY"/>
+                        <outlet property="birthPlaceField" destination="e3M-XX-xbW" id="qpf-9D-yNW"/>
+                        <outlet property="countryField" destination="yLs-kE-BUk" id="oQf-Rq-7AN"/>
+                        <outlet property="dateIssueField" destination="yxh-cL-U9t" id="4dj-T0-SZn"/>
+                        <outlet property="depCodeField" destination="PX4-w5-NDO" id="brt-Sx-J6j"/>
+                        <outlet property="depField" destination="f1W-h9-TFe" id="pk6-ee-aOC"/>
+                        <outlet property="holderField" destination="jzw-GN-hQL" id="9La-1g-VO1"/>
+                        <outlet property="nameField" destination="L8i-W0-Jg2" id="6dI-N2-jNo"/>
+                        <outlet property="numberField" destination="gGA-Fm-Tmy" id="aC8-d0-BAu"/>
                         <outlet property="scrollView" destination="9ZJ-Py-R2V" id="aqB-MO-YBd"/>
                         <outlet property="view" destination="kC7-us-atq" id="S5i-ve-Oua"/>
                     </connections>

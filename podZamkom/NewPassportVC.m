@@ -8,71 +8,66 @@
 
 #import "NewPassportVC.h"
 
-@interface NewPassportVC ()
-
-@end
-
 @implementation NewPassportVC
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
+    NSString* title = @"НОВЫЙ ПАСПОРТ";
     
-    [super viewDidLoad:@"НОВЫЙ ПАСПОРТ"];
-	// Do any additional setup after loading the view.
-    
-    //    self.enhancedKeyboard = [[KSEnhancedKeyboard alloc] init];
-    //    self.enhancedKeyboard.delegate = self;
-//    [self.noteTitle becomeFirstResponder];
-    
-    //    TODO!
-//    if (self.selectedNote != nil)
-//    {
-//        self.noteTitle.text = self.selectedNote.title;
-//        self.note.text = self.selectedNote.content;
-//    }
+    //инициализируем пикер (страны):
+    ((TextField *)self.countryField).picker = [Picker createPickerWithData:[Country initCountryArray] andPickerDelegate:self];
 
+    //по умолч. ставим везде пустые текстовые поля:
+    self.nameField.text = @"";
+    self.countryField.text = @"";
+    self.numberField.text = @"";
+    self.depField.text = @"";
+    self.holderField.text = @"";
+    self.dateIssueField.text = @"";
+    self.depCodeField.text = @"";
+    self.holderField.text = @"";
+    self.birthDateField.text = @"";
+    self.birthPlaceField.text = @"";
     
-    /*
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    self.navigationItem.titleView = [ViewAppearance initViewWithGlowingTitle:@"НОВЫЙ ПАСПОРТ"];
-    //создаем кастомизированную кнопку back:
-    self.navigationItem.hidesBackButton = YES;
-    
-    UIButton *backButton = [ViewAppearance initCustomButtonWithImage:@"title_bar_icon_close.png"];
-    [backButton addTarget:self action:@selector(backBtnTapped) forControlEvents:UIControlEventTouchUpInside]; //adding action
-    UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-    self.navigationItem.leftBarButtonItem = backBarButton;
-    
-    UIButton *saveButton = [ViewAppearance initCustomButtonWithImage:@"title_bar_icon_save.png"];
-    [saveButton addTarget:self action:@selector(saveBtnTapped) forControlEvents:UIControlEventTouchUpInside]; //adding action
-    UIBarButtonItem *saveBarButton = [[UIBarButtonItem alloc] initWithCustomView:saveButton];
-    self.navigationItem.rightBarButtonItem = saveBarButton;
-    
-    
-    //создаем подсветку навбара
-    [self.view addSubview:[ViewAppearance initGlowingBoarderForNavBar]];
-    */
-}
+    [self.nameField becomeFirstResponder];
 
--(void)backBtnTapped
-{
-    [self.navigationController popViewControllerAnimated:YES];
+    //если же мы находимся в режиме редактирования, то заполняем все поля:
+    if (self.selectedPassport != nil)
+    {
+        title = self.selectedPassport.docName;
+        self.nameField.text = self.selectedPassport.docName;
+//        [super showInTextField:self.countryField selectedPickerObject:[Country initCountryArray][self.selectedPassport.country]];
+        self.numberField.text = self.selectedPassport.number;
+        
+        self.depField.text = self.selectedPassport.department;
+        self.holderField.text = self.selectedPassport.holder;
+        self.dateIssueField.text = self.selectedPassport.issueDate;
+        self.depCodeField.text = self.selectedPassport.departmentCode;
+        self.holderField.text = self.selectedPassport.holder;
+        self.birthDateField.text = self.selectedPassport.birthDate;
+        self.birthPlaceField.text = self.selectedPassport.birthPlace;
+    }
+    [super viewDidLoad:title];
 }
 
 -(void)saveBtnTapped
 {
-    //    TODO!
-    NSLog(@"SAVE!");
+    Passport *passport = [Passport new];
+    passport.docType = PassportDoc;
+    //    TODO! значение банка по умолчанию!
+    //    NSString *newString = [myString stringByReplacingOccurrencesOfString:@" " withString:@""];
+    //    if (self.bankField.text != )
+    passport.docName = self.nameField.text;
+    passport.country = ( (Picker *) ((TextField *)self.countryField).picker).selectedIndex;
+    passport.number = self.numberField.text;
+    passport.department = self.depField.text;
+    passport.holder = self.holderField.text;
+    passport.issueDate = self.dateIssueField.text;
+    passport.departmentCode = self.depCodeField.text;
+    passport.birthDate = self.birthDateField.text;
+    passport.birthPlace = self.birthPlaceField.text;
+    if ([DBadapter SaveDocument:passport])
+        [super showMainVC];
 }
 
 - (void)didReceiveMemoryWarning

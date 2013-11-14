@@ -33,7 +33,7 @@ typedef enum {
     POLAND,
     PORTUGAL,
     RUSSIA,
-    SINGAPUR,
+    SINGAPORE,
     SPAIN,
     SWEDEN,
     SWITZERLAND,
