@@ -2,7 +2,7 @@
 
 @implementation DBadapter (DBRecrypt)
 
-+(BOOL)RecryptDB: (NSString *) oldPassword
++(BOOL)DBRecrypt: (NSString *) oldPassword
 {
     DBadapter *dbAdapter = [[DBadapter alloc] init];
     NSArray *documents = [dbAdapter ReadData];
@@ -10,28 +10,9 @@
     
     for (NSUInteger docNum = 0; docNum < docCount; docNum ++)
     {
-//        Document *doc = [documents objectAtIndex:docNum];
-        
-//        NSString *docType = [dbAdapter getDocTypeByDocId:doc.idDoc];
-        
-//        if ([docType isEqual: @"Заметка"])
-//        {
-//            Note *noteDoc = [Note new];
-//            noteDoc = [dbAdapter GetNoteDocById:doc.idDoc withPassword:oldPassword];
-//            [dbAdapter UpdateNote:noteDoc];
-            
-//        }
-//        else if ([docType isEqual: @"Логин"])
-//        {
-//            Login *loginDoc = [Login new];
-//            loginDoc = [dbAdapter GetLoginDocById:doc.idDoc];
-//            
-//        }
-//        else if ([docType isEqual: @"Кредитка"])
-//        {
-//            CreditCard *creditCard = [CreditCard new];
-//            creditCard = [dbAdapter GetCreditCardDocById:doc.idDoc];
-//        }
+        Document *doc = [documents objectAtIndex:docNum];
+        doc = [DBadapter DBSelect:doc]; 
+        [DBadapter DBSave:doc];
     }
     return YES;
 }

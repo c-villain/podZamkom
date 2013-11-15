@@ -35,6 +35,8 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 //    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:35.0f/255.0f green:35.0f/255.0f blue:41.0f/255.0f alpha:1.0f]];
 //    self.navigationController.navigationBarHidden = YES;
+    
+    //в зависимости от модели айфона включаем или выключаем скроллинг левого меню:
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
