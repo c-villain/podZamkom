@@ -55,6 +55,7 @@
 -(void)saveBtnTapped
 {
     CreditCard *card = [CreditCard new];
+    card.idDoc = self.selectedCreditCard.idDoc;
     card.docType = CardDoc;
     
     card.bank = @"Банк";
@@ -71,7 +72,7 @@
     card.color = (CardColorEnum)( (Picker *) ((TextField *)self.colorField).picker).selectedIndex;
     card.comments = self.commentField.text;
 
-    if ([DBadapter SaveDocument:card])
+    if ([DBadapter DBSave:card])
         [super showMainVC];
 }
 

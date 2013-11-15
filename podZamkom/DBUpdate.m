@@ -97,11 +97,11 @@
 -(BOOL)UpdateCreditCard:(CreditCard*) creditCard
 {
     sqlite3_stmt *statement;
-    const char *update_stmt = "Update CreditCard Set bank = ?, holder = ?, card_type = ?, number = ? validThru = ?  cvc = ?  pin = ?  card_color = ?  comments = ? where pk_card_id = ?";
+    const char *update_stmt = "Update CreditCard Set bank = ?, holder = ?, card_type = ?, number = ? , validThru = ? , cvc = ? , pin = ? , card_color = ? , comments = ? where pk_card_id = ?";
     sqlite3 *db;
     if (sqlite3_open([DBpath UTF8String], &db)==SQLITE_OK)
     {
-        sqlite3_prepare_v2(db, update_stmt, -1, &statement, NULL);
+        if (sqlite3_prepare_v2(db, update_stmt, -1, &statement, NULL) == SQLITE_OK);
         {
             sqlite3_bind_text(statement, 1, [[FBEncryptorAES encryptString:creditCard.bank] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 2, [[FBEncryptorAES encryptString:creditCard.holder] UTF8String], -1, SQLITE_TRANSIENT);
@@ -120,6 +120,8 @@
                 sqlite3_close(db);
                 return YES;
             }
+            else
+                NSAssert1(0, @"Error while updating. '%s'", sqlite3_errmsg(db));
         }
     }
     sqlite3_close(db);
@@ -130,12 +132,12 @@
 -(BOOL)UpdatePassport: (Passport *)passport
 {
     sqlite3_stmt *statement;
-    const char *update_stmt = "Update Passport Set name = ?, country = ?, number = ?, department = ? date_of_issue = ?  department_code = ?  holder = ?  birth_date = ?  birth_place = ? where pk_passport_id = ?";
+    const char *update_stmt = "Update Passport Set name = ?, country = ?, number = ?, department = ? , date_of_issue = ? , department_code = ? , holder = ? , birth_date = ? , birth_place = ? where pk_passport_id = ?";
     
     sqlite3 *db;
     if (sqlite3_open([DBpath UTF8String], &db)==SQLITE_OK)
     {
-        sqlite3_prepare_v2(db, update_stmt, -1, &statement, NULL);
+        if (sqlite3_prepare_v2(db, update_stmt, -1, &statement, NULL) == SQLITE_OK);
         {
             sqlite3_bind_text(statement, 1, [[FBEncryptorAES encryptString:passport.docName] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_int(statement, 2, passport.country);
@@ -153,6 +155,8 @@
                 sqlite3_close(db);
                 return YES;
             }
+            else
+                NSAssert1(0, @"Error while updating. '%s'", sqlite3_errmsg(db));
         }
     }
     sqlite3_close(db);
@@ -163,7 +167,7 @@
 -(BOOL)UpdateBankAccount:(BankAccount *)bankAccount
 {
     sqlite3_stmt *statement;
-    const char *update_stmt = "Update BankAccount Set bank = ?, account_number = ?, currency_type = ?, bik = ? correspond_number = ?  inn = ?  kpp = ?  comments = ? where pk_account_id = ?";
+    const char *update_stmt = "Update BankAccount Set bank = ?, account_number = ?, currency_type = ?, bik = ? , correspond_number = ? , inn = ? , kpp = ? , comments = ? where pk_account_id = ?";
     
     sqlite3 *db;
     if (sqlite3_open([DBpath UTF8String], &db)==SQLITE_OK)
@@ -178,13 +182,15 @@
             sqlite3_bind_text(statement, 6, [[FBEncryptorAES encryptString:bankAccount.inn] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 7, [[FBEncryptorAES encryptString:bankAccount.kpp] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 8, [[FBEncryptorAES encryptString:bankAccount.comments] UTF8String], -1, SQLITE_TRANSIENT);
-            sqlite3_bind_int(statement, 9, docListRowId);
+            sqlite3_bind_int(statement, 9, bankAccount.idDoc);
             if (sqlite3_step(statement) == SQLITE_DONE)
             {
                 sqlite3_finalize(statement);
                 sqlite3_close(db);
                 return YES;
             }
+            else
+                NSAssert1(0, @"Error while updating. '%s'", sqlite3_errmsg(db));
         }
     }
     sqlite3_close(db);

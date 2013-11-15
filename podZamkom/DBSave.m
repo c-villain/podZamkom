@@ -10,10 +10,16 @@
 
 @implementation DBadapter (DBSave)
 
++(BOOL)DBSave:(Document *)doc
+{
+    if (doc.idDoc != 0)
+        return [self UpdateDocument:doc];
+    return [self SaveDocument:doc];
+}
+
 +(BOOL)SaveDocument: (Document *) doc
 {
     DBadapter *db = [[DBadapter alloc] init];
-    
     BOOL result;
     switch (doc.docType)
     {

@@ -1,6 +1,9 @@
 #import "DBadapter.h"
+#import "DBUpdate.h"
 
 @interface DBadapter (DBSave)
+
++(BOOL)DBSave:(Document *)doc; //главная функция
 
 +(BOOL)SaveDocument: (Document *) doc;
 

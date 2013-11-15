@@ -1116,8 +1116,8 @@
 		5AF633A2181483CA00B9C540 /* new login */ = {
 			isa = PBXGroup;
 			children = (
-				5AF633A4181483F400B9C540 /* NewLoginVC.h */,
 				5AF633A5181483F400B9C540 /* NewLoginVC.m */,
+				5AF633A4181483F400B9C540 /* NewLoginVC.h */,
 			);
 			name = "new login";
 			sourceTree = "<group>";

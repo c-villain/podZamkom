@@ -66,12 +66,12 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yto-d4-jcw">
-                            <rect key="frame" x="8" y="136" width="301" height="256"/>
+                            <rect key="frame" x="8" y="136" width="301" height="224"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="301" id="IGA-cF-zVd"/>
-                                <constraint firstAttribute="height" constant="256" id="Ptg-BA-CfZ"/>
+                                <constraint firstAttribute="height" constant="224" id="Ptg-BA-CfZ"/>
                             </constraints>
                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -79,7 +79,7 @@
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="AIb-3g-oNQ">
-                            <rect key="frame" x="0.0" y="400" width="320" height="2"/>
+                            <rect key="frame" x="0.0" y="376" width="320" height="2"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="2" id="TxG-fV-fbJ"/>
@@ -87,7 +87,7 @@
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7pa-Yk-21M">
-                            <rect key="frame" x="0.0" y="410" width="320" height="51"/>
+                            <rect key="frame" x="0.0" y="386" width="320" height="51"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.97254901959999995" green="0.18823529410000001" blue="0.2784313725" alpha="1" colorSpace="deviceRGB"/>
                             <constraints>
@@ -101,7 +101,7 @@
                             </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-kL-jfb">
-                            <rect key="frame" x="0.0" y="469" width="320" height="51"/>
+                            <rect key="frame" x="0.0" y="445" width="320" height="51"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.28235294119999998" green="0.53333333329999999" blue="1" alpha="1" colorSpace="deviceRGB"/>
                             <constraints>
@@ -116,9 +116,9 @@
                         </button>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="Hz6-kL-jfb" secondAttribute="bottom" constant="20" symbolic="YES" id="4Ob-va-KU6"/>
+                        <constraint firstAttribute="bottom" secondItem="Hz6-kL-jfb" secondAttribute="bottom" constant="44" id="4Ob-va-KU6"/>
                         <constraint firstItem="LZJ-WJ-uqT" firstAttribute="top" secondItem="FiE-cw-N96" secondAttribute="top" constant="20" id="AEd-7u-UcY"/>
-                        <constraint firstItem="AIb-3g-oNQ" firstAttribute="top" secondItem="yto-d4-jcw" secondAttribute="bottom" constant="8" id="EUN-Wa-TKd"/>
+                        <constraint firstItem="AIb-3g-oNQ" firstAttribute="top" secondItem="yto-d4-jcw" secondAttribute="bottom" constant="16" id="EUN-Wa-TKd"/>
                         <constraint firstItem="AIb-3g-oNQ" firstAttribute="leading" secondItem="FiE-cw-N96" secondAttribute="leading" id="Jwy-xq-rBZ"/>
                         <constraint firstAttribute="trailing" secondItem="LZJ-WJ-uqT" secondAttribute="trailing" constant="20" symbolic="YES" id="LHH-Hb-WjA"/>
                         <constraint firstItem="yto-d4-jcw" firstAttribute="leading" secondItem="FiE-cw-N96" secondAttribute="leading" constant="8" id="OBL-QT-aup"/>

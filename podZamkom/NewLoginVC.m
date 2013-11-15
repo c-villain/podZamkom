@@ -31,9 +31,11 @@
     [self.urlField becomeFirstResponder];
 }
 
+
 -(void)saveBtnTapped
 {
     Login *login = [Login new];
+    login.idDoc = self.selectedLogin.idDoc;
     login.url = @"Логин";
 
     if (![[self.urlField.text stringByReplacingOccurrencesOfString:@" " withString:@""]  isEqual: @""])
@@ -43,7 +45,7 @@
     login.password = self.passwordField.text;
     login.comment = self.loginNote.text;
     login.docType = LoginDoc;
-    if ([DBadapter SaveDocument:login])
+    if ([DBadapter DBSave:login])
         [super showMainVC];
 }
 

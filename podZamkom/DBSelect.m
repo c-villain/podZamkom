@@ -61,6 +61,8 @@
                 }
                 sqlite3_finalize(statement);
             }
+            else
+                return nil;
         }
         sqlite3_close(db);
         return note;

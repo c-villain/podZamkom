@@ -35,7 +35,20 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 //    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:35.0f/255.0f green:35.0f/255.0f blue:41.0f/255.0f alpha:1.0f]];
 //    self.navigationController.navigationBarHidden = YES;
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    {
+        if (screenSize.height > 480.0f)
+        {
+            /*Do iPhone 5 stuff here.*/
+            self.tableView.scrollEnabled = NO;
+        } else
+        {
+            /*Do iPhone Classic stuff here.*/
+             self.tableView.scrollEnabled = YES;
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning

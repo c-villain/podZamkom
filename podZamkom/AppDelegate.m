@@ -105,8 +105,8 @@
     LeftMenuVC *menuVC = [storyboard instantiateViewControllerWithIdentifier:@"leftMenu"];
     SWRevealViewController *mainRevealController = [[SWRevealViewController alloc] initWithRearViewController:menuVC frontViewController:mainVC];
     
-    mainRevealController.rearViewRevealWidth = 55;
-    mainRevealController.rearViewRevealOverdraw = 187;
+    mainRevealController.rearViewRevealWidth = 55; //ширина левой менюшки
+    mainRevealController.rearViewRevealOverdraw = 187; //максимальный вылет левой менюшки
     mainRevealController.bounceBackOnOverdraw = NO;
     mainRevealController.stableDragOnOverdraw = YES;
     mainRevealController.bounceBackOnLeftOverdraw = NO;

@@ -31,29 +31,17 @@
     [super viewDidLoad:title];
 }
 
-- (void)saveNewNote
+-(void)saveBtnTapped
 {
     Note *note = [Note new];
+    note.idDoc = self.selectedNote.idDoc;
     note.title = @"Заметка";
-    if (![[self.noteTitle.text stringByReplacingOccurrencesOfString:@" " withString:@""]  isEqual: @""])
+    if (![[self.noteTitle.text stringByReplacingOccurrencesOfString:@" " withString:@""] isEqualToString:@""])
         note.title = self.noteTitle.text;
     note.content = self.note.text;
     note.docType = NoteDoc;
-    if ([DBadapter SaveDocument:note])
+    if ([DBadapter DBSave:note])
         [super showMainVC];
-}
-
--(void)saveBtnTapped
-{
-    if (self.selectedNote != nil)
-    {
-        self.selectedNote.title = self.noteTitle.text;
-        self.selectedNote.content = self.note.text;
-        DBadapter *db = [[DBadapter alloc] init];
-        [db UpdateNote:self.selectedNote];
-        [super showMainVC];
-    }
-    else [self saveNewNote];
 }
 
 - (void)didReceiveMemoryWarning

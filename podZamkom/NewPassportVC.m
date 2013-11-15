@@ -56,6 +56,7 @@
 -(void)saveBtnTapped
 {
     Passport *passport = [Passport new];
+    passport.idDoc = self.selectedPassport.idDoc;
     passport.docType = PassportDoc;
     passport.docName = @"Паспорт";
     
@@ -70,7 +71,7 @@
     passport.departmentCode = self.depCodeField.text;
     passport.birthDate = self.birthDateField.text;
     passport.birthPlace = self.birthPlaceField.text;
-    if ([DBadapter SaveDocument:passport])
+    if ([DBadapter DBSave:passport])
         [super showMainVC];
 }
 

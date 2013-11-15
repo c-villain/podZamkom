@@ -54,6 +54,7 @@
 -(void)saveBtnTapped
 {
     BankAccount *account = [BankAccount new];
+    account.idDoc = self.selectedBankAccount.idDoc;
     account.docType = BankAccountDoc;
     account.bank = @"Банковский счет";
     if (![[self.bankField.text stringByReplacingOccurrencesOfString:@" " withString:@""]  isEqual: @""])
@@ -67,7 +68,7 @@
     account.kpp = self.kppField.text;
     account.comments = self.commentField.text;
     
-    if ([DBadapter SaveDocument:account])
+    if ([DBadapter DBSave:account])
         [super showMainVC];
 }
 - (void)didReceiveMemoryWarning
