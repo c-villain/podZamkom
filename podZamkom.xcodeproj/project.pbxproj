@@ -48,6 +48,7 @@
 		5A1709C518352D7E00D01D7D /* Spain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A1709B718352D7E00D01D7D /* Spain@2x.png */; };
 		5A1709C618352D7E00D01D7D /* Sweden@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A1709B818352D7E00D01D7D /* Sweden@2x.png */; };
 		5A1709C718352D7E00D01D7D /* Switzerland@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A1709B918352D7E00D01D7D /* Switzerland@2x.png */; };
+		5A1709CA1836789000D01D7D /* DBUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1709C91836789000D01D7D /* DBUpdate.m */; };
 		5A2AFE34181F01610032A228 /* TextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2AFE33181F01610032A228 /* TextField.m */; };
 		5A2AFE41181F1E890032A228 /* photo_icon_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A2AFE40181F1E890032A228 /* photo_icon_add@2x.png */; };
 		5A3309B21833CF5700ED3609 /* CurrencyType.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3309B11833CF5700ED3609 /* CurrencyType.m */; };
@@ -267,6 +268,8 @@
 		5A1709B718352D7E00D01D7D /* Spain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Spain@2x.png"; path = "Resources/pickers/countries/Spain@2x.png"; sourceTree = "<group>"; };
 		5A1709B818352D7E00D01D7D /* Sweden@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Sweden@2x.png"; path = "Resources/pickers/countries/Sweden@2x.png"; sourceTree = "<group>"; };
 		5A1709B918352D7E00D01D7D /* Switzerland@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Switzerland@2x.png"; path = "Resources/pickers/countries/Switzerland@2x.png"; sourceTree = "<group>"; };
+		5A1709C81836787E00D01D7D /* DBUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUpdate.h; sourceTree = "<group>"; };
+		5A1709C91836789000D01D7D /* DBUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUpdate.m; sourceTree = "<group>"; };
 		5A2AFE32181F01610032A228 /* TextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextField.h; sourceTree = "<group>"; };
 		5A2AFE33181F01610032A228 /* TextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextField.m; sourceTree = "<group>"; };
 		5A2AFE40181F1E890032A228 /* photo_icon_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "photo_icon_add@2x.png"; path = "Resources/buttons/Edit/photo_icon_add@2x.png"; sourceTree = "<group>"; };
@@ -785,6 +788,8 @@
 				5AB34476182302500007F714 /* DBSelect.m */,
 				5AB344461822FF740007F714 /* DBadapter.h */,
 				5AB344471822FF740007F714 /* DBadapter.m */,
+				5A1709C81836787E00D01D7D /* DBUpdate.h */,
+				5A1709C91836789000D01D7D /* DBUpdate.m */,
 			);
 			name = DB;
 			sourceTree = "<group>";
@@ -1517,6 +1522,7 @@
 				5AA46C7917FB2263008EE800 /* SWRevealViewController.m in Sources */,
 				5AF633A6181483F400B9C540 /* NewLoginVC.m in Sources */,
 				5ABA86FC181EFF300090004B /* KSEnhancedKeyboard.m in Sources */,
+				5A1709CA1836789000D01D7D /* DBUpdate.m in Sources */,
 				5AB344801823FB8F0007F714 /* NoteVC.m in Sources */,
 				5AF6338618109B8300B9C540 /* NewDocVC.m in Sources */,
 				5A146EE317FDC56D00ED7275 /* PasswordVC.m in Sources */,

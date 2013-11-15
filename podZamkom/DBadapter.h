@@ -20,14 +20,8 @@
 -(NSArray *)ReadData;
 -(BOOL)DeleteDocFromDB:(NSString *)idDoc;
 
-
-//-(NSString *)getDocTypeByTypeId:(int)idType;
-//-(NSString *)getDocTypeByDocId:(NSString *)idDoc;
-
-//-(int)getIdOfDocType:(NSString*)docType;
 -(NSString *)getDocumentName:(int)docId withDocType:(DocTypeEnum)docType;
 
 -(int)insertIntoDocList:(int)docType;
-//-(int)getCardTypeIdByCardType:(CardType *)cardType;
 
 @end
