@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TextField.h"
 
-@interface PasswordTextField : UITextField
+@interface PasswordTextField : TextField//UITextField
 
 @end

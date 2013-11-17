@@ -29,7 +29,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     // Uncomment the following line to preserve selection between presentations.
@@ -43,8 +42,8 @@
     [self.view addGestureRecognizer:revealController.panGestureRecognizer];
     
     //убираю разделители между строками таблицы, чтобы кастомизировать их в функции
-    //- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone]; }
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+}
 
 - (void)didReceiveMemoryWarning
 {

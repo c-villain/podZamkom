@@ -65,14 +65,14 @@
                         <viewControllerLayoutGuide type="bottom" id="3q0-bz-3z4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zpe-bD-P3G">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="660"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="640"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9iK-Q6-ldp">
                                 <rect key="frame" x="0.0" y="64" width="320" height="596"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0oF-Qb-dTe" customClass="PasswordTextField">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="100" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0oF-Qb-dTe" customClass="PasswordTextField">
                                         <rect key="frame" x="0.0" y="49" width="320" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -83,6 +83,9 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="19"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="bkH-X3-6qN" id="X00-Kw-wUf"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ЯЗЫК" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FI6-UG-IXe">
                                         <rect key="frame" x="0.0" y="392" width="320" height="21"/>
@@ -145,12 +148,12 @@
                                             <constraint firstAttribute="height" constant="51" id="xYc-7O-eeF"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
-                                        <state key="normal" title="УДАЛИТЬ ЗАМЕТКУ">
+                                        <state key="normal" title="УДАЛИТЬ ВСЕ ДАННЫЕ">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z5U-TT-diU" customClass="PasswordTextField">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="101" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z5U-TT-diU" customClass="PasswordTextField">
                                         <rect key="frame" x="0.0" y="263" width="320" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -161,6 +164,9 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="19"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="bkH-X3-6qN" id="3KO-hN-Lwd"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBG-go-L15">
                                         <rect key="frame" x="120" y="421" width="80" height="30"/>
@@ -220,6 +226,9 @@
                                         <state key="highlighted">
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="changeSecureTypingOfXtraPasswd:" destination="bkH-X3-6qN" eventType="touchUpInside" id="x3x-3s-N6c"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="50x-Cl-l1V">
                                         <rect key="frame" x="0.0" y="504" width="320" height="2"/>
@@ -246,6 +255,9 @@
                                         <state key="highlighted">
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="changeSecureTyping:" destination="bkH-X3-6qN" eventType="touchUpInside" id="jb7-Cv-6sC"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNU-Ev-OKc">
                                         <rect key="frame" x="8" y="421" width="80" height="30"/>
@@ -343,7 +355,7 @@
                                     <constraint firstItem="bOg-rz-mSt" firstAttribute="leading" secondItem="9iK-Q6-ldp" secondAttribute="leading" id="gfS-SC-Ugr"/>
                                     <constraint firstItem="9le-mG-AcY" firstAttribute="top" secondItem="2yf-b1-4Db" secondAttribute="bottom" constant="9" id="hy2-fk-O8r"/>
                                     <constraint firstItem="ZrS-F6-mFD" firstAttribute="top" secondItem="iCm-jq-klP" secondAttribute="bottom" constant="14" id="iFD-TR-wwg"/>
-                                    <constraint firstAttribute="bottom" secondItem="hZ7-GM-qFO" secondAttribute="bottom" constant="64" id="ite-5k-zdZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="hZ7-GM-qFO" secondAttribute="bottom" constant="24" id="ite-5k-zdZ"/>
                                     <constraint firstItem="sQI-WD-HKu" firstAttribute="top" secondItem="z2o-zu-GvJ" secondAttribute="bottom" constant="6" id="jWi-UX-8AL"/>
                                     <constraint firstItem="30I-fS-UlU" firstAttribute="leading" secondItem="9iK-Q6-ldp" secondAttribute="leading" id="kVI-ok-c91"/>
                                     <constraint firstItem="QkF-ct-Tc7" firstAttribute="top" secondItem="FI6-UG-IXe" secondAttribute="bottom" constant="8" id="khx-Ez-nlb"/>
@@ -360,13 +372,25 @@
                         <color key="backgroundColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="9iK-Q6-ldp" secondAttribute="trailing" id="BgJ-7r-D7N"/>
-                            <constraint firstAttribute="bottom" secondItem="9iK-Q6-ldp" secondAttribute="bottom" id="JJH-Xb-0P0"/>
+                            <constraint firstAttribute="bottom" secondItem="9iK-Q6-ldp" secondAttribute="bottom" constant="-20" id="JJH-Xb-0P0"/>
                             <constraint firstItem="9iK-Q6-ldp" firstAttribute="top" secondItem="muC-BO-eWC" secondAttribute="bottom" id="VOW-bZ-Wgq"/>
                             <constraint firstItem="9iK-Q6-ldp" firstAttribute="leading" secondItem="zpe-bD-P3G" secondAttribute="leading" id="xqt-72-Dbx"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="deleteFilesAfterTenErrors" destination="9le-mG-AcY" id="D8i-nm-JuR"/>
+                        <outlet property="fieldWithPassword" destination="0oF-Qb-dTe" id="Qm9-2E-KCX"/>
+                        <outlet property="fieldWithXtraPassword" destination="z5U-TT-diU" id="JUj-Yu-X0F"/>
+                        <outlet property="lblLocalize" destination="FI6-UG-IXe" id="x3F-wN-pjh"/>
+                        <outlet property="lblPassword" destination="bOg-rz-mSt" id="uTT-P1-btb"/>
+                        <outlet property="lblXtraPassword" destination="iCm-jq-klP" id="XFy-un-EBg"/>
+                        <outlet property="scrollView" destination="9iK-Q6-ldp" id="wYa-7e-6GY"/>
+                        <outlet property="usePassword" destination="TsZ-dP-01U" id="nyR-gj-5CG"/>
+                        <outlet property="visibleBtn" destination="w0e-MY-NIM" id="68W-TL-NTi"/>
+                        <outlet property="xtraPasswdVisibleBtn" destination="ZrS-F6-mFD" id="SsZ-ZG-6Ir"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrA-l4-oLo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

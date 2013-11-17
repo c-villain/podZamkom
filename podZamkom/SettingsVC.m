@@ -8,11 +8,11 @@
 
 #import "SettingsVC.h"
 
-@interface SettingsVC ()
-
-@end
-
 @implementation SettingsVC
+@synthesize fieldWithPassword;
+@synthesize fieldWithXtraPassword;
+@synthesize usePassword;
+@synthesize deleteFilesAfterTenErrors;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,44 +23,56 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (IBAction) changeSecureTyping: (id)sender
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    //меняем visible/invisible способ ввода пароля
+    //по умолчанию ввод защищенный
+    //поэтому если решили сменить ввод, то показываем пароль
+    [self.visibleBtn setSelected:!self.visibleBtn.selected];
+    [self.fieldWithPassword setSecureTextEntry:!self.fieldWithPassword.secureTextEntry];
     
-    
-    //устанавливаем цвет navbar-а:
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:35.0f/255.0f green:35.0f/255.0f blue:41.0f/255.0f alpha:1.0f]];
-    self.navigationController.navigationBar.translucent = NO;
-    self.navigationItem.titleView = [ViewAppearance initViewWithGlowingTitle:@"НАСТРОЙКИ"];
-    //создаем кастомизированную кнопку back:
-    self.navigationItem.hidesBackButton = YES;
-    
-    UIButton *backButton = [ViewAppearance initCustomButtonWithImage:@"title_bar_icon_close.png"];
-    [backButton addTarget:self action:@selector(backBtnTapped) forControlEvents:UIControlEventTouchUpInside]; //adding action
-    UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-    self.navigationItem.leftBarButtonItem = backBarButton;
-    
-    UIButton *saveButton = [ViewAppearance initCustomButtonWithImage:@"title_bar_icon_save.png"];
-    [saveButton addTarget:self action:@selector(saveBtnTapped) forControlEvents:UIControlEventTouchUpInside]; //adding action
-    UIBarButtonItem *saveBarButton = [[UIBarButtonItem alloc] initWithCustomView:saveButton];
-    self.navigationItem.rightBarButtonItem = saveBarButton;
-
-    
-    //создаем подсветку навбара
-    [self.view addSubview:[ViewAppearance initGlowingBoarderForNavBar]];
-
 }
 
--(void)backBtnTapped
+- (IBAction) changeSecureTypingOfXtraPasswd: (id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    //меняем visible/invisible способ ввода пароля
+    //по умолчанию ввод защищенный
+    //поэтому если решили сменить ввод, то показываем пароль
+    [self.xtraPasswdVisibleBtn setSelected:!self.xtraPasswdVisibleBtn.selected];
+    [self.fieldWithXtraPassword setSecureTextEntry:!self.fieldWithXtraPassword.secureTextEntry];
+    
+}
+- (void)viewDidLoad
+{
+    [super viewDidLoad: @"НАСТРОЙКИ"];
+    [ViewAppearance setGlowToLabel:self.lblPassword];
+    [ViewAppearance setGlowToLabel:self.lblXtraPassword];
+    [ViewAppearance setGlowToLabel:self.lblLocalize];
+
+    self.fieldWithPassword.text = [Security getPassword];
+    self.fieldWithXtraPassword.text = [Security getXtraPassword];
+    self.usePassword.on = [Security getUseOrNotPassword];
+    self.deleteFilesAfterTenErrors.on = [Security getDeleteorNotFilesAfterTenErrors];
 }
 
 -(void)saveBtnTapped
 {
-//    TODO!
-    NSLog(@"SAVE!");
+    //если не совпадает эстренный пароль с введенным, то сохраняем
+    if (![self.fieldWithXtraPassword.text isEqualToString:[Security getXtraPassword]])
+    {
+        [Security saveXtraPassword:self.fieldWithXtraPassword.text];
+    }
+    //если не совпадает обычныый пароль с введенным, то сохраняем и перешифровываем базу:
+
+    if (![self.fieldWithPassword.text isEqualToString:[Security getPassword]])
+    {
+        [Security savePassword:self.fieldWithPassword.text];
+        //TODO! перешифровка бд, если пароль изменился
+    }
+    
+    [Security saveUseOrNotPassword:self.usePassword.on];
+    [Security saveDeleteorNotFilesAfterTenErrors:self.deleteFilesAfterTenErrors.on];
+    [super showMainVC];
 }
 
 - (void)didReceiveMemoryWarning

@@ -49,6 +49,7 @@
 		5A1709C618352D7E00D01D7D /* Sweden@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A1709B818352D7E00D01D7D /* Sweden@2x.png */; };
 		5A1709C718352D7E00D01D7D /* Switzerland@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A1709B918352D7E00D01D7D /* Switzerland@2x.png */; };
 		5A1709CA1836789000D01D7D /* DBUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1709C91836789000D01D7D /* DBUpdate.m */; };
+		5A1709D018393BE100D01D7D /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1709CF18393BE100D01D7D /* SWRevealViewController.m */; };
 		5A2AFE34181F01610032A228 /* TextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2AFE33181F01610032A228 /* TextField.m */; };
 		5A2AFE41181F1E890032A228 /* photo_icon_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A2AFE40181F1E890032A228 /* photo_icon_add@2x.png */; };
 		5A3309B21833CF5700ED3609 /* CurrencyType.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3309B11833CF5700ED3609 /* CurrencyType.m */; };
@@ -97,7 +98,6 @@
 		5AA46C6217FB21B0008EE800 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4417FB21B0008EE800 /* UIKit.framework */; };
 		5AA46C6A17FB21B0008EE800 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AA46C6817FB21B0008EE800 /* InfoPlist.strings */; };
 		5AA46C6C17FB21B0008EE800 /* podZamkomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA46C6B17FB21B0008EE800 /* podZamkomTests.m */; };
-		5AA46C7917FB2263008EE800 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA46C7817FB2263008EE800 /* SWRevealViewController.m */; };
 		5AA46C8017FB63AB008EE800 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA46C7F17FB63AB008EE800 /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5AA46C8317FB63BC008EE800 /* Security.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA46C8217FB63BC008EE800 /* Security.m */; };
 		5AA4A0DD1803199400DA9B54 /* PasswordTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA4A0DC1803199400DA9B54 /* PasswordTextField.m */; };
@@ -263,6 +263,8 @@
 		5A1709B918352D7E00D01D7D /* Switzerland@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Switzerland@2x.png"; path = "Resources/pickers/countries/Switzerland@2x.png"; sourceTree = "<group>"; };
 		5A1709C81836787E00D01D7D /* DBUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUpdate.h; sourceTree = "<group>"; };
 		5A1709C91836789000D01D7D /* DBUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUpdate.m; sourceTree = "<group>"; };
+		5A1709CE18393BE100D01D7D /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		5A1709CF18393BE100D01D7D /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		5A2AFE32181F01610032A228 /* TextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextField.h; sourceTree = "<group>"; };
 		5A2AFE33181F01610032A228 /* TextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextField.m; sourceTree = "<group>"; };
 		5A2AFE40181F1E890032A228 /* photo_icon_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "photo_icon_add@2x.png"; path = "Resources/buttons/Edit/photo_icon_add@2x.png"; sourceTree = "<group>"; };
@@ -322,16 +324,12 @@
 		5AA46C6717FB21B0008EE800 /* podZamkomTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "podZamkomTests-Info.plist"; sourceTree = "<group>"; };
 		5AA46C6917FB21B0008EE800 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5AA46C6B17FB21B0008EE800 /* podZamkomTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = podZamkomTests.m; sourceTree = "<group>"; };
-		5AA46C7717FB2263008EE800 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		5AA46C7817FB2263008EE800 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		5AA46C7E17FB63AB008EE800 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		5AA46C7F17FB63AB008EE800 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		5AA46C8117FB63BC008EE800 /* Security.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Security.h; sourceTree = "<group>"; };
 		5AA46C8217FB63BC008EE800 /* Security.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Security.m; sourceTree = "<group>"; };
 		5AA4A0DB1803199400DA9B54 /* PasswordTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordTextField.h; sourceTree = "<group>"; };
 		5AA4A0DC1803199400DA9B54 /* PasswordTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordTextField.m; sourceTree = "<group>"; };
-		5AB344301821BCAD0007F714 /* PhotoBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoBox.h; sourceTree = "<group>"; };
-		5AB344311821BCAD0007F714 /* PhotoBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoBox.m; sourceTree = "<group>"; };
 		5AB344461822FF740007F714 /* DBadapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBadapter.h; sourceTree = "<group>"; };
 		5AB344471822FF740007F714 /* DBadapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBadapter.m; sourceTree = "<group>"; };
 		5AB3444B182300A30007F714 /* FBEncryptorAES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBEncryptorAES.h; sourceTree = "<group>"; };
@@ -574,6 +572,18 @@
 			name = countries;
 			sourceTree = "<group>";
 		};
+		5A1709D1183965FC00D01D7D /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				5AF633B61815CB4C00B9C540 /* Credit Card */,
+				5AF633AD1814863000B9C540 /* Bank account */,
+				5AF633A7181484AF00B9C540 /* Passport */,
+				5AF633A1181483BF00B9C540 /* Login */,
+				5AF633A01814838A00B9C540 /* Note */,
+			);
+			name = Documents;
+			sourceTree = "<group>";
+		};
 		5A2AFE31181F014C0032A228 /* TextField */ = {
 			isa = PBXGroup;
 			children = (
@@ -643,11 +653,7 @@
 			isa = PBXGroup;
 			children = (
 				5ABA86F8181EFF100090004B /* Frames */,
-				5AF633B61815CB4C00B9C540 /* Credit Card */,
-				5AF633AD1814863000B9C540 /* Bank account */,
-				5AF633A7181484AF00B9C540 /* Passport */,
-				5AF633A1181483BF00B9C540 /* Login */,
-				5AF633A01814838A00B9C540 /* Note */,
+				5A1709D1183965FC00D01D7D /* Documents */,
 				5AF6339C18145F6B00B9C540 /* Settings screen */,
 				5AF6338018109AD000B9C540 /* New doc screen */,
 				5AF445B91807471800E7837C /* Main screen */,
@@ -706,8 +712,8 @@
 		5AA46C7617FB223B008EE800 /* Sliding menu */ = {
 			isa = PBXGroup;
 			children = (
-				5AA46C7717FB2263008EE800 /* SWRevealViewController.h */,
-				5AA46C7817FB2263008EE800 /* SWRevealViewController.m */,
+				5A1709CE18393BE100D01D7D /* SWRevealViewController.h */,
+				5A1709CF18393BE100D01D7D /* SWRevealViewController.m */,
 			);
 			name = "Sliding menu";
 			sourceTree = "<group>";
@@ -751,15 +757,6 @@
 				5AA46C7F17FB63AB008EE800 /* KeychainItemWrapper.m */,
 			);
 			name = Wrapper;
-			sourceTree = "<group>";
-		};
-		5AB344331821BCB10007F714 /* PhotoBox */ = {
-			isa = PBXGroup;
-			children = (
-				5AB344301821BCAD0007F714 /* PhotoBox.h */,
-				5AB344311821BCAD0007F714 /* PhotoBox.m */,
-			);
-			name = PhotoBox;
 			sourceTree = "<group>";
 		};
 		5AB344451822FF5B0007F714 /* DB */ = {
@@ -818,7 +815,6 @@
 				5A2AFE31181F014C0032A228 /* TextField */,
 				5ABA86F9181EFF1B0090004B /* Keyboard */,
 				5AF6338B18143FDE00B9C540 /* Appearance + FrameVC + ShowVC */,
-				5AB344331821BCB10007F714 /* PhotoBox */,
 			);
 			name = Frames;
 			sourceTree = "<group>";
@@ -1447,6 +1443,7 @@
 				5AF633C01815CDCD00B9C540 /* NewNoteVC.m in Sources */,
 				5AB34477182302500007F714 /* DBRecrypt.m in Sources */,
 				5AC8E9BF18301050008FCAE6 /* Picker.m in Sources */,
+				5A1709D018393BE100D01D7D /* SWRevealViewController.m in Sources */,
 				5AF445AD1804655D00E7837C /* PasswordHelpVC.m in Sources */,
 				5A3309D8183431B200ED3609 /* PassportVC.m in Sources */,
 				5AA46C8017FB63AB008EE800 /* KeychainItemWrapper.m in Sources */,
@@ -1483,7 +1480,6 @@
 				5AB34461182301790007F714 /* CardType.m in Sources */,
 				5AF6338E1814408400B9C540 /* ViewAppearance.m in Sources */,
 				5AB3448B18297F5A0007F714 /* Passport.m in Sources */,
-				5AA46C7917FB2263008EE800 /* SWRevealViewController.m in Sources */,
 				5AF633A6181483F400B9C540 /* NewLoginVC.m in Sources */,
 				5ABA86FC181EFF300090004B /* KSEnhancedKeyboard.m in Sources */,
 				5A1709CA1836789000D01D7D /* DBUpdate.m in Sources */,

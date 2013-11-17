@@ -13,12 +13,18 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (void)startApp
 {
     // Override point for customization after application launch.
-//    TODO!
-//    [self showLoginScreen];
-    [self showMainVC];
+    if ([Security getUseOrNotPassword])
+        [self showLoginScreen];
+    else
+        [self showMainVC];
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [self startApp];
     return YES;
 }
 
@@ -34,26 +40,7 @@
     return;
 }
 
--(void)showLoginScreen
-{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Password" bundle:nil];
-    PasswordVC *passwordView = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
-    
-    if (NO == [self isNotFirstAppRun] ) //если первый запуск, то показываем форму в режиме установка пароля
-    {
-        passwordView = [passwordView initForAction:PasscodeActionSet];
-    }
-    else // если не первый запуск, то сравниваем введенный пароль с ранее установленным
-    {
-        passwordView = [passwordView initForAction:PasscodeActionEnter];
-        passwordView.passcode = [Security getPassword]; //передаем пароль для сверки
-    }
-    passwordView.delegate = self;
-    UINavigationController *navigationController= [[UINavigationController alloc] initWithRootViewController:passwordView];
-    [[(AppDelegate*)[[UIApplication sharedApplication] delegate] window] setRootViewController:navigationController];
-//    self.window.rootViewController = passwordView;
-//    [self.window makeKeyAndVisible];
-}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -75,9 +62,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-//    TODO!
-//    [self showLoginScreen];
-    [self showMainVC];
+    [self startApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -96,6 +81,28 @@
 {
     [self.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
     [self performSelector:@selector(showMainVC) withObject:nil afterDelay:0.1];
+}
+
+-(void)showLoginScreen
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Password" bundle:nil];
+    PasswordVC *passwordView = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
+    if (NO == [self isNotFirstAppRun] ) //если первый запуск, то показываем форму в режиме установка пароля
+    {
+        passwordView = [passwordView initForAction:PasscodeActionSet];
+    }
+    else // если не первый запуск, то сравниваем введенный пароль с ранее установленным
+    {
+        passwordView = [passwordView initForAction:PasscodeActionEnter];
+        passwordView.passcode = [Security getPassword]; //передаем пароль для сверки
+        passwordView.xtraPasscode = [Security getXtraPassword]; //передаем экстренный пароль
+        passwordView.deleteAfterTenErrors = [Security getDeleteorNotFilesAfterTenErrors]; //передаем удалять файлы после 10 попыток или нет
+    }
+    passwordView.delegate = self;
+    UINavigationController *navigationController= [[UINavigationController alloc] initWithRootViewController:passwordView];
+    [[(AppDelegate*)[[UIApplication sharedApplication] delegate] window] setRootViewController:navigationController];
+    //    self.window.rootViewController = passwordView;
+        [self.window makeKeyAndVisible];
 }
 
 -(void)showMainVC //показываем главную форму после ввода пароля
@@ -132,13 +139,18 @@
 - (void)DeleteAllCharacters:(PasswordVC *)controller
 {
 //    TODO!
-    //Удаляем все данные, если в настройках это указано
+    //TODO! удалить все!
 }
 
+- (void)PasswordVCDidEnterXtraPasscode:(PasswordVC *)controller
+{
+    //если пользователь ввел экстренный пароль:
+    //TODO! удалить все!
+}
 
 - (void)revealController:(SWRevealViewController *)revealController willMoveToPosition:(FrontViewPosition)position
 {
-
+    
 }
 
 - (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position

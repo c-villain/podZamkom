@@ -7,8 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ViewAppearance.h"
+#import "FrameVC.h"
+#import "Security.h"
 
-@interface SettingsVC : UIViewController
+@interface SettingsVC : FrameVC
 
+@property (nonatomic, retain) IBOutlet UITextField *fieldWithPassword;
+@property (nonatomic, retain) IBOutlet UITextField *fieldWithXtraPassword;
+@property (nonatomic, retain) IBOutlet UIButton *visibleBtn; //кнопка скрытия/показа пароля
+@property (nonatomic, retain) IBOutlet UIButton *xtraPasswdVisibleBtn; //кнопка скрытия/показа экстренного пароля
+
+@property (nonatomic, retain) IBOutlet UISwitch *usePassword; //использовать пароль для входа
+@property (nonatomic, retain) IBOutlet UISwitch *deleteFilesAfterTenErrors; // удалить данные после 10 ошибок
+
+@property (strong, nonatomic) IBOutlet UILabel *lblPassword;
+@property (strong, nonatomic) IBOutlet UILabel *lblXtraPassword;
+@property (strong, nonatomic) IBOutlet UILabel *lblLocalize;
 @end
