@@ -64,14 +64,17 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:35.0f/255.0f green:35.0f/255.0f blue:41.0f/255.0f alpha:1.0f]];
     // Do any additional setup after loading the view from its nib.
     [UIApplication sharedApplication].statusBarHidden = NO;
     self.navigationController.navigationBarHidden = YES;
-    // Custom initialization
+    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    // Custom initialization
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"login_screen_bg"]];
     self.errorLabel.text = @"";
     
@@ -98,9 +101,9 @@
 {
     
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
 
-    [self glowAppName];
+    [ViewAppearance setGlowToLabel:self.appNameLabel]; //подсвечиваем логотип
+    
     switch (_action)
     {
         case PasscodeActionSet:
@@ -113,17 +116,6 @@
     }
     
     [self showScreenForPhase:0 animated:NO];
-}
-
-//эффект свечения для логотипа
--(void)glowAppName
-{
-    UIColor *color = [UIColor colorWithRed:52.0f/255.0f green:144.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
-    self.appNameLabel.layer.shadowColor = [color CGColor];
-    self.appNameLabel.layer.shadowRadius = 5.0f;
-    self.appNameLabel.layer.shadowOpacity = 0.77f;
-    self.appNameLabel.layer.shadowOffset = CGSizeZero;
-    self.appNameLabel.layer.masksToBounds = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -157,6 +149,18 @@
         }
         
         case PasscodeActionEnter: //если пароль уже установлен, то просим ввести пароль заново для аутентификация пользователя
+            if ([text isEqualToString:_xtraPasscode]) //если пользователь ввел экстренный пароль
+            {
+                [self resetFailedAttempts]; //сбрасываем неправильные попытки ввода пароля
+                //передаем управление в appDelegate
+                
+                if ([_delegate respondsToSelector:@selector(PasswordVCDidEnterXtraPasscode:)])
+                {
+                    [_delegate PasswordVCDidEnterXtraPasscode:self];
+                }
+                [self dismiss];
+            }
+
             if ([text isEqualToString:_passcode]) //если пароли совпадают
             {
                 [self resetFailedAttempts]; //сбрасываем неправильные попытки ввода пароля
@@ -229,6 +233,8 @@
 
 - (void)handleFailedAttempt
 {
+    if (!_deleteAfterTenErrors)
+        return;
     _failedAttempts++; //увеличиваем количество попыток неправильно введеного пароля
     
      if (self.failedAttempts == 10) //если таких попыток уже 10, то удаляем данные

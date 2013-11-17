@@ -10,6 +10,7 @@
 #import "PasswordTextField.h"
 #import "PasswordHelpVC.h"
 #import "MainTableVC.h"
+#import "ViewAppearance.h"
 //режим для работы пароля
 typedef enum {
     PasscodeActionSet,
@@ -25,6 +26,7 @@ typedef enum {
 //методы для сигнализирования appdelegate,  что происходит с вводом пароля
 - (void)PasswordVCDidChangePasscode:(PasswordVC *)controller;
 - (void)PasswordVCDidEnterPasscode:(PasswordVC *)controller;
+- (void)PasswordVCDidEnterXtraPasscode:(PasswordVC *)controller;
 - (void)PasswordVCDidSetPasscode:(PasswordVC *)controller;
 - (void)DeleteAllCharacters:(PasswordVC *)controller;
 - (void)PasswordVC:(PasswordVC *)controller didFailToEnterPasscode:(NSInteger)attempts;
@@ -46,6 +48,9 @@ typedef enum {
 @property (strong) NSString *enterPrompt; //строка с подсказкой для режима ввода пароля
 
 @property (strong) NSString *passcode; //введенный пароль для передачи и сравнения с паролем, введенным позже
+@property (strong) NSString *xtraPasscode; //экстренный пароль
+@property (nonatomic, assign) BOOL deleteAfterTenErrors; //удалять или не удалять данные после 10 попыток
+
 @property (assign) NSInteger failedAttempts; //количество неправильных попыток ввода пароля
 
 @property (nonatomic, retain) IBOutlet UILabel *messageLabel;

@@ -101,7 +101,8 @@ Keychain API expects as a validly constructed container class.
         genericPasswordQuery = [[NSMutableDictionary alloc] init];
         
 		[genericPasswordQuery setObject:(id)kSecClassGenericPassword forKey:(id)kSecClass];
-        [genericPasswordQuery setObject:identifier forKey:(id)kSecAttrGeneric];
+//        [genericPasswordQuery setObject:identifier forKey:(id)kSecAttrGeneric];
+        [genericPasswordQuery setObject:identifier forKey:(id)kSecAttrAccount];
 		
 		// The keychain access group attribute determines if this item can be shared
 		// amongst multiple apps whose code signing entitlements contain the same keychain access group.
@@ -135,7 +136,8 @@ Keychain API expects as a validly constructed container class.
             [self resetKeychainItem];
 			
 			// Add the generic attribute and the keychain access group.
-			[keychainItemData setObject:identifier forKey:(id)kSecAttrGeneric];
+//			[keychainItemData setObject:identifier forKey:(id)kSecAttrGeneric];
+            [keychainItemData setObject:identifier forKey:(id)kSecAttrAccount];
 			if (accessGroup != nil)
 			{
 #if TARGET_IPHONE_SIMULATOR
@@ -163,6 +165,86 @@ Keychain API expects as a validly constructed container class.
     
 	return self;
 }
+///---
+- (id)initWithAccount:(NSString *)account service:(NSString *)service accessGroup:(NSString *) accessGroup;
+{
+    if (self = [super init])
+    {
+        NSAssert(account != nil || service != nil, @"Both account and service are nil.  Must specifiy at least one.");
+        // Begin Keychain search setup. The genericPasswordQuery the attributes kSecAttrAccount and
+        // kSecAttrService are used as unique identifiers differentiating keychain items from one another
+        genericPasswordQuery = [[NSMutableDictionary alloc] init];
+        
+        [genericPasswordQuery setObject:(id)kSecClassGenericPassword forKey:(id)kSecClass];
+        
+        [genericPasswordQuery setObject:account forKey:(id)kSecAttrAccount];
+        [genericPasswordQuery setObject:service forKey:(id)kSecAttrService];
+        
+        // The keychain access group attribute determines if this item can be shared
+        // amongst multiple apps whose code signing entitlements contain the same keychain access group.
+        if (accessGroup != nil)
+        {
+#if TARGET_IPHONE_SIMULATOR
+            // Ignore the access group if running on the iPhone simulator.
+            //
+            // Apps that are built for the simulator aren't signed, so there's no keychain access group
+            // for the simulator to check. This means that all apps can see all keychain items when run
+            // on the simulator.
+            //
+            // If a SecItem contains an access group attribute, SecItemAdd and SecItemUpdate on the
+            // simulator will return -25243 (errSecNoAccessForItem).
+#else
+            [genericPasswordQuery setObject:accessGroup forKey:(id)kSecAttrAccessGroup];
+#endif
+        }
+        
+        // Use the proper search constants, return only the attributes of the first match.
+        [genericPasswordQuery setObject:(id)kSecMatchLimitOne forKey:(id)kSecMatchLimit];
+        [genericPasswordQuery setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnAttributes];
+        
+        NSDictionary *tempQuery = [NSDictionary dictionaryWithDictionary:genericPasswordQuery];
+        
+        NSMutableDictionary *outDictionary = nil;
+        
+        if (! SecItemCopyMatching((CFDictionaryRef)tempQuery, (CFTypeRef *)&outDictionary) == noErr)
+        {
+            // Stick these default values into keychain item if nothing found.
+            [self resetKeychainItem];
+            
+            //Adding the account and service identifiers to the keychain
+            [keychainItemData setObject:account forKey:(id)kSecAttrAccount];
+            [keychainItemData setObject:service forKey:(id)kSecAttrService];
+            
+            if (accessGroup != nil)
+            {
+#if TARGET_IPHONE_SIMULATOR
+                // Ignore the access group if running on the iPhone simulator.
+                //
+                // Apps that are built for the simulator aren't signed, so there's no keychain access group
+                // for the simulator to check. This means that all apps can see all keychain items when run
+                // on the simulator.
+                //
+                // If a SecItem contains an access group attribute, SecItemAdd and SecItemUpdate on the
+                // simulator will return -25243 (errSecNoAccessForItem).
+#else
+                [keychainItemData setObject:accessGroup forKey:(id)kSecAttrAccessGroup];
+#endif
+            }
+        }
+        else
+        {
+            // load the saved data from Keychain.
+            self.keychainItemData = [self secItemFormatToDictionary:outDictionary];
+        }
+        
+        [outDictionary release];
+    }
+    
+    return self;
+}
+///----
+
+
 
 - (void)dealloc
 {

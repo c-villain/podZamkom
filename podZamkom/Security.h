@@ -12,4 +12,12 @@
 +(void)savePassword:(NSString*)password;
 +(NSString*)getPassword;
 
++(void)saveXtraPassword:(NSString*)xtraPassword;
++(NSString*)getXtraPassword;
+
++(void)saveUseOrNotPassword:(BOOL)use;
++(BOOL)getUseOrNotPassword;
+
++(void)saveDeleteorNotFilesAfterTenErrors:(BOOL)delete;
++(BOOL)getDeleteorNotFilesAfterTenErrors;
 @end
