@@ -24,9 +24,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblComment;
 @property (strong, nonatomic) IBOutlet UITextView *loginComment;
 
-
-@property (strong, nonatomic) IBOutlet UIButton *deleteLogin;
-
 @property (nonatomic, retain) IBOutlet UIButton *visibleBtn;
 - (IBAction) changeSecureTyping: (id)sender; //изменение текстового поля для пароля
 

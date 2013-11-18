@@ -6,7 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC">
             <connections>
-                <outlet property="deleteLogin" destination="Pex-Oe-oXN" id="hld-IL-aKp"/>
+                <outlet property="deleteBtn" destination="Pex-Oe-oXN" id="agw-eb-LgP"/>
                 <outlet property="lblComment" destination="zu0-TA-hNL" id="2Zf-Vc-qkf"/>
                 <outlet property="lblLogin" destination="SrS-Qh-Ocg" id="qpQ-gQ-Ye1"/>
                 <outlet property="lblPassword" destination="EL2-k6-3ft" id="4vd-Fz-5bd"/>
@@ -182,6 +182,9 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="deleteDoc:" destination="-1" eventType="touchUpInside" id="yff-98-4HR"/>
+                            </connections>
                         </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="nothingmore2us" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ctK-Ap-SR9">
                             <rect key="frame" x="13" y="234" width="200" height="30"/>

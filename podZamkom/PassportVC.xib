@@ -9,7 +9,7 @@
                 <outlet property="birthDateField" destination="th8-4p-mhW" id="JGL-f9-tdu"/>
                 <outlet property="birthPlaceField" destination="OIN-rB-bFv" id="GdF-Hq-ZeU"/>
                 <outlet property="country" destination="Nm4-56-Z8E" id="Ffz-Mc-Q8d"/>
-                <outlet property="deletePassport" destination="gXt-Kd-UJv" id="7du-ER-1fz"/>
+                <outlet property="deleteBtn" destination="gXt-Kd-UJv" id="Sgz-Hy-RGF"/>
                 <outlet property="depCodeField" destination="LZl-5P-6av" id="ejT-5R-W1p"/>
                 <outlet property="depField" destination="Ibz-oC-oY2" id="OV8-FC-lb4"/>
                 <outlet property="holderField" destination="0OF-YB-Wwg" id="Z8G-PG-xNO"/>
@@ -232,6 +232,9 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="deleteDoc:" destination="-1" eventType="touchUpInside" id="5yw-OB-6UM"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWm-WZ-oN8">
                             <rect key="frame" x="0.0" y="778" width="320" height="51"/>

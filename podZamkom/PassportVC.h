@@ -29,8 +29,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *birthDateField;
 @property (strong, nonatomic) IBOutlet UILabel *birthPlaceField;
 
-
-@property (strong, nonatomic) IBOutlet UIButton *deletePassport;
 @property (strong, nonatomic) IBOutlet UIButton *sendPassport;
 
 
