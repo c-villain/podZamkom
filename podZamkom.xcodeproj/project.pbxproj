@@ -50,6 +50,7 @@
 		5A1709C718352D7E00D01D7D /* Switzerland@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A1709B918352D7E00D01D7D /* Switzerland@2x.png */; };
 		5A1709CA1836789000D01D7D /* DBUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1709C91836789000D01D7D /* DBUpdate.m */; };
 		5A1709D018393BE100D01D7D /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1709CF18393BE100D01D7D /* SWRevealViewController.m */; };
+		5A1709D4183A838000D01D7D /* DBDelete.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1709D3183A838000D01D7D /* DBDelete.m */; };
 		5A2AFE34181F01610032A228 /* TextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2AFE33181F01610032A228 /* TextField.m */; };
 		5A2AFE41181F1E890032A228 /* photo_icon_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A2AFE40181F1E890032A228 /* photo_icon_add@2x.png */; };
 		5A3309B21833CF5700ED3609 /* CurrencyType.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3309B11833CF5700ED3609 /* CurrencyType.m */; };
@@ -265,6 +266,8 @@
 		5A1709C91836789000D01D7D /* DBUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUpdate.m; sourceTree = "<group>"; };
 		5A1709CE18393BE100D01D7D /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		5A1709CF18393BE100D01D7D /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		5A1709D2183A833E00D01D7D /* DBDelete.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBDelete.h; sourceTree = "<group>"; };
+		5A1709D3183A838000D01D7D /* DBDelete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBDelete.m; sourceTree = "<group>"; };
 		5A2AFE32181F01610032A228 /* TextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextField.h; sourceTree = "<group>"; };
 		5A2AFE33181F01610032A228 /* TextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextField.m; sourceTree = "<group>"; };
 		5A2AFE40181F1E890032A228 /* photo_icon_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "photo_icon_add@2x.png"; path = "Resources/buttons/Edit/photo_icon_add@2x.png"; sourceTree = "<group>"; };
@@ -773,6 +776,8 @@
 				5AB344471822FF740007F714 /* DBadapter.m */,
 				5A1709C81836787E00D01D7D /* DBUpdate.h */,
 				5A1709C91836789000D01D7D /* DBUpdate.m */,
+				5A1709D2183A833E00D01D7D /* DBDelete.h */,
+				5A1709D3183A838000D01D7D /* DBDelete.m */,
 			);
 			name = DB;
 			sourceTree = "<group>";
@@ -1443,6 +1448,7 @@
 				5AF633C01815CDCD00B9C540 /* NewNoteVC.m in Sources */,
 				5AB34477182302500007F714 /* DBRecrypt.m in Sources */,
 				5AC8E9BF18301050008FCAE6 /* Picker.m in Sources */,
+				5A1709D4183A838000D01D7D /* DBDelete.m in Sources */,
 				5A1709D018393BE100D01D7D /* SWRevealViewController.m in Sources */,
 				5AF445AD1804655D00E7837C /* PasswordHelpVC.m in Sources */,
 				5A3309D8183431B200ED3609 /* PassportVC.m in Sources */,

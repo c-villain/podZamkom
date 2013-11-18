@@ -2,11 +2,12 @@
 
 @interface DBadapter (DBUpdate)
 
-+(BOOL)UpdateDocument: (Document *) doc;
++(BOOL)UpdateDocument: (Document *) doc withKey:(NSString *) key;
 
--(BOOL)UpdateNote: (Note *) note;
--(BOOL)UpdateLogin: (Login *) login;
--(BOOL)UpdateCreditCard: (CreditCard*)creditCard;
--(BOOL)UpdatePassport: (Passport *)passport;
--(BOOL)UpdateBankAccount:(BankAccount *)bankAccount;
+-(BOOL)UpdateNote: (Note *) note withKey:(NSString *) key;
+-(BOOL)UpdateLogin: (Login *) login withKey:(NSString *) key;
+-(BOOL)UpdateCreditCard: (CreditCard*)creditCard withKey:(NSString *) key;
+-(BOOL)UpdatePassport: (Passport *)passport withKey:(NSString *) key;
+-(BOOL)UpdateBankAccount:(BankAccount *)bankAccount withKey:(NSString *) key;
+
 @end

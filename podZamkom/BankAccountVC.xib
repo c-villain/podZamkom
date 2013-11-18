@@ -10,6 +10,7 @@
                 <outlet property="bankAccountComment" destination="ZUI-JZ-1Gf" id="7Ls-Ew-N3z"/>
                 <outlet property="bikField" destination="A2t-dI-GEb" id="3qm-QT-5JR"/>
                 <outlet property="corNumberField" destination="aOp-up-Ph9" id="4RC-bf-Oes"/>
+                <outlet property="deleteBtn" destination="j0Z-gd-nua" id="Lgf-ac-IJZ"/>
                 <outlet property="innField" destination="Kj4-oL-VGK" id="Su7-z4-vt5"/>
                 <outlet property="kppField" destination="3DY-20-VdM" id="ItK-lQ-Kk0"/>
                 <outlet property="lblBank" destination="yGa-AL-hQh" id="RZQ-Sa-SNM"/>
@@ -201,6 +202,9 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="deleteDoc:" destination="-1" eventType="touchUpInside" id="9Da-kk-pjZ"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rld-ED-KTG">
                             <rect key="frame" x="0.0" y="602" width="320" height="51"/>

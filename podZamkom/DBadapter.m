@@ -204,28 +204,4 @@ CREATE  TABLE IF NOT EXISTS Passport (pk_passport_id INTEGER PRIMARY KEY  AUTOIN
     return documents;
 }
 
-//удаляет выбранный по id документ из базы
--(BOOL)DeleteDocFromDB:(NSString *)idDoc
-{
-    sqlite3 *database;
-    sqlite3_stmt *deleteStmt=nil;
-    if (sqlite3_open([DBpath UTF8String], &database) == SQLITE_OK)
-    {
-        if(deleteStmt == nil)
-        {
-            const char *sql = "delete from DocList where pk_doc_id = ?";
-            if(sqlite3_prepare_v2(database, sql, -1, &deleteStmt, NULL) != SQLITE_OK)
-                return NO;
-        }
-        
-        //When binding parameters, index starts from 1 and not zero.
-        sqlite3_bind_int(deleteStmt, 1, [idDoc integerValue]);
-        
-        if (SQLITE_DONE != sqlite3_step(deleteStmt))
-            return NO;
-        sqlite3_reset(deleteStmt);
-    }
-    sqlite3_close(database);
-    return YES;
-}
 @end

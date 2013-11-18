@@ -2,3 +2,5 @@
 #import "DBSave.h"
 #import "DBSelect.h"
 #import "DBUpdate.h"
+#import "DBRecrypt.h"
+#import "DBDelete.h"

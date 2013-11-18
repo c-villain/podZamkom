@@ -3,6 +3,7 @@
 
 @interface DBadapter (DBSave)
 
++(BOOL)DBSave:(Document *)doc withKey: (NSString *) key;
 +(BOOL)DBSave:(Document *)doc; //главная функция
 
 +(BOOL)SaveDocument: (Document *) doc;

@@ -15,7 +15,7 @@
                 <outlet property="cardPin" destination="98J-8R-1dq" id="hgG-Zo-ZtW"/>
                 <outlet property="cardType" destination="yPg-y0-gU5" id="X93-Fo-xCL"/>
                 <outlet property="cardValidThru" destination="ysG-Ya-52k" id="tZC-Ik-E8E"/>
-                <outlet property="deleteCard" destination="1f9-pe-Qqe" id="5x9-Jh-ZC8"/>
+                <outlet property="deleteBtn" destination="1f9-pe-Qqe" id="dz0-EO-Ker"/>
                 <outlet property="lblComment" destination="2K6-6v-Ggd" id="LLv-Bl-jbp"/>
                 <outlet property="lblCvc" destination="5nC-Tn-g8p" id="Erv-os-EqW"/>
                 <outlet property="lblPin" destination="7V9-3A-ZjU" id="yoO-cd-v6V"/>
@@ -215,6 +215,9 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="deleteDoc:" destination="-1" eventType="touchUpInside" id="9Mg-9n-Pha"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>

@@ -139,13 +139,16 @@
 - (void)DeleteAllCharacters:(PasswordVC *)controller
 {
 //    TODO!
-    //TODO! удалить все!
+    if ([DBadapter DeleteAllDocs])
+        [self showMainVC];
 }
 
 - (void)PasswordVCDidEnterXtraPasscode:(PasswordVC *)controller
 {
     //если пользователь ввел экстренный пароль:
     //TODO! удалить все!
+    if ([DBadapter DeleteAllDocs])
+        [self showMainVC];
 }
 
 - (void)revealController:(SWRevealViewController *)revealController willMoveToPosition:(FrontViewPosition)position

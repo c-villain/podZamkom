@@ -53,8 +53,22 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+-(void)showMainVC
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 //метод для переопределения каждый в своем классе:
 -(void)editBtnTapped
+{
+}
+
+- (IBAction) deleteDoc: (id)sender
+{
+    [self deleteBtnTapped];
+}
+
+-(void)deleteBtnTapped
 {
 }
 

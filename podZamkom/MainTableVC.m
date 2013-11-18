@@ -105,23 +105,18 @@
     doc = [DBadapter DBSelect:doc];
     switch (doc.docType) {
         case NoteDoc:
-//            doc = [dbAdapter GetNoteDocById:(int)doc.idDoc];
             detailVC = [[NoteVC alloc] initWithNibName:@"NoteVC" bundle:nil Note:(Note *)doc];
             break;
         case CardDoc:
-//            doc = [dbAdapter GetCreditCardDocById:(int)doc.idDoc];
             detailVC = [[CardVC alloc] initWithNibName:@"CardVC" bundle:nil Card:(CreditCard *) doc];
             break;
         case LoginDoc:
-//            doc = [dbAdapter GetLoginDocById:(int)doc.idDoc];
             detailVC = [[LoginVC alloc] initWithNibName:@"LoginVC" bundle:nil Login:(Login *) doc];
             break;
         case BankAccountDoc:
-//            doc = [dbAdapter GetBankAccountDocById:(int)doc.idDoc];
             detailVC = [[BankAccountVC alloc] initWithNibName:@"BankAccountVC" bundle:nil BankAccount:(BankAccount *) doc];
             break;
         case PassportDoc:
-//            doc = [dbAdapter GetPassportDocById:(int)doc.idDoc];
             detailVC = [[PassportVC alloc] initWithNibName:@"PassportVC" bundle:nil Passport:(Passport *)doc];
             break;
         default:

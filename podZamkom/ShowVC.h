@@ -15,4 +15,8 @@
 
 - (void)viewDidLoad: (NSString*)title;
 
+@property (nonatomic, retain) IBOutlet UIButton *deleteBtn;
+
+- (IBAction) deleteDoc: (id)sender;
+- (void)showMainVC;
 @end

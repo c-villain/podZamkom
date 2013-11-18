@@ -66,13 +66,20 @@
 
     if (![self.fieldWithPassword.text isEqualToString:[Security getPassword]])
     {
-        [Security savePassword:self.fieldWithPassword.text];
         //TODO! перешифровка бд, если пароль изменился
+        if ([DBadapter DBRecryptWithPassword:self.fieldWithPassword.text])
+            [Security savePassword:self.fieldWithPassword.text];
     }
     
     [Security saveUseOrNotPassword:self.usePassword.on];
     [Security saveDeleteorNotFilesAfterTenErrors:self.deleteFilesAfterTenErrors.on];
     [super showMainVC];
+}
+
+-(void)deleteBtnTapped
+{
+    if ([DBadapter DeleteAllDocs])
+        [super showMainVC];
 }
 
 - (void)didReceiveMemoryWarning

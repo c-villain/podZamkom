@@ -28,6 +28,10 @@
 
 - (void)viewDidLoad: (NSString*)title;
 -(void)backBtnTapped;
+
+@property (nonatomic, retain) IBOutlet UIButton *deleteBtn;
+
+- (IBAction) deleteDoc: (id)sender;
 - (void)showMainVC;
 
 -(void)showInTextField:(UITextField*)textField selectedPickerObject:(PickerObject *)selectedPickerObject; //показывает выбранную картинку из пикера в текстовом поле

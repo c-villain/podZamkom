@@ -2,12 +2,14 @@
 
 @interface DBadapter (DBSelect)
 
++(Document *) DBSelect: (Document *)doc withKey: (NSString *)key;
 +(Document *) DBSelect: (Document *)doc;
+-(Document *) SelectDocument: (Document *)doc;
 
--(Login *) GetLoginDocById: (int) idDoc;
--(Note *) GetNoteDocById: (int) idDoc;
--(CreditCard *) GetCreditCardDocById: (int) idDoc;
--(BankAccount *) GetBankAccountDocById: (int) idDoc;
--(Passport *) GetPassportDocById: (int) idDoc;
+-(Login *) GetLoginDocById: (int) idDoc withKey: (NSString *)key;
+-(Note *) GetNoteDocById: (int) idDoc withKey: (NSString *)key;
+-(CreditCard *) GetCreditCardDocById: (int) idDoc withKey: (NSString *)key;
+-(BankAccount *) GetBankAccountDocById: (int) idDoc withKey: (NSString *)key;
+-(Passport *) GetPassportDocById: (int) idDoc withKey: (NSString *)key;
 
 @end

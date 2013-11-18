@@ -10,11 +10,16 @@
 
 @implementation DBadapter (DBSave)
 
-+(BOOL)DBSave:(Document *)doc
++(BOOL)DBSave:(Document *)doc withKey: (NSString *) key
 {
     if (doc.idDoc != 0)
-        return [self UpdateDocument:doc];
+        return [self UpdateDocument:doc withKey: key];
     return [self SaveDocument:doc];
+}
+
++(BOOL)DBSave:(Document *)doc
+{
+    return [self DBSave:doc withKey:[Security getPassword]];
 }
 
 +(BOOL)SaveDocument: (Document *) doc
@@ -61,7 +66,7 @@
         {
             sqlite3_bind_int(statement, 1, docListRowId);
             
-            sqlite3_bind_text(statement, 2, [[FBEncryptorAES encryptString:note.title] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 2, [[FBEncryptorAES encryptString:note.title ] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 3, [[FBEncryptorAES encryptString:note.content] UTF8String], -1, SQLITE_TRANSIENT);
             
             if (sqlite3_step(statement) == SQLITE_DONE)

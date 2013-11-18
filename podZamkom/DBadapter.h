@@ -18,7 +18,6 @@
 }
 -(id)init;
 -(NSArray *)ReadData;
--(BOOL)DeleteDocFromDB:(NSString *)idDoc;
 
 -(NSString *)getDocumentName:(int)docId withDocType:(DocTypeEnum)docType;
 

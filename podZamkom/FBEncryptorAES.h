@@ -48,7 +48,10 @@
 + (NSString*)encryptBase64String:(NSString*)string keyString:(NSString*)keyString separateLines:(BOOL)separateLines;
 + (NSString*)decryptBase64String:(NSString*)encryptedBase64String keyString:(NSString*)keyString;
 
++ (NSString*)encryptString:(NSString*)string withKey: (NSString*)key;
 + (NSString*)encryptString:(NSString*)string;
+
++ (NSString*)decryptString:(NSString*)encryptedString withKey: (NSString *)key;
 + (NSString*)decryptString:(NSString*)encryptedString;
 //-----------------
 // API (utilities)

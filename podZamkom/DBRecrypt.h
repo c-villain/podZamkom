@@ -2,6 +2,6 @@
 
 @interface DBadapter (DBRecrypt)
 
-+(BOOL)DBRecrypt: (NSString *) oldPassword;
++(BOOL)DBRecryptWithPassword: (NSString *) password;
 
 @end

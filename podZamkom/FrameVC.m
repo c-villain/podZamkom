@@ -67,6 +67,15 @@
 {
 }
 
+- (IBAction) deleteDoc: (id)sender
+{
+    [self deleteBtnTapped];
+}
+
+//метод для переопределения удаления документа
+-(void)deleteBtnTapped
+{
+}
 -(void)showMainVC
 {
     [self.navigationController popToRootViewControllerAnimated:YES];

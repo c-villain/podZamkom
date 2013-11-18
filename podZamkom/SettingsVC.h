@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FrameVC.h"
 #import "Security.h"
+#import "DBlib.h"
 
 @interface SettingsVC : FrameVC
 

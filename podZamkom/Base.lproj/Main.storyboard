@@ -152,6 +152,9 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="deleteDoc:" destination="bkH-X3-6qN" eventType="touchUpInside" id="u5A-0s-La7"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" tag="101" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z5U-TT-diU" customClass="PasswordTextField">
                                         <rect key="frame" x="0.0" y="263" width="320" height="51"/>
@@ -380,6 +383,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="deleteBtn" destination="hZ7-GM-qFO" id="sc8-d4-Lh7"/>
                         <outlet property="deleteFilesAfterTenErrors" destination="9le-mG-AcY" id="D8i-nm-JuR"/>
                         <outlet property="fieldWithPassword" destination="0oF-Qb-dTe" id="Qm9-2E-KCX"/>
                         <outlet property="fieldWithXtraPassword" destination="z5U-TT-diU" id="JUj-Yu-X0F"/>

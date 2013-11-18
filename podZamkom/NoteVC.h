@@ -17,7 +17,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *noteTitle;
 @property (strong, nonatomic) IBOutlet UITextView *noteContent;
 
-@property (strong, nonatomic) IBOutlet UIButton *deleteNote;
 @property (strong, nonatomic) IBOutlet UIButton *sendNote;
 
 @property (strong, nonatomic) IBOutlet UILabel *lblTitle;

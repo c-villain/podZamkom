@@ -58,6 +58,12 @@
     [self.navigationController pushViewController:myController animated:YES];
 }
 
+-(void)deleteBtnTapped
+{
+    if ([DBadapter DeleteDocument:bankAccount])
+        [super showMainVC];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

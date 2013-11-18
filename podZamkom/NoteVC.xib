@@ -6,7 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoteVC">
             <connections>
-                <outlet property="deleteNote" destination="7pa-Yk-21M" id="8bK-6q-lat"/>
+                <outlet property="deleteBtn" destination="7pa-Yk-21M" id="tSQ-Tb-eqH"/>
                 <outlet property="lblNote" destination="Muv-QM-1wQ" id="dN4-jt-Lgm"/>
                 <outlet property="lblTitle" destination="LZJ-WJ-uqT" id="rpH-hb-8OD"/>
                 <outlet property="noteContent" destination="yto-d4-jcw" id="Peq-9V-zjt"/>
@@ -99,6 +99,9 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="deleteDoc:" destination="-1" eventType="touchUpInside" id="c2l-gV-HUS"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-kL-jfb">
                             <rect key="frame" x="0.0" y="445" width="320" height="51"/>
