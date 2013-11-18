@@ -204,4 +204,40 @@ CREATE  TABLE IF NOT EXISTS Passport (pk_passport_id INTEGER PRIMARY KEY  AUTOIN
     return documents;
 }
 
+-(NSArray *)ReadDocsWithType:(DocTypeEnum)docType
+{
+    [self checkAndCreateDBFile];
+    [self CreateDBTablesIfNotExists];
+    NSMutableArray *documents = [[NSMutableArray alloc] init]; //массив документов
+    sqlite3 *db;
+    sqlite3_stmt *statement;
+    NSString *querySQL = [NSString stringWithFormat: @"SELECT *from DocList WHERE doc_type =?"];
+    const char *query_stmt = [querySQL UTF8String];
+    
+    if (sqlite3_open([DBpath UTF8String], &db)==SQLITE_OK)
+    {
+        if (sqlite3_prepare_v2(db, query_stmt, -1, &statement, NULL)== SQLITE_OK)
+        {
+            sqlite3_bind_int(statement, 1, docType);
+            while (sqlite3_step(statement) == SQLITE_ROW)
+            {
+                Document *document = [Document new];
+                document.idDoc = sqlite3_column_int(statement, 0);
+                
+                document.docType = sqlite3_column_int(statement, 1);
+                
+                document.docName = [self getDocumentName:document.idDoc withDocType:document.docType];
+                
+                document.detail = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 2)];
+                
+                [self setDocImage:document withDocType:document.docType];
+                
+                [documents addObject:document];
+            }
+            sqlite3_finalize(statement);
+        }
+    }
+    sqlite3_close(db);
+    return documents;
+}
 @end

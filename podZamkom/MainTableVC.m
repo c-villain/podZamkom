@@ -41,6 +41,9 @@
     SWRevealViewController *revealController = self.revealViewController;
     [self.view addGestureRecognizer:revealController.panGestureRecognizer];
     
+    //делегируем возможность принимать системные сообщения о том, что нажата кнопка из менюшки
+    ((LeftMenuVC *)self.revealViewController.rearViewController).delegate = self;
+    
     //убираю разделители между строками таблицы, чтобы кастомизировать их в функции
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }
@@ -123,6 +126,12 @@
             break;
     }
     [self.navigationController pushViewController:detailVC animated:YES];
+}
+
+- (void)DocTypeButtonTapped:(LeftMenuVC *) controller
+{
+    documents = [dbAdapter ReadDocsWithType:controller.docType];
+    [self.tableView reloadData];
 }
 
 /*

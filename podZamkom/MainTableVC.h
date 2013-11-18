@@ -13,8 +13,9 @@
 #import "DBlib.h"
 #import "DocumentLib.h"
 #import "DocViews.h"
+#import "LeftMenuVC.h"
 
-@interface MainTableVC : UITableViewController
+@interface MainTableVC : UITableViewController <DocSortingDelegate>
 {
     NSArray *documents;
     DBadapter *dbAdapter;

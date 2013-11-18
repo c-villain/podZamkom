@@ -17,7 +17,6 @@ typedef enum {
     PasscodeActionEnter
 } PasscodeAction;
 
-
 @class PasswordVC;
 
 @protocol PasswordVCDelegate <NSObject>
