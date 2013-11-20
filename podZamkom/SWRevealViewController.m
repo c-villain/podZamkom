@@ -619,6 +619,11 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
     
     [self createNavBarButtons];
     [UIView commitAnimations];
+    
+    if ([_searchDelegate respondsToSelector:@selector(SearchStop)])
+    {
+        [_searchDelegate SearchStop];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated

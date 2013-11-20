@@ -145,9 +145,26 @@
 
 - (void)SearchDoc:(NSString *)searchText
 {
-    NSLog(@"%@", searchText);
+    documents = [dbAdapter ReadData];
+    NSMutableArray *goodDocs = [[NSMutableArray alloc] init];
+    NSMutableArray* badDocs = [NSMutableArray array];
+    
+    for (Document* doc in documents)
+    {
+        if ([[doc.docName lowercaseString] rangeOfString:searchText].location != NSNotFound)
+            [goodDocs addObject:doc];
+        else
+            [badDocs addObject:doc];
+    }
+    
+    documents = goodDocs;
+    [self.tableView reloadData];
 }
 
+- (void)SearchStop
+{
+    [self reloadData];
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

@@ -19,6 +19,7 @@
 -(id)init;
 -(NSArray *)ReadData;
 -(NSArray *)ReadDocsWithType:(DocTypeEnum)docType;
+-(NSArray *)SearchDocForString:(NSString *)searchText;
 
 -(NSString *)getDocumentName:(int)docId withDocType:(DocTypeEnum)docType;
 

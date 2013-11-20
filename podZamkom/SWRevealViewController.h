@@ -101,6 +101,7 @@ typedef enum
 //методы для сигнализирования главному окну, что кнопка из бокового меню была нажата
 //- (void)DocTypeButtonTapped:(LeftMenuVC *) controller;
 - (void)SearchDoc:(NSString *)searchText;
+- (void)SearchStop;
 @end
 
 
