@@ -8,7 +8,7 @@
 
 #import "MainTableVC.h"
 
-@interface MainTableVC () <SearchDocDelegate>
+@interface MainTableVC ()
 
 @end
 
