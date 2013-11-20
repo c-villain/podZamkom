@@ -8,7 +8,7 @@
 
 #import "MainTableVC.h"
 
-@interface MainTableVC ()
+@interface MainTableVC () <SearchDocDelegate>
 
 @end
 
@@ -29,6 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     // Uncomment the following line to preserve selection between presentations.
@@ -45,6 +46,8 @@
     //делегируем возможность принимать системные сообщения о том, что нажата кнопка из менюшки
     ((LeftMenuVC *)self.revealViewController.rearViewController).delegate = self;
     
+    //делегируем возможность принимать сообщения о том, что в search bar что-то ищут:
+    self.revealViewController.searchDelegate = self;
     //убираю разделители между строками таблицы, чтобы кастомизировать их в функции
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }
@@ -138,6 +141,11 @@
 - (void)AllDocsButtonTyped
 {
     [self reloadData];
+}
+
+- (void)SearchDoc:(NSString *)searchText
+{
+    NSLog(@"%@", searchText);
 }
 
 /*

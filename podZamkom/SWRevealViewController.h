@@ -95,7 +95,21 @@ typedef enum
 } FrontViewPosition;
 
 
-@interface SWRevealViewController : UIViewController
+@protocol SearchDocDelegate<NSObject>
+
+@optional
+//методы для сигнализирования главному окну, что кнопка из бокового меню была нажата
+//- (void)DocTypeButtonTapped:(LeftMenuVC *) controller;
+- (void)SearchDoc:(NSString *)searchText;
+@end
+
+
+@interface SWRevealViewController : UIViewController <UISearchBarDelegate>
+{
+    UISearchBar *searchBar;
+}
+
+@property (weak) id<SearchDocDelegate> searchDelegate;
 
 // Object instance init and rear view setting
 - (id)initWithRearViewController:(UIViewController *)rearViewController frontViewController:(UIViewController *)frontViewController;

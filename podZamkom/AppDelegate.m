@@ -130,6 +130,10 @@
     [[(AppDelegate*)[[UIApplication sharedApplication] delegate] window] setRootViewController:navigationController];
 }
 
+- (void)SearchDoc:(NSString *)searchText
+{
+    NSLog(@"111");
+}
 - (void)PasswordVCDidChangePasscode:(PasswordVC *)controller
 {
     //поменяли пароль

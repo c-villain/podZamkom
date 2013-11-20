@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "DocumentLib.h"
 
-@class LeftMenuVC;
-
 @protocol DocSortingDelegate<NSObject>
 
 @optional

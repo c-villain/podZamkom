@@ -545,20 +545,7 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
     //создаем подсветку навбара
     [self.view addSubview: [ViewAppearance initGlowingBoarderForNavBar]];
     
-    self.navigationItem.titleView = [ViewAppearance initViewWithGlowingTitle:@"СЕЙЧАС ПОД ЗАМКОМ"];
-    
-    //создаем кастомизированную кнопку settings:
-    UIButton *settingsBtn = [ViewAppearance initCustomButtonWithImage:@"title_bar_icon_settings.png"];
-    [settingsBtn addTarget:self action:@selector(settingsBtnTapped) forControlEvents:UIControlEventTouchUpInside]; //adding action
-    UIBarButtonItem *barButtonSettings = [[UIBarButtonItem alloc] initWithCustomView:settingsBtn];
-    self.navigationItem.rightBarButtonItem = barButtonSettings;
-    
-    //создаем кастомизированную кнопку search:
-    UIButton *searchBtn = [ViewAppearance initCustomButtonWithImage:@"title_bar_icon_search.png"];
-    [searchBtn addTarget:self action:@selector(searchBtnTapped) forControlEvents:UIControlEventTouchUpInside]; //adding action
-    UIBarButtonItem *barButtonSearch = [[UIBarButtonItem alloc] initWithCustomView:searchBtn];
-    self.navigationItem.leftBarButtonItem = barButtonSearch;
-
+    [self createNavBarButtons];
     // Apple also tells us to do this:
     _contentView.backgroundColor = [UIColor blackColor];
     
@@ -584,41 +571,54 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 -(void)searchBtnTapped
 {
+    searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 240, 44)];
+    searchBar.delegate = self;
+    searchBar.showsCancelButton = YES;
+    searchBar.barStyle = UIBarStyleBlackOpaque;
     
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0f,0.0f,320.0f,44.0f)];;
-//    searchBar.backgroundColor = [UIColor yellowColor];
-    searchBar.showsCancelButton = YES;
-    [searchBar sizeToFit];
-//    UIView *barWrapper = [[UIView alloc]initWithFrame:searchBar.bounds];
-//    [barWrapper addSubview:searchBar];
-//    self.navigationItem.titleView = barWrapper;
-    /*
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0f,0.0f,230.0f,0.0f)];
-    searchBar.showsCancelButton = YES;
-    searchBar.backgroundImage = [[UIImage alloc] init];
-    searchBar
-//    self.navigationItem.titleView = searchBar;
-//    self.navigationItem.titleView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    UIBarButtonItem *search = [[UIBarButtonItem alloc] initWithCustomView:searchBar];
-    self.navigationItem.leftBarButtonItem = search;
-//    [[UIBarButtonItem alloc] initWithCustomView:searchBar];
+    self.navigationItem.leftBarButtonItem= [[UIBarButtonItem alloc] initWithCustomView:searchBar];
+    self.navigationItem.titleView = nil;
+    self.navigationItem.rightBarButtonItem = nil;
+    //фейковая cancel кнопка
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(stopEditing)];
+    [searchBar becomeFirstResponder];
+}
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if ([_searchDelegate respondsToSelector:@selector(SearchDoc:)])
+    {
+        [_searchDelegate SearchDoc:searchText];
+    }
+}
+
+
+- (void)createNavBarButtons {
+    self.navigationItem.titleView = [ViewAppearance initViewWithGlowingTitle:@"СЕЙЧАС ПОД ЗАМКОМ"];
+    
+    //создаем кастомизированную кнопку settings:
+    UIButton *settingsBtn = [ViewAppearance initCustomButtonWithImage:@"title_bar_icon_settings.png"];
+    [settingsBtn addTarget:self action:@selector(settingsBtnTapped) forControlEvents:UIControlEventTouchUpInside]; //adding action
+    UIBarButtonItem *barButtonSettings = [[UIBarButtonItem alloc] initWithCustomView:settingsBtn];
+    self.navigationItem.rightBarButtonItem = barButtonSettings;
     
     //создаем кастомизированную кнопку search:
+    UIButton *searchBtn = [ViewAppearance initCustomButtonWithImage:@"title_bar_icon_search.png"];
+    [searchBtn addTarget:self action:@selector(searchBtnTapped) forControlEvents:UIControlEventTouchUpInside]; //adding action
+    UIBarButtonItem *barButtonSearch = [[UIBarButtonItem alloc] initWithCustomView:searchBtn];
+    self.navigationItem.leftBarButtonItem = barButtonSearch;
+}
+
+- (void)stopEditing {
     
-//    [cancelBtn addTarget:self action:@selector(searchBtnTapped) forControlEvents:UIControlEventTouchUpInside]; //adding action
-//    UIBarButtonItem *barButtonCancel= [UIBarButtonItem alloc];
-//    barButtonCancel.title = @"Отмена";
-//    barButtonCancel.action = @selector(settingsBtnTapped);
-//    self.navigationItem.rightBarButtonItem = barButtonCancel;
     
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.2];
+    self.navigationItem.leftBarButtonItem = nil;
+    [searchBar resignFirstResponder];
     
-    UISearchBar *theSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0f,0.0f,320.0f,0.0f)];
-	[theSearchBar sizeToFit];
-//    [self.navigationItem.leftBarButtonItem ]
-	self.navigationItem.titleView = theSearchBar;
-	self.navigationItem.titleView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-     */
+    [self createNavBarButtons];
+    [UIView commitAnimations];
 }
 
 - (void)viewDidAppear:(BOOL)animated

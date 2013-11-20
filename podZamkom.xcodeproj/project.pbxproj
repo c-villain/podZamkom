@@ -333,6 +333,7 @@
 		5AA46C8217FB63BC008EE800 /* Security.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Security.m; sourceTree = "<group>"; };
 		5AA4A0DB1803199400DA9B54 /* PasswordTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordTextField.h; sourceTree = "<group>"; };
 		5AA4A0DC1803199400DA9B54 /* PasswordTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordTextField.m; sourceTree = "<group>"; };
+		5AAB6442183D598A0056A2EB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5AB344461822FF740007F714 /* DBadapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBadapter.h; sourceTree = "<group>"; };
 		5AB344471822FF740007F714 /* DBadapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBadapter.m; sourceTree = "<group>"; };
 		5AB3444B182300A30007F714 /* FBEncryptorAES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBEncryptorAES.h; sourceTree = "<group>"; };
@@ -1526,6 +1527,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				5AA46C5317FB21B0008EE800 /* Base */,
+				5AAB6442183D598A0056A2EB /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
