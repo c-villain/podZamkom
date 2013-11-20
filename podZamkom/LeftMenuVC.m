@@ -84,27 +84,42 @@
     {
         case 0:
         default:
-//            self.docType =
+            if ([_delegate respondsToSelector:@selector(AllDocsButtonTyped)])
+            {
+                [_delegate AllDocsButtonTyped];
+            }
             break;
         case 1:
-            self.docType = NoteDoc;
+            if ([_delegate respondsToSelector:@selector(DocTypeButtonTapped:)])
+            {
+                [_delegate DocTypeButtonTapped:NoteDoc];
+            }
             break;
         case 2:
-            self.docType = CardDoc;
+            if ([_delegate respondsToSelector:@selector(DocTypeButtonTapped:)])
+            {
+                [_delegate DocTypeButtonTapped:CardDoc];
+            }
             break;
         case 3:
-            self.docType = PassportDoc;
+            if ([_delegate respondsToSelector:@selector(DocTypeButtonTapped:)])
+            {
+                [_delegate DocTypeButtonTapped:PassportDoc];
+            }
             break;
         case 4:
-            self.docType = BankAccountDoc;
+            if ([_delegate respondsToSelector:@selector(DocTypeButtonTapped:)])
+            {
+                [_delegate DocTypeButtonTapped:BankAccountDoc];
+            }
+
             break;
         case 5:
-            self.docType = LoginDoc;
+            if ([_delegate respondsToSelector:@selector(DocTypeButtonTapped:)])
+            {
+                [_delegate DocTypeButtonTapped:LoginDoc];
+            }
             break;
-    }
-    if ([_delegate respondsToSelector:@selector(DocTypeButtonTapped:)])
-    {
-        [_delegate DocTypeButtonTapped:self];
     }
 }
 

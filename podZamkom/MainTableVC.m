@@ -36,6 +36,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:35.0f/255.0f green:35.0f/255.0f blue:41.0f/255.0f alpha:1.0f]];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.translucent = NO;
     SWRevealViewController *revealController = self.revealViewController;
@@ -128,10 +129,15 @@
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
-- (void)DocTypeButtonTapped:(LeftMenuVC *) controller
+- (void)DocTypeButtonTapped:(DocTypeEnum) docType
 {
-    documents = [dbAdapter ReadDocsWithType:controller.docType];
+    documents = [dbAdapter ReadDocsWithType:docType];
     [self.tableView reloadData];
+}
+
+- (void)AllDocsButtonTyped
+{
+    [self reloadData];
 }
 
 /*

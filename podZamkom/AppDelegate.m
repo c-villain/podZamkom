@@ -16,7 +16,7 @@
 - (void)startApp
 {
     // Override point for customization after application launch.
-    if ([Security getUseOrNotPassword])
+    if ([Security getUseOrNotPassword] || (NO == [self isNotFirstAppRun]) )
         [self showLoginScreen];
     else
         [self showMainVC];
@@ -39,8 +39,6 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     return;
 }
-
-
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -90,6 +88,8 @@
     if (NO == [self isNotFirstAppRun] ) //если первый запуск, то показываем форму в режиме установка пароля
     {
         passwordView = [passwordView initForAction:PasscodeActionSet];
+        [Security saveUseOrNotPassword:YES]; //по умолч.: всегда спрашивать пароль при входе
+        
     }
     else // если не первый запуск, то сравниваем введенный пароль с ранее установленным
     {

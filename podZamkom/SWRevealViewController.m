@@ -584,7 +584,41 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 -(void)searchBtnTapped
 {
-    //    [self.navigationController popViewControllerAnimated:YES];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0f,0.0f,320.0f,44.0f)];;
+//    searchBar.backgroundColor = [UIColor yellowColor];
+    searchBar.showsCancelButton = YES;
+    [searchBar sizeToFit];
+//    UIView *barWrapper = [[UIView alloc]initWithFrame:searchBar.bounds];
+//    [barWrapper addSubview:searchBar];
+//    self.navigationItem.titleView = barWrapper;
+    /*
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0f,0.0f,230.0f,0.0f)];
+    searchBar.showsCancelButton = YES;
+    searchBar.backgroundImage = [[UIImage alloc] init];
+    searchBar
+//    self.navigationItem.titleView = searchBar;
+//    self.navigationItem.titleView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    UIBarButtonItem *search = [[UIBarButtonItem alloc] initWithCustomView:searchBar];
+    self.navigationItem.leftBarButtonItem = search;
+//    [[UIBarButtonItem alloc] initWithCustomView:searchBar];
+    
+    //создаем кастомизированную кнопку search:
+    
+//    [cancelBtn addTarget:self action:@selector(searchBtnTapped) forControlEvents:UIControlEventTouchUpInside]; //adding action
+//    UIBarButtonItem *barButtonCancel= [UIBarButtonItem alloc];
+//    barButtonCancel.title = @"Отмена";
+//    barButtonCancel.action = @selector(settingsBtnTapped);
+//    self.navigationItem.rightBarButtonItem = barButtonCancel;
+    
+    
+    UISearchBar *theSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0f,0.0f,320.0f,0.0f)];
+	[theSearchBar sizeToFit];
+//    [self.navigationItem.leftBarButtonItem ]
+	self.navigationItem.titleView = theSearchBar;
+	self.navigationItem.titleView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+     */
 }
 
 - (void)viewDidAppear:(BOOL)animated
