@@ -12,6 +12,9 @@
 #import "DBlib.h"
 
 @interface SettingsVC : FrameVC
+{
+    NSString *selectedLanguage;
+}
 
 @property (nonatomic, retain) IBOutlet UITextField *fieldWithPassword;
 @property (nonatomic, retain) IBOutlet UITextField *fieldWithXtraPassword;

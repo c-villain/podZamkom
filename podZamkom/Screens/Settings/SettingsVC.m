@@ -44,45 +44,36 @@
 
 -(IBAction)switchLanguage:(id)sender
 {
-    
-    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] init];
-    
+    [self highlightButtonWithLanguage:sender];
+}
+
+- (void)highlightButtonWithLanguage:(id)sender
+{
+    [self dehiglightButtonsWithLanguages];
+    UIButton* languageBtn;
     switch ([sender tag])
     {
         case 10:
-            [userDefaults setObject:@"en" forKey:@"Language"];
-            [userDefaults synchronize];
+            languageBtn = self.engSwitch;
+            selectedLanguage = @"en";
             break;
             
         case 11:
-            [userDefaults setObject:@"de" forKey:@"Language"];
-            [userDefaults synchronize];
+            languageBtn = self.deSwitch;
+            selectedLanguage = @"de";
             break;
             
         case 12:
-            [userDefaults setObject:@"fr" forKey:@"Language"];
-            [userDefaults synchronize];
+            languageBtn = self.frSwitch;
+            selectedLanguage = @"fr";
             break;
             
         case 13:
-            [userDefaults setObject:@"ru" forKey:@"Language"];
-            [userDefaults synchronize];
+            languageBtn = self.rusSwitch;
+            selectedLanguage = @"ru";
             break;
-            
-            
-            /*
-             case 14:
-             [userDefaults setObject:@"ar" forKey:@"Language"];
-             [userDefaults synchronize];
-             break;
-             
-             default:
-             [userDefaults setObject:@"he" forKey:@"Language"];
-             [userDefaults synchronize];
-             */
     }
-    [self highlightButtonWithLanguage];
-    [super showMessageBoxWithTitle:@"Язык изменен"];
+    languageBtn.backgroundColor = [UIColor colorWithRed:72.0f/255.0f green:136.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
 }
 
 - (void)highlightButtonWithLanguage
@@ -101,6 +92,7 @@
     languageBtn.backgroundColor = [UIColor colorWithRed:72.0f/255.0f green:136.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
 }
 
+
 -(void)dehiglightButtonsWithLanguages
 {
     UIColor *bg = [UIColor colorWithRed:35.0f/255.0f green:35.0f/255.0f blue:41.0f/255.0f alpha:1.0f];
@@ -109,6 +101,7 @@
     self.frSwitch.backgroundColor = bg;
     self.engSwitch.backgroundColor = bg;
 }
+
 
 - (void)viewDidLoad
 {
@@ -144,7 +137,18 @@
     
     [Security saveUseOrNotPassword:self.usePassword.on];
     [Security saveDeleteorNotFilesAfterTenErrors:self.deleteFilesAfterTenErrors.on];
+    
+    //сохраняем выбранный язык для локализации:
+    [self saveSelectedLanguage:selectedLanguage];
+    
     [super showMainVC];
+}
+
+-(void)saveSelectedLanguage:(NSString*)language
+{
+    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] init];
+    [userDefaults setObject:language forKey:@"Language"];
+    [userDefaults synchronize];
 }
 
 -(void)deleteBtnTapped
