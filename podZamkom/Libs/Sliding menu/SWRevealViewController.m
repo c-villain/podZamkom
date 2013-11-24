@@ -571,20 +571,31 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 -(void)searchBtnTapped
 {
-    searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
-    searchBar.delegate = self;
-    searchBar.showsCancelButton = YES;
-    searchBar.barStyle = UIBarStyleBlackOpaque;
+    search = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+    search.delegate = self;
+    search.showsCancelButton = YES;
+    search.barStyle = UIBarStyleBlackOpaque;
     
-    self.navigationItem.leftBarButtonItem= [[UIBarButtonItem alloc] initWithCustomView:searchBar];
+    self.navigationItem.leftBarButtonItem= [[UIBarButtonItem alloc] initWithCustomView:search];
     self.navigationItem.titleView = nil;
     self.navigationItem.rightBarButtonItem = nil;
     //фейковая cancel кнопка
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(stopEditing)];
-    [searchBar becomeFirstResponder];
+    [search becomeFirstResponder];
 }
-
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+/*
+- (BOOL)textFieldShouldReturn:(UITextField *)textField //or implement - (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [searchBar resignFirstResponder];
+    return YES;
+}
+*/
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [search resignFirstResponder];
+}
+-
+(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     if ([_searchDelegate respondsToSelector:@selector(SearchDoc:)])
     {
@@ -615,7 +626,7 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.2];
     self.navigationItem.leftBarButtonItem = nil;
-    [searchBar resignFirstResponder];
+    [search resignFirstResponder];
     
     [self createNavBarButtons];
     [UIView commitAnimations];

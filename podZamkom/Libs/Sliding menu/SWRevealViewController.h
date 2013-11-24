@@ -107,7 +107,7 @@ typedef enum
 
 @interface SWRevealViewController : UIViewController <UISearchBarDelegate>
 {
-    UISearchBar *searchBar;
+    UISearchBar *search;
 }
 
 @property (weak) id<SearchDocDelegate> searchDelegate;
