@@ -17,6 +17,7 @@
     [(TextField *)self.dateIssueField initWithMask:@"99.99.9999"];
     [(TextField *)self.birthDateField initWithMask:@"99.99.9999"];
     
+    
     //инициализируем пикер (страны):
     ((TextField *)self.countryField).picker = [Picker createPickerWithData:[Country initCountryArray] andPickerDelegate:self];
 

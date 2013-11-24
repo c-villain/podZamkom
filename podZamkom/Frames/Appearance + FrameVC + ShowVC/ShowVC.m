@@ -74,10 +74,10 @@
 
 - (IBAction) copyDoc: (id)sender
 {
-    [self copyBtnTapped];
+    [self copyBtnTapped:sender];
 }
 
--(void)copyBtnTapped
+-(void)copyBtnTapped:(id)sender
 {
 }
 
@@ -86,8 +86,8 @@
     RNBlurModalView *modal = [[RNBlurModalView alloc] initWithLogo:@"title_bar_icon_save.png" withTitle:title message:nil];
     modal.dismissButtonRight = YES;
     [modal hideCloseButton:YES];
-    [modal showWithDuration:0.4f delay:0.5 options:UIViewAnimationOptionTransitionNone completion:^{
-        [modal hideWithDuration:0.4f delay:0.3 options:UIViewAnimationOptionTransitionNone completion:nil];
+    [modal showWithDuration:0.4f delay:0.2 options:UIViewAnimationOptionTransitionNone completion:^{
+        [modal hideWithDuration:0.3f delay:0.4 options:UIViewAnimationOptionTransitionNone completion:nil];
     }];
 }
 - (void)didReceiveMemoryWarning

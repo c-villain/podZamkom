@@ -83,7 +83,7 @@
     }
 }
 
--(void)copyBtnTapped
+-(void)copyBtnTapped:(id)sender
 {
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = bankAccount.accountNumber;

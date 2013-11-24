@@ -9,7 +9,7 @@
                 <outlet property="accountNumberField" destination="b3Y-9d-Kma" id="Hg7-yk-wAj"/>
                 <outlet property="bankAccountComment" destination="ZUI-JZ-1Gf" id="7Ls-Ew-N3z"/>
                 <outlet property="bikField" destination="A2t-dI-GEb" id="3qm-QT-5JR"/>
-                <outlet property="btnCopy" destination="eU0-tZ-FAf" id="MMx-fV-Dox"/>
+                <outlet property="btnCopy" destination="eU0-tZ-FAf" id="7ZW-nP-MR0"/>
                 <outlet property="corNumberField" destination="aOp-up-Ph9" id="4RC-bf-Oes"/>
                 <outlet property="deleteBtn" destination="j0Z-gd-nua" id="Lgf-ac-IJZ"/>
                 <outlet property="innField" destination="Kj4-oL-VGK" id="Su7-z4-vt5"/>
@@ -264,7 +264,7 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="copyDoc:" destination="-1" eventType="touchUpInside" id="eDK-co-7nS"/>
+                                <action selector="copyDoc:" destination="-1" eventType="touchUpInside" id="Owc-0q-agg"/>
                             </connections>
                         </button>
                     </subviews>

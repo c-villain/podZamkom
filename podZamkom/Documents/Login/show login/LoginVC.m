@@ -84,12 +84,36 @@
     }
 }
 
--(void)copyBtnTapped
+-(void)copyBtnTapped:(id)sender
 {
-    NSString *url = self.loginUrl.text;
-    if ([[self.loginUrl.text lowercaseString] rangeOfString:@"http://"].location == NSNotFound)
-        url = [NSString stringWithFormat:@"http://%@",self.loginUrl.text];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    switch (((UIButton*)sender).tag)
+    {
+        case 100:
+        {
+            NSString *url = self.loginUrl.text;
+            if ([[self.loginUrl.text lowercaseString] rangeOfString:@"http://"].location == NSNotFound)
+                url = [NSString stringWithFormat:@"http://%@",self.loginUrl.text];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+            break;
+        }
+        case 101:
+        {
+            UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+            pasteboard.string = self.loginLogin.text;
+            [super showMessageBoxWithTitle:@"Логин скопирован"];
+            break;
+        }
+        case 102:
+        {
+            UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+            pasteboard.string = self.loginPassword.text;
+            [super showMessageBoxWithTitle:@"Пароль скопирован"];
+            break;
+        }
+        default:
+            break;
+    }
+
 }
 
 - (void)didReceiveMemoryWarning

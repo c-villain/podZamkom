@@ -82,6 +82,13 @@
     }
 }
 
+-(void)copyBtnTapped:(id)sender
+{
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = passport.number;
+    [super showMessageBoxWithTitle:@"Номер паспорта скопирован"];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

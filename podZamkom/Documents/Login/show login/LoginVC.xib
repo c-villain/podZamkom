@@ -6,7 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC">
             <connections>
-                <outlet property="btnCopy" destination="fCd-jh-fGc" id="SHx-dC-OgB"/>
+                <outlet property="btnCopy" destination="Roe-QV-9jd" id="xqN-An-XQD"/>
                 <outlet property="deleteBtn" destination="Pex-Oe-oXN" id="agw-eb-LgP"/>
                 <outlet property="lblComment" destination="zu0-TA-hNL" id="2Zf-Vc-qkf"/>
                 <outlet property="lblLogin" destination="SrS-Qh-Ocg" id="qpQ-gQ-Ye1"/>
@@ -40,7 +40,7 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCd-jh-fGc">
+                        <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCd-jh-fGc">
                             <rect key="frame" x="291" y="16" width="18" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
@@ -76,10 +76,10 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ЛОГИН" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SrS-Qh-Ocg">
-                            <rect key="frame" x="13" y="114" width="287" height="21"/>
+                            <rect key="frame" x="13" y="114" width="275" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="287" id="I53-ji-p0X"/>
+                                <constraint firstAttribute="width" constant="275" id="I53-ji-p0X"/>
                                 <constraint firstAttribute="height" constant="21" id="cr7-uB-aqg"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
@@ -106,11 +106,11 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ПАРОЛЬ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EL2-k6-3ft">
-                            <rect key="frame" x="13" y="205" width="200" height="21"/>
+                            <rect key="frame" x="13" y="205" width="179" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="goc-6X-C1U"/>
-                                <constraint firstAttribute="width" constant="200" id="mGj-eY-z9A"/>
+                                <constraint firstAttribute="width" constant="179" id="mGj-eY-z9A"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -214,6 +214,38 @@
                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                         </textField>
+                        <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Roe-QV-9jd">
+                            <rect key="frame" x="291" y="115" width="18" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="18" id="3eL-DT-2eE"/>
+                                <constraint firstAttribute="width" constant="18" id="SqW-b2-yyr"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="18" id="i9v-mc-YaD"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="yf4-sf-QsR"/>
+                            </constraints>
+                            <state key="normal" image="icon_copy_grey.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="copyDoc:" destination="-1" eventType="touchUpInside" id="ZfO-Tr-W82"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8M-Xj-aGG">
+                            <rect key="frame" x="195" y="206" width="18" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="18" id="bFj-J8-y8T"/>
+                                <constraint firstAttribute="height" constant="18" id="oKD-IY-LRk"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="oUg-UM-6za"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="18" id="vPe-Cb-CbA"/>
+                            </constraints>
+                            <state key="normal" image="icon_copy_grey.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="copyDoc:" destination="-1" eventType="touchUpInside" id="mkb-UF-kaD"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstItem="ctK-Ap-SR9" firstAttribute="top" secondItem="EL2-k6-3ft" secondAttribute="bottom" constant="8" id="1OV-Cd-HAQ"/>
@@ -225,6 +257,7 @@
                         <constraint firstItem="Pex-Oe-oXN" firstAttribute="top" secondItem="86y-J6-Udk" secondAttribute="bottom" constant="15" id="EhU-O0-jM1"/>
                         <constraint firstItem="zu0-TA-hNL" firstAttribute="top" secondItem="kvG-xO-kMX" secondAttribute="bottom" constant="15" id="FZ1-OZ-aN0"/>
                         <constraint firstItem="fCd-jh-fGc" firstAttribute="leading" secondItem="XT9-R2-5Wx" secondAttribute="trailing" constant="3" id="HqD-ac-Jr7"/>
+                        <constraint firstItem="z8M-Xj-aGG" firstAttribute="top" secondItem="8e6-9W-WCn" secondAttribute="bottom" constant="16" id="IX4-fB-dzm"/>
                         <constraint firstItem="JrH-hY-gRf" firstAttribute="top" secondItem="SrS-Qh-Ocg" secondAttribute="bottom" constant="8" id="NXV-X9-oz9"/>
                         <constraint firstItem="kvG-xO-kMX" firstAttribute="leading" secondItem="OTP-Ym-qTO" secondAttribute="leading" id="QSb-xN-TEv"/>
                         <constraint firstItem="y0m-yh-xmu" firstAttribute="top" secondItem="zu0-TA-hNL" secondAttribute="bottom" constant="15" id="S0w-LH-nam"/>
@@ -238,12 +271,15 @@
                         <constraint firstItem="SrS-Qh-Ocg" firstAttribute="top" secondItem="jFc-Uy-Ab9" secondAttribute="bottom" constant="15" id="dBa-dz-leP"/>
                         <constraint firstItem="jFc-Uy-Ab9" firstAttribute="top" secondItem="6Vy-rr-GBT" secondAttribute="bottom" constant="15" id="dSV-74-6wS"/>
                         <constraint firstAttribute="bottom" secondItem="Pex-Oe-oXN" secondAttribute="bottom" constant="25" id="ecW-fT-peS"/>
+                        <constraint firstItem="Roe-QV-9jd" firstAttribute="top" secondItem="jFc-Uy-Ab9" secondAttribute="bottom" constant="16" id="edv-dw-2Xm"/>
                         <constraint firstItem="SrS-Qh-Ocg" firstAttribute="leading" secondItem="OTP-Ym-qTO" secondAttribute="leading" constant="13" id="fEH-FJ-UGp"/>
+                        <constraint firstItem="Roe-QV-9jd" firstAttribute="leading" secondItem="SrS-Qh-Ocg" secondAttribute="trailing" constant="3" id="gPR-I4-Ac4"/>
                         <constraint firstItem="EL2-k6-3ft" firstAttribute="top" secondItem="8e6-9W-WCn" secondAttribute="bottom" constant="15" id="gtd-HW-gef"/>
                         <constraint firstItem="6Vy-rr-GBT" firstAttribute="leading" secondItem="OTP-Ym-qTO" secondAttribute="leading" constant="13" id="ih1-Tr-GuF"/>
                         <constraint firstItem="fCd-jh-fGc" firstAttribute="top" secondItem="OTP-Ym-qTO" secondAttribute="top" constant="16" id="kgn-w7-bb1"/>
                         <constraint firstItem="yBa-oI-Y4b" firstAttribute="leading" secondItem="ctK-Ap-SR9" secondAttribute="trailing" constant="8" id="lZI-uv-q9i"/>
                         <constraint firstItem="Pex-Oe-oXN" firstAttribute="leading" secondItem="OTP-Ym-qTO" secondAttribute="leading" id="nEO-A1-Zkc"/>
+                        <constraint firstItem="z8M-Xj-aGG" firstAttribute="leading" secondItem="EL2-k6-3ft" secondAttribute="trailing" constant="3" id="nQ5-7j-Ew5"/>
                         <constraint firstItem="86y-J6-Udk" firstAttribute="leading" secondItem="OTP-Ym-qTO" secondAttribute="leading" id="oEx-qW-QEz"/>
                         <constraint firstItem="86y-J6-Udk" firstAttribute="top" secondItem="y0m-yh-xmu" secondAttribute="bottom" constant="15" id="ofF-sm-H4V"/>
                         <constraint firstItem="JrH-hY-gRf" firstAttribute="leading" secondItem="OTP-Ym-qTO" secondAttribute="leading" constant="13" id="rRa-md-Ehk"/>
@@ -267,6 +303,7 @@
     <resources>
         <image name="divider_goriz.png" width="1" height="2"/>
         <image name="divider_vertic.png" width="2" height="1"/>
+        <image name="icon_copy_grey.png" width="18" height="18"/>
         <image name="icon_link_grey.png" width="18" height="18"/>
         <image name="login_screen_icon_invisible.png" width="47" height="40"/>
         <image name="login_screen_icon_visible.png" width="47" height="40"/>

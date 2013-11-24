@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="birthDateField" destination="th8-4p-mhW" id="JGL-f9-tdu"/>
                 <outlet property="birthPlaceField" destination="OIN-rB-bFv" id="GdF-Hq-ZeU"/>
+                <outlet property="btnCopy" destination="o4n-Hk-Mtl" id="30J-QV-a3I"/>
                 <outlet property="country" destination="Nm4-56-Z8E" id="Ffz-Mc-Q8d"/>
                 <outlet property="deleteBtn" destination="gXt-Kd-UJv" id="Sgz-Hy-RGF"/>
                 <outlet property="depCodeField" destination="LZl-5P-6av" id="ejT-5R-W1p"/>
@@ -182,11 +183,11 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="РОССИЙСКАЯ ФЕДЕРАЦИЯ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KqW-ek-rs9">
-                            <rect key="frame" x="20" y="25" width="280" height="21"/>
+                            <rect key="frame" x="27" y="25" width="262" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="6BJ-CF-spV"/>
-                                <constraint firstAttribute="width" constant="280" id="leE-GD-uMn"/>
+                                <constraint firstAttribute="width" constant="262" id="leE-GD-uMn"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -274,13 +275,28 @@
                             <color key="textColor" red="0.44705882349999998" green="0.50196078430000002" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4n-Hk-Mtl">
+                            <rect key="frame" x="292" y="26" width="18" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="18" id="LA6-2b-99q"/>
+                                <constraint firstAttribute="width" constant="18" id="td1-bD-bbo"/>
+                            </constraints>
+                            <state key="normal" image="icon_copy_grey.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="copyDoc:" destination="-1" eventType="touchUpInside" id="MrT-0b-DAJ"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="o4n-Hk-Mtl" firstAttribute="top" secondItem="eTY-dQ-sLY" secondAttribute="top" constant="26" id="17G-Zd-rl9"/>
                         <constraint firstItem="Nm4-56-Z8E" firstAttribute="leading" secondItem="eTY-dQ-sLY" secondAttribute="leading" constant="33" id="45g-pw-U6G"/>
                         <constraint firstItem="QmB-9D-M5a" firstAttribute="top" secondItem="46W-zH-f7G" secondAttribute="bottom" constant="15" id="5H2-Vc-0IT"/>
                         <constraint firstItem="B5m-ym-hag" firstAttribute="top" secondItem="Ibz-oC-oY2" secondAttribute="bottom" constant="15" id="6LF-v8-hqp"/>
                         <constraint firstItem="OIN-rB-bFv" firstAttribute="leading" secondItem="eTY-dQ-sLY" secondAttribute="leading" constant="13" id="8se-pG-I38"/>
-                        <constraint firstItem="KqW-ek-rs9" firstAttribute="leading" secondItem="eTY-dQ-sLY" secondAttribute="leading" constant="20" id="9Xk-60-Dkn"/>
+                        <constraint firstItem="KqW-ek-rs9" firstAttribute="leading" secondItem="eTY-dQ-sLY" secondAttribute="leading" constant="27" id="9Xk-60-Dkn"/>
                         <constraint firstItem="Ffw-fk-wss" firstAttribute="top" secondItem="OIN-rB-bFv" secondAttribute="bottom" constant="15" id="9iy-0t-MEf"/>
                         <constraint firstItem="0OF-YB-Wwg" firstAttribute="top" secondItem="EwS-x0-wkz" secondAttribute="bottom" constant="8" id="A3x-vw-apo"/>
                         <constraint firstItem="30c-4y-kdi" firstAttribute="top" secondItem="FCw-AB-Qfc" secondAttribute="bottom" constant="15" id="CFh-J0-WWA"/>
@@ -319,11 +335,12 @@
                         <constraint firstItem="Vzl-B2-O3s" firstAttribute="leading" secondItem="eTY-dQ-sLY" secondAttribute="leading" id="pNh-9T-qcY"/>
                         <constraint firstItem="Kbw-iT-Xfr" firstAttribute="top" secondItem="LZl-5P-6av" secondAttribute="bottom" constant="15" id="qII-hU-fqR"/>
                         <constraint firstItem="th8-4p-mhW" firstAttribute="top" secondItem="Zjg-Pz-R3C" secondAttribute="bottom" constant="8" id="qsu-Ls-UJt"/>
+                        <constraint firstItem="o4n-Hk-Mtl" firstAttribute="leading" secondItem="KqW-ek-rs9" secondAttribute="trailing" constant="3" id="rzE-LO-E2p"/>
                         <constraint firstItem="46W-zH-f7G" firstAttribute="leading" secondItem="eTY-dQ-sLY" secondAttribute="leading" id="sbZ-gm-744"/>
                         <constraint firstItem="EwS-x0-wkz" firstAttribute="top" secondItem="Kbw-iT-Xfr" secondAttribute="bottom" constant="15" id="snc-g5-Sth"/>
                         <constraint firstItem="xWm-WZ-oN8" firstAttribute="top" secondItem="gXt-Kd-UJv" secondAttribute="bottom" constant="8" id="tSI-I3-ZPH"/>
                         <constraint firstItem="FCw-AB-Qfc" firstAttribute="top" secondItem="th8-4p-mhW" secondAttribute="bottom" constant="15" id="xBF-Dq-VWB"/>
-                        <constraint firstAttribute="trailing" secondItem="KqW-ek-rs9" secondAttribute="trailing" constant="20" symbolic="YES" id="zDq-Hd-d8J"/>
+                        <constraint firstAttribute="trailing" secondItem="KqW-ek-rs9" secondAttribute="trailing" constant="31" id="zDq-Hd-d8J"/>
                     </constraints>
                 </scrollView>
             </subviews>
@@ -340,5 +357,6 @@
     <resources>
         <image name="Russia.png" width="128" height="128"/>
         <image name="divider_goriz.png" width="1" height="2"/>
+        <image name="icon_copy_grey.png" width="18" height="18"/>
     </resources>
 </document>

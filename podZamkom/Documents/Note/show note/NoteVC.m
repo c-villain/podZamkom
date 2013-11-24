@@ -72,7 +72,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)copyBtnTapped
+-(void)copyBtnTapped:(id)sender
 {
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = self.noteContent.text;

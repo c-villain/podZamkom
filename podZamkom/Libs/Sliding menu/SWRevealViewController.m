@@ -571,7 +571,7 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 -(void)searchBtnTapped
 {
-    searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 240, 44)];
+    searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
     searchBar.delegate = self;
     searchBar.showsCancelButton = YES;
     searchBar.barStyle = UIBarStyleBlackOpaque;
