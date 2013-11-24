@@ -311,14 +311,5 @@
     return [[NSBundle bundleWithPath:path] localizedStringForKey:(key) value: @"" table:nil];
 }
 
--(void)showMessageBoxWithTitle:(NSString*)title
-{
-    RNBlurModalView *modal = [[RNBlurModalView alloc] initWithLogo:@"title_bar_icon_save.png" withTitle:title message:nil];
-    modal.dismissButtonRight = YES;
-    [modal hideCloseButton:YES];
-    [modal showWithDuration:0.4f delay:0.2 options:UIViewAnimationOptionTransitionNone completion:^{
-        [modal hideWithDuration:0.3f delay:0.4 options:UIViewAnimationOptionTransitionNone completion:nil];
-    }];
-}
 
 @end

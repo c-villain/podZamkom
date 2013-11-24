@@ -35,7 +35,6 @@
 
 - (IBAction) deleteDoc: (id)sender;
 - (void)showMainVC;
--(void)showMessageBoxWithTitle:(NSString*)title;
 
 -(void)showInTextField:(UITextField*)textField selectedPickerObject:(PickerObject *)selectedPickerObject; //показывает выбранную картинку из пикера в текстовом поле
 -(NSString *)languageSelectedStringForKey:(NSString *) key;
