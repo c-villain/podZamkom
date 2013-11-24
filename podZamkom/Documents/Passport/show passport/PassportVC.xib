@@ -183,11 +183,11 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="РОССИЙСКАЯ ФЕДЕРАЦИЯ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KqW-ek-rs9">
-                            <rect key="frame" x="27" y="25" width="262" height="21"/>
+                            <rect key="frame" x="33" y="25" width="242" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="6BJ-CF-spV"/>
-                                <constraint firstAttribute="width" constant="262" id="leE-GD-uMn"/>
+                                <constraint firstAttribute="width" constant="242" id="leE-GD-uMn"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -276,11 +276,11 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4n-Hk-Mtl">
-                            <rect key="frame" x="292" y="26" width="18" height="18"/>
+                            <rect key="frame" x="277" y="17" width="36" height="36"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="18" id="LA6-2b-99q"/>
-                                <constraint firstAttribute="width" constant="18" id="td1-bD-bbo"/>
+                                <constraint firstAttribute="height" constant="36" id="LA6-2b-99q"/>
+                                <constraint firstAttribute="width" constant="36" id="td1-bD-bbo"/>
                             </constraints>
                             <state key="normal" image="icon_copy_grey.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -291,12 +291,12 @@
                         </button>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="o4n-Hk-Mtl" firstAttribute="top" secondItem="eTY-dQ-sLY" secondAttribute="top" constant="26" id="17G-Zd-rl9"/>
+                        <constraint firstItem="o4n-Hk-Mtl" firstAttribute="top" secondItem="eTY-dQ-sLY" secondAttribute="top" constant="17" id="17G-Zd-rl9"/>
                         <constraint firstItem="Nm4-56-Z8E" firstAttribute="leading" secondItem="eTY-dQ-sLY" secondAttribute="leading" constant="33" id="45g-pw-U6G"/>
                         <constraint firstItem="QmB-9D-M5a" firstAttribute="top" secondItem="46W-zH-f7G" secondAttribute="bottom" constant="15" id="5H2-Vc-0IT"/>
                         <constraint firstItem="B5m-ym-hag" firstAttribute="top" secondItem="Ibz-oC-oY2" secondAttribute="bottom" constant="15" id="6LF-v8-hqp"/>
                         <constraint firstItem="OIN-rB-bFv" firstAttribute="leading" secondItem="eTY-dQ-sLY" secondAttribute="leading" constant="13" id="8se-pG-I38"/>
-                        <constraint firstItem="KqW-ek-rs9" firstAttribute="leading" secondItem="eTY-dQ-sLY" secondAttribute="leading" constant="27" id="9Xk-60-Dkn"/>
+                        <constraint firstItem="KqW-ek-rs9" firstAttribute="leading" secondItem="eTY-dQ-sLY" secondAttribute="leading" constant="33" id="9Xk-60-Dkn"/>
                         <constraint firstItem="Ffw-fk-wss" firstAttribute="top" secondItem="OIN-rB-bFv" secondAttribute="bottom" constant="15" id="9iy-0t-MEf"/>
                         <constraint firstItem="0OF-YB-Wwg" firstAttribute="top" secondItem="EwS-x0-wkz" secondAttribute="bottom" constant="8" id="A3x-vw-apo"/>
                         <constraint firstItem="30c-4y-kdi" firstAttribute="top" secondItem="FCw-AB-Qfc" secondAttribute="bottom" constant="15" id="CFh-J0-WWA"/>
@@ -335,12 +335,12 @@
                         <constraint firstItem="Vzl-B2-O3s" firstAttribute="leading" secondItem="eTY-dQ-sLY" secondAttribute="leading" id="pNh-9T-qcY"/>
                         <constraint firstItem="Kbw-iT-Xfr" firstAttribute="top" secondItem="LZl-5P-6av" secondAttribute="bottom" constant="15" id="qII-hU-fqR"/>
                         <constraint firstItem="th8-4p-mhW" firstAttribute="top" secondItem="Zjg-Pz-R3C" secondAttribute="bottom" constant="8" id="qsu-Ls-UJt"/>
-                        <constraint firstItem="o4n-Hk-Mtl" firstAttribute="leading" secondItem="KqW-ek-rs9" secondAttribute="trailing" constant="3" id="rzE-LO-E2p"/>
+                        <constraint firstItem="o4n-Hk-Mtl" firstAttribute="leading" secondItem="KqW-ek-rs9" secondAttribute="trailing" constant="2" id="rzE-LO-E2p"/>
                         <constraint firstItem="46W-zH-f7G" firstAttribute="leading" secondItem="eTY-dQ-sLY" secondAttribute="leading" id="sbZ-gm-744"/>
                         <constraint firstItem="EwS-x0-wkz" firstAttribute="top" secondItem="Kbw-iT-Xfr" secondAttribute="bottom" constant="15" id="snc-g5-Sth"/>
                         <constraint firstItem="xWm-WZ-oN8" firstAttribute="top" secondItem="gXt-Kd-UJv" secondAttribute="bottom" constant="8" id="tSI-I3-ZPH"/>
                         <constraint firstItem="FCw-AB-Qfc" firstAttribute="top" secondItem="th8-4p-mhW" secondAttribute="bottom" constant="15" id="xBF-Dq-VWB"/>
-                        <constraint firstAttribute="trailing" secondItem="KqW-ek-rs9" secondAttribute="trailing" constant="31" id="zDq-Hd-d8J"/>
+                        <constraint firstAttribute="trailing" secondItem="KqW-ek-rs9" secondAttribute="trailing" constant="45" id="zDq-Hd-d8J"/>
                     </constraints>
                 </scrollView>
             </subviews>

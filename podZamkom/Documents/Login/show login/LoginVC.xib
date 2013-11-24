@@ -29,18 +29,18 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="517"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="АДРЕС САЙТА" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XT9-R2-5Wx">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="АДРЕС САЙТА" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XT9-R2-5Wx">
                             <rect key="frame" x="13" y="15" width="244" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="S3H-Yg-mKe"/>
-                                <constraint firstAttribute="width" constant="260" id="g3h-yw-IB2"/>
+                                <constraint firstAttribute="width" constant="244" id="g3h-yw-IB2"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" tag="100" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCd-jh-fGc">
+                        <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCd-jh-fGc">
                             <rect key="frame" x="273" y="8" width="36" height="36"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
@@ -259,7 +259,7 @@
                         <constraint firstItem="pds-jX-6vn" firstAttribute="leading" secondItem="ctK-Ap-SR9" secondAttribute="trailing" constant="8" id="UoI-R1-ka6"/>
                         <constraint firstItem="8e6-9W-WCn" firstAttribute="top" secondItem="JrH-hY-gRf" secondAttribute="bottom" constant="15" id="V58-MS-CD6"/>
                         <constraint firstItem="ctK-Ap-SR9" firstAttribute="baseline" secondItem="pds-jX-6vn" secondAttribute="baseline" id="VUY-hG-1d4"/>
-                        <constraint firstAttribute="trailing" secondItem="XT9-R2-5Wx" secondAttribute="trailing" constant="47" id="VhV-9K-FkQ"/>
+                        <constraint firstAttribute="trailing" secondItem="XT9-R2-5Wx" secondAttribute="trailing" constant="63" id="VhV-9K-FkQ"/>
                         <constraint firstItem="yBa-oI-Y4b" firstAttribute="top" secondItem="OTP-Ym-qTO" secondAttribute="top" constant="190" id="ZLm-hr-3RS"/>
                         <constraint firstItem="zu0-TA-hNL" firstAttribute="leading" secondItem="OTP-Ym-qTO" secondAttribute="leading" constant="13" id="axD-1Z-Eyc"/>
                         <constraint firstItem="SrS-Qh-Ocg" firstAttribute="top" secondItem="jFc-Uy-Ab9" secondAttribute="bottom" constant="15" id="dBa-dz-leP"/>
