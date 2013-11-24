@@ -12,7 +12,7 @@
                 <outlet property="lblTitle" destination="LZJ-WJ-uqT" id="rpH-hb-8OD"/>
                 <outlet property="noteContent" destination="yto-d4-jcw" id="Peq-9V-zjt"/>
                 <outlet property="noteTitle" destination="2PF-3R-jrv" id="nOH-DV-Djy"/>
-                <outlet property="sendNote" destination="Hz6-kL-jfb" id="Khd-fN-mvP"/>
+                <outlet property="sendBtn" destination="Hz6-kL-jfb" id="CJo-Ck-Xe3"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -26,11 +26,11 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="НАЗВАНИЕ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZJ-WJ-uqT">
-                            <rect key="frame" x="13" y="20" width="287" height="21"/>
+                            <rect key="frame" x="13" y="20" width="252" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="mu3-7f-ls1"/>
-                                <constraint firstAttribute="width" constant="287" id="sFB-nG-BX8"/>
+                                <constraint firstAttribute="width" constant="252" id="sFB-nG-BX8"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -117,13 +117,16 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="sendDoc:" destination="-1" eventType="touchUpInside" id="Dh5-DD-wyZ"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Am2-oK-XcK">
-                            <rect key="frame" x="282" y="22" width="18" height="18"/>
+                            <rect key="frame" x="273" y="13" width="36" height="36"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="18" id="exF-hE-Qlh"/>
-                                <constraint firstAttribute="width" constant="18" id="s8o-n0-sko"/>
+                                <constraint firstAttribute="height" constant="36" id="exF-hE-Qlh"/>
+                                <constraint firstAttribute="width" constant="36" id="s8o-n0-sko"/>
                             </constraints>
                             <state key="normal" image="icon_copy_grey.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -138,16 +141,16 @@
                         <constraint firstItem="LZJ-WJ-uqT" firstAttribute="top" secondItem="FiE-cw-N96" secondAttribute="top" constant="20" id="AEd-7u-UcY"/>
                         <constraint firstItem="AIb-3g-oNQ" firstAttribute="top" secondItem="yto-d4-jcw" secondAttribute="bottom" constant="16" id="EUN-Wa-TKd"/>
                         <constraint firstItem="AIb-3g-oNQ" firstAttribute="leading" secondItem="FiE-cw-N96" secondAttribute="leading" id="Jwy-xq-rBZ"/>
-                        <constraint firstAttribute="trailing" secondItem="LZJ-WJ-uqT" secondAttribute="trailing" constant="20" symbolic="YES" id="LHH-Hb-WjA"/>
+                        <constraint firstAttribute="trailing" secondItem="LZJ-WJ-uqT" secondAttribute="trailing" constant="55" id="LHH-Hb-WjA"/>
                         <constraint firstItem="yto-d4-jcw" firstAttribute="leading" secondItem="FiE-cw-N96" secondAttribute="leading" constant="8" id="OBL-QT-aup"/>
                         <constraint firstItem="cHy-Wo-lQ4" firstAttribute="leading" secondItem="FiE-cw-N96" secondAttribute="leading" id="PRy-Vs-GrW"/>
                         <constraint firstItem="cHy-Wo-lQ4" firstAttribute="top" secondItem="2PF-3R-jrv" secondAttribute="bottom" constant="8" id="RBJ-Hx-DUe"/>
                         <constraint firstItem="LZJ-WJ-uqT" firstAttribute="leading" secondItem="FiE-cw-N96" secondAttribute="leading" constant="13" id="TF3-vU-2NP"/>
                         <constraint firstItem="Muv-QM-1wQ" firstAttribute="leading" secondItem="FiE-cw-N96" secondAttribute="leading" constant="13" id="XEq-xs-vfR"/>
                         <constraint firstItem="Hz6-kL-jfb" firstAttribute="leading" secondItem="FiE-cw-N96" secondAttribute="leading" id="YeU-EB-eL7"/>
-                        <constraint firstItem="Am2-oK-XcK" firstAttribute="leading" secondItem="FiE-cw-N96" secondAttribute="leading" constant="282" id="aZt-KS-P0l"/>
+                        <constraint firstItem="Am2-oK-XcK" firstAttribute="leading" secondItem="FiE-cw-N96" secondAttribute="leading" constant="273" id="aZt-KS-P0l"/>
                         <constraint firstItem="yto-d4-jcw" firstAttribute="top" secondItem="Muv-QM-1wQ" secondAttribute="bottom" constant="2" id="dw0-8Z-Uli"/>
-                        <constraint firstItem="Am2-oK-XcK" firstAttribute="top" secondItem="FiE-cw-N96" secondAttribute="top" constant="22" id="i9K-tn-FM2"/>
+                        <constraint firstItem="Am2-oK-XcK" firstAttribute="top" secondItem="FiE-cw-N96" secondAttribute="top" constant="13" id="i9K-tn-FM2"/>
                         <constraint firstItem="7pa-Yk-21M" firstAttribute="top" secondItem="AIb-3g-oNQ" secondAttribute="bottom" constant="8" id="kyT-Vc-x3i"/>
                         <constraint firstItem="2PF-3R-jrv" firstAttribute="leading" secondItem="FiE-cw-N96" secondAttribute="leading" constant="13" id="ppf-6T-AKn"/>
                         <constraint firstItem="2PF-3R-jrv" firstAttribute="top" secondItem="LZJ-WJ-uqT" secondAttribute="bottom" constant="8" id="qQk-5L-W7G"/>

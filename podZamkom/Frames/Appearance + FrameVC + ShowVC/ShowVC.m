@@ -81,6 +81,50 @@
 {
 }
 
+- (IBAction) sendDoc: (id)sender
+{
+    [self sendBtnTapped];
+}
+
+-(void)sendBtnTapped
+{
+    
+}
+
+-(void)sendMessage:(NSString*)message
+{
+    if(![MFMessageComposeViewController canSendText]) {
+        UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Your device doesn't support SMS!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [warningAlert show];
+        return;
+    }
+    MFMessageComposeViewController *messageController = [[MFMessageComposeViewController alloc] init];
+    messageController.messageComposeDelegate = self;
+    [messageController setBody:message];
+    
+    [self presentViewController:messageController animated:YES completion:nil];
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult) result
+{
+    switch (result) {
+        case MessageComposeResultCancelled:
+            break;
+            
+        case MessageComposeResultFailed:
+        {
+            break;
+        }
+            
+        case MessageComposeResultSent:
+            break;
+        default:
+            break;
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 -(void)showMessageBoxWithTitle:(NSString*)title
 {
     RNBlurModalView *modal = [[RNBlurModalView alloc] initWithLogo:@"title_bar_icon_save.png" withTitle:title message:nil];
@@ -89,7 +133,9 @@
     [modal showWithDuration:0.3f delay:0.4 options:UIViewAnimationOptionTransitionNone completion:^{
         [modal hideWithDuration:0.3f delay:0.4 options:UIViewAnimationOptionTransitionNone completion:nil];
     }];
+
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

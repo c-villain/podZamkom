@@ -194,14 +194,13 @@
                                     <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBG-go-L15">
                                         <rect key="frame" x="120" y="421" width="80" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.28235294119999998" green="0.53333333329999999" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="backgroundColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="Gxr-qs-qw3"/>
                                             <constraint firstAttribute="height" constant="30" id="nS0-OH-2Uu"/>
                                         </constraints>
                                         <state key="normal" title="DEUTSCH">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="switchLanguage:" destination="bkH-X3-6qN" eventType="touchUpInside" id="fL3-bS-qeD"/>
@@ -227,9 +226,9 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QkF-ct-Tc7">
-                                        <rect key="frame" x="228" y="421" width="80" height="30"/>
+                                        <rect key="frame" x="232" y="421" width="80" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.28235294119999998" green="0.53333333329999999" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="backgroundColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="ari-Pl-nQX"/>
                                             <constraint firstAttribute="width" constant="80" id="t5I-9J-Jaa"/>
@@ -349,7 +348,7 @@
                                     <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="177-zo-Sjv">
                                         <rect key="frame" x="120" y="459" width="80" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.28235294119999998" green="0.53333333329999999" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="backgroundColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="6Cz-DO-3z8"/>
                                             <constraint firstAttribute="height" constant="30" id="zlP-wy-6wb"/>
@@ -406,7 +405,7 @@
                                     <constraint firstItem="QkF-ct-Tc7" firstAttribute="top" secondItem="FI6-UG-IXe" secondAttribute="bottom" constant="8" id="khx-Ez-nlb"/>
                                     <constraint firstItem="30I-fS-UlU" firstAttribute="top" secondItem="pjv-iz-m9y" secondAttribute="bottom" constant="15" id="pJd-0z-0QG"/>
                                     <constraint firstAttribute="trailing" secondItem="30I-fS-UlU" secondAttribute="trailing" id="pV9-yL-jWC"/>
-                                    <constraint firstItem="QkF-ct-Tc7" firstAttribute="leading" secondItem="pBG-go-L15" secondAttribute="trailing" constant="28" id="qYy-Ei-dyU"/>
+                                    <constraint firstItem="QkF-ct-Tc7" firstAttribute="leading" secondItem="pBG-go-L15" secondAttribute="trailing" constant="32" id="qYy-Ei-dyU"/>
                                     <constraint firstItem="w0e-MY-NIM" firstAttribute="leading" secondItem="9iK-Q6-ldp" secondAttribute="leading" constant="259" id="seS-Si-CCk"/>
                                     <constraint firstItem="sQI-WD-HKu" firstAttribute="leading" secondItem="9iK-Q6-ldp" secondAttribute="leading" id="t3s-Ni-pxI"/>
                                     <constraint firstItem="aNU-Ev-OKc" firstAttribute="leading" secondItem="9iK-Q6-ldp" secondAttribute="leading" constant="8" id="u4e-ke-bBW"/>

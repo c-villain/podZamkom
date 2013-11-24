@@ -223,6 +223,7 @@
 		5AC89AF2184227C800164B51 /* icon_copy_grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC89AF0184227C800164B51 /* icon_copy_grey@2x.png */; };
 		5AC89AF3184227C800164B51 /* icon_copy_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC89AF1184227C800164B51 /* icon_copy_white@2x.png */; };
 		5AC89AF51842398900164B51 /* icon_link_grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC89AF41842398900164B51 /* icon_link_grey@2x.png */; };
+		5AC89AF718429DF300164B51 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC89AF618429DF300164B51 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -506,6 +507,7 @@
 		5AC89AF0184227C800164B51 /* icon_copy_grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_copy_grey@2x.png"; sourceTree = "<group>"; };
 		5AC89AF1184227C800164B51 /* icon_copy_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_copy_white@2x.png"; sourceTree = "<group>"; };
 		5AC89AF41842398900164B51 /* icon_link_grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_link_grey@2x.png"; sourceTree = "<group>"; };
+		5AC89AF618429DF300164B51 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -513,6 +515,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AC89AF718429DF300164B51 /* MessageUI.framework in Frameworks */,
 				5AB3447C1823047E0007F714 /* libsqlite3.dylib in Frameworks */,
 				5AA46C4317FB21B0008EE800 /* CoreGraphics.framework in Frameworks */,
 				5AA46C4517FB21B0008EE800 /* UIKit.framework in Frameworks */,
@@ -555,6 +558,7 @@
 		5AA46C3F17FB21B0008EE800 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5AC89AF618429DF300164B51 /* MessageUI.framework */,
 				5AB3447B1823047E0007F714 /* libsqlite3.dylib */,
 				5AA46C4017FB21B0008EE800 /* Foundation.framework */,
 				5AA46C4217FB21B0008EE800 /* CoreGraphics.framework */,

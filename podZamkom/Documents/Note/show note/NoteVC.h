@@ -9,15 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "ShowVC.h"
 
-@interface NoteVC : ShowVC
+@interface NoteVC : ShowVC 
 {
     Note *note;
 }
 
 @property (strong, nonatomic) IBOutlet UILabel *noteTitle;
 @property (strong, nonatomic) IBOutlet UITextView *noteContent;
-
-@property (strong, nonatomic) IBOutlet UIButton *sendNote;
 
 @property (strong, nonatomic) IBOutlet UILabel *lblTitle;
 @property (strong, nonatomic) IBOutlet UILabel *lblNote;

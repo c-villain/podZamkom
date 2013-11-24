@@ -78,4 +78,10 @@
     pasteboard.string = self.noteContent.text;
     [super showMessageBoxWithTitle:@"Заметка скопирована"];
 }
+
+-(void)sendBtnTapped
+{
+    [super sendMessage:note.content];
+}
+
 @end

@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ViewAppearance.h"
+#import "ViewAppearance.h" //кастомизация в дизайне
+
 #import "DocumentLib.h"
 #import "NewDocViews.h"
-#import "RNBlurModalView.h"
 
-@interface ShowVC : UIViewController
+#import "RNBlurModalView.h" //для нотификации, что скопирован текст
+#import <MessageUI/MessageUI.h> //для функции посыла сообщения
+
+@interface ShowVC : UIViewController<MFMessageComposeViewControllerDelegate>
 
 - (void)viewDidLoad: (NSString*)title;
 
@@ -24,6 +27,11 @@
 
 - (IBAction) copyDoc: (id)sender;
 
+@property (nonatomic, nonatomic) IBOutlet UIButton *sendBtn;
+
+- (IBAction) sendDoc: (id)sender;
+
 - (void)showMainVC;
 -(void)showMessageBoxWithTitle:(NSString*)title;
+-(void)sendMessage:(NSString*)message;
 @end
