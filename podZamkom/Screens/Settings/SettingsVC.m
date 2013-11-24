@@ -79,11 +79,35 @@
              default:
              [userDefaults setObject:@"he" forKey:@"Language"];
              [userDefaults synchronize];
-             break;
              */
-            
     }
-    
+    [self highlightButtonWithLanguage];
+    [super showMessageBoxWithTitle:@"Язык изменен"];
+}
+
+- (void)highlightButtonWithLanguage
+{
+    [self dehiglightButtonsWithLanguages];
+    UIButton* languageBtn;
+    NSString *language = [[NSUserDefaults standardUserDefaults] stringForKey:@"Language"];
+    if ([language  isEqual: @"ru"])
+        languageBtn = self.rusSwitch;
+    if ([language  isEqual: @"de"])
+        languageBtn = self.deSwitch;
+    if ([language  isEqual: @"fr"])
+        languageBtn = self.frSwitch;
+    if ([language  isEqual: @"en"])
+        languageBtn = self.engSwitch;
+    languageBtn.backgroundColor = [UIColor colorWithRed:72.0f/255.0f green:136.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
+}
+
+-(void)dehiglightButtonsWithLanguages
+{
+    UIColor *bg = [UIColor colorWithRed:35.0f/255.0f green:35.0f/255.0f blue:41.0f/255.0f alpha:1.0f];
+    self.rusSwitch.backgroundColor = bg;
+    self.deSwitch.backgroundColor = bg;
+    self.frSwitch.backgroundColor = bg;
+    self.engSwitch.backgroundColor = bg;
 }
 
 - (void)viewDidLoad
@@ -99,6 +123,8 @@
     self.deleteFilesAfterTenErrors.on = [Security getDeleteorNotFilesAfterTenErrors];
     
     [self.engSwitch addTarget:self action:@selector(switchLanguage:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self highlightButtonWithLanguage];
 }
 
 -(void)saveBtnTapped
@@ -112,7 +138,6 @@
 
     if (![self.fieldWithPassword.text isEqualToString:[Security getPassword]])
     {
-        //TODO! перешифровка бд, если пароль изменился
         if ([DBadapter DBRecryptWithPassword:self.fieldWithPassword.text])
             [Security savePassword:self.fieldWithPassword.text];
     }
