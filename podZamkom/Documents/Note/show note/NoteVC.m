@@ -81,7 +81,13 @@
 
 -(void)sendBtnTapped
 {
-    [super sendMessage:note.content];
+    NSMutableString *message = [[NSMutableString alloc] init];
+    [message appendString:@"Заголовок: "];
+    [message appendString:note.title];
+    [message appendString:@"\n"];
+    [message appendString:@"заметка: "];
+    [message appendString:note.content];
+    [super sendMessage:message];
 }
 
 @end
