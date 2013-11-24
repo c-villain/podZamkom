@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardVC">
+            <connections>
+                <outlet property="btnCopy" destination="7Oe-BA-QQZ" id="23N-ax-Rd5"/>
+                <outlet property="cardBank" destination="Vmk-uV-O70" id="Qa5-Jg-8bH"/>
+                <outlet property="cardColor" destination="XG9-QG-zmU" id="NTe-7D-JHh"/>
+                <outlet property="cardComment" destination="uAD-Ig-xGO" id="GVw-KW-Lvy"/>
+                <outlet property="cardCvc" destination="xbE-0a-fnB" id="k7e-fj-Z4h"/>
+                <outlet property="cardHolder" destination="arG-nI-6fW" id="1L4-Jq-qVx"/>
+                <outlet property="cardNumber" destination="gDF-Yq-3Qp" id="Lrl-fR-ObC"/>
+                <outlet property="cardPin" destination="98J-8R-1dq" id="hgG-Zo-ZtW"/>
+                <outlet property="cardType" destination="yPg-y0-gU5" id="X93-Fo-xCL"/>
+                <outlet property="cardValidThru" destination="ysG-Ya-52k" id="tZC-Ik-E8E"/>
+                <outlet property="deleteBtn" destination="1f9-pe-Qqe" id="dz0-EO-Ker"/>
+                <outlet property="lblComment" destination="2K6-6v-Ggd" id="LLv-Bl-jbp"/>
+                <outlet property="lblCvc" destination="5nC-Tn-g8p" id="Erv-os-EqW"/>
+                <outlet property="lblPin" destination="7V9-3A-ZjU" id="yoO-cd-v6V"/>
+                <outlet property="view" destination="1" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ryy-Ei-oZj">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="523"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="XG9-QG-zmU">
+                            <rect key="frame" x="5" y="15" width="310" height="197"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="197" id="7mP-31-gY9"/>
+                                <constraint firstAttribute="width" constant="310" id="cpb-2W-Tw2"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Oe-BA-QQZ">
+                            <rect key="frame" x="282" y="26" width="18" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="3Fl-LU-Zlj"/>
+                                <constraint firstAttribute="width" constant="18" id="RqJ-j8-qsO"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="18" id="ZwA-9Y-snb"/>
+                                <constraint firstAttribute="height" constant="18" id="bnS-Os-KpT"/>
+                            </constraints>
+                            <state key="normal" image="icon_copy_white.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="copyDoc:" destination="-1" eventType="touchUpInside" id="oGv-Yh-pJ9"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VANYANTSEVA               ELENA " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="199" translatesAutoresizingMaskIntoConstraints="NO" id="arG-nI-6fW">
+                            <rect key="frame" x="20" y="148" width="199" height="42"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="199" id="9mS-aF-gLf"/>
+                                <constraint firstAttribute="height" constant="42" id="cFx-yl-FFc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/17" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysG-Ya-52k">
+                            <rect key="frame" x="118" y="129" width="54" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="WzT-W7-z8X"/>
+                                <constraint firstAttribute="width" constant="54" id="bGz-8x-hqC"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1234 5678 9012 3456" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDF-Yq-3Qp">
+                            <rect key="frame" x="20" y="86" width="275" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="275" id="N4t-vX-rPf"/>
+                                <constraint firstAttribute="height" constant="21" id="c0j-7X-gi4"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="24"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="77V-wy-iHr">
+                            <rect key="frame" x="0.0" y="227" width="320" height="2"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="El6-p5-Sbv"/>
+                                <constraint firstAttribute="width" constant="320" id="iw3-Ef-FHS"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CVC/CVV" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nC-Tn-g8p">
+                            <rect key="frame" x="20" y="244" width="85" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="7le-aP-TBL"/>
+                                <constraint firstAttribute="width" constant="85" id="S6Y-hI-J6z"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7V9-3A-ZjU">
+                            <rect key="frame" x="204" y="244" width="85" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="85" id="8Ri-Og-6G3"/>
+                                <constraint firstAttribute="height" constant="21" id="jO0-u6-ZCq"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="541" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbE-0a-fnB">
+                            <rect key="frame" x="20" y="273" width="85" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="PKl-sZ-WJm"/>
+                                <constraint firstAttribute="width" constant="85" id="jkr-3W-0Fy"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="21"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1234" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98J-8R-1dq">
+                            <rect key="frame" x="204" y="273" width="85" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="85" id="GZn-rL-9IT"/>
+                                <constraint firstAttribute="height" constant="21" id="Ywx-Xd-OVp"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="21"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rse-RF-iRH">
+                            <rect key="frame" x="0.0" y="309" width="320" height="2"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="a8z-R5-zon"/>
+                                <constraint firstAttribute="width" constant="320" id="cbE-1J-a1k"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_vertic.png" translatesAutoresizingMaskIntoConstraints="NO" id="9sj-Ez-0dG">
+                            <rect key="frame" x="159" y="230" width="2" height="79"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="2" id="Muh-Cj-uIZ"/>
+                                <constraint firstAttribute="height" constant="79" id="ecx-1X-yw7"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="СБЕРБАНК" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vmk-uV-O70">
+                            <rect key="frame" x="20" y="33" width="289" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="289" id="REU-Bg-QBn"/>
+                                <constraint firstAttribute="height" constant="21" id="TsM-EJ-tr8"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mastercard.png" translatesAutoresizingMaskIntoConstraints="NO" id="yPg-y0-gU5">
+                            <rect key="frame" x="227" y="148" width="70" height="42"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="70" id="e84-oT-4OM"/>
+                                <constraint firstAttribute="height" constant="42" id="rHo-4V-wLn"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VALID THRU" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFf-9V-UWG">
+                            <rect key="frame" x="20" y="129" width="90" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="OYf-gT-5ku"/>
+                                <constraint firstAttribute="width" constant="90" id="vr2-zw-33r"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="КОММЕНТАРИЙ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2K6-6v-Ggd">
+                            <rect key="frame" x="20" y="327" width="277" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="0xV-43-tQa"/>
+                                <constraint firstAttribute="width" constant="277" id="2LH-rf-esT"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAD-Ig-xGO">
+                            <rect key="frame" x="14" y="356" width="301" height="59"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="301" id="kG3-Ht-eUF"/>
+                                <constraint firstAttribute="height" constant="59" id="o7g-uN-OlK"/>
+                            </constraints>
+                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                            <color key="textColor" red="0.44705882349999998" green="0.50196078430000002" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="EFQ-Jk-fqd">
+                            <rect key="frame" x="0.0" y="430" width="320" height="2"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="0N8-ju-ejU"/>
+                                <constraint firstAttribute="width" constant="320" id="lWG-gl-4OI"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1f9-pe-Qqe">
+                            <rect key="frame" x="0.0" y="447" width="320" height="51"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.97254901959999995" green="0.18823529410000001" blue="0.2784313725" alpha="1" colorSpace="deviceRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="320" id="ETW-qt-nGa"/>
+                                <constraint firstAttribute="height" constant="51" id="Yu7-U7-dJ1"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
+                            <state key="normal" title="УДАЛИТЬ КАРТУ">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="deleteDoc:" destination="-1" eventType="touchUpInside" id="9Mg-9n-Pha"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="77V-wy-iHr" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" id="2KN-ou-m9u"/>
+                        <constraint firstItem="arG-nI-6fW" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" constant="20" id="2lT-8e-ige"/>
+                        <constraint firstItem="2K6-6v-Ggd" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" constant="20" id="4IX-SX-tcm"/>
+                        <constraint firstItem="2K6-6v-Ggd" firstAttribute="top" secondItem="Rse-RF-iRH" secondAttribute="bottom" constant="16" id="4IY-Go-2AD"/>
+                        <constraint firstItem="yPg-y0-gU5" firstAttribute="leading" secondItem="arG-nI-6fW" secondAttribute="trailing" constant="8" id="5Dc-cj-qQJ"/>
+                        <constraint firstAttribute="bottom" secondItem="1f9-pe-Qqe" secondAttribute="bottom" constant="25" id="5WI-LL-Wnp"/>
+                        <constraint firstItem="EFQ-Jk-fqd" firstAttribute="top" secondItem="uAD-Ig-xGO" secondAttribute="bottom" constant="15" id="83w-CO-0XQ"/>
+                        <constraint firstItem="uAD-Ig-xGO" firstAttribute="top" secondItem="2K6-6v-Ggd" secondAttribute="bottom" constant="8" id="8Pu-44-8t2"/>
+                        <constraint firstItem="yPg-y0-gU5" firstAttribute="top" secondItem="gDF-Yq-3Qp" secondAttribute="bottom" constant="41" id="8jh-le-OXJ"/>
+                        <constraint firstItem="Vmk-uV-O70" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" constant="20" id="BuS-2H-P2N"/>
+                        <constraint firstItem="9sj-Ez-0dG" firstAttribute="top" secondItem="Ryy-Ei-oZj" secondAttribute="top" constant="230" id="D0i-C8-WJ0"/>
+                        <constraint firstItem="9sj-Ez-0dG" firstAttribute="leading" secondItem="xbE-0a-fnB" secondAttribute="trailing" constant="54" id="Edx-8I-ucK"/>
+                        <constraint firstItem="arG-nI-6fW" firstAttribute="top" secondItem="gDF-Yq-3Qp" secondAttribute="bottom" constant="41" id="F1z-JX-zBR"/>
+                        <constraint firstItem="5nC-Tn-g8p" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" constant="20" id="FdB-SQ-Bd1"/>
+                        <constraint firstItem="ysG-Ya-52k" firstAttribute="top" secondItem="gDF-Yq-3Qp" secondAttribute="bottom" constant="22" id="HIW-kX-9dp"/>
+                        <constraint firstItem="7V9-3A-ZjU" firstAttribute="top" secondItem="77V-wy-iHr" secondAttribute="bottom" constant="15" id="I6l-L4-0Q6"/>
+                        <constraint firstItem="gDF-Yq-3Qp" firstAttribute="top" secondItem="Vmk-uV-O70" secondAttribute="bottom" constant="32" id="KmO-fY-WvU"/>
+                        <constraint firstItem="1f9-pe-Qqe" firstAttribute="top" secondItem="EFQ-Jk-fqd" secondAttribute="bottom" constant="15" id="M7h-dC-Y3z"/>
+                        <constraint firstAttribute="trailing" secondItem="77V-wy-iHr" secondAttribute="trailing" id="Pfa-Km-sIx"/>
+                        <constraint firstItem="7V9-3A-ZjU" firstAttribute="leading" secondItem="9sj-Ez-0dG" secondAttribute="trailing" constant="43" id="RH4-14-cYS"/>
+                        <constraint firstItem="98J-8R-1dq" firstAttribute="leading" secondItem="9sj-Ez-0dG" secondAttribute="trailing" constant="43" id="Rmp-Ff-zOM"/>
+                        <constraint firstItem="1f9-pe-Qqe" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" id="SiL-92-aul"/>
+                        <constraint firstItem="5nC-Tn-g8p" firstAttribute="top" secondItem="77V-wy-iHr" secondAttribute="bottom" constant="15" id="SyT-ea-wDS"/>
+                        <constraint firstItem="EFQ-Jk-fqd" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" id="UiU-el-VQh"/>
+                        <constraint firstItem="77V-wy-iHr" firstAttribute="top" secondItem="XG9-QG-zmU" secondAttribute="bottom" constant="15" id="Ynb-cl-toG"/>
+                        <constraint firstItem="xbE-0a-fnB" firstAttribute="top" secondItem="5nC-Tn-g8p" secondAttribute="bottom" constant="8" id="Yq8-KP-Z2g"/>
+                        <constraint firstItem="xbE-0a-fnB" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" constant="20" id="ZVO-kH-KCW"/>
+                        <constraint firstItem="XG9-QG-zmU" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" constant="5" id="bpm-fv-tr7"/>
+                        <constraint firstItem="gDF-Yq-3Qp" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" constant="20" id="dbn-BL-jjC"/>
+                        <constraint firstItem="YFf-9V-UWG" firstAttribute="top" secondItem="gDF-Yq-3Qp" secondAttribute="bottom" constant="22" id="dxW-lH-y6r"/>
+                        <constraint firstItem="Rse-RF-iRH" firstAttribute="top" secondItem="98J-8R-1dq" secondAttribute="bottom" constant="15" id="e17-6l-mQ5"/>
+                        <constraint firstItem="7Oe-BA-QQZ" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" constant="282" id="eU5-4u-TZ7"/>
+                        <constraint firstItem="7Oe-BA-QQZ" firstAttribute="top" secondItem="Ryy-Ei-oZj" secondAttribute="top" constant="26" id="hNd-M1-UeG"/>
+                        <constraint firstItem="uAD-Ig-xGO" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" constant="14" id="jW5-W4-ofe"/>
+                        <constraint firstItem="ysG-Ya-52k" firstAttribute="leading" secondItem="YFf-9V-UWG" secondAttribute="trailing" constant="8" id="k4n-zO-lH6"/>
+                        <constraint firstItem="YFf-9V-UWG" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" constant="20" id="l9H-v8-fIQ"/>
+                        <constraint firstItem="98J-8R-1dq" firstAttribute="top" secondItem="7V9-3A-ZjU" secondAttribute="bottom" constant="8" id="oTs-Wa-2ZX"/>
+                        <constraint firstItem="Rse-RF-iRH" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" id="pzK-FR-Tht"/>
+                        <constraint firstItem="Vmk-uV-O70" firstAttribute="top" secondItem="Ryy-Ei-oZj" secondAttribute="top" constant="33" id="sXs-jD-qkB"/>
+                        <constraint firstItem="XG9-QG-zmU" firstAttribute="top" secondItem="Ryy-Ei-oZj" secondAttribute="top" constant="15" id="xoc-9A-M4d"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Ryy-Ei-oZj" secondAttribute="trailing" id="Hpz-xV-QJT"/>
+                <constraint firstItem="Ryy-Ei-oZj" firstAttribute="top" secondItem="1" secondAttribute="top" id="Ity-XY-SeP"/>
+                <constraint firstAttribute="bottom" secondItem="Ryy-Ei-oZj" secondAttribute="bottom" constant="-19" id="dDs-xm-5qz"/>
+                <constraint firstItem="Ryy-Ei-oZj" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="mbz-pT-gKm"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="card_blue.png" width="310" height="197"/>
+        <image name="divider_goriz.png" width="1" height="2"/>
+        <image name="divider_vertic.png" width="2" height="1"/>
+        <image name="icon_copy_white.png" width="18" height="18"/>
+        <image name="mastercard.png" width="70" height="42"/>
+    </resources>
+</document>

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC">
+            <connections>
+                <outlet property="btnCopy" destination="fCd-jh-fGc" id="SHx-dC-OgB"/>
+                <outlet property="deleteBtn" destination="Pex-Oe-oXN" id="agw-eb-LgP"/>
+                <outlet property="lblComment" destination="zu0-TA-hNL" id="2Zf-Vc-qkf"/>
+                <outlet property="lblLogin" destination="SrS-Qh-Ocg" id="qpQ-gQ-Ye1"/>
+                <outlet property="lblPassword" destination="EL2-k6-3ft" id="4vd-Fz-5bd"/>
+                <outlet property="lblUrl" destination="XT9-R2-5Wx" id="ahr-37-4vR"/>
+                <outlet property="loginComment" destination="y0m-yh-xmu" id="Tje-r7-apV"/>
+                <outlet property="loginLogin" destination="JrH-hY-gRf" id="gNc-4O-mz6"/>
+                <outlet property="loginPassword" destination="ctK-Ap-SR9" id="mZR-Jb-uba"/>
+                <outlet property="loginUrl" destination="6Vy-rr-GBT" id="ijT-LE-CKH"/>
+                <outlet property="view" destination="1" id="3"/>
+                <outlet property="visibleBtn" destination="pds-jX-6vn" id="zn3-yd-i3V"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OTP-Ym-qTO">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="517"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="АДРЕС САЙТА" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XT9-R2-5Wx">
+                            <rect key="frame" x="13" y="15" width="275" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="S3H-Yg-mKe"/>
+                                <constraint firstAttribute="width" constant="275" id="g3h-yw-IB2"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCd-jh-fGc">
+                            <rect key="frame" x="291" y="16" width="18" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="18" id="W3W-01-VhA"/>
+                                <constraint firstAttribute="width" constant="18" id="YHb-8C-YiP"/>
+                                <constraint firstAttribute="height" constant="18" id="c9J-SD-vom"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="m4c-Ga-Uez"/>
+                            </constraints>
+                            <state key="normal" image="icon_link_grey.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="copyDoc:" destination="-1" eventType="touchUpInside" id="pnk-PQ-7yk"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123456789012345678901234567890" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Vy-rr-GBT">
+                            <rect key="frame" x="13" y="44" width="287" height="38"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="287" id="HQe-sJ-THS"/>
+                                <constraint firstAttribute="height" constant="38" id="Qff-Nz-W6R"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="19"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="jFc-Uy-Ab9">
+                            <rect key="frame" x="0.0" y="97" width="320" height="2"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="320" id="L9d-yt-iTi"/>
+                                <constraint firstAttribute="height" constant="2" id="kIN-fI-epA"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ЛОГИН" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SrS-Qh-Ocg">
+                            <rect key="frame" x="13" y="114" width="287" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="287" id="I53-ji-p0X"/>
+                                <constraint firstAttribute="height" constant="21" id="cr7-uB-aqg"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123456789012345678901234567890" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JrH-hY-gRf">
+                            <rect key="frame" x="13" y="143" width="287" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="5W8-he-THH"/>
+                                <constraint firstAttribute="width" constant="287" id="Bch-1w-E2D"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="19"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="8e6-9W-WCn">
+                            <rect key="frame" x="0.0" y="188" width="320" height="2"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="Fwz-Sp-Wbm"/>
+                                <constraint firstAttribute="width" constant="320" id="xRA-vY-4MR"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ПАРОЛЬ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EL2-k6-3ft">
+                            <rect key="frame" x="13" y="205" width="200" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="goc-6X-C1U"/>
+                                <constraint firstAttribute="width" constant="200" id="mGj-eY-z9A"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="kvG-xO-kMX">
+                            <rect key="frame" x="0.0" y="279" width="320" height="2"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="ZCa-NU-eKS"/>
+                                <constraint firstAttribute="width" constant="320" id="zre-K7-R4t"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_vertic.png" translatesAutoresizingMaskIntoConstraints="NO" id="yBa-oI-Y4b">
+                            <rect key="frame" x="221" y="190" width="2" height="89"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="89" id="QCx-jc-sOL"/>
+                                <constraint firstAttribute="width" constant="2" id="TDK-PK-0da"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pds-jX-6vn" userLabel="Button - visibleBtn">
+                            <rect key="frame" x="221" y="190" width="99" height="89"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="89" id="4iX-sD-7TR"/>
+                                <constraint firstAttribute="width" constant="99" id="Qbl-j3-K8G"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <state key="normal" image="login_screen_icon_invisible.png">
+                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" image="login_screen_icon_visible.png">
+                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted">
+                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="changeSecureTyping:" destination="-1" eventType="touchUpInside" id="sjN-dK-eAt"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="КОММЕНТАРИЙ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zu0-TA-hNL">
+                            <rect key="frame" x="13" y="296" width="287" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="287" id="PgS-xg-XCD"/>
+                                <constraint firstAttribute="height" constant="21" id="nhq-cy-X6s"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0m-yh-xmu">
+                            <rect key="frame" x="13" y="332" width="301" height="77"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="301" id="0eG-ZZ-wny"/>
+                                <constraint firstAttribute="height" constant="77" id="soV-he-BON"/>
+                            </constraints>
+                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                            <color key="textColor" red="0.44705882349999998" green="0.50196078430000002" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="86y-J6-Udk">
+                            <rect key="frame" x="0.0" y="424" width="320" height="2"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="320" id="Tyy-rw-cXd"/>
+                                <constraint firstAttribute="height" constant="2" id="W21-7H-D3I"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pex-Oe-oXN">
+                            <rect key="frame" x="0.0" y="441" width="320" height="51"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.97254901959999995" green="0.18823529410000001" blue="0.2784313725" alpha="1" colorSpace="deviceRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="320" id="BJc-JS-tvN"/>
+                                <constraint firstAttribute="height" constant="51" id="svl-I7-0MG"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
+                            <state key="normal" title="УДАЛИТЬ ДАННЫЕ">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="deleteDoc:" destination="-1" eventType="touchUpInside" id="yff-98-4HR"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="nothingmore2us" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ctK-Ap-SR9">
+                            <rect key="frame" x="13" y="234" width="200" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="3La-nV-quX"/>
+                                <constraint firstAttribute="width" constant="200" id="WJt-Z3-fuJ"/>
+                            </constraints>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="ctK-Ap-SR9" firstAttribute="top" secondItem="EL2-k6-3ft" secondAttribute="bottom" constant="8" id="1OV-Cd-HAQ"/>
+                        <constraint firstItem="ctK-Ap-SR9" firstAttribute="leading" secondItem="OTP-Ym-qTO" secondAttribute="leading" constant="13" id="2sg-Nx-Fkv"/>
+                        <constraint firstItem="EL2-k6-3ft" firstAttribute="leading" secondItem="OTP-Ym-qTO" secondAttribute="leading" constant="13" id="8xu-ee-2Le"/>
+                        <constraint firstItem="XT9-R2-5Wx" firstAttribute="top" secondItem="OTP-Ym-qTO" secondAttribute="top" constant="15" id="DJq-Qn-DnW"/>
+                        <constraint firstItem="kvG-xO-kMX" firstAttribute="top" secondItem="pds-jX-6vn" secondAttribute="bottom" id="Dst-in-nxF"/>
+                        <constraint firstItem="8e6-9W-WCn" firstAttribute="leading" secondItem="OTP-Ym-qTO" secondAttribute="leading" id="EOB-Jg-y8j"/>
+                        <constraint firstItem="Pex-Oe-oXN" firstAttribute="top" secondItem="86y-J6-Udk" secondAttribute="bottom" constant="15" id="EhU-O0-jM1"/>
+                        <constraint firstItem="zu0-TA-hNL" firstAttribute="top" secondItem="kvG-xO-kMX" secondAttribute="bottom" constant="15" id="FZ1-OZ-aN0"/>
+                        <constraint firstItem="fCd-jh-fGc" firstAttribute="leading" secondItem="XT9-R2-5Wx" secondAttribute="trailing" constant="3" id="HqD-ac-Jr7"/>
+                        <constraint firstItem="JrH-hY-gRf" firstAttribute="top" secondItem="SrS-Qh-Ocg" secondAttribute="bottom" constant="8" id="NXV-X9-oz9"/>
+                        <constraint firstItem="kvG-xO-kMX" firstAttribute="leading" secondItem="OTP-Ym-qTO" secondAttribute="leading" id="QSb-xN-TEv"/>
+                        <constraint firstItem="y0m-yh-xmu" firstAttribute="top" secondItem="zu0-TA-hNL" secondAttribute="bottom" constant="15" id="S0w-LH-nam"/>
+                        <constraint firstItem="6Vy-rr-GBT" firstAttribute="top" secondItem="XT9-R2-5Wx" secondAttribute="bottom" constant="8" id="SOE-rd-aPz"/>
+                        <constraint firstItem="pds-jX-6vn" firstAttribute="leading" secondItem="ctK-Ap-SR9" secondAttribute="trailing" constant="8" id="UoI-R1-ka6"/>
+                        <constraint firstItem="8e6-9W-WCn" firstAttribute="top" secondItem="JrH-hY-gRf" secondAttribute="bottom" constant="15" id="V58-MS-CD6"/>
+                        <constraint firstItem="ctK-Ap-SR9" firstAttribute="baseline" secondItem="pds-jX-6vn" secondAttribute="baseline" id="VUY-hG-1d4"/>
+                        <constraint firstAttribute="trailing" secondItem="XT9-R2-5Wx" secondAttribute="trailing" constant="32" id="VhV-9K-FkQ"/>
+                        <constraint firstItem="yBa-oI-Y4b" firstAttribute="top" secondItem="OTP-Ym-qTO" secondAttribute="top" constant="190" id="ZLm-hr-3RS"/>
+                        <constraint firstItem="zu0-TA-hNL" firstAttribute="leading" secondItem="OTP-Ym-qTO" secondAttribute="leading" constant="13" id="axD-1Z-Eyc"/>
+                        <constraint firstItem="SrS-Qh-Ocg" firstAttribute="top" secondItem="jFc-Uy-Ab9" secondAttribute="bottom" constant="15" id="dBa-dz-leP"/>
+                        <constraint firstItem="jFc-Uy-Ab9" firstAttribute="top" secondItem="6Vy-rr-GBT" secondAttribute="bottom" constant="15" id="dSV-74-6wS"/>
+                        <constraint firstAttribute="bottom" secondItem="Pex-Oe-oXN" secondAttribute="bottom" constant="25" id="ecW-fT-peS"/>
+                        <constraint firstItem="SrS-Qh-Ocg" firstAttribute="leading" secondItem="OTP-Ym-qTO" secondAttribute="leading" constant="13" id="fEH-FJ-UGp"/>
+                        <constraint firstItem="EL2-k6-3ft" firstAttribute="top" secondItem="8e6-9W-WCn" secondAttribute="bottom" constant="15" id="gtd-HW-gef"/>
+                        <constraint firstItem="6Vy-rr-GBT" firstAttribute="leading" secondItem="OTP-Ym-qTO" secondAttribute="leading" constant="13" id="ih1-Tr-GuF"/>
+                        <constraint firstItem="fCd-jh-fGc" firstAttribute="top" secondItem="OTP-Ym-qTO" secondAttribute="top" constant="16" id="kgn-w7-bb1"/>
+                        <constraint firstItem="yBa-oI-Y4b" firstAttribute="leading" secondItem="ctK-Ap-SR9" secondAttribute="trailing" constant="8" id="lZI-uv-q9i"/>
+                        <constraint firstItem="Pex-Oe-oXN" firstAttribute="leading" secondItem="OTP-Ym-qTO" secondAttribute="leading" id="nEO-A1-Zkc"/>
+                        <constraint firstItem="86y-J6-Udk" firstAttribute="leading" secondItem="OTP-Ym-qTO" secondAttribute="leading" id="oEx-qW-QEz"/>
+                        <constraint firstItem="86y-J6-Udk" firstAttribute="top" secondItem="y0m-yh-xmu" secondAttribute="bottom" constant="15" id="ofF-sm-H4V"/>
+                        <constraint firstItem="JrH-hY-gRf" firstAttribute="leading" secondItem="OTP-Ym-qTO" secondAttribute="leading" constant="13" id="rRa-md-Ehk"/>
+                        <constraint firstItem="y0m-yh-xmu" firstAttribute="leading" secondItem="OTP-Ym-qTO" secondAttribute="leading" constant="13" id="uSR-gI-iMJ"/>
+                        <constraint firstItem="jFc-Uy-Ab9" firstAttribute="leading" secondItem="OTP-Ym-qTO" secondAttribute="leading" id="x8t-D9-ub8"/>
+                        <constraint firstItem="XT9-R2-5Wx" firstAttribute="leading" secondItem="OTP-Ym-qTO" secondAttribute="leading" constant="13" id="xNL-bd-bPA"/>
+                        <constraint firstItem="pds-jX-6vn" firstAttribute="top" secondItem="8e6-9W-WCn" secondAttribute="bottom" id="zcd-u7-ZOb"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="OTP-Ym-qTO" firstAttribute="top" secondItem="1" secondAttribute="top" id="Gak-zr-WEN"/>
+                <constraint firstAttribute="trailing" secondItem="OTP-Ym-qTO" secondAttribute="trailing" id="HaQ-WP-jp5"/>
+                <constraint firstItem="OTP-Ym-qTO" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="KZf-kf-Les"/>
+                <constraint firstAttribute="bottom" secondItem="OTP-Ym-qTO" secondAttribute="bottom" constant="-13" id="lit-w3-6vE"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="divider_goriz.png" width="1" height="2"/>
+        <image name="divider_vertic.png" width="2" height="1"/>
+        <image name="icon_link_grey.png" width="18" height="18"/>
+        <image name="login_screen_icon_invisible.png" width="47" height="40"/>
+        <image name="login_screen_icon_visible.png" width="47" height="40"/>
+    </resources>
+</document>
