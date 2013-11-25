@@ -97,4 +97,35 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)sendBtnTapped
+{
+    NSMutableString *message = [[NSMutableString alloc] init];
+
+    [message appendString:@"Банк: "];
+    [message appendString:bankAccount.bank];
+    [message appendString:@"\n"];
+    [message appendString:@"№ счета: "];
+    [message appendString:bankAccount.accountNumber];
+    [message appendString:@"\n"];
+    [message appendString:@"Валюта счета: "];
+    [message appendString:[CurrencyType getCurrencyByType:bankAccount.curType].name];
+    [message appendString:@"\n"];
+    [message appendString:@"БИК: "];
+    [message appendString:bankAccount.bik];
+    [message appendString:@"\n"];
+    [message appendString:@"ИНН: "];
+    [message appendString:bankAccount.inn];
+    [message appendString:@"\n"];
+    [message appendString:@"КПП: "];
+    [message appendString:bankAccount.kpp];
+    [message appendString:@"\n"];
+    [message appendString:@"Кор. счет: "];
+    [message appendString:bankAccount.corNumber];
+    [message appendString:@"\n"];
+    [message appendString:@"Комментарий: "];
+    [message appendString:bankAccount.comments];
+    
+    [super sendMessage:message];
+}
+
 @end

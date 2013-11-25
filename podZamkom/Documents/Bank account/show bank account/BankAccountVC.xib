@@ -20,6 +20,7 @@
                 <outlet property="lblCorNumber" destination="ARK-FL-mgu" id="Ifa-K7-Tr5"/>
                 <outlet property="lblInn" destination="C4d-D3-OxT" id="Klj-1U-trk"/>
                 <outlet property="lblKpp" destination="SpD-N5-Qiu" id="0xP-YD-0Dy"/>
+                <outlet property="sendBtn" destination="rld-ED-KTG" id="sVp-0Z-Ob3"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -220,6 +221,9 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="sendDoc:" destination="-1" eventType="touchUpInside" id="yBU-Tf-Cgy"/>
+                            </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider_goriz.png" translatesAutoresizingMaskIntoConstraints="NO" id="CqM-dt-X6o">
                             <rect key="frame" x="0.0" y="408" width="320" height="2"/>

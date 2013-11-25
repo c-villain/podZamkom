@@ -27,9 +27,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblComment;
 @property (strong, nonatomic) IBOutlet UITextView *bankAccountComment;
 
-@property (strong, nonatomic) IBOutlet UIButton *sendBankAccount;
-
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil BankAccount:(BankAccount*) bankAccountDoc;
 
 @end

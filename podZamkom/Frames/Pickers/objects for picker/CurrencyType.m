@@ -91,7 +91,7 @@
 +(CurrencyType *)getCurrencyByType: (CurrencyTypeEnum) type
 {
     NSArray *array = [CurrencyType initCurrencyTypeArray];
-    int counter=[array count];
+    int counter = [array count];
     CurrencyType* curType = [CurrencyType new];
     for(int i=0;i<counter;i++)
     {
