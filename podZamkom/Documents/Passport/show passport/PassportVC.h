@@ -29,9 +29,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *birthDateField;
 @property (strong, nonatomic) IBOutlet UILabel *birthPlaceField;
 
-@property (strong, nonatomic) IBOutlet UIButton *sendPassport;
-
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil Passport: (Passport*) passportDoc;
 
 @end

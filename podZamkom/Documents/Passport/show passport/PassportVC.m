@@ -42,7 +42,6 @@
     self.depField.text = passport.department;
     self.depCodeField.text = passport.departmentCode;
     self.issueDateField.text = passport.issueDate;
-    self.depCodeField.text = passport.departmentCode;
     self.holderField.text = passport.holder;
     self.birthDateField.text = passport.birthDate;
     self.birthPlaceField.text = passport.birthPlace;
@@ -87,6 +86,38 @@
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = passport.number;
     [super showMessageBoxWithTitle:@"Номер паспорта скопирован"];
+}
+
+
+-(void)sendBtnTapped
+{
+    NSMutableString *message = [[NSMutableString alloc] init];
+    
+    [message appendString:@"Название: "];
+    [message appendString:passport.docName];
+    [message appendString:@"\n"];
+    [message appendString:@"№ паспорта: "];
+    [message appendString:passport.number];
+    [message appendString:@"\n"];
+    [message appendString:@"ФИО: "];
+    [message appendString:passport.holder];
+    [message appendString:@"\n"];
+    [message appendString:@"Дата рождения: "];
+    [message appendString:passport.birthDate];
+    [message appendString:@"\n"];
+    [message appendString:@"Место рождения: "];
+    [message appendString:passport.birthPlace];
+    [message appendString:@"\n"];
+    [message appendString:@"Кем выдан: "];
+    [message appendString:passport.department];
+    [message appendString:@"\n"];
+    [message appendString:@"Код подразделения: "];
+    [message appendString:passport.departmentCode];
+    [message appendString:@"\n"];
+    [message appendString:@"Дата выдачи: "];
+    [message appendString:passport.issueDate];
+    
+    [super sendMessage:message];
 }
 
 - (void)didReceiveMemoryWarning
