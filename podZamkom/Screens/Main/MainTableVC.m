@@ -40,8 +40,11 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.translucent = NO;
+
+    //распознаватель жестов:
     SWRevealViewController *revealController = self.revealViewController;
-    [self.view addGestureRecognizer:revealController.panGestureRecognizer];
+    if (revealController != nil)
+        [self.view addGestureRecognizer:revealController.panGestureRecognizer];
     
     //делегируем возможность принимать системные сообщения о том, что нажата кнопка из менюшки
     ((LeftMenuVC *)self.revealViewController.rearViewController).delegate = self;
@@ -74,25 +77,30 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"TableCell";
+    Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[Cell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     // Display recipe in the table cell
     Document *doc = [documents objectAtIndex:indexPath.row];
-    UIImageView *docImageView = (UIImageView *)[cell viewWithTag:100];
-    docImageView.image = [UIImage imageNamed:doc.imageFile];
+
+    //ВНИМАНИЕ ШАМАНСТВО!
+    //удаляю подвью во вью для рисунка, чтоб при скролле он не появлялся в других строках
+    for (UIView *subview in [cell.viewWithImage subviews])
+    {
+        [subview removeFromSuperview];
+    }
     
-    UILabel *docNameLabel = (UILabel *)[cell viewWithTag:101];
-    docNameLabel.text = doc.docName;
     
-    UILabel *docDetailLabel = (UILabel *)[cell viewWithTag:102];
-    docDetailLabel.text = doc.detail;
-    
+    cell.name.text = doc.docName;
+    cell.detail.text = doc.detail;
+    [cell.viewWithImage addSubview:doc.viewWithImage];
+        
+    ////
     //"кастомизация разделителей" высота строки 90 пикселей, а высота моего изображения 2 пикселя, поэтому рисую на высоте 88:
     UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 88, 320, 2)];/// change size as you need.
     separatorLineView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"divider_goriz.png"]];// you can also put image here
@@ -151,7 +159,8 @@
     
     for (Document* doc in documents)
     {
-        if ([[doc.docName lowercaseString] rangeOfString:[searchText lowercaseString]].location != NSNotFound)
+        if ([[doc.docName lowercaseString] rangeOfString:[searchText lowercaseString]].location != NSNotFound ||
+            [[doc.detail lowercaseString] rangeOfString:[searchText lowercaseString]].location != NSNotFound)
             [goodDocs addObject:doc];
         else
             [badDocs addObject:doc];

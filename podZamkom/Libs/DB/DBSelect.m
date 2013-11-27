@@ -2,30 +2,167 @@
 
 @implementation DBadapter (DBSelect)
 
+//читает все данные из таблицы DocList
+-(NSArray *)ReadData
+{
+    [self checkAndCreateDBFile];
+    [self CreateDBTablesIfNotExists];
+    NSMutableArray *documents = [[NSMutableArray alloc] init]; //массив документов
+    sqlite3 *db;
+    sqlite3_stmt *statement;
+    NSString *querySQL = [NSString stringWithFormat: @"SELECT *from DocList"];
+    const char *query_stmt = [querySQL UTF8String];
+    
+    if (sqlite3_open([DBpath UTF8String], &db)==SQLITE_OK)
+    {
+        if (sqlite3_prepare_v2(db, query_stmt, -1, &statement, NULL)== SQLITE_OK)
+        {
+            while (sqlite3_step(statement) == SQLITE_ROW)
+            {
+                Document *document = [Document new];
+                document.idDocList = sqlite3_column_int(statement, 0);
+                
+                document.docType = sqlite3_column_int(statement, 1);
+                
+                document = [self SelectDocument:document];
+                
+                switch (document.docType)
+                {
+                    case NoteDoc:
+                        document.docName = ((Note *)document).title;
+                        document.detail = ((Note *)document).content;
+                        break;
+                    case CardDoc:
+                        document.docName = ((CreditCard *)document).bank;
+                        document.detail = ((CreditCard *)document).number;
+
+                        break;
+                    case LoginDoc:
+                        document.docName = ((Login *)document).url;
+                        document.detail = ((Login *)document).login;
+                        break;
+                    case BankAccountDoc:
+                        document.docName = ((BankAccount *)document).bank;
+                        document.detail = ((BankAccount *)document).accountNumber;
+                        break;
+                    case PassportDoc:
+                        document.docName = ((Passport *)document).docName;
+                        document.detail = ((Passport *)document).number;
+                        break;
+                    default:
+                    break;
+                }
+//                document.docName = [self getDocumentName:document.idDoc withDocType:document.docType];
+                
+//                document.detail = [self getDocumentDetail:document.idDoc withDocType:document.docType];
+                
+                document.viewWithImage = [self CreateViewWithImageForDocument:document];
+                
+                [documents addObject:document];
+            }
+            sqlite3_finalize(statement);
+        }
+    }
+    sqlite3_close(db);
+    return documents;
+}
+
+-(UIView *) CreateViewWithImageForDocument:(Document *)doc
+{
+    UIView *view;
+    
+    switch (doc.docType)
+    {
+        case CardDoc:
+        {
+            CreditCard *card = (CreditCard *)doc;
+//            view=[[UIView alloc]initWithFrame:CGRectMake(203,10, 112, 70)];
+            view=[[UIView alloc]initWithFrame:CGRectMake(0,0, 112, 70)];
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, 112, 70)];
+            int stretchableCap = 20;
+            
+            UIImage *bg = [UIImage imageNamed:[CardColor getCardColorByType:card.color].image];
+            UIImage *stretchIcon = [bg stretchableImageWithLeftCapWidth:stretchableCap topCapHeight:0];
+            [imageView setImage:stretchIcon];
+            view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+            view.autoresizesSubviews = YES;
+            [view addSubview:imageView];
+            
+            UILabel *bank = [[UILabel alloc] initWithFrame:CGRectMake(5, 10, 102, 10)]; //(x,y,width,height)
+            [bank setTextColor:[UIColor whiteColor]];
+            bank.text = card.bank;
+            [bank setBackgroundColor:[UIColor clearColor]];
+            [bank setFont:[UIFont fontWithName: @"Menlo" size: 14.0f]];
+            [view addSubview:bank];
+            
+            UILabel *number = [[UILabel alloc] initWithFrame:CGRectMake(5, 30, 102, 10)];
+            [number setTextColor:[UIColor whiteColor]];
+            number.text = card.number;
+            [number setBackgroundColor:[UIColor clearColor]];
+            [number setFont:[UIFont fontWithName: @"Menlo" size: 12.0f]];
+            [view addSubview:number];
+            
+            UILabel *holder = [[UILabel alloc] initWithFrame:CGRectMake(5, 50, 102, 10)];
+            [holder setTextColor:[UIColor whiteColor]];
+            holder.text = card.holder;
+            [holder setBackgroundColor:[UIColor clearColor]];
+            [holder setFont:[UIFont fontWithName: @"Menlo" size: 12.0f]];
+            [view addSubview:holder];
+            break;
+        }
+        case LoginDoc:
+        case BankAccountDoc:
+        case NoteDoc:
+        case PassportDoc:
+            view = nil;
+            break;
+        default:
+            break;
+    }
+    return view;
+}
+
 +(Document *) DBSelect: (Document *)doc withKey: (NSString *)key
 {
     DBadapter *dbAdapter = [[DBadapter alloc] init];
     switch (doc.docType)
     {
+//        case NoteDoc:
+//            return [dbAdapter GetNoteDocById:(int)doc.idDoc withKey: key];
+//            break;
+//        case CardDoc:
+//            return [dbAdapter GetCreditCardDocById:(int)doc.idDoc withKey: key];
+//            break;
+//        case LoginDoc:
+//            return [dbAdapter GetLoginDocById:(int)doc.idDoc withKey: key];
+//            break;
+//        case BankAccountDoc:
+//            return [dbAdapter GetBankAccountDocById:(int)doc.idDoc withKey: key];
+//            break;
+//        case PassportDoc:
+//            return [dbAdapter GetPassportDocById:(int)doc.idDoc withKey: key];
+//            break;
+//        default:
+//            return nil;
         case NoteDoc:
-            return [dbAdapter GetNoteDocById:(int)doc.idDoc withKey: key];
+            return [dbAdapter GetNoteDocById:(int)doc.idDocList withKey: key];
             break;
         case CardDoc:
-            return [dbAdapter GetCreditCardDocById:(int)doc.idDoc withKey: key];
+            return [dbAdapter GetCreditCardDocById:(int)doc.idDocList withKey: key];
             break;
         case LoginDoc:
-            return [dbAdapter GetLoginDocById:(int)doc.idDoc withKey: key];
+            return [dbAdapter GetLoginDocById:(int)doc.idDocList withKey: key];
             break;
         case BankAccountDoc:
-            return [dbAdapter GetBankAccountDocById:(int)doc.idDoc withKey: key];
+            return [dbAdapter GetBankAccountDocById:(int)doc.idDocList withKey: key];
             break;
         case PassportDoc:
-            return [dbAdapter GetPassportDocById:(int)doc.idDoc withKey: key];
+            return [dbAdapter GetPassportDocById:(int)doc.idDocList withKey: key];
             break;
         default:
             return nil;
-    }
 
+    }
 }
 
 +(Document *) DBSelect: (Document *)doc
@@ -37,17 +174,18 @@
 {
     return [DBadapter DBSelect:doc withKey:[Security getPassword]];
 }
+
 /*
      Login (pk_login_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, fk_doc_id INTEGER, url BLOB, user_name BLOB, password BLOB, comments BLOB, FOREIGN KEY(fk_doc_id) REFERENCES DocList (pk_doc_id))
-     */
--(Login *) GetLoginDocById: (int) idDoc withKey: (NSString *)key
+ */
+-(Login *) GetLoginDocById: (int) idDocList withKey: (NSString *)key
 {
     Login * login = [Login new];
     login.docType = LoginDoc;
-    login.idDocList = idDoc;
+    login.idDocList = idDocList;
     sqlite3 *db;
     sqlite3_stmt *statement;
-    NSString *querySQL = [NSString stringWithFormat: @"SELECT pk_login_id, url, user_name, password, comments from Login where fk_doc_id = %d", idDoc];
+    NSString *querySQL = [NSString stringWithFormat: @"SELECT pk_login_id, url, user_name, password, comments from Login where fk_doc_id = %d", idDocList];
     const char *query_stmt = [querySQL UTF8String];
         
     if (sqlite3_open([DBpath UTF8String], &db)==SQLITE_OK)
@@ -63,6 +201,7 @@
                 login.login = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 2)] withKey: key];
                     
                 login.password = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 3)] withKey: key];
+                
                 login.comment = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 4)] withKey: key];
                 
             }
@@ -72,6 +211,7 @@
     sqlite3_close(db);
     return login;
 }
+
     /*
      Note (pk_note_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, fk_doc_id INTEGER, title BLOB, \
      content BLOB, FOREIGN KEY(fk_doc_id) REFERENCES DocList (pk_doc_id))
@@ -106,6 +246,7 @@
         sqlite3_close(db);
         return note;
 }
+
 /*
 CreditCard (pk_card_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, fk_doc_id INTEGER, bank BLOB, holder BLOB, card_type INTEGER, number BLOB, validThru BLOB, cvc BLOB, pin BLOB, card_color INTEGER, comments BLOB, FOREIGN KEY(fk_doc_id) REFERENCES DocList (pk_doc_id)
 */

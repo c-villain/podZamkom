@@ -14,6 +14,7 @@
 #import "DocumentLib.h"
 #import "DocViews.h"
 #import "LeftMenuVC.h"
+#import "Cell.h"
 
 @interface MainTableVC : UITableViewController <DocSortingDelegate, UISearchBarDelegate, SearchDocDelegate>
 {

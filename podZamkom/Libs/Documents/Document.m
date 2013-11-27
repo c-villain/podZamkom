@@ -14,7 +14,8 @@
 @synthesize docType;
 @synthesize docName;
 @synthesize detail;
-@synthesize imageFile;
+//@synthesize imageFile;
 @synthesize dateOfCreation;
+@synthesize viewWithImage;
 
 @end

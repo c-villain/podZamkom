@@ -16,11 +16,14 @@
     NSString *DBname;
     NSString *DBpath;
 }
+
 -(id)init;
--(NSArray *)ReadData;
+-(void)checkAndCreateDBFile;
+-(void)CreateDBTablesIfNotExists;
 -(NSArray *)ReadDocsWithType:(DocTypeEnum)docType;
 
 -(NSString *)getDocumentName:(int)docId withDocType:(DocTypeEnum)docType;
+-(NSString *)getDocumentDetail:(int)docId withDocType:(DocTypeEnum)docType;
 
 -(int)insertIntoDocList:(int)docType;
 

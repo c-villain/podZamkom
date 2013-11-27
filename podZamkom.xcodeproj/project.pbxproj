@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A08D6FA1846B04A0041A41C /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08D6F91846B04A0041A41C /* Cell.m */; };
 		5AA46C4117FB21B0008EE800 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4017FB21B0008EE800 /* Foundation.framework */; };
 		5AA46C4317FB21B0008EE800 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4217FB21B0008EE800 /* CoreGraphics.framework */; };
 		5AA46C4517FB21B0008EE800 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4417FB21B0008EE800 /* UIKit.framework */; };
@@ -237,6 +238,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A08D6F81846B04A0041A41C /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
+		5A08D6F91846B04A0041A41C /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
 		5AA46C3D17FB21B0008EE800 /* podZamkom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = podZamkom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AA46C4017FB21B0008EE800 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5AA46C4217FB21B0008EE800 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1222,6 +1225,8 @@
 				5AC899F91840B9A000164B51 /* MainTableVC.h */,
 				5AC899FA1840B9A000164B51 /* MainTableVC.m */,
 				5AC899FB1840B9A000164B51 /* NewDocViews.h */,
+				5A08D6F81846B04A0041A41C /* Cell.h */,
+				5A08D6F91846B04A0041A41C /* Cell.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1609,6 +1614,7 @@
 				5AC89A161840B9A000164B51 /* NewNoteVC.m in Sources */,
 				5AC89AD31840B9A000164B51 /* PasswordVC.m in Sources */,
 				5AC89A171840B9A000164B51 /* NoteVC.m in Sources */,
+				5A08D6FA1846B04A0041A41C /* Cell.m in Sources */,
 				5AC89A191840B9A000164B51 /* NewPassportVC.m in Sources */,
 				5AC89A1A1840B9A000164B51 /* PassportVC.m in Sources */,
 				5AC89A0E1840B9A000164B51 /* BankAccountVC.m in Sources */,

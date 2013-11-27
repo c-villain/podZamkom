@@ -1,12 +1,15 @@
 #import "DBadapter.h"
+//#import "DocumentLib.h"
 
 @interface DBadapter (DBSelect)
 
+-(NSArray *) ReadData;
 +(Document *) DBSelect: (Document *)doc withKey: (NSString *)key;
 +(Document *) DBSelect: (Document *)doc;
 -(Document *) SelectDocument: (Document *)doc;
+-(UIView *) CreateViewWithImageForDocument:(Document *)doc;
 
--(Login *) GetLoginDocById: (int) idDoc withKey: (NSString *)key;
+-(Login *) GetLoginDocById: (int) idDocList withKey: (NSString *)key;
 -(Note *) GetNoteDocById: (int) idDoc withKey: (NSString *)key;
 -(CreditCard *) GetCreditCardDocById: (int) idDoc withKey: (NSString *)key;
 -(BankAccount *) GetBankAccountDocById: (int) idDoc withKey: (NSString *)key;

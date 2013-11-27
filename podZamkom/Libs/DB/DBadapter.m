@@ -143,66 +143,50 @@ CREATE  TABLE IF NOT EXISTS Passport (pk_passport_id INTEGER PRIMARY KEY  AUTOIN
     return docName;
 }
 
-//Ставит документу картинку в соответствии с его типом
-//постоянно дополнять
--(void)setDocImage:(Document*)doc withDocType:(DocTypeEnum)docType
+//для главного экрана для каждого из документов ищет, что показать в разделе название документа
+-(NSString *)getDocumentDetail:(int)docId withDocType:(DocTypeEnum)docType
 {
+    sqlite3_stmt *statement;
+    NSString *querySQL;
+    NSString *docName;
+    
     switch (docType)
     {
         case NoteDoc:
-            doc.imageFile = @"addNotes.png";
+            querySQL = [NSString stringWithFormat: @"SELECT content FROM Note WHERE fk_doc_id = %d", docId];
             break;
         case CardDoc:
-            doc.imageFile = @"addCredit.png";
+            querySQL = [NSString stringWithFormat: @"SELECT number FROM CreditCard WHERE fk_doc_id = %d", docId];
             break;
         case PassportDoc:
+            querySQL = [NSString stringWithFormat: @"SELECT number FROM Passport WHERE fk_doc_id = %d", docId];
             break;
         case BankAccountDoc:
+            querySQL = [NSString stringWithFormat: @"SELECT account_number FROM BankAccount WHERE fk_doc_id = %d", docId];
             break;
         case LoginDoc:
-            doc.imageFile = @"addLogin.png";
+            querySQL = [NSString stringWithFormat: @"SELECT user_name FROM Login WHERE fk_doc_id = %d", docId];
             break;
         default:
             break;
     }
-}
-
-//читает все данные из таблицы DocList
--(NSArray *)ReadData
-{
-    [self checkAndCreateDBFile];
-    [self CreateDBTablesIfNotExists];
-    NSMutableArray *documents = [[NSMutableArray alloc] init]; //массив документов
-    sqlite3 *db;
-    sqlite3_stmt *statement;
-    NSString *querySQL = [NSString stringWithFormat: @"SELECT *from DocList"];
+    //don't change this code!
     const char *query_stmt = [querySQL UTF8String];
-
+    sqlite3 *db;
     if (sqlite3_open([DBpath UTF8String], &db)==SQLITE_OK)
     {
         if (sqlite3_prepare_v2(db, query_stmt, -1, &statement, NULL)== SQLITE_OK)
         {
-            while (sqlite3_step(statement) == SQLITE_ROW)
-            {
-                Document *document = [Document new];
-                document.idDoc = sqlite3_column_int(statement, 0);
-                
-                document.docType = sqlite3_column_int(statement, 1);
-                
-                document.docName = [self getDocumentName:document.idDoc withDocType:document.docType];
-                
-                document.detail = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 2)];
-                
-                [self setDocImage:document withDocType:document.docType];
-
-                [documents addObject:document];
-            }
+            if (sqlite3_step(statement) == SQLITE_ROW)
+                docName = [FBEncryptorAES decryptString:[[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)]];
             sqlite3_finalize(statement);
         }
     }
     sqlite3_close(db);
-    return documents;
+    return docName;
 }
+
+
 
 -(NSArray *)ReadDocsWithType:(DocTypeEnum)docType
 {
@@ -229,8 +213,6 @@ CREATE  TABLE IF NOT EXISTS Passport (pk_passport_id INTEGER PRIMARY KEY  AUTOIN
                 document.docName = [self getDocumentName:document.idDoc withDocType:document.docType];
                 
                 document.detail = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 2)];
-                
-                [self setDocImage:document withDocType:document.docType];
                 
                 [documents addObject:document];
             }
