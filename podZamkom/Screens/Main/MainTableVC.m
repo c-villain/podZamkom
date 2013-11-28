@@ -26,6 +26,7 @@
     [self.tableView reloadData];
 }
 
+//чтобы не было смещения в таблице относительно навбара
 - (void) viewDidLayoutSubviews {
     // only works for iOS 7+
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
