@@ -23,6 +23,21 @@
     return self;
 }
 
+- (void) viewDidLayoutSubviews {
+    // only works for iOS 7+
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
+        CGRect viewBounds = self.view.bounds;
+        CGFloat topBarOffset = self.topLayoutGuide.length;
+        
+        // snaps the view under the status bar (iOS 6 style)
+        viewBounds.origin.y = topBarOffset * -1;
+        
+        // shrink the bounds of your view to compensate for the offset
+        viewBounds.size.height = viewBounds.size.height + (topBarOffset * -1);
+        self.view.bounds = viewBounds;
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -30,11 +45,9 @@
     // Remove table cell separator
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:35.0f/255.0f green:35.0f/255.0f blue:41.0f/255.0f alpha:1.0f]];
-//    self.navigationController.navigationBarHidden = YES;
     
     //в зависимости от модели айфона включаем или выключаем скроллинг левого меню:
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;

@@ -82,7 +82,7 @@
 +(CardType *)getCurrentCardByType: (CardTypeEnum) type
 {
     NSArray *array = [CardType initCardTypeArray];
-    int counter=[array count];
+    int64_t counter=[array count];
     CardType* cardType = [CardType new];
     for(int i=0;i<counter;i++)
     {

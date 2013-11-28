@@ -46,7 +46,8 @@
         {
             sqlite3_bind_text(statement, 1, [[FBEncryptorAES encryptString:note.title withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 2, [[FBEncryptorAES encryptString:note.content withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
-            sqlite3_bind_int(statement, 3, note.idDoc);
+            sqlite3_bind_int64(statement, 3, note.idDoc);
+//            sqlite3_bind_int64(statement, 3, note.idDoc);
 
             if (sqlite3_step(statement) == SQLITE_DONE)
             {
@@ -76,7 +77,7 @@
             sqlite3_bind_text(statement, 2, [[FBEncryptorAES encryptString:login.login withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 3, [[FBEncryptorAES encryptString:login.password withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 4, [[FBEncryptorAES encryptString:login.comment withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
-            sqlite3_bind_int(statement, 5, login.idDoc);
+            sqlite3_bind_int64(statement, 5, login.idDoc);
             if (sqlite3_step(statement) == SQLITE_DONE)
             {
                 sqlite3_finalize(statement);
@@ -102,14 +103,14 @@
         {
             sqlite3_bind_text(statement, 1, [[FBEncryptorAES encryptString:creditCard.bank withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 2, [[FBEncryptorAES encryptString:creditCard.holder withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
-            sqlite3_bind_int(statement, 3, creditCard.type);
+            sqlite3_bind_int64(statement, 3, creditCard.type);
             sqlite3_bind_text(statement, 4, [[FBEncryptorAES encryptString:creditCard.number withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 5, [[FBEncryptorAES encryptString:creditCard.validThru withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 6, [[FBEncryptorAES encryptString:creditCard.cvc withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 7, [[FBEncryptorAES encryptString:creditCard.pin withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
-            sqlite3_bind_int(statement, 8, creditCard.color);
+            sqlite3_bind_int64(statement, 8, creditCard.color);
             sqlite3_bind_text(statement, 9, [[FBEncryptorAES encryptString:creditCard.comments withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
-            sqlite3_bind_int(statement, 10, creditCard.idDoc);
+            sqlite3_bind_int64(statement, 10, creditCard.idDoc);
             
             if (sqlite3_step(statement) == SQLITE_DONE)
             {
@@ -137,7 +138,7 @@
         if (sqlite3_prepare_v2(db, update_stmt, -1, &statement, NULL) == SQLITE_OK);
         {
             sqlite3_bind_text(statement, 1, [[FBEncryptorAES encryptString:passport.docName withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
-            sqlite3_bind_int(statement, 2, passport.country);
+            sqlite3_bind_int64(statement, 2, passport.country);
             sqlite3_bind_text(statement, 3, [[FBEncryptorAES encryptString:passport.number withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 4, [[FBEncryptorAES encryptString:passport.department withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 5, [[FBEncryptorAES encryptString:passport.issueDate withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
@@ -145,7 +146,7 @@
             sqlite3_bind_text(statement, 7, [[FBEncryptorAES encryptString:passport.holder withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 8, [[FBEncryptorAES encryptString:passport.birthDate withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 9, [[FBEncryptorAES encryptString:passport.birthPlace withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
-            sqlite3_bind_int(statement, 10, passport.idDoc);
+            sqlite3_bind_int64(statement, 10, passport.idDoc);
             if (sqlite3_step(statement) == SQLITE_DONE)
             {
                 sqlite3_finalize(statement);
@@ -173,13 +174,13 @@
         {
             sqlite3_bind_text(statement, 1, [[FBEncryptorAES encryptString:bankAccount.bank withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 2, [[FBEncryptorAES encryptString:bankAccount.accountNumber withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
-            sqlite3_bind_int(statement, 3, bankAccount.curType);
+            sqlite3_bind_int64(statement, 3, bankAccount.curType);
             sqlite3_bind_text(statement, 4, [[FBEncryptorAES encryptString:bankAccount.bik withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 5, [[FBEncryptorAES encryptString:bankAccount.corNumber withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 6, [[FBEncryptorAES encryptString:bankAccount.inn withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 7, [[FBEncryptorAES encryptString:bankAccount.kpp withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 8, [[FBEncryptorAES encryptString:bankAccount.comments withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
-            sqlite3_bind_int(statement, 9, bankAccount.idDoc);
+            sqlite3_bind_int64(statement, 9, bankAccount.idDoc);
             if (sqlite3_step(statement) == SQLITE_DONE)
             {
                 sqlite3_finalize(statement);

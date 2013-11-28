@@ -52,10 +52,7 @@
                     default:
                     break;
                 }
-//                document.docName = [self getDocumentName:document.idDoc withDocType:document.docType];
-                
-//                document.detail = [self getDocumentDetail:document.idDoc withDocType:document.docType];
-                
+
                 document.viewWithImage = [self CreateViewWithImageForDocument:document];
                 
                 [documents addObject:document];
@@ -67,6 +64,71 @@
     return documents;
 }
 
+-(NSArray *)ReadDocsWithType:(DocTypeEnum)docType
+{
+    [self checkAndCreateDBFile];
+    [self CreateDBTablesIfNotExists];
+    NSMutableArray *documents = [[NSMutableArray alloc] init]; //массив документов
+    sqlite3 *db;
+    sqlite3_stmt *statement;
+    NSString *querySQL = [NSString stringWithFormat: @"SELECT *from DocList WHERE doc_type =?"];
+    const char *query_stmt = [querySQL UTF8String];
+    
+    if (sqlite3_open([DBpath UTF8String], &db)==SQLITE_OK)
+    {
+        if (sqlite3_prepare_v2(db, query_stmt, -1, &statement, NULL)== SQLITE_OK)
+        {
+            sqlite3_bind_int(statement, 1, docType);
+            while (sqlite3_step(statement) == SQLITE_ROW)
+            {
+                Document *document = [Document new];
+                document.idDocList = sqlite3_column_int(statement, 0);
+                
+                document.docType = sqlite3_column_int(statement, 1);
+                
+                document = [self SelectDocument:document];
+                
+                switch (document.docType)
+                {
+                    case NoteDoc:
+                        document.docName = ((Note *)document).title;
+                        document.detail = ((Note *)document).content;
+                        break;
+                    case CardDoc:
+                        document.docName = ((CreditCard *)document).bank;
+                        document.detail = ((CreditCard *)document).number;
+                        
+                        break;
+                    case LoginDoc:
+                        document.docName = ((Login *)document).url;
+                        document.detail = ((Login *)document).login;
+                        break;
+                    case BankAccountDoc:
+                        document.docName = ((BankAccount *)document).bank;
+                        document.detail = ((BankAccount *)document).accountNumber;
+                        break;
+                    case PassportDoc:
+                        document.docName = ((Passport *)document).docName;
+                        document.detail = ((Passport *)document).number;
+                        break;
+                    default:
+                        break;
+                }
+                
+                document.viewWithImage = [self CreateViewWithImageForDocument:document];
+                
+                [documents addObject:document];
+
+            }
+            sqlite3_finalize(statement);
+        }
+    }
+    sqlite3_close(db);
+    return documents;
+}
+
+
+
 -(UIView *) CreateViewWithImageForDocument:(Document *)doc
 {
     UIView *view;
@@ -75,12 +137,12 @@
     {
         case CardDoc:
         {
+            //124 x 75
             CreditCard *card = (CreditCard *)doc;
-//            view=[[UIView alloc]initWithFrame:CGRectMake(203,10, 112, 70)];
-            view=[[UIView alloc]initWithFrame:CGRectMake(0,0, 112, 70)];
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, 112, 70)];
+            view=[[UIView alloc]initWithFrame:CGRectMake(0,0, 124, 75)];
             int stretchableCap = 20;
             
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, 124, 75)];
             UIImage *bg = [UIImage imageNamed:[CardColor getCardColorByType:card.color].image];
             UIImage *stretchIcon = [bg stretchableImageWithLeftCapWidth:stretchableCap topCapHeight:0];
             [imageView setImage:stretchIcon];
@@ -88,32 +150,61 @@
             view.autoresizesSubviews = YES;
             [view addSubview:imageView];
             
-            UILabel *bank = [[UILabel alloc] initWithFrame:CGRectMake(5, 10, 102, 10)]; //(x,y,width,height)
+            UIImageView *typeView = [[UIImageView alloc] initWithFrame:CGRectMake(92,52, 25, 15)];
+            UIImage *type = [UIImage imageNamed: [CardType getCurrentCardByType:card.type].image];
+            UIImage *typeIcon = [type stretchableImageWithLeftCapWidth:stretchableCap topCapHeight:0];
+            [typeView setImage:typeIcon];
+            view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+            view.autoresizesSubviews = YES;
+            [view addSubview:typeView];
+            
+            UILabel *bank = [[UILabel alloc] initWithFrame:CGRectMake(5, 10, 119, 19)]; //(x,y,width,height)
             [bank setTextColor:[UIColor whiteColor]];
             bank.text = card.bank;
             [bank setBackgroundColor:[UIColor clearColor]];
             [bank setFont:[UIFont fontWithName: @"Menlo" size: 14.0f]];
             [view addSubview:bank];
             
-            UILabel *number = [[UILabel alloc] initWithFrame:CGRectMake(5, 30, 102, 10)];
+            UILabel *number = [[UILabel alloc] initWithFrame:CGRectMake(5, 30, 119, 10)];
             [number setTextColor:[UIColor whiteColor]];
             number.text = card.number;
             [number setBackgroundColor:[UIColor clearColor]];
-            [number setFont:[UIFont fontWithName: @"Menlo" size: 12.0f]];
+            [number setFont:[UIFont fontWithName: @"Menlo" size: 10.0f]];
             [view addSubview:number];
             
-            UILabel *holder = [[UILabel alloc] initWithFrame:CGRectMake(5, 50, 102, 10)];
+            UILabel *holder = [[UILabel alloc] initWithFrame:CGRectMake(5,55, 119, 10)];
             [holder setTextColor:[UIColor whiteColor]];
             holder.text = card.holder;
             [holder setBackgroundColor:[UIColor clearColor]];
-            [holder setFont:[UIFont fontWithName: @"Menlo" size: 12.0f]];
+            [holder setFont:[UIFont fontWithName: @"Menlo" size: 7.0f]];
             [view addSubview:holder];
+            
+            UILabel *valid = [[UILabel alloc] initWithFrame:CGRectMake(5, 45, 119, 10)];
+            [valid setTextColor:[UIColor whiteColor]];
+            valid.text = [@"Valid thru " stringByAppendingString:card.validThru];
+            [valid setBackgroundColor:[UIColor clearColor]];
+            [valid setFont:[UIFont fontWithName: @"Menlo" size: 5.0f]];
+            [view addSubview:valid];
+            break;
+        }
+        case PassportDoc:
+        {
+            //124 x 75
+            Passport *passport = (Passport *)doc;
+            view=[[UIView alloc]initWithFrame:CGRectMake(67,0, 57, 75)];
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, 57, 75)];
+            int stretchableCap = 20;
+            UIImage *bg = [UIImage imageNamed:[Country getCurrentCountryByType:passport.country].passport];
+            UIImage *stretchIcon = [bg stretchableImageWithLeftCapWidth:stretchableCap topCapHeight:0];
+            [imageView setImage:stretchIcon];
+            view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+            view.autoresizesSubviews = YES;
+            [view addSubview:imageView];
             break;
         }
         case LoginDoc:
         case BankAccountDoc:
         case NoteDoc:
-        case PassportDoc:
             view = nil;
             break;
         default:

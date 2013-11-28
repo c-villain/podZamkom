@@ -40,12 +40,15 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.translucent = NO;
+    
 
     //распознаватель жестов:
+    
     SWRevealViewController *revealController = self.revealViewController;
     if (revealController != nil)
+    {
         [self.view addGestureRecognizer:revealController.panGestureRecognizer];
-    
+    }
     //делегируем возможность принимать системные сообщения о том, что нажата кнопка из менюшки
     ((LeftMenuVC *)self.revealViewController.rearViewController).delegate = self;
     

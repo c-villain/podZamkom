@@ -44,7 +44,7 @@
 {
     sqlite3_stmt *statement;
     const char *delete_stmt;
-    int idDocList = doc.idDocList;
+    int64_t idDocList = doc.idDocList;
     switch (doc.docType) {
         case NoteDoc:
             delete_stmt = "Delete from Note where fk_doc_id = ?";
@@ -70,8 +70,8 @@
     {
         sqlite3_prepare_v2(db, delete_stmt, -1, &statement, NULL);
         {
-            sqlite3_bind_int(statement, 1, idDocList);
-            sqlite3_bind_int(statement, 2, idDocList);
+            sqlite3_bind_int64(statement, 1, idDocList);
+            sqlite3_bind_int64(statement, 2, idDocList);
             
             if (sqlite3_step(statement) == SQLITE_DONE)
             {
@@ -91,7 +91,7 @@
 {
     sqlite3_stmt *statement;
     const char *delete_stmt;
-    int idDocList = doc.idDocList;
+    int64_t idDocList = doc.idDocList;
     delete_stmt = "Delete from DocList where pk_doc_id = ?";
     
     sqlite3 *db;
@@ -99,7 +99,7 @@
     {
         sqlite3_prepare_v2(db, delete_stmt, -1, &statement, NULL);
         {
-            sqlite3_bind_int(statement, 1, idDocList);
+            sqlite3_bind_int64(statement, 1, idDocList);
             
             if (sqlite3_step(statement) == SQLITE_DONE)
             {

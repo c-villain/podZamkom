@@ -57,7 +57,7 @@
 +(CardColor *)getCardColorByType: (CardColorEnum) color
 {
     NSArray *array = [CardColor initCardColorArray];
-    int counter=[array count];
+    int64_t counter=[array count];
     CardColor* cardColor = [CardColor new];
     for(int i=0;i<counter;i++)
     {

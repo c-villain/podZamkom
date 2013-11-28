@@ -45,6 +45,7 @@ typedef enum {
 @interface Country : PickerObject
 
 @property (nonatomic, assign) CountryEnum country;
+@property (nonatomic, assign) NSString *passport;
 
 +(NSArray *)initCountryArray;
 +(Country *)getCurrentCountryByType: (CountryEnum) type;

@@ -8,6 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		5A08D6FA1846B04A0041A41C /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08D6F91846B04A0041A41C /* Cell.m */; };
+		5A64111E1847D7D5009AB22A /* passport_australia@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6410FE1847D7D5009AB22A /* passport_australia@2x.png */; };
+		5A64111F1847D7D5009AB22A /* passport_belarus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6410FF1847D7D5009AB22A /* passport_belarus@2x.png */; };
+		5A6411201847D7D5009AB22A /* passport_belg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411001847D7D5009AB22A /* passport_belg@2x.png */; };
+		5A6411211847D7D5009AB22A /* passport_bolg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411011847D7D5009AB22A /* passport_bolg@2x.png */; };
+		5A6411221847D7D5009AB22A /* passport_canada@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411021847D7D5009AB22A /* passport_canada@2x.png */; };
+		5A6411231847D7D5009AB22A /* passport_china@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411031847D7D5009AB22A /* passport_china@2x.png */; };
+		5A6411241847D7D5009AB22A /* passport_croatia@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411041847D7D5009AB22A /* passport_croatia@2x.png */; };
+		5A6411251847D7D5009AB22A /* passport_cyprus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411051847D7D5009AB22A /* passport_cyprus@2x.png */; };
+		5A6411261847D7D5009AB22A /* passport_czech@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411061847D7D5009AB22A /* passport_czech@2x.png */; };
+		5A6411271847D7D5009AB22A /* passport_denmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411071847D7D5009AB22A /* passport_denmark@2x.png */; };
+		5A6411281847D7D5009AB22A /* passport_france@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411081847D7D5009AB22A /* passport_france@2x.png */; };
+		5A6411291847D7D5009AB22A /* passport_german@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411091847D7D5009AB22A /* passport_german@2x.png */; };
+		5A64112A1847D7D5009AB22A /* passport_greece@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A64110A1847D7D5009AB22A /* passport_greece@2x.png */; };
+		5A64112B1847D7D5009AB22A /* passport_hongkong@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A64110B1847D7D5009AB22A /* passport_hongkong@2x.png */; };
+		5A64112C1847D7D5009AB22A /* passport_ireland@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A64110C1847D7D5009AB22A /* passport_ireland@2x.png */; };
+		5A64112D1847D7D5009AB22A /* passport_israel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A64110D1847D7D5009AB22A /* passport_israel@2x.png */; };
+		5A64112E1847D7D5009AB22A /* passport_italy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A64110E1847D7D5009AB22A /* passport_italy@2x.png */; };
+		5A64112F1847D7D5009AB22A /* passport_japan_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A64110F1847D7D5009AB22A /* passport_japan_blue@2x.png */; };
+		5A6411301847D7D5009AB22A /* passport_japan_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411101847D7D5009AB22A /* passport_japan_red@2x.png */; };
+		5A6411311847D7D5009AB22A /* passport_kazakhstan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411111847D7D5009AB22A /* passport_kazakhstan@2x.png */; };
+		5A6411321847D7D5009AB22A /* passport_mexico@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411121847D7D5009AB22A /* passport_mexico@2x.png */; };
+		5A6411331847D7D5009AB22A /* passport_netherlands@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411131847D7D5009AB22A /* passport_netherlands@2x.png */; };
+		5A6411341847D7D5009AB22A /* passport_poland@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411141847D7D5009AB22A /* passport_poland@2x.png */; };
+		5A6411351847D7D5009AB22A /* passport_portugal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411151847D7D5009AB22A /* passport_portugal@2x.png */; };
+		5A6411361847D7D5009AB22A /* passport_rf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411161847D7D5009AB22A /* passport_rf@2x.png */; };
+		5A6411371847D7D5009AB22A /* passport_rf_zagran@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411171847D7D5009AB22A /* passport_rf_zagran@2x.png */; };
+		5A6411381847D7D5009AB22A /* passport_singapore@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411181847D7D5009AB22A /* passport_singapore@2x.png */; };
+		5A6411391847D7D5009AB22A /* passport_spain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411191847D7D5009AB22A /* passport_spain@2x.png */; };
+		5A64113A1847D7D5009AB22A /* passport_sweden@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A64111A1847D7D5009AB22A /* passport_sweden@2x.png */; };
+		5A64113B1847D7D5009AB22A /* passport_switzerland@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A64111B1847D7D5009AB22A /* passport_switzerland@2x.png */; };
+		5A64113C1847D7D5009AB22A /* passport_ukraine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A64111C1847D7D5009AB22A /* passport_ukraine@2x.png */; };
+		5A64113D1847D7D5009AB22A /* passport_usa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A64111D1847D7D5009AB22A /* passport_usa@2x.png */; };
 		5AA46C4117FB21B0008EE800 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4017FB21B0008EE800 /* Foundation.framework */; };
 		5AA46C4317FB21B0008EE800 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4217FB21B0008EE800 /* CoreGraphics.framework */; };
 		5AA46C4517FB21B0008EE800 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4417FB21B0008EE800 /* UIKit.framework */; };
@@ -240,6 +272,38 @@
 /* Begin PBXFileReference section */
 		5A08D6F81846B04A0041A41C /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
 		5A08D6F91846B04A0041A41C /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
+		5A6410FE1847D7D5009AB22A /* passport_australia@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_australia@2x.png"; sourceTree = "<group>"; };
+		5A6410FF1847D7D5009AB22A /* passport_belarus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_belarus@2x.png"; sourceTree = "<group>"; };
+		5A6411001847D7D5009AB22A /* passport_belg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_belg@2x.png"; sourceTree = "<group>"; };
+		5A6411011847D7D5009AB22A /* passport_bolg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_bolg@2x.png"; sourceTree = "<group>"; };
+		5A6411021847D7D5009AB22A /* passport_canada@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_canada@2x.png"; sourceTree = "<group>"; };
+		5A6411031847D7D5009AB22A /* passport_china@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_china@2x.png"; sourceTree = "<group>"; };
+		5A6411041847D7D5009AB22A /* passport_croatia@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_croatia@2x.png"; sourceTree = "<group>"; };
+		5A6411051847D7D5009AB22A /* passport_cyprus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_cyprus@2x.png"; sourceTree = "<group>"; };
+		5A6411061847D7D5009AB22A /* passport_czech@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_czech@2x.png"; sourceTree = "<group>"; };
+		5A6411071847D7D5009AB22A /* passport_denmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_denmark@2x.png"; sourceTree = "<group>"; };
+		5A6411081847D7D5009AB22A /* passport_france@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_france@2x.png"; sourceTree = "<group>"; };
+		5A6411091847D7D5009AB22A /* passport_german@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_german@2x.png"; sourceTree = "<group>"; };
+		5A64110A1847D7D5009AB22A /* passport_greece@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_greece@2x.png"; sourceTree = "<group>"; };
+		5A64110B1847D7D5009AB22A /* passport_hongkong@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_hongkong@2x.png"; sourceTree = "<group>"; };
+		5A64110C1847D7D5009AB22A /* passport_ireland@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_ireland@2x.png"; sourceTree = "<group>"; };
+		5A64110D1847D7D5009AB22A /* passport_israel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_israel@2x.png"; sourceTree = "<group>"; };
+		5A64110E1847D7D5009AB22A /* passport_italy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_italy@2x.png"; sourceTree = "<group>"; };
+		5A64110F1847D7D5009AB22A /* passport_japan_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_japan_blue@2x.png"; sourceTree = "<group>"; };
+		5A6411101847D7D5009AB22A /* passport_japan_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_japan_red@2x.png"; sourceTree = "<group>"; };
+		5A6411111847D7D5009AB22A /* passport_kazakhstan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_kazakhstan@2x.png"; sourceTree = "<group>"; };
+		5A6411121847D7D5009AB22A /* passport_mexico@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_mexico@2x.png"; sourceTree = "<group>"; };
+		5A6411131847D7D5009AB22A /* passport_netherlands@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_netherlands@2x.png"; sourceTree = "<group>"; };
+		5A6411141847D7D5009AB22A /* passport_poland@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_poland@2x.png"; sourceTree = "<group>"; };
+		5A6411151847D7D5009AB22A /* passport_portugal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_portugal@2x.png"; sourceTree = "<group>"; };
+		5A6411161847D7D5009AB22A /* passport_rf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_rf@2x.png"; sourceTree = "<group>"; };
+		5A6411171847D7D5009AB22A /* passport_rf_zagran@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_rf_zagran@2x.png"; sourceTree = "<group>"; };
+		5A6411181847D7D5009AB22A /* passport_singapore@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_singapore@2x.png"; sourceTree = "<group>"; };
+		5A6411191847D7D5009AB22A /* passport_spain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_spain@2x.png"; sourceTree = "<group>"; };
+		5A64111A1847D7D5009AB22A /* passport_sweden@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_sweden@2x.png"; sourceTree = "<group>"; };
+		5A64111B1847D7D5009AB22A /* passport_switzerland@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_switzerland@2x.png"; sourceTree = "<group>"; };
+		5A64111C1847D7D5009AB22A /* passport_ukraine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_ukraine@2x.png"; sourceTree = "<group>"; };
+		5A64111D1847D7D5009AB22A /* passport_usa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_usa@2x.png"; sourceTree = "<group>"; };
 		5AA46C3D17FB21B0008EE800 /* podZamkom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = podZamkom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AA46C4017FB21B0008EE800 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5AA46C4217FB21B0008EE800 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -539,6 +603,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A6410FD1847D7D5009AB22A /* passports */ = {
+			isa = PBXGroup;
+			children = (
+				5A6410FE1847D7D5009AB22A /* passport_australia@2x.png */,
+				5A6410FF1847D7D5009AB22A /* passport_belarus@2x.png */,
+				5A6411001847D7D5009AB22A /* passport_belg@2x.png */,
+				5A6411011847D7D5009AB22A /* passport_bolg@2x.png */,
+				5A6411021847D7D5009AB22A /* passport_canada@2x.png */,
+				5A6411031847D7D5009AB22A /* passport_china@2x.png */,
+				5A6411041847D7D5009AB22A /* passport_croatia@2x.png */,
+				5A6411051847D7D5009AB22A /* passport_cyprus@2x.png */,
+				5A6411061847D7D5009AB22A /* passport_czech@2x.png */,
+				5A6411071847D7D5009AB22A /* passport_denmark@2x.png */,
+				5A6411081847D7D5009AB22A /* passport_france@2x.png */,
+				5A6411091847D7D5009AB22A /* passport_german@2x.png */,
+				5A64110A1847D7D5009AB22A /* passport_greece@2x.png */,
+				5A64110B1847D7D5009AB22A /* passport_hongkong@2x.png */,
+				5A64110C1847D7D5009AB22A /* passport_ireland@2x.png */,
+				5A64110D1847D7D5009AB22A /* passport_israel@2x.png */,
+				5A64110E1847D7D5009AB22A /* passport_italy@2x.png */,
+				5A64110F1847D7D5009AB22A /* passport_japan_blue@2x.png */,
+				5A6411101847D7D5009AB22A /* passport_japan_red@2x.png */,
+				5A6411111847D7D5009AB22A /* passport_kazakhstan@2x.png */,
+				5A6411121847D7D5009AB22A /* passport_mexico@2x.png */,
+				5A6411131847D7D5009AB22A /* passport_netherlands@2x.png */,
+				5A6411141847D7D5009AB22A /* passport_poland@2x.png */,
+				5A6411151847D7D5009AB22A /* passport_portugal@2x.png */,
+				5A6411161847D7D5009AB22A /* passport_rf@2x.png */,
+				5A6411171847D7D5009AB22A /* passport_rf_zagran@2x.png */,
+				5A6411181847D7D5009AB22A /* passport_singapore@2x.png */,
+				5A6411191847D7D5009AB22A /* passport_spain@2x.png */,
+				5A64111A1847D7D5009AB22A /* passport_sweden@2x.png */,
+				5A64111B1847D7D5009AB22A /* passport_switzerland@2x.png */,
+				5A64111C1847D7D5009AB22A /* passport_ukraine@2x.png */,
+				5A64111D1847D7D5009AB22A /* passport_usa@2x.png */,
+			);
+			path = passports;
+			sourceTree = "<group>";
+		};
 		5AA46C3417FB21B0008EE800 = {
 			isa = PBXGroup;
 			children = (
@@ -941,6 +1044,7 @@
 		5AC899501840B9A000164B51 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5A6410FD1847D7D5009AB22A /* passports */,
 				5AC899511840B9A000164B51 /* backgrounds */,
 				5AC899571840B9A000164B51 /* buttons */,
 				5AC8997E1840B9A000164B51 /* credits */,
@@ -1422,6 +1526,7 @@
 				5AC89A6B1840B9A000164B51 /* card_pink@2x.png in Resources */,
 				5AC89A4E1840B9A000164B51 /* new_doc_card_normal.png in Resources */,
 				5AC89A861840B9A000164B51 /* menu_passports@2x.png in Resources */,
+				5A6411281847D7D5009AB22A /* passport_france@2x.png in Resources */,
 				5AC89A471840B9A000164B51 /* login_screen_icon_visible@2x.png in Resources */,
 				5AC89A751840B9A000164B51 /* AppIcon60x60@2x.png in Resources */,
 				5AC89A991840B9A000164B51 /* laser@2x.png in Resources */,
@@ -1429,14 +1534,19 @@
 				5AC89AB51840B9A000164B51 /* Israel@2x.png in Resources */,
 				5AC89A871840B9A000164B51 /* menu_passports_active@2x.png in Resources */,
 				5AC89AC41840B9A000164B51 /* byr@2x.png in Resources */,
+				5A6411331847D7D5009AB22A /* passport_netherlands@2x.png in Resources */,
 				5AC89A291840B9A000164B51 /* Main.storyboard in Resources */,
 				5AC89A981840B9A000164B51 /* laser.png in Resources */,
 				5AC89A451840B9A000164B51 /* login_screen_icon_invisible@2x.png in Resources */,
+				5A64112E1847D7D5009AB22A /* passport_italy@2x.png in Resources */,
+				5A6411301847D7D5009AB22A /* passport_japan_red@2x.png in Resources */,
 				5AC89A971840B9A000164B51 /* jcb@2x.png in Resources */,
 				5AC89AC51840B9A000164B51 /* cek@2x.png in Resources */,
 				5AC89AC11840B9A000164B51 /* Switzerland@2x.png in Resources */,
+				5A6411221847D7D5009AB22A /* passport_canada@2x.png in Resources */,
 				5AC89A821840B9A000164B51 /* menu_logins_active@2x.png in Resources */,
 				5AC89A621840B9A000164B51 /* card_blue.png in Resources */,
+				5A64111F1847D7D5009AB22A /* passport_belarus@2x.png in Resources */,
 				5AC89A781840B9A000164B51 /* iTunesArtwork.png in Resources */,
 				5AC89A3C1840B9A000164B51 /* line_under_title_bar@2x.png in Resources */,
 				5AC89A801840B9A000164B51 /* menu_cards_active@2x.png in Resources */,
@@ -1444,12 +1554,19 @@
 				5AC89AA01840B9A000164B51 /* visa.png in Resources */,
 				5AC89AA71840B9A000164B51 /* Belgium@2x.png in Resources */,
 				5AC89AAA1840B9A000164B51 /* China@2x.png in Resources */,
+				5A6411211847D7D5009AB22A /* passport_bolg@2x.png in Resources */,
 				5AC89A5E1840B9A000164B51 /* title_bar_icon_edit@2x.png in Resources */,
+				5A64112C1847D7D5009AB22A /* passport_ireland@2x.png in Resources */,
+				5A64113B1847D7D5009AB22A /* passport_switzerland@2x.png in Resources */,
 				5AC89A151840B9A000164B51 /* LoginVC.xib in Resources */,
 				5AC89AC01840B9A000164B51 /* Sweden@2x.png in Resources */,
 				5AC89AB81840B9A000164B51 /* Kazakhstan@2x.png in Resources */,
+				5A6411251847D7D5009AB22A /* passport_cyprus@2x.png in Resources */,
+				5A6411271847D7D5009AB22A /* passport_denmark@2x.png in Resources */,
 				5AC89AC81840B9A000164B51 /* gbp@2x.png in Resources */,
 				5AC89A8A1840B9A000164B51 /* menu_shadow.png in Resources */,
+				5A64112F1847D7D5009AB22A /* passport_japan_blue@2x.png in Resources */,
+				5A64113A1847D7D5009AB22A /* passport_sweden@2x.png in Resources */,
 				5AC89ACA1840B9A000164B51 /* jpy@2x.png in Resources */,
 				5AC89A9B1840B9A000164B51 /* maestro@2x.png in Resources */,
 				5AC89A121840B9A000164B51 /* CardVC.xib in Resources */,
@@ -1460,6 +1577,7 @@
 				5AC89ACB1840B9A000164B51 /* rur@2x.png in Resources */,
 				5AC89A6F1840B9A000164B51 /* card_red@2x.png in Resources */,
 				5AC89A831840B9A000164B51 /* menu_new_doc@2x.png in Resources */,
+				5A6411201847D7D5009AB22A /* passport_belg@2x.png in Resources */,
 				5AC89A511840B9A000164B51 /* new_doc_login_active@2x.png in Resources */,
 				5AC89A691840B9A000164B51 /* card_orange@2x.png in Resources */,
 				5AC89A561840B9A000164B51 /* new_doc_note_normal.png in Resources */,
@@ -1468,10 +1586,12 @@
 				5AC89AAF1840B9A000164B51 /* England@2x.png in Resources */,
 				5AC89AC91840B9A000164B51 /* ils@2x.png in Resources */,
 				5AC89A3D1840B9A000164B51 /* login_screen_bg.png in Resources */,
+				5A6411231847D7D5009AB22A /* passport_china@2x.png in Resources */,
 				5AC89A6A1840B9A000164B51 /* card_pink.png in Resources */,
 				5AC89A681840B9A000164B51 /* card_orange.png in Resources */,
 				5AC89A841840B9A000164B51 /* menu_notes@2x.png in Resources */,
 				5AC89A6D1840B9A000164B51 /* card_purple@2x.png in Resources */,
+				5A64111E1847D7D5009AB22A /* passport_australia@2x.png in Resources */,
 				5AC89AF2184227C800164B51 /* icon_copy_grey@2x.png in Resources */,
 				5AC89A911840B9A000164B51 /* deleteBtnPr@2x.png in Resources */,
 				5AC89A8B1840B9A000164B51 /* aex.png in Resources */,
@@ -1480,6 +1600,8 @@
 				5AC89A8E1840B9A000164B51 /* cb@2x.png in Resources */,
 				5AC89AA41840B9A000164B51 /* Australia@2x.png in Resources */,
 				5AC89AE818414E8800164B51 /* Localizable.strings in Resources */,
+				5A6411291847D7D5009AB22A /* passport_german@2x.png in Resources */,
+				5A6411391847D7D5009AB22A /* passport_spain@2x.png in Resources */,
 				5AC89A8F1840B9A000164B51 /* cirrus.png in Resources */,
 				5AC89A441840B9A000164B51 /* login_screen_icon_invisible.png in Resources */,
 				5AC89A6C1840B9A000164B51 /* card_purple.png in Resources */,
@@ -1488,11 +1610,13 @@
 				5AC89A9E1840B9A000164B51 /* unionPay.png in Resources */,
 				5AC89AB31840B9A000164B51 /* Hong-Kong@2x.png in Resources */,
 				5AC89A3F1840B9A000164B51 /* login_screen_bg_safe.png in Resources */,
+				5A6411341847D7D5009AB22A /* passport_poland@2x.png in Resources */,
 				5AC89A9D1840B9A000164B51 /* mastercard@2x.png in Resources */,
 				5AC89A571840B9A000164B51 /* new_doc_note_normal@2x.png in Resources */,
 				5AC89A731840B9A000164B51 /* AppIcon40x40@2x.png in Resources */,
 				5AC89AA11840B9A000164B51 /* visa@2x.png in Resources */,
 				5AC89AB91840B9A000164B51 /* Mexico@2x.png in Resources */,
+				5A6411311847D7D5009AB22A /* passport_kazakhstan@2x.png in Resources */,
 				5AC89A601840B9A000164B51 /* title_bar_icon_search@2x.png in Resources */,
 				5AC89A951840B9A000164B51 /* discover@2x.png in Resources */,
 				5AC89ABB1840B9A000164B51 /* Poland@2x.png in Resources */,
@@ -1517,6 +1641,7 @@
 				5AC89A2A1840B9A000164B51 /* Password.storyboard in Resources */,
 				5AC89AF3184227C800164B51 /* icon_copy_white@2x.png in Resources */,
 				5AC89ABD1840B9A000164B51 /* Russia@2x.png in Resources */,
+				5A6411351847D7D5009AB22A /* passport_portugal@2x.png in Resources */,
 				5AC89A921840B9A000164B51 /* dinersclub.png in Resources */,
 				5AC89A581840B9A000164B51 /* new_doc_passport_active.png in Resources */,
 				5AC89A4A1840B9A000164B51 /* new_doc_bank_account_normal.png in Resources */,
@@ -1530,9 +1655,11 @@
 				5AC89A761840B9A000164B51 /* AppIcon76x76.png in Resources */,
 				5AC89AAE1840B9A000164B51 /* Denmark@2x.png in Resources */,
 				5AC89A5A1840B9A000164B51 /* new_doc_passport_normal.png in Resources */,
+				5A6411381847D7D5009AB22A /* passport_singapore@2x.png in Resources */,
 				5AC89A631840B9A000164B51 /* card_blue@2x.png in Resources */,
 				5AC89A941840B9A000164B51 /* discover.png in Resources */,
 				5AC89A431840B9A000164B51 /* photo_icon_add@2x.png in Resources */,
+				5A64113C1847D7D5009AB22A /* passport_ukraine@2x.png in Resources */,
 				5AC89AB71840B9A000164B51 /* Japan@2x.png in Resources */,
 				5AC89A531840B9A000164B51 /* new_doc_login_normal@2x.png in Resources */,
 				5AC89A791840B9A000164B51 /* iTunesArtwork@2x.png in Resources */,
@@ -1540,12 +1667,16 @@
 				5AC89AAC1840B9A000164B51 /* Cyprus@2x.png in Resources */,
 				5AC89A851840B9A000164B51 /* menu_notes_active@2x.png in Resources */,
 				5AC89A551840B9A000164B51 /* new_doc_note_active@2x.png in Resources */,
+				5A64112D1847D7D5009AB22A /* passport_israel@2x.png in Resources */,
+				5A64112B1847D7D5009AB22A /* passport_hongkong@2x.png in Resources */,
 				5AC89A671840B9A000164B51 /* card_grey@2x.png in Resources */,
 				5AC89A411840B9A000164B51 /* login_screen_forgot_password_arrow.png in Resources */,
 				5AC89A4D1840B9A000164B51 /* new_doc_card_active@2x.png in Resources */,
+				5A6411361847D7D5009AB22A /* passport_rf@2x.png in Resources */,
 				5AC89A481840B9A000164B51 /* new_doc_bank_account_active.png in Resources */,
 				5AC89A701840B9A000164B51 /* AppIcon29x29.png in Resources */,
 				5AC89A0F1840B9A000164B51 /* BankAccountVC.xib in Resources */,
+				5A6411371847D7D5009AB22A /* passport_rf_zagran@2x.png in Resources */,
 				5AC89A5C1840B9A000164B51 /* title_bar_icon_back@2x.png in Resources */,
 				5AC89A7C1840B9A000164B51 /* divider_vertic@2x.png in Resources */,
 				5AC89A491840B9A000164B51 /* new_doc_bank_account_active@2x.png in Resources */,
@@ -1564,14 +1695,19 @@
 				5AC89ABE1840B9A000164B51 /* Singapore@2x.png in Resources */,
 				5AC89A9A1840B9A000164B51 /* maestro.png in Resources */,
 				5AC89AAB1840B9A000164B51 /* Croatia@2x.png in Resources */,
+				5A6411261847D7D5009AB22A /* passport_czech@2x.png in Resources */,
 				5AC89A4C1840B9A000164B51 /* new_doc_card_active.png in Resources */,
+				5A6411241847D7D5009AB22A /* passport_croatia@2x.png in Resources */,
 				5AC89AA91840B9A000164B51 /* Canada@2x.png in Resources */,
 				5AC89A9F1840B9A000164B51 /* unionPay@2x.png in Resources */,
 				5AC89A5B1840B9A000164B51 /* new_doc_passport_normal@2x.png in Resources */,
 				5AC89A541840B9A000164B51 /* new_doc_note_active.png in Resources */,
 				5AC89A651840B9A000164B51 /* card_green@2x.png in Resources */,
+				5A64112A1847D7D5009AB22A /* passport_greece@2x.png in Resources */,
 				5AC89A4F1840B9A000164B51 /* new_doc_card_normal@2x.png in Resources */,
 				5AC89AB21840B9A000164B51 /* Greece@2x.png in Resources */,
+				5A6411321847D7D5009AB22A /* passport_mexico@2x.png in Resources */,
+				5A64113D1847D7D5009AB22A /* passport_usa@2x.png in Resources */,
 				5AC89AA31840B9A000164B51 /* visaelectron@2x.png in Resources */,
 				5AC89ABA1840B9A000164B51 /* Netherlands@2x.png in Resources */,
 				5AC89AF51842398900164B51 /* icon_link_grey@2x.png in Resources */,
