@@ -322,11 +322,11 @@
                                             <constraint firstAttribute="width" constant="320" id="EPj-T9-hGE"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Использовать пароль для входа" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KX9-81-Sf4">
-                                        <rect key="frame" x="20" y="119" width="213" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Использовать пароль для входа (рекомендуется)" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="213" translatesAutoresizingMaskIntoConstraints="NO" id="KX9-81-Sf4">
+                                        <rect key="frame" x="20" y="108" width="213" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="Fmh-so-0uZ"/>
+                                            <constraint firstAttribute="height" constant="46" id="Fmh-so-0uZ"/>
                                             <constraint firstAttribute="width" constant="213" id="S5D-oU-rmX"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
@@ -396,7 +396,7 @@
                                     <constraint firstItem="TsZ-dP-01U" firstAttribute="top" secondItem="0oF-Qb-dTe" secondAttribute="bottom" constant="14" id="Z3q-Hw-jdu"/>
                                     <constraint firstItem="50x-Cl-l1V" firstAttribute="top" secondItem="177-zo-Sjv" secondAttribute="bottom" constant="15" id="alf-TZ-EIu"/>
                                     <constraint firstItem="aNU-Ev-OKc" firstAttribute="top" secondItem="FI6-UG-IXe" secondAttribute="bottom" constant="8" id="bDB-hp-dya"/>
-                                    <constraint firstItem="KX9-81-Sf4" firstAttribute="top" secondItem="0oF-Qb-dTe" secondAttribute="bottom" constant="19" id="bG3-3l-85N"/>
+                                    <constraint firstItem="KX9-81-Sf4" firstAttribute="top" secondItem="0oF-Qb-dTe" secondAttribute="bottom" constant="8" id="bG3-3l-85N"/>
                                     <constraint firstItem="z2o-zu-GvJ" firstAttribute="leading" secondItem="9iK-Q6-ldp" secondAttribute="leading" constant="20" id="cWh-Zn-BYn"/>
                                     <constraint firstItem="bOg-rz-mSt" firstAttribute="top" secondItem="9iK-Q6-ldp" secondAttribute="top" constant="20" id="cZt-fS-qUQ"/>
                                     <constraint firstItem="w0e-MY-NIM" firstAttribute="top" secondItem="bOg-rz-mSt" secondAttribute="bottom" constant="14" id="dsB-a7-hAm"/>
@@ -437,8 +437,11 @@
                         <outlet property="fieldWithPassword" destination="0oF-Qb-dTe" id="Qm9-2E-KCX"/>
                         <outlet property="fieldWithXtraPassword" destination="z5U-TT-diU" id="JUj-Yu-X0F"/>
                         <outlet property="frSwitch" destination="QkF-ct-Tc7" id="aeZ-gT-6y4"/>
+                        <outlet property="lblDeleteDocs" destination="z2o-zu-GvJ" id="rQu-14-ea7"/>
                         <outlet property="lblLocalize" destination="FI6-UG-IXe" id="x3F-wN-pjh"/>
                         <outlet property="lblPassword" destination="bOg-rz-mSt" id="uTT-P1-btb"/>
+                        <outlet property="lblUsePassword" destination="KX9-81-Sf4" id="aiD-p9-FjI"/>
+                        <outlet property="lblXtraPasswdDesription" destination="pjv-iz-m9y" id="bnc-kG-hqj"/>
                         <outlet property="lblXtraPassword" destination="iCm-jq-klP" id="XFy-un-EBg"/>
                         <outlet property="rusSwitch" destination="177-zo-Sjv" id="7o4-mT-k6b"/>
                         <outlet property="scrollView" destination="9iK-Q6-ldp" id="wYa-7e-6GY"/>

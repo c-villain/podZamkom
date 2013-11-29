@@ -164,11 +164,11 @@
 
 -(void)deleteBtnTapped
 {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"ПОДТВЕРДИТЕ УДАЛЕНИЕ"
-                                                   message: @"всех данных"
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: [Translator languageSelectedStringForKey:@"CONFIRM DELETINGS OF ALL DOCUMENTS"]
+                                                   message: nil
                                                   delegate: self
-                                         cancelButtonTitle:@"Отмена"
-                                         otherButtonTitles:@"Удалить",nil];
+                                         cancelButtonTitle:[Translator languageSelectedStringForKey:@"Cancel"]
+                                         otherButtonTitles:[Translator languageSelectedStringForKey:@"Delete"],nil];
     
     
     [alert show];

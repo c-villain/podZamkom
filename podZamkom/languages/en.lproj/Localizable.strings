@@ -26,3 +26,6 @@
 "Every time ask for logging in (recommended)" = "Every time ask for logging in (recommended)";
 "After entering this password all documents will be deleted" = "After entering this password all documents will be deleted";
 "DELETE ALL" = "DELETE ALL";
+"CONFIRM DELETINGS OF ALL DOCUMENTS" = "CONFIRM DELETINGS OF ALL DOCUMENTS";
+"Cancel" = "Cancel";
+"Delete" = "Delete";
