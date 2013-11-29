@@ -22,8 +22,8 @@
     
     UIColor *color = [UIColor colorWithRed:52.0f/255.0f green:144.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
     navBarLabel.layer.shadowColor = [color CGColor];
-    navBarLabel.layer.shadowRadius = 4.0f;
-    navBarLabel.layer.shadowOpacity = 0.77f;
+    navBarLabel.layer.shadowRadius = 4.3f;
+    navBarLabel.layer.shadowOpacity = 3.1f;
     navBarLabel.layer.shadowOffset = CGSizeZero;
     navBarLabel.layer.masksToBounds = NO;
     
