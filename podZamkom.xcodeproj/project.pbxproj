@@ -10,6 +10,7 @@
 		5A08D6FA1846B04A0041A41C /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08D6F91846B04A0041A41C /* Cell.m */; };
 		5A361EF21848D70700DA3AFB /* passport_uk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A361EF11848D70700DA3AFB /* passport_uk@2x.png */; };
 		5A361EF41848D7C700DA3AFB /* UK@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A361EF31848D7C700DA3AFB /* UK@2x.png */; };
+		5A361EFA1848E28800DA3AFB /* Translator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A361EF91848E28800DA3AFB /* Translator.m */; };
 		5A64111E1847D7D5009AB22A /* passport_australia@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6410FE1847D7D5009AB22A /* passport_australia@2x.png */; };
 		5A64111F1847D7D5009AB22A /* passport_belarus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6410FF1847D7D5009AB22A /* passport_belarus@2x.png */; };
 		5A6411201847D7D5009AB22A /* passport_belg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411001847D7D5009AB22A /* passport_belg@2x.png */; };
@@ -276,6 +277,8 @@
 		5A08D6F91846B04A0041A41C /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
 		5A361EF11848D70700DA3AFB /* passport_uk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_uk@2x.png"; sourceTree = "<group>"; };
 		5A361EF31848D7C700DA3AFB /* UK@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UK@2x.png"; sourceTree = "<group>"; };
+		5A361EF81848E28800DA3AFB /* Translator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Translator.h; sourceTree = "<group>"; };
+		5A361EF91848E28800DA3AFB /* Translator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Translator.m; sourceTree = "<group>"; };
 		5A6410FE1847D7D5009AB22A /* passport_australia@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_australia@2x.png"; sourceTree = "<group>"; };
 		5A6410FF1847D7D5009AB22A /* passport_belarus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_belarus@2x.png"; sourceTree = "<group>"; };
 		5A6411001847D7D5009AB22A /* passport_belg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_belg@2x.png"; sourceTree = "<group>"; };
@@ -884,6 +887,8 @@
 				5AC899041840B9A000164B51 /* ShowVC.m */,
 				5AC899051840B9A000164B51 /* ViewAppearance.h */,
 				5AC899061840B9A000164B51 /* ViewAppearance.m */,
+				5A361EF81848E28800DA3AFB /* Translator.h */,
+				5A361EF91848E28800DA3AFB /* Translator.m */,
 			);
 			path = "Appearance + FrameVC + ShowVC";
 			sourceTree = "<group>";
@@ -1747,6 +1752,7 @@
 				5AC89A221840B9A000164B51 /* CardType.m in Sources */,
 				5AC89A251840B9A000164B51 /* PickerObject.m in Sources */,
 				5AC89A371840B9A000164B51 /* Note.m in Sources */,
+				5A361EFA1848E28800DA3AFB /* Translator.m in Sources */,
 				5AC89A361840B9A000164B51 /* Login.m in Sources */,
 				5AC89A301840B9A000164B51 /* DBSave.m in Sources */,
 				5AC89A2B1840B9A000164B51 /* FBEncryptorAES.m in Sources */,

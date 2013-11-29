@@ -6,4 +6,11 @@
   Copyright (c) 2013 Alexander Kraev. All rights reserved.
 */
 
-"app name" = "UNDER LOCK";
+//password screen:
+"UNDER LOCK" = "UNDER LOCK";
+"SET PASSWORD" = "SET PASSWORD";
+"ENTER PASSWORD" = "ENTER PASSWORD";
+"Enter password\nfor logging into" = "Enter password\nfor logging into";
+"Set password.\nIt could be changed\n in settings." = "Set password.\nIt could be changed\n in settings.";
+"Error password.\nTry again." = "Error password.\nTry again.";
+"What to do if you forget your password" = "What to do if you forget your password";
