@@ -75,7 +75,7 @@
     self.navigationController.navigationBarHidden = YES;
     
     self.appNameLabel.text = [Translator languageSelectedStringForKey:@"UNDER LOCK"];
-    [self.forgetBtn setTitle:[Translator languageSelectedStringForKey:@"What to do if you forget your password"] forState:UIControlStateNormal];
+    [self.forgetBtn setTitle:[Translator languageSelectedStringForKey:@"Forgot your password?"] forState:UIControlStateNormal];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     // Custom initialization
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"login_screen_bg"]];
@@ -185,7 +185,7 @@
             {
                 [self handleFailedAttempt];//увеличиваем счетчик попыток ввести пароль
                 [self showScreenForPhase:0 animated:NO]; //просим еще раз ввести пароль
-                self.errorLabel.text = [Translator languageSelectedStringForKey:@"Error password.\nTry again."];
+                self.errorLabel.text = [Translator languageSelectedStringForKey:@"Incorrect password.\nTry again."];
             }
             break;
     }

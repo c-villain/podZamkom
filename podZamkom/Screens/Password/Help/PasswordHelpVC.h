@@ -14,5 +14,5 @@
 @property (nonatomic, retain) IBOutlet UINavigationBar *navBar;
 @property (nonatomic, retain) IBOutlet UILabel *helpTitle;
 @property (nonatomic, retain) IBOutlet UIButton *closeBtn;
-@property (nonatomic, retain) IBOutlet UIView *titleV;
+@property (nonatomic, retain) IBOutlet UITextView* helpText;
 @end

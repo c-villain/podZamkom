@@ -25,7 +25,7 @@
     
     self.navigationItem.hidesBackButton = YES;
 
-    self.navigationItem.titleView = [ViewAppearance initViewWithGlowingTitle:@"ЗАБЫЛИ ПАРОЛЬ?"];
+    self.navigationItem.titleView = [ViewAppearance initViewWithGlowingTitle:[Translator languageSelectedStringForKey:@"FORGOT PASSWORD?"]];
     
     //создаем кастомизированную кнопку back:
     UIButton *button = [ViewAppearance initCustomButtonWithImage:@"title_bar_icon_close.png"];
@@ -35,6 +35,8 @@
     
     //создаем подсветку навбара
     [self.view addSubview:[ViewAppearance initGlowingBoarderForNavBar]];
+    self.helpText.text = [Translator languageSelectedStringForKey:@"First of all try to enter password with capital letters in different places. If it will not help you, you should reinstall application. Unfortunately all documents will be deleted after this."];
+    
 }
 
 -(void)backBtnTapped
