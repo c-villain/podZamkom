@@ -11,6 +11,7 @@
 #import "PasswordHelpVC.h"
 #import "MainTableVC.h"
 #import "ViewAppearance.h"
+
 //режим для работы пароля
 typedef enum {
     PasscodeActionSet,

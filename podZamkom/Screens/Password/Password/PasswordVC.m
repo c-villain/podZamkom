@@ -49,11 +49,12 @@
     switch (action)
     {
         case PasscodeActionSet:
-            _enterPrompt = NSLocalizedString(@"Установите пароль для приложения.\nПароль можно будет изменить в\n разделе настроек", nil);
+            
+            _enterPrompt = [Translator languageSelectedStringForKey:@"Set password.\nIt could be changed\n in settings."];
             break;
             
         case PasscodeActionEnter:
-            _enterPrompt = NSLocalizedString(@"Введите пароль\nдля входа в приложение.", nil);
+            _enterPrompt = [Translator languageSelectedStringForKey:@"Enter password\nfor logging into"];
             break;
     }
     return self;
@@ -73,8 +74,8 @@
     [UIApplication sharedApplication].statusBarHidden = NO;
     self.navigationController.navigationBarHidden = YES;
     
-    self.appNameLabel.text = [self languageSelectedStringForKey:@"app name"];
-    
+    self.appNameLabel.text = [Translator languageSelectedStringForKey:@"UNDER LOCK"];
+    [self.forgetBtn setTitle:[Translator languageSelectedStringForKey:@"What to do if you forget your password"] forState:UIControlStateNormal];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     // Custom initialization
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"login_screen_bg"]];
@@ -114,29 +115,16 @@
     switch (_action)
     {
         case PasscodeActionSet:
-            self.fieldWithPassword.placeholder = [self languageSelectedStringForKey:@"Set password"];
+            self.fieldWithPassword.placeholder = [Translator languageSelectedStringForKey:@"SET PASSWORD"];
             self.forgetBtn.hidden = YES;
             break;
             
         case PasscodeActionEnter:
-            self.fieldWithPassword.placeholder = [self languageSelectedStringForKey:@"Enter password"];
+            self.fieldWithPassword.placeholder = [Translator languageSelectedStringForKey:@"ENTER PASSWORD"];
             break;
     }
     
     [self showScreenForPhase:0 animated:NO];
-}
-
--(NSString *)languageSelectedStringForKey:(NSString *) key
-{
-    NSString *language = [[NSUserDefaults standardUserDefaults] stringForKey:@"Language"];
-    
-    NSString *path = [[NSBundle mainBundle] pathForResource:language ofType:@"lproj"];
-    
-    if ( !path )
-        
-        return NSLocalizedString(key, nil);
-    
-    return [[NSBundle bundleWithPath:path] localizedStringForKey:(key) value: @"" table:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -197,7 +185,7 @@
             {
                 [self handleFailedAttempt];//увеличиваем счетчик попыток ввести пароль
                 [self showScreenForPhase:0 animated:NO]; //просим еще раз ввести пароль
-                self.errorLabel.text = NSLocalizedString((@"Неправильный пароль.\nПопробуйте заново."), nil);
+                self.errorLabel.text = [Translator languageSelectedStringForKey:@"Error password.\nTry again."];
             }
             break;
     }
