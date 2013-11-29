@@ -29,7 +29,9 @@
 	// Do any additional setup after loading the view.
     
     //подсветка заголовка:
-    self.navigationItem.titleView = [ViewAppearance initViewWithGlowingTitle:@"НОВЫЙ ДОКУМЕНТ"];
+    self.navigationItem.titleView = [ViewAppearance initViewWithGlowingTitle:[Translator languageSelectedStringForKey:@"NEW DOCUMENT"]];
+    
+
     
     self.navigationItem.hidesBackButton = YES;
     
@@ -67,26 +69,42 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier;
+    NSString *cellDescription = @"";
+    NSInteger lblTag;
     switch (indexPath.item)
     {
         case 0:
             cellIdentifier = @"newNote";
+            cellDescription = [Translator languageSelectedStringForKey:@"NOTE"];
+            lblTag = 200;
             break;
         case 1:
             cellIdentifier = @"newCard";
+            cellDescription = [Translator languageSelectedStringForKey:@"CREDIT CARD"];
+            lblTag = 201;
             break;
         case 2:
             cellIdentifier = @"newPassport";
+            cellDescription = [Translator languageSelectedStringForKey:@"PASSPORT"];
+            lblTag = 202;
             break;
         case 3:
             cellIdentifier = @"newBankAccount";
+            cellDescription = [Translator languageSelectedStringForKey:@"BANK ACCOUNT"];
+            lblTag = 203;
             break;
         case 4:
             cellIdentifier = @"newLogin";
+            cellDescription = [Translator languageSelectedStringForKey:@"LOGIN"];
+            lblTag = 204;
             break;
     }
     
     UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    UILabel *cellCaption = (UILabel *)[cell viewWithTag:lblTag];
+    cellCaption.text = cellDescription;
+
     if (cell == nil) {
         cell = (UICollectionViewCell*)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
