@@ -184,18 +184,24 @@
     country28.passport = @"passport_switzerland.png";
     
     Country *country29 = [Country new];
-    country29.name = @"UKRAINE";
-    country29.image = @"Ukraine.png";
-    country29.country = UKRAINE;
-    country29.passport = @"passport_ukraine.png";
-    
+    country29.name = @"UK";
+    country29.image = @"UK.png";
+    country29.country = UK;
+    country29.passport = @"passport_uk.png";
+
     Country *country30 = [Country new];
-    country30.name = @"USA";
-    country30.image = @"USA.png";
-    country30.country = USA;
-    country30.passport = @"passport_usa.png";
+    country30.name = @"UKRAINE";
+    country30.image = @"Ukraine.png";
+    country30.country = UKRAINE;
+    country30.passport = @"passport_ukraine.png";
     
-    NSArray * array = [NSArray arrayWithObjects:country1, country2, country3, country4, country5, country6, country7, country8, country9, country10, country11, country12, country13, country14, country15, country16, country17, country18, country19, country20, country21, country22, country23, country24, country25, country26, country27, country28, country29, country30, nil];
+    Country *country31 = [Country new];
+    country31.name = @"USA";
+    country31.image = @"USA.png";
+    country31.country = USA;
+    country31.passport = @"passport_usa.png";
+    
+    NSArray * array = [NSArray arrayWithObjects:country1, country2, country3, country4, country5, country6, country7, country8, country9, country10, country11, country12, country13, country14, country15, country16, country17, country18, country19, country20, country21, country22, country23, country24, country25, country26, country27, country28, country29, country30, country31, nil];
     return array;
 }
 

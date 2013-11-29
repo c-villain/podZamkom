@@ -18,8 +18,10 @@
     [(TextField *)self.birthDateField initWithMask:@"99.99.9999"];
     
    if ([[[NSLocale preferredLanguages] objectAtIndex:0]  isEqual: @"ru"])
+   {
+       
        [(TextField *)self.numberField initWithMask:@"99 99 999999"];
-    
+   }
     //инициализируем пикер (страны):
     ((TextField *)self.countryField).picker = [Picker createPickerWithData:[Country initCountryArray] andPickerDelegate:self];
 

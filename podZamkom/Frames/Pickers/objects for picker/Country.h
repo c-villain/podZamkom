@@ -37,6 +37,7 @@ typedef enum {
     SPAIN,
     SWEDEN,
     SWITZERLAND,
+    UK,
     UKRAINE,
     USA
 } CountryEnum;
