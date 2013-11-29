@@ -28,6 +28,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblXtraPassword;
 @property (strong, nonatomic) IBOutlet UILabel *lblLocalize;
 
+@property (strong, nonatomic) IBOutlet UILabel *lblUsePassword;
+@property (strong, nonatomic) IBOutlet UILabel *lblDeleteDocs;
+@property (strong, nonatomic) IBOutlet UILabel *lblXtraPasswdDesription;
+
 @property (nonatomic, retain) IBOutlet UIButton *engSwitch;
 @property (nonatomic, retain) IBOutlet UIButton *frSwitch;
 @property (nonatomic, retain) IBOutlet UIButton *deSwitch;

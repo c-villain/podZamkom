@@ -105,17 +105,28 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad:[super languageSelectedStringForKey:@"НАСТРОЙКИ"]];
+    [super viewDidLoad:[super languageSelectedStringForKey:[Translator languageSelectedStringForKey:@"SETTINGS"]]];
+    
+    self.lblPassword.text = [Translator languageSelectedStringForKey:@"PASSWORD"];
+    self.lblXtraPassword.text = [Translator languageSelectedStringForKey:@"EMERGENCY PASSWORD"];
+    self.lblLocalize.text = [Translator languageSelectedStringForKey:@"LANGUAGE"];
+    
     [ViewAppearance setGlowToLabel:self.lblPassword];
     [ViewAppearance setGlowToLabel:self.lblXtraPassword];
     [ViewAppearance setGlowToLabel:self.lblLocalize];
 
+    self.lblUsePassword.text = [Translator languageSelectedStringForKey:@"Every time ask for logging in (recommended)"];
+    self.lblDeleteDocs.text = [Translator languageSelectedStringForKey:@"Delete documents after tenth attempt to enter password"];
+    self.lblXtraPasswdDesription.text = [Translator languageSelectedStringForKey:@"After entering this password all documents will be deleted"];
+    
     self.fieldWithPassword.text = [Security getPassword];
     self.fieldWithXtraPassword.text = [Security getXtraPassword];
     self.usePassword.on = [Security getUseOrNotPassword];
     self.deleteFilesAfterTenErrors.on = [Security getDeleteorNotFilesAfterTenErrors];
     
     [self.engSwitch addTarget:self action:@selector(switchLanguage:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.deleteBtn setTitle:[Translator languageSelectedStringForKey:@"DELETE ALL"] forState:UIControlStateNormal];
     
     [self highlightButtonWithLanguage];
 }

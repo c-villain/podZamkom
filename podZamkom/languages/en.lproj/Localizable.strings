@@ -12,5 +12,17 @@
 "ENTER PASSWORD" = "ENTER PASSWORD";
 "Enter password\nfor logging into" = "Enter password\nfor logging into";
 "Set password.\nIt could be changed\n in settings." = "Set password.\nIt could be changed\n in settings.";
-"Error password.\nTry again." = "Error password.\nTry again.";
-"What to do if you forget your password" = "What to do if you forget your password";
+"Incorrect password.\nTry again." = "Incorrect password.\nTry again.";
+"Forgot your password?" = "Forgot your password?";
+"FORGOT PASSWORD?" = "FORGOT PASSWORD?";
+"First of all try to enter password with capital letters in different places. If it will not help you, you should reinstall application. Unfortunately all documents will be deleted after this." = "First of all try to enter password with capital letters in different places. If it will not help you, you should reinstall application. Unfortunately all documents will be deleted after this.";
+
+//settings screen:
+"SETTINGS" = "SETTINGS";
+"PASSWORD" = "PASSWORD";
+"EMERGENCY PASSWORD" = "EMERGENCY PASSWORD";
+"LANGUAGE" = "LANGUAGE";
+"Delete documents after tenth attempt to enter password" = "Delete documents after tenth attempt to enter password";
+"Every time ask for logging in (recommended)" = "Every time ask for logging in (recommended)";
+"After entering this password all documents will be deleted" = "After entering this password all documents will be deleted";
+"DELETE ALL" = "DELETE ALL";
