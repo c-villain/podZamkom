@@ -58,6 +58,9 @@
              self.tableView.scrollEnabled = YES;
         }
     }
+    
+    //убираю разделители между строками таблицы, чтобы кастомизировать их в функции
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,7 +72,50 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSString *cellDescription = @"";
+    NSInteger lblTag;
+    switch (indexPath.item)
+    {
+        case 0:
+            cellDescription = [Translator languageSelectedStringForKey:@"All"];
+            lblTag = 300;
+            break;
+        case 1:
+            cellDescription = [Translator languageSelectedStringForKey:@"Notes"];
+            lblTag = 301;
+            break;
+        case 2:
+            cellDescription = [Translator languageSelectedStringForKey:@"Cards"];
+            lblTag = 302;
+            break;
+        case 3:
+            cellDescription = [Translator languageSelectedStringForKey:@"Passports"];
+            lblTag = 303;
+            break;
+        case 4:
+            cellDescription = [Translator languageSelectedStringForKey:@"Bank accounts"];
+            lblTag = 304;
+            break;
+        case 5:
+            cellDescription = [Translator languageSelectedStringForKey:@"Logins"];
+            lblTag = 305;
+            break;
+        case 6:
+            cellDescription = [Translator languageSelectedStringForKey:@"New document"];
+            lblTag = 306;
+            break;
+    }
     
+    UILabel *cellCaption = (UILabel *)[cell viewWithTag:lblTag];
+    cellCaption.text = cellDescription;
+    
+//    cell.layer.borderWidth = 1.0f;
+    //[UIColor colorWithPatternImage:[UIImage imageNamed:@"divider_goriz.png"]].CGColor;
+    
+    UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 71, 320, 2)];/// change size as you need.
+    separatorLineView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"divider_goriz.png"]];// you can also put image here
+    
+    [cell.contentView addSubview:separatorLineView];
 }
 
 

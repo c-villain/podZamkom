@@ -605,7 +605,7 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 
 - (void)createNavBarButtons {
-    self.navigationItem.titleView = [ViewAppearance initViewWithGlowingTitle:@"СЕЙЧАС ПОД ЗАМКОМ"];
+    self.navigationItem.titleView = [ViewAppearance initViewWithGlowingTitle: [Translator languageSelectedStringForKey:@"ALREADY UNDER LOCK"]];
     
     //создаем кастомизированную кнопку settings:
     UIButton *settingsBtn = [ViewAppearance initCustomButtonWithImage:@"title_bar_icon_settings.png"];

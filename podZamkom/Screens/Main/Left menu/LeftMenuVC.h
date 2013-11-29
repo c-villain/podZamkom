@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "DocumentLib.h"
+#import "ViewAppearance.h"
+#import <ImageIO/CGImageSource.h>
+//#import "CGImageSource.h"
 
 @protocol DocSortingDelegate<NSObject>
 

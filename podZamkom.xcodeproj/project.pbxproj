@@ -11,6 +11,7 @@
 		5A361EF21848D70700DA3AFB /* passport_uk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A361EF11848D70700DA3AFB /* passport_uk@2x.png */; };
 		5A361EF41848D7C700DA3AFB /* UK@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A361EF31848D7C700DA3AFB /* UK@2x.png */; };
 		5A361EFA1848E28800DA3AFB /* Translator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A361EF91848E28800DA3AFB /* Translator.m */; };
+		5A361EFF1849501300DA3AFB /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A361EFE1849501300DA3AFB /* ImageIO.framework */; };
 		5A64111E1847D7D5009AB22A /* passport_australia@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6410FE1847D7D5009AB22A /* passport_australia@2x.png */; };
 		5A64111F1847D7D5009AB22A /* passport_belarus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6410FF1847D7D5009AB22A /* passport_belarus@2x.png */; };
 		5A6411201847D7D5009AB22A /* passport_belg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411001847D7D5009AB22A /* passport_belg@2x.png */; };
@@ -279,6 +280,7 @@
 		5A361EF31848D7C700DA3AFB /* UK@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UK@2x.png"; sourceTree = "<group>"; };
 		5A361EF81848E28800DA3AFB /* Translator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Translator.h; sourceTree = "<group>"; };
 		5A361EF91848E28800DA3AFB /* Translator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Translator.m; sourceTree = "<group>"; };
+		5A361EFE1849501300DA3AFB /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		5A6410FE1847D7D5009AB22A /* passport_australia@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_australia@2x.png"; sourceTree = "<group>"; };
 		5A6410FF1847D7D5009AB22A /* passport_belarus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_belarus@2x.png"; sourceTree = "<group>"; };
 		5A6411001847D7D5009AB22A /* passport_belg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_belg@2x.png"; sourceTree = "<group>"; };
@@ -589,6 +591,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A361EFF1849501300DA3AFB /* ImageIO.framework in Frameworks */,
 				5AC89AF718429DF300164B51 /* MessageUI.framework in Frameworks */,
 				5AB3447C1823047E0007F714 /* libsqlite3.dylib in Frameworks */,
 				5AA46C4317FB21B0008EE800 /* CoreGraphics.framework in Frameworks */,
@@ -672,6 +675,7 @@
 		5AA46C3F17FB21B0008EE800 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A361EFE1849501300DA3AFB /* ImageIO.framework */,
 				5AC89AF618429DF300164B51 /* MessageUI.framework */,
 				5AB3447B1823047E0007F714 /* libsqlite3.dylib */,
 				5AA46C4017FB21B0008EE800 /* Foundation.framework */,
