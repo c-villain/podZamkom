@@ -164,7 +164,7 @@
 
 -(void)deleteBtnTapped
 {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: [Translator languageSelectedStringForKey:@"CONFIRM DELETINGS OF ALL DOCUMENTS"]
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: [Translator languageSelectedStringForKey:@"CONFIRM DELETION OF ALL DOCUMENTS"]
                                                    message: nil
                                                   delegate: self
                                          cancelButtonTitle:[Translator languageSelectedStringForKey:@"Cancel"]

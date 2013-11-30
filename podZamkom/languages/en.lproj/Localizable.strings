@@ -26,7 +26,7 @@
 "Every time ask for logging in (recommended)" = "Every time ask for logging in (recommended)";
 "After entering this password all documents will be deleted" = "After entering this password all documents will be deleted";
 "DELETE ALL" = "DELETE ALL";
-"CONFIRM DELETINGS OF ALL DOCUMENTS" = "CONFIRM DELETINGS OF ALL DOCUMENTS";
+"CONFIRM DELETION OF ALL DOCUMENTS" = "CONFIRM DELETION OF ALL DOCUMENTS";
 "Cancel" = "Cancel";
 "Delete" = "Delete";
 
@@ -38,3 +38,14 @@
 "BANK ACCOUNT" = "BANK ACCOUNT";
 "LOGIN" = "LOGIN";
 "ALREADY UNDER LOCK" = "ALREADY UNDER LOCK";
+
+//note screen
+"NEW NOTE" = "NEW NOTE";
+"TITLE" = "TITLE";
+"NOTE" = "NOTE";
+"CONFIRM DELETION OF NOTE" = "CONFIRM DELETION OF NOTE";
+"Note was copied" = "Note was copied";
+"Title:" = "Title:";
+"Note:" = "Note:";
+"DELETE NOTE" = "DELETE NOTE";
+"SEND NOTE" = "SEND NOTE";

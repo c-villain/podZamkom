@@ -24,13 +24,17 @@
 {
     [super viewDidLoad: note.title];
     
+    self.lblTitle.text = [Translator languageSelectedStringForKey:@"TITLE"];
+    self.lblNote.text = [Translator languageSelectedStringForKey:@"NOTE"];
+    
+    [ViewAppearance setGlowToLabel:self.lblTitle];
+    [ViewAppearance setGlowToLabel:self.lblNote];
     // Do any additional setup after loading the view from its nib.
     
     self.noteTitle.text = note.title;
     self.noteContent.text = note.content;
-    
-    [ViewAppearance setGlowToLabel:self.lblTitle];
-    [ViewAppearance setGlowToLabel:self.lblNote];
+    [self.deleteBtn setTitle:[Translator languageSelectedStringForKey:@"DELETE NOTE"] forState:UIControlStateNormal];
+    [self.sendBtn setTitle:[Translator languageSelectedStringForKey:@"SEND NOTE"] forState:UIControlStateNormal];
 }
 
 -(void)editBtnTapped
@@ -43,11 +47,12 @@
 
 -(void)deleteBtnTapped
 {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"ПОДТВЕРДИТЕ УДАЛЕНИЕ"
-                                                   message: @"Заметка"
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: [Translator languageSelectedStringForKey:@"CONFIRM DELETION OF NOTE"]
+
+                                                   message: nil
                                                   delegate: self
-                                         cancelButtonTitle:@"Отмена"
-                                         otherButtonTitles:@"Удалить",nil];
+                                         cancelButtonTitle:[Translator languageSelectedStringForKey:@"Cancel"]
+                                         otherButtonTitles:[Translator languageSelectedStringForKey:@"Delete"],nil];
     
     
     [alert show];
@@ -76,16 +81,16 @@
 {
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = self.noteContent.text;
-    [super showMessageBoxWithTitle:@"Заметка скопирована"];
+    [super showMessageBoxWithTitle:[Translator languageSelectedStringForKey:@"Note was copied"]];
 }
 
 -(void)sendBtnTapped
 {
     NSMutableString *message = [[NSMutableString alloc] init];
-    [message appendString:@"Заголовок: "];
+    [message appendString:[Translator languageSelectedStringForKey:@"Title:"]];
     [message appendString:note.title];
     [message appendString:@"\n"];
-    [message appendString:@"заметка: "];
+    [message appendString:[Translator languageSelectedStringForKey:@"Note:"]];
     [message appendString:note.content];
     [super sendMessage:message];
 }

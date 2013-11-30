@@ -16,5 +16,8 @@
 
 @property (nonatomic, retain) IBOutlet UITextField *noteTitle;
 @property (nonatomic, retain) IBOutlet UITextView *note;
-
+    
+@property (nonatomic, retain) IBOutlet UILabel *lblTitle;
+@property (nonatomic, retain) IBOutlet UILabel *lblNote;
+    
 @end

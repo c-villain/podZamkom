@@ -6,4 +6,46 @@
   Copyright (c) 2013 Alexander Kraev. All rights reserved.
 */
 
-"app name" = "ПОД ЗАМКОМ";
+//password screen:
+"UNDER LOCK" = "ПОД ЗАМКОМ";
+"SET PASSWORD" = "СОЗДАТЬ ПАРОЛЬ";
+"ENTER PASSWORD" = "ВВЕСТИ ПАРОЛЬ";
+"Enter password\nfor logging into" = "Введите пароль\nдля входа в приложение";
+"Set password.\nIt could be changed\n in settings." = "Установите пароль для приложения.\nПароль можно будет изменить в\n разделе настроек";
+"Incorrect password.\nTry again." = "Неправильный пароль.\nПопробуйте заново.";
+"Forgot your password?" = "Что делать, если вы забыли пароль";
+"FORGOT PASSWORD?" = "ЗАБЫЛИ ПАРОЛЬ?";
+"First of all try to enter password with capital letters in different places. If it will not help you, you should reinstall application. Unfortunately all documents will be deleted after this." = "Прежде всего попробуйте ввести пароль с заглавными буквами на разных местах. Если это не поможет, единственным решением останется переустановка приложения. К сожалению, после этого все документы будут удалены.";
+
+//settings screen:
+"SETTINGS" = "НАСТРОЙКИ";
+"PASSWORD" = "ПАРОЛЬ";
+"EMERGENCY PASSWORD" = "ЭКСТРЕННЫЙ ПАРОЛЬ";
+"LANGUAGE" = "ЯЗЫК";
+"Every time ask for logging in (recommended)" = "Использовать пароль для входа (рекомендуется)";
+"Delete documents after tenth attempt to enter password" = "Удалить все данные после 10 неправильных попыток ввода пароля";
+"After entering this password all documents will be deleted" = "При вводе этого пароля при запуске приложения все данные моментально удаляются";
+"DELETE ALL" = "УДАЛИТЬ ВСЕ ДАННЫЕ";
+"CONFIRM DELETION OF ALL DOCUMENTS" = "ПОДТВЕРДИТЕ УДАЛЕНИЕ ВСЕХ ДАННЫХ";
+"Cancel" = "Отмена";
+"Delete" = "Удалить";
+
+//new doc screen + main screen
+"NEW DOCUMENT" = "НОВЫЙ ДОКУМЕНТ";
+"NOTE" = "ЗАМЕТКА";
+"PASSPORT" = "ПАСПОРТ";
+"CREDIT CARD" = "КАРТА";
+"BANK ACCOUNT" = "СЧЕТ";
+"LOGIN" = "ЛОГИН";
+"ALREADY UNDER LOCK" = "СЕЙЧАС ПОД ЗАМКОМ";
+
+//note screen
+"NEW NOTE" = "НОВАЯ ЗАМЕТКА";
+"TITLE" = "НАЗВАНИЕ";
+"NOTE" = "ЗАМЕТКА";
+"CONFIRM DELETION OF NOTE" = "ПОДТВЕРДИТЕ УДАЛЕНИЕ ЗАМЕТКИ";
+"Note was copied" = "Заметка скопирована";
+"Title:" = "Название:";
+"Note:" = "Заметка:";
+"DELETE NOTE" = "УДАЛИТЬ ЗАМЕТКУ";
+"SEND NOTE" = "ОТПРАВИТЬ ЗАМЕТКУ";

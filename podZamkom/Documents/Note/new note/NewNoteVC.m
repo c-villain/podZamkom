@@ -12,8 +12,10 @@
 
 - (void)viewDidLoad
 {
-    NSString* title = @"НОВАЯ ЗАМЕТКА";
+    NSString* title = [Translator languageSelectedStringForKey:@"NEW NOTE"];
     
+    self.lblTitle.text = [Translator languageSelectedStringForKey:@"TITLE"];
+    self.lblNote.text = [Translator languageSelectedStringForKey:@"NOTE"];
     
 	// Do any additional setup after loading the view.
     
