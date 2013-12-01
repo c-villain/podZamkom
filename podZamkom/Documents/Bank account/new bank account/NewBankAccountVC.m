@@ -12,7 +12,17 @@
 
 - (void)viewDidLoad
 {
-    NSString* title = [super languageSelectedStringForKey:@"НОВЫЙ СЧЕТ"];
+    NSString* title = [super languageSelectedStringForKey:[Translator languageSelectedStringForKey:@"NEW BANK ACCOUNT"]];
+    
+    self.lblBank.text = [Translator languageSelectedStringForKey:@"BANK"];
+    self.lblBankAccount.text = [Translator languageSelectedStringForKey:@"BANK ACCOUNT"];
+    self.lblCurrency.text = [Translator languageSelectedStringForKey:@"CURRENCY"];
+    self.lblBIKCode.text = [Translator languageSelectedStringForKey:@"BIK CODE"];
+    self.lblCorrespondentAccount.text = [Translator languageSelectedStringForKey:@"CORRESPONDENT ACCOUNT"];
+    self.lblTaxpayerID.text = [Translator languageSelectedStringForKey:@"TAXPAYER ID"];
+    self.lblTaxRegistrationReasonCode.text = [Translator languageSelectedStringForKey:@"TAX REGISTRATION REASON CODE"];
+    self.lblComments.text = [Translator languageSelectedStringForKey:@"COMMENTS"];
+    
     //забиваем маску для нужных текстовых полей:
     [(TextField *)self.innField initWithMask:@"999999999999"];
     [(TextField *)self.bikField initWithMask:@"999999999"];
@@ -56,7 +66,7 @@
     BankAccount *account = [BankAccount new];
     account.idDoc = self.selectedBankAccount.idDoc;
     account.docType = BankAccountDoc;
-    account.bank = @"Банковский счет";
+    account.bank = [Translator languageSelectedStringForKey:@"Bank account"];
     if (![[self.bankField.text stringByReplacingOccurrencesOfString:@" " withString:@""]  isEqual: @""])
         account.bank = self.bankField.text;
     

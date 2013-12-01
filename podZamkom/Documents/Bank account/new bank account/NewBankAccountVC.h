@@ -28,4 +28,13 @@
 @property (strong, nonatomic) IBOutlet UITextField *kppField;
 @property (strong, nonatomic) IBOutlet UITextView *commentField;
 
+    @property (nonatomic, retain) IBOutlet UILabel *lblBank;
+    @property (nonatomic, retain) IBOutlet UILabel *lblBankAccount;
+    @property (nonatomic, retain) IBOutlet UILabel *lblCurrency;
+    @property (nonatomic, retain) IBOutlet UILabel *lblBIKCode;
+    @property (nonatomic, retain) IBOutlet UILabel *lblCorrespondentAccount;
+    @property (nonatomic, retain) IBOutlet UILabel *lblTaxpayerID;
+    @property (nonatomic, retain) IBOutlet UILabel *lblTaxRegistrationReasonCode;
+    @property (nonatomic, retain) IBOutlet UILabel *lblComments;
+    
 @end

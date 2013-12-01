@@ -49,6 +49,11 @@
     [ViewAppearance setGlowToLabel:self.lblPassword];
     [ViewAppearance setGlowToLabel:self.lblComment];
     
+    self.lblUrl.text = [Translator languageSelectedStringForKey:@"URL"];
+    self.lblLogin.text = [Translator languageSelectedStringForKey:@"LOGIN"];
+    self.lblPassword.text = [Translator languageSelectedStringForKey:@"PASSWORD"];
+    self.lblComment.text = [Translator languageSelectedStringForKey:@"COMMENTS"];
+    [self.deleteBtn setTitle:[Translator languageSelectedStringForKey:@"DELETE LOGIN"] forState:UIControlStateNormal];
 }
 
 -(void)editBtnTapped
@@ -61,11 +66,12 @@
 
 -(void)deleteBtnTapped
 {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"ПОДТВЕРДИТЕ УДАЛЕНИЕ"
-                                                   message: @"Логин"
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: [Translator languageSelectedStringForKey:@"CONFIRM DELETION OF LOGIN"]
+
+                                                   message: nil
                                                   delegate: self
-                                         cancelButtonTitle:@"Отмена"
-                                         otherButtonTitles:@"Удалить",nil];
+                                         cancelButtonTitle:[Translator languageSelectedStringForKey:@"Cancel"]
+                                         otherButtonTitles:[Translator languageSelectedStringForKey:@"Delete"],nil];
     
     
     [alert show];
@@ -100,14 +106,14 @@
         {
             UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
             pasteboard.string = self.loginLogin.text;
-            [super showMessageBoxWithTitle:@"Логин скопирован"];
+            [super showMessageBoxWithTitle:[Translator languageSelectedStringForKey:@"Login was copied"]];
             break;
         }
         case 102:
         {
             UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
             pasteboard.string = self.loginPassword.text;
-            [super showMessageBoxWithTitle:@"Пароль скопирован"];
+            [super showMessageBoxWithTitle:[Translator languageSelectedStringForKey:@"Password was copied"]];
             break;
         }
         default:

@@ -12,9 +12,13 @@
 
 - (void)viewDidLoad
 {
-    
-    [super viewDidLoad:@"НОВЫЙ ЛОГИН"];
+    [super viewDidLoad:[Translator languageSelectedStringForKey:@"NEW LOGIN"]];
 	// Do any additional setup after loading the view.
+    
+    self.lblUrl.text = [Translator languageSelectedStringForKey:@"URL"];
+    self.lblLogin.text = [Translator languageSelectedStringForKey:@"LOGIN"];
+    self.lblPassword.text = [Translator languageSelectedStringForKey:@"PASSWORD"];
+    self.lblComment.text = [Translator languageSelectedStringForKey:@"COMMENTS"];
     
     self.urlField.text = @"";
     self.loginField.text = @"";
@@ -36,7 +40,7 @@
 {
     Login *login = [Login new];
     login.idDoc = self.selectedLogin.idDoc;
-    login.url = @"Логин";
+    login.url = [Translator languageSelectedStringForKey:@"Login"];
 
     if (![[self.urlField.text stringByReplacingOccurrencesOfString:@" " withString:@""]  isEqual: @""])
         login.url = self.urlField.text;

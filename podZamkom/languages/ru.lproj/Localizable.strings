@@ -43,9 +43,63 @@
 "NEW NOTE" = "НОВАЯ ЗАМЕТКА";
 "TITLE" = "НАЗВАНИЕ";
 "NOTE" = "ЗАМЕТКА";
+"Note" = "Заметка";
 "CONFIRM DELETION OF NOTE" = "ПОДТВЕРДИТЕ УДАЛЕНИЕ ЗАМЕТКИ";
 "Note was copied" = "Заметка скопирована";
 "Title:" = "Название:";
 "Note:" = "Заметка:";
 "DELETE NOTE" = "УДАЛИТЬ ЗАМЕТКУ";
 "SEND NOTE" = "ОТПРАВИТЬ ЗАМЕТКУ";
+
+//login screen:
+"NEW LOGIN" = "НОВЫЙ ЛОГИН";
+"URL" = "Адрес сайта";
+"LOGIN" = "ЛОГИН";
+"COMMENTS" = "КОММЕНТАРИИ";
+"Login" = "Логин";
+"CONFIRM DELETION OF LOGIN" = "ПОДТВЕРДИТЕ УДАЛЕНИЕ ЛОГИНА";
+"Login was copied" = "Логин скопирован";
+"Password was copied" = "Пароль скопирован";
+"DELETE LOGIN" = "УДАЛИТЬ ЛОГИН";
+
+//credit card screen:
+"CONFIRM DELETION OF CARD" = "ПОДТВЕРДИТЕ УДАЛЕНИЕ КАРТЫ";
+"Card number was copied" = "Номер карты скопирован";
+"NEW CARD" = "НОВАЯ КАРТА";
+"BANK" = "БАНК";
+"CARD NUMBER" = "НОМЕР КАРТЫ";
+"CARD TYPE" = "ТИП КАРТЫ";
+"VALID THRU" = "VALID THRU";
+"HOLDER" = "ИМЯ ВЛАДЕЛЬЦА";
+"CARD COLOR" = "ЦВЕТ КАРТЫ";
+
+//bank account screen:
+"NEW BANK ACCOUNT" = "НОВЫЙ СЧЕТ";
+"BANK" = "БАНК";
+"CURRENCY" = "ТИП ВАЛЮТЫ";
+"BIK CODE" = "БИК";
+"CORRESPONDENT ACCOUNT" = "КОР. СЧЕТ";
+"TAXPAYER ID" = "ИНН";
+"TAX REGISTRATION REASON CODE" = "КПП";
+"Bank account" = "Номер счета";
+"Bank account was copied" = "Номер счета скопирован";
+"CONFIRM DELETION OF BANK ACCOUNT" = "ПОДТВЕРДИТЕ УДАЛЕНИЕ СЧЕТА";
+"Bank: " = "Банк: ";
+"Account: " = "№ счета: ";
+"Currency: " = "Валюта счета: ";
+"BIK: " = "БИК: ";
+"Taxpayer id: " = "ИНН: ";
+"Correspondent acc.: " = "Кор. счет: ";
+"Tax reg. reason code: " = "КПП: ";
+"Comments: " = "Комментарий: ";
+
+
+
+
+
+
+
+
+
+
+

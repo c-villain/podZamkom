@@ -19,4 +19,8 @@
 @property (nonatomic, retain) IBOutlet UITextField *passwordField;
 @property (nonatomic, retain) IBOutlet UITextView *loginNote;
 
+@property (nonatomic, retain) IBOutlet UILabel *lblUrl;
+@property (nonatomic, retain) IBOutlet UILabel *lblLogin;
+@property (nonatomic, retain) IBOutlet UILabel *lblPassword;
+@property (nonatomic, retain) IBOutlet UILabel *lblComment;
 @end

@@ -35,10 +35,20 @@
     // Do any additional setup after loading the view from its nib.
     [ViewAppearance setGlowToLabel:self.lblBank];
     [ViewAppearance setGlowToLabel:self.lblBik];
+    self.lblBik.text = [Translator languageSelectedStringForKey:@"BIK CODE"];
+    
     [ViewAppearance setGlowToLabel:self.lblInn];
+    self.lblInn.text = [Translator languageSelectedStringForKey:@"TAXPAYER ID"];
+    
     [ViewAppearance setGlowToLabel:self.lblKpp];
+    self.lblKpp.text = [Translator languageSelectedStringForKey:@"TAX REGISTRATION REASON CODE"];
+    
     [ViewAppearance setGlowToLabel:self.lblCorNumber];
+    self.lblCorNumber.text = [Translator languageSelectedStringForKey:@"CORRESPONDENT ACCOUNT"];
+    
     [ViewAppearance setGlowToLabel:self.lblComment];
+    self.lblComment.text = [Translator languageSelectedStringForKey:@"COMMENTS"];
+
     
     //забиваю значения:
     self.lblBank.text = bankAccount.bank;
@@ -60,11 +70,12 @@
 
 -(void)deleteBtnTapped
 {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"ПОДТВЕРДИТЕ УДАЛЕНИЕ"
-                                                       message: @"БАНКОВСКИЙ СЧЕТ"
-                                                      delegate: self
-                                             cancelButtonTitle:@"Отмена"
-                                             otherButtonTitles:@"Удалить",nil];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: [Translator languageSelectedStringForKey:@"CONFIRM DELETION OF BANK ACCOUNT"]
+                          
+                                                   message: nil
+                                                  delegate: self
+                                         cancelButtonTitle:[Translator languageSelectedStringForKey:@"Cancel"]
+                                         otherButtonTitles:[Translator languageSelectedStringForKey:@"Delete"],nil];
         
         
     [alert show];
@@ -88,7 +99,7 @@
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = bankAccount.accountNumber;
     
-    [super showMessageBoxWithTitle:@"Номер счета скопирован"];
+    [super showMessageBoxWithTitle:[Translator languageSelectedStringForKey:@"Bank account was copied"]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -101,28 +112,28 @@
 {
     NSMutableString *message = [[NSMutableString alloc] init];
 
-    [message appendString:@"Банк: "];
+    [message appendString:[Translator languageSelectedStringForKey:@"Bank: "]];
     [message appendString:bankAccount.bank];
     [message appendString:@"\n"];
-    [message appendString:@"№ счета: "];
+    [message appendString:[Translator languageSelectedStringForKey:@"Account: "]];
     [message appendString:bankAccount.accountNumber];
     [message appendString:@"\n"];
-    [message appendString:@"Валюта счета: "];
+    [message appendString:[Translator languageSelectedStringForKey:@"Currency: "]];
     [message appendString:[CurrencyType getCurrencyByType:bankAccount.curType].name];
     [message appendString:@"\n"];
-    [message appendString:@"БИК: "];
+    [message appendString:[Translator languageSelectedStringForKey:@"BIK: "]];
     [message appendString:bankAccount.bik];
     [message appendString:@"\n"];
-    [message appendString:@"ИНН: "];
+    [message appendString:[Translator languageSelectedStringForKey:@"Taxpayer id: "]];
     [message appendString:bankAccount.inn];
     [message appendString:@"\n"];
-    [message appendString:@"КПП: "];
+    [message appendString:[Translator languageSelectedStringForKey:@"Correspondent acc.: "]];
     [message appendString:bankAccount.kpp];
     [message appendString:@"\n"];
-    [message appendString:@"Кор. счет: "];
+    [message appendString:[Translator languageSelectedStringForKey:@"Tax reg. reason code: "]];
     [message appendString:bankAccount.corNumber];
     [message appendString:@"\n"];
-    [message appendString:@"Комментарий: "];
+    [message appendString:[Translator languageSelectedStringForKey:@"Comments: "]];
     [message appendString:bankAccount.comments];
     
     [super sendMessage:message];

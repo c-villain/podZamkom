@@ -43,9 +43,61 @@
 "NEW NOTE" = "NEW NOTE";
 "TITLE" = "TITLE";
 "NOTE" = "NOTE";
+"Note" = "Note";
 "CONFIRM DELETION OF NOTE" = "CONFIRM DELETION OF NOTE";
 "Note was copied" = "Note was copied";
 "Title:" = "Title:";
 "Note:" = "Note:";
 "DELETE NOTE" = "DELETE NOTE";
 "SEND NOTE" = "SEND NOTE";
+
+//login screen:
+"NEW LOGIN" = "NEW LOGIN";
+"URL" = "URL";
+"LOGIN" = "LOGIN";
+"COMMENTS" = "COMMENTS";
+"Login" = "Login";
+"CONFIRM DELETION OF LOGIN" = "CONFIRM DELETION OF LOGIN";
+"Login was copied" = "Login was copied";
+"Password was copied" = "Password was copied";
+"DELETE LOGIN" = "DELETE LOGIN";
+
+//credit card screen:
+"CONFIRM DELETION OF CARD" = "CONFIRM DELETION OF CARD";
+"Card number was copied" = "Card number was copied";
+"NEW CARD" = "NEW CARD";
+"BANK" = "BANK";
+"CARD NUMBER" = "CARD NUMBER";
+"CARD TYPE" = "CARD TYPE";
+"VALID THRU" = "VALID THRU";
+"HOLDER" = "HOLDER";
+"CARD COLOR" = "CARD COLOR";
+"COMMENTS" = "COMMENTS";
+
+//bank account screen:
+"NEW BANK ACCOUNT" = "NEW BANK ACCOUNT";
+"BANK" = "BANK";
+"CURRENCY" = "CURRENCY";
+"BIK CODE" = "BIK CODE";
+"CORRESPONDENT ACCOUNT" = "CORRESPONDENT ACCOUNT";
+"TAXPAYER ID" = "TAXPAYER ID";
+"TAX REGISTRATION REASON CODE" = "TAX REGISTRATION REASON CODE";
+"COMMENTS" = "COMMENTS";
+"Bank account" = "Bank account";
+"Bank account was copied" = "Bank account was copied";
+"CONFIRM DELETION OF BANK ACCOUNT" = "CONFIRM DELETION OF BANK ACCOUNT";
+"Bank: " = "Bank: ";
+"Account: " = "Account: ";
+"Currency: " = "Currency: ";
+"BIK: " = "BIK: ";
+"Taxpayer id: " = "Taxpayer id: ";
+"Correspondent acc.: " = "Correspondent acc.: ";
+"Tax reg. reason code: " = "Tax reg. reason code: ";
+"Comments: " = "Comments: ";
+
+
+
+
+
+
+
