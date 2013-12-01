@@ -1093,13 +1093,12 @@
                                             <constraint firstAttribute="height" constant="2" id="njC-V5-aqO"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="мой Паспорт РФ" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L8i-W0-Jg2" customClass="TextField">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="мой Паспорт РФ" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="L8i-W0-Jg2" customClass="TextField">
                                         <rect key="frame" x="124" y="11" width="176" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="2RL-Zu-Bl5"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="176" id="7Pw-XH-kgy"/>
                                             <constraint firstAttribute="height" constant="30" id="EsR-NA-sXh"/>
+                                            <constraint firstAttribute="width" constant="176" id="FtF-XS-LXD"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
@@ -1202,6 +1201,15 @@
                         <outlet property="depCodeField" destination="PX4-w5-NDO" id="brt-Sx-J6j"/>
                         <outlet property="depField" destination="f1W-h9-TFe" id="pk6-ee-aOC"/>
                         <outlet property="holderField" destination="jzw-GN-hQL" id="9La-1g-VO1"/>
+                        <outlet property="lblBirthDate" destination="t0g-ZA-qaZ" id="gsL-vJ-NMq"/>
+                        <outlet property="lblBirthPlace" destination="F7T-Da-TBi" id="GCd-NL-AcF"/>
+                        <outlet property="lblCountry" destination="4Rh-OS-GqL" id="cw8-TX-Heq"/>
+                        <outlet property="lblDepCode" destination="AqN-Ym-s0H" id="6Up-Cs-YKw"/>
+                        <outlet property="lblHolder" destination="hHq-1j-35e" id="mmU-y6-Std"/>
+                        <outlet property="lblIssueDate" destination="T1y-9b-Ei9" id="Wsc-IR-XwP"/>
+                        <outlet property="lblIssuedBy" destination="fQN-WA-pX7" id="PoO-w4-52C"/>
+                        <outlet property="lblNumber" destination="U4u-OH-mv4" id="0Pk-QL-fyw"/>
+                        <outlet property="lblTitle" destination="6tW-if-AtF" id="fQL-kA-KPl"/>
                         <outlet property="nameField" destination="L8i-W0-Jg2" id="6dI-N2-jNo"/>
                         <outlet property="numberField" destination="gGA-Fm-Tmy" id="aC8-d0-BAu"/>
                         <outlet property="scrollView" destination="9ZJ-Py-R2V" id="aqB-MO-YBd"/>
