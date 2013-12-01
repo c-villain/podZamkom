@@ -23,7 +23,6 @@
 }
 
 
-
 //- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 //{
 //    [self startApp];
@@ -33,13 +32,6 @@
 -(BOOL)isNotFirstAppRun
 {
     return [[NSUserDefaults standardUserDefaults] boolForKey:@"isNotFirstRun"];
-}
-
--(void)setNotFirstAppRun
-{
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isNotFirstRun"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    return;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -73,7 +65,8 @@
 - (void)PasswordVCDidSetPasscode:(PasswordVC *)controller
 {
     [Security savePassword:controller.passcode];
-    [self setNotFirstAppRun];
+    [Settings setNotFirstAppRun];
+    [Settings setDefaultLanguage];
     [self performSelector:@selector(showMainVC) withObject:nil afterDelay:0.1];
 }
 
@@ -132,10 +125,6 @@
     [[(AppDelegate*)[[UIApplication sharedApplication] delegate] window] setRootViewController:navigationController];
 }
 
-- (void)SearchDoc:(NSString *)searchText
-{
-    NSLog(@"111");
-}
 - (void)PasswordVCDidChangePasscode:(PasswordVC *)controller
 {
     //поменяли пароль
@@ -144,7 +133,6 @@
 
 - (void)DeleteAllCharacters:(PasswordVC *)controller
 {
-//    TODO!
     if ([DBadapter DeleteAllDocs])
         [self showMainVC];
 }
@@ -152,7 +140,6 @@
 - (void)PasswordVCDidEnterXtraPasscode:(PasswordVC *)controller
 {
     //если пользователь ввел экстренный пароль:
-    //TODO! удалить все!
     if ([DBadapter DeleteAllDocs])
         [self showMainVC];
 }

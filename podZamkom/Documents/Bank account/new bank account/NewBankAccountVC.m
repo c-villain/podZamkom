@@ -12,7 +12,7 @@
 
 - (void)viewDidLoad
 {
-    NSString* title = [super languageSelectedStringForKey:[Translator languageSelectedStringForKey:@"NEW BANK ACCOUNT"]];
+    NSString* title = [Translator languageSelectedStringForKey:@"NEW BANK ACCOUNT"];
     
     self.lblBank.text = [Translator languageSelectedStringForKey:@"BANK"];
     self.lblBankAccount.text = [Translator languageSelectedStringForKey:@"BANK ACCOUNT"];

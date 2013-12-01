@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Translator.h"
+#import "Settings.h"
 
 @interface ViewAppearance : NSObject
 

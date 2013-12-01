@@ -8,6 +8,12 @@
 
 #import "FrameVC.h"
 
+
+#import "MainTableVC.h"
+#import "Security.h"
+#import "SWRevealViewController.h"
+#import "LeftMenuVC.h"
+
 @interface FrameVC ()
 
 @end
@@ -75,10 +81,35 @@
 //метод для переопределения удаления документа
 -(void)deleteBtnTapped
 {
+    
 }
+
 -(void)showMainVC
 {
+    
     [self.navigationController popToRootViewControllerAnimated:YES];
+    /*
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    MainTableVC *mainVC = [storyboard instantiateViewControllerWithIdentifier:@"main"];
+    LeftMenuVC *menuVC = [storyboard instantiateViewControllerWithIdentifier:@"leftMenu"];
+    SWRevealViewController *mainRevealController = [[SWRevealViewController alloc] initWithRearViewController:menuVC frontViewController:mainVC];
+    
+    mainRevealController.rearViewRevealWidth = 55; //ширина левой менюшки
+    mainRevealController.rearViewRevealOverdraw = 187; //максимальный вылет левой менюшки
+    mainRevealController.bounceBackOnOverdraw = NO;
+    mainRevealController.stableDragOnOverdraw = YES;
+    mainRevealController.bounceBackOnLeftOverdraw = NO;
+    mainRevealController.stableDragOnLeftOverdraw = YES;
+    
+    mainRevealController.frontViewShadowRadius = 20.0f;
+    mainRevealController.toggleAnimationDuration = 0.5;
+    
+    [mainRevealController setFrontViewPosition:FrontViewPositionRight];
+    
+//    UINavigationController *navigationController= [[UINavigationController alloc] initWithRootViewController:mainRevealController];
+//    [self.navigationController pushViewController:mainRevealController animated:YES];
+    [self.navigationController popToViewController:mainRevealController animated:YES];
+     */
 }
 
 - (void)popCurrentViewController:(UIViewController *)onWhichViewController
@@ -297,19 +328,5 @@
     textField.rightView = paddingView;
     //    [activeField setText:type.name];
 }
-
--(NSString *)languageSelectedStringForKey:(NSString *) key
-{
-    NSString *language = [[NSUserDefaults standardUserDefaults] stringForKey:@"Language"];
-    
-    NSString *path = [[NSBundle mainBundle] pathForResource:language ofType:@"lproj"];
-    
-    if ( !path )
-        
-        return NSLocalizedString(key, nil);
-    
-    return [[NSBundle bundleWithPath:path] localizedStringForKey:(key) value: @"" table:nil];
-}
-
 
 @end

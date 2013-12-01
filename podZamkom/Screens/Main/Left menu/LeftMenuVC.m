@@ -23,7 +23,6 @@
     return self;
 }
 
-
 - (void) viewDidLayoutSubviews
 {
      if ([[UIDevice currentDevice].systemVersion floatValue] >= 7)
@@ -32,10 +31,15 @@
      }
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     // Remove table cell separator
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

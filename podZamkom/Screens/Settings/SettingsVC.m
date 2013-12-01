@@ -105,8 +105,8 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad:[super languageSelectedStringForKey:[Translator languageSelectedStringForKey:@"SETTINGS"]]];
-    
+//    [super viewDidLoad:[super languageSelectedStringForKey:[Translator languageSelectedStringForKey:@"SETTINGS"]]];
+    [super viewDidLoad:[Translator languageSelectedStringForKey:@"SETTINGS"]];
     self.lblPassword.text = [Translator languageSelectedStringForKey:@"PASSWORD"];
     self.lblXtraPassword.text = [Translator languageSelectedStringForKey:@"EMERGENCY PASSWORD"];
     self.lblLocalize.text = [Translator languageSelectedStringForKey:@"LANGUAGE"];
@@ -150,16 +150,8 @@
     [Security saveDeleteorNotFilesAfterTenErrors:self.deleteFilesAfterTenErrors.on];
     
     //сохраняем выбранный язык для локализации:
-    [self saveSelectedLanguage:selectedLanguage];
-    
+    [Settings saveSelectedLanguage:selectedLanguage];
     [super showMainVC];
-}
-
--(void)saveSelectedLanguage:(NSString*)language
-{
-    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] init];
-    [userDefaults setObject:language forKey:@"Language"];
-    [userDefaults synchronize];
 }
 
 -(void)deleteBtnTapped

@@ -594,8 +594,8 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 {
     [search resignFirstResponder];
 }
--
-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     if ([_searchDelegate respondsToSelector:@selector(SearchDoc:)])
     {
@@ -604,9 +604,8 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 }
 
 
-- (void)createNavBarButtons {
-    self.navigationItem.titleView = [ViewAppearance initViewWithGlowingTitle: [Translator languageSelectedStringForKey:@"ALREADY UNDER LOCK"]];
-    
+- (void)createNavBarButtons
+{    
     //создаем кастомизированную кнопку settings:
     UIButton *settingsBtn = [ViewAppearance initCustomButtonWithImage:@"title_bar_icon_settings.png"];
     [settingsBtn addTarget:self action:@selector(settingsBtnTapped) forControlEvents:UIControlEventTouchUpInside]; //adding action
@@ -635,6 +634,11 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
     {
         [_searchDelegate SearchStop];
     }
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.navigationItem.titleView = [ViewAppearance initViewWithGlowingTitle: [Translator languageSelectedStringForKey:@"ALREADY UNDER LOCK"]];
 }
 
 - (void)viewDidAppear:(BOOL)animated

@@ -13,6 +13,7 @@
 #import "SWRevealViewController.h"
 #import "LeftMenuVC.h"
 #import "DBlib.h"
+#import "Settings.h"
 
 @class SWRevealViewController;
 @interface AppDelegate : UIResponder <UIApplicationDelegate, PasswordVCDelegate>
