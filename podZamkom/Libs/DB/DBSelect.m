@@ -158,7 +158,7 @@
             view.autoresizesSubviews = YES;
             [view addSubview:typeView];
             
-            UILabel *bank = [[UILabel alloc] initWithFrame:CGRectMake(5, 10, 119, 19)]; //(x,y,width,height)
+            UILabel *bank = [[UILabel alloc] initWithFrame:CGRectMake(5, 10, 114, 19)]; //(x,y,width,height)
             [bank setTextColor:[UIColor whiteColor]];
             bank.text = card.bank;
             [bank setBackgroundColor:[UIColor clearColor]];

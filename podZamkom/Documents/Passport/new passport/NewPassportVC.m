@@ -27,8 +27,9 @@
     
    if ([[[NSLocale preferredLanguages] objectAtIndex:0]  isEqual: @"ru"])
    {
-       
+       self.numberField.keyboardType = UIKeyboardTypeNumberPad;
        [(TextField *)self.numberField initWithMask:@"99 99 999999"];
+       self.depCodeField.keyboardType = UIKeyboardTypeNumberPad;
    }
     //инициализируем пикер (страны):
     ((TextField *)self.countryField).picker = [Picker createPickerWithData:[Country initCountryArray] andPickerDelegate:self];

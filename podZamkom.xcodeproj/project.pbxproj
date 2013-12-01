@@ -12,6 +12,9 @@
 		5A361EF41848D7C700DA3AFB /* UK@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A361EF31848D7C700DA3AFB /* UK@2x.png */; };
 		5A361EFA1848E28800DA3AFB /* Translator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A361EF91848E28800DA3AFB /* Translator.m */; };
 		5A361EFF1849501300DA3AFB /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A361EFE1849501300DA3AFB /* ImageIO.framework */; };
+		5A3FCED1184B82A500413F6E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A3FCECF184B82A500413F6E /* InfoPlist.strings */; };
+		5A3FCED4184B82BA00413F6E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A3FCED2184B82BA00413F6E /* InfoPlist.strings */; };
+		5A3FCED7184B874200413F6E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A3FCED5184B874200413F6E /* InfoPlist.strings */; };
 		5A64111E1847D7D5009AB22A /* passport_australia@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6410FE1847D7D5009AB22A /* passport_australia@2x.png */; };
 		5A64111F1847D7D5009AB22A /* passport_belarus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6410FF1847D7D5009AB22A /* passport_belarus@2x.png */; };
 		5A6411201847D7D5009AB22A /* passport_belg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411001847D7D5009AB22A /* passport_belg@2x.png */; };
@@ -281,6 +284,9 @@
 		5A361EF81848E28800DA3AFB /* Translator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Translator.h; sourceTree = "<group>"; };
 		5A361EF91848E28800DA3AFB /* Translator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Translator.m; sourceTree = "<group>"; };
 		5A361EFE1849501300DA3AFB /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		5A3FCED0184B82A500413F6E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = InfoPlist.strings; sourceTree = "<group>"; };
+		5A3FCED3184B82BA00413F6E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		5A3FCED6184B874200413F6E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = InfoPlist.strings; sourceTree = "<group>"; };
 		5A6410FE1847D7D5009AB22A /* passport_australia@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_australia@2x.png"; sourceTree = "<group>"; };
 		5A6410FF1847D7D5009AB22A /* passport_belarus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_belarus@2x.png"; sourceTree = "<group>"; };
 		5A6411001847D7D5009AB22A /* passport_belg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_belg@2x.png"; sourceTree = "<group>"; };
@@ -1417,6 +1423,7 @@
 		5AC89ADB184145A300164B51 /* en.lproj */ = {
 			isa = PBXGroup;
 			children = (
+				5A3FCED2184B82BA00413F6E /* InfoPlist.strings */,
 				5AC89ADC184145A300164B51 /* Localizable.strings */,
 			);
 			path = en.lproj;
@@ -1425,6 +1432,7 @@
 		5AC89ADE184145A300164B51 /* ru.lproj */ = {
 			isa = PBXGroup;
 			children = (
+				5A3FCECF184B82A500413F6E /* InfoPlist.strings */,
 				5AC89ADF184145A300164B51 /* Localizable.strings */,
 			);
 			path = ru.lproj;
@@ -1433,6 +1441,7 @@
 		5AC89AE518414E8800164B51 /* de.lproj */ = {
 			isa = PBXGroup;
 			children = (
+				5A3FCED5184B874200413F6E /* InfoPlist.strings */,
 				5AC89AE618414E8800164B51 /* Localizable.strings */,
 			);
 			path = de.lproj;
@@ -1630,6 +1639,7 @@
 				5AC89A571840B9A000164B51 /* new_doc_note_normal@2x.png in Resources */,
 				5AC89A731840B9A000164B51 /* AppIcon40x40@2x.png in Resources */,
 				5AC89AA11840B9A000164B51 /* visa@2x.png in Resources */,
+				5A3FCED4184B82BA00413F6E /* InfoPlist.strings in Resources */,
 				5AC89AB91840B9A000164B51 /* Mexico@2x.png in Resources */,
 				5A6411311847D7D5009AB22A /* passport_kazakhstan@2x.png in Resources */,
 				5AC89A601840B9A000164B51 /* title_bar_icon_search@2x.png in Resources */,
@@ -1657,6 +1667,7 @@
 				5AC89AF3184227C800164B51 /* icon_copy_white@2x.png in Resources */,
 				5AC89ABD1840B9A000164B51 /* Russia@2x.png in Resources */,
 				5A6411351847D7D5009AB22A /* passport_portugal@2x.png in Resources */,
+				5A3FCED1184B82A500413F6E /* InfoPlist.strings in Resources */,
 				5AC89A921840B9A000164B51 /* dinersclub.png in Resources */,
 				5AC89A581840B9A000164B51 /* new_doc_passport_active.png in Resources */,
 				5AC89A4A1840B9A000164B51 /* new_doc_bank_account_normal.png in Resources */,
@@ -1675,6 +1686,7 @@
 				5AC89A941840B9A000164B51 /* discover.png in Resources */,
 				5AC89A431840B9A000164B51 /* photo_icon_add@2x.png in Resources */,
 				5A64113C1847D7D5009AB22A /* passport_ukraine@2x.png in Resources */,
+				5A3FCED7184B874200413F6E /* InfoPlist.strings in Resources */,
 				5AC89AB71840B9A000164B51 /* Japan@2x.png in Resources */,
 				5AC89A531840B9A000164B51 /* new_doc_login_normal@2x.png in Resources */,
 				5AC89A791840B9A000164B51 /* iTunesArtwork@2x.png in Resources */,
@@ -1819,6 +1831,30 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5A3FCECF184B82A500413F6E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A3FCED0184B82A500413F6E /* ru */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5A3FCED2184B82BA00413F6E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A3FCED3184B82BA00413F6E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5A3FCED5184B874200413F6E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A3FCED6184B874200413F6E /* de */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		5AA46C6817FB21B0008EE800 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

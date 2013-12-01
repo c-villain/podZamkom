@@ -109,9 +109,6 @@
     UILabel *cellCaption = (UILabel *)[cell viewWithTag:lblTag];
     cellCaption.text = cellDescription;
     
-//    cell.layer.borderWidth = 1.0f;
-    //[UIColor colorWithPatternImage:[UIImage imageNamed:@"divider_goriz.png"]].CGColor;
-    
     UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 71, 320, 2)];/// change size as you need.
     separatorLineView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"divider_goriz.png"]];// you can also put image here
     

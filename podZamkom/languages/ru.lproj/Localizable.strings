@@ -30,6 +30,15 @@
 "Cancel" = "Отмена";
 "Delete" = "Удалить";
 
+//left menu screen:
+"All" = "Все";
+"Notes" = "Заметки";
+"Cards" = "Карты";
+"Passports" = "Паспорты";
+"Bank accounts" = "Счета";
+"Logins" = "Логины";
+"New document" = "Новый документ";
+
 //new doc screen + main screen
 "NEW DOCUMENT" = "НОВЫЙ ДОКУМЕНТ";
 "NOTE" = "ЗАМЕТКА";
