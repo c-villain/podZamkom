@@ -31,6 +31,7 @@
     [ViewAppearance setGlowToLabel:self.lblCvc];
     [ViewAppearance setGlowToLabel:self.lblPin];
     [ViewAppearance setGlowToLabel:self.lblComment];
+    self.lblComment.text = [Translator languageSelectedStringForKey:@"COMMENTS"];
     
     //забиваю значения:
     self.cardBank.text = card.bank;
@@ -55,11 +56,12 @@
 
 -(void)deleteBtnTapped
 {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"ПОДТВЕРДИТЕ УДАЛЕНИЕ"
-                                                   message: @"Кредитная карта"
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: [Translator languageSelectedStringForKey:@"CONFIRM DELETION OF CARD"]
+
+                                                   message: nil
                                                   delegate: self
-                                         cancelButtonTitle:@"Отмена"
-                                         otherButtonTitles:@"Удалить",nil];
+                                         cancelButtonTitle:[Translator languageSelectedStringForKey:@"Cancel"]
+                                         otherButtonTitles:[Translator languageSelectedStringForKey:@"Delete"],nil];
     
     
     [alert show];
@@ -83,7 +85,7 @@
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = self.cardNumber.text;
     
-    [super showMessageBoxWithTitle:@"Номер карты скопирован"];
+    [super showMessageBoxWithTitle:[Translator languageSelectedStringForKey:@"Card number was copied"]];
 }
 
 - (void)didReceiveMemoryWarning

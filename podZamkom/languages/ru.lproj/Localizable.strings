@@ -46,8 +46,8 @@
 "Note" = "Заметка";
 "CONFIRM DELETION OF NOTE" = "ПОДТВЕРДИТЕ УДАЛЕНИЕ ЗАМЕТКИ";
 "Note was copied" = "Заметка скопирована";
-"Title:" = "Название:";
-"Note:" = "Заметка:";
+"Title: " = "Название: ";
+"Note: " = "Заметка: ";
 "DELETE NOTE" = "УДАЛИТЬ ЗАМЕТКУ";
 "SEND NOTE" = "ОТПРАВИТЬ ЗАМЕТКУ";
 
@@ -92,14 +92,30 @@
 "Correspondent acc.: " = "Кор. счет: ";
 "Tax reg. reason code: " = "КПП: ";
 "Comments: " = "Комментарий: ";
+"DELETE BANK ACCOUNT" = "УДАЛИТЬ СЧЕТ";
+"SEND BANK ACCOUNT" = "ОТПРАВИТЬ СЧЕТ";
 
-
-
-
-
-
-
-
+//passport screen:
+"NEW PASSPORT" = "НОВЫЙ ПАСПОРТ";
+"COUNTRY" = "СТРАНА";
+"PASSPORT NUMBER" = "СЕРИЯ И НОМЕР";
+"ISSUED BY" = "КЕМ ВЫДАН";
+"DATE OF ISSUE" = "ДАТА ВЫДАЧИ";
+"DEPARTMENT CODE" = "КОД ПОДРАЗДЕЛЕНИЯ";
+"SURNAME, NAME" = "ФИО";
+"BIRTHDATE" = "ДАТА РОЖДЕНИЯ";
+"BIRTHPLACE" = "МЕСТО РОЖДЕНИЯ";
+"CONFIRM DELETION OF PASSPORT" = "ПОДТВЕРДИТЕ УДАЛЕНИЕ ПАСПОРТА";
+"Passport number was copied" = "Номер паспорта скопирован";
+"Passport number: " = "№ паспорта: ";
+"Surname, name: " = "ФИО: ";
+"Birthdate: " = "Дата рождения: ";
+"Birthplace: " = "Место рождения: ";
+"Issued by: " = "Кем выдан: ";
+"Departent code: " = "Код подразделения: ";
+"Date of issue: " = "Дата выдачи: ";
+"DELETE PASSPORT" = "УДАЛИТЬ ПАСПОРТ";
+"SEND PASSPORT" = "ОТПРАВИТЬ";
 
 
 

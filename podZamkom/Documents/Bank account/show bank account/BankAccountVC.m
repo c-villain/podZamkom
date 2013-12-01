@@ -49,7 +49,8 @@
     [ViewAppearance setGlowToLabel:self.lblComment];
     self.lblComment.text = [Translator languageSelectedStringForKey:@"COMMENTS"];
 
-    
+    [self.deleteBtn setTitle:[Translator languageSelectedStringForKey:@"DELETE BANK ACCOUNT"] forState:UIControlStateNormal];
+    [self.sendBtn setTitle:[Translator languageSelectedStringForKey:@"SEND BANK ACCOUNT"] forState:UIControlStateNormal];
     //забиваю значения:
     self.lblBank.text = bankAccount.bank;
     self.accountNumberField.text = [self getStringWithNumber:bankAccount.accountNumber andCurrency:bankAccount.curType];

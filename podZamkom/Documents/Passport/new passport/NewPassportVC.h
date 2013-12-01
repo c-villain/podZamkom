@@ -29,5 +29,14 @@
 @property (strong, nonatomic) IBOutlet UITextField *birthDateField;
 @property (strong, nonatomic) IBOutlet UITextView *birthPlaceField;
 
+@property (nonatomic, retain) IBOutlet UILabel *lblTitle;
+@property (nonatomic, retain) IBOutlet UILabel *lblCountry;
+@property (nonatomic, retain) IBOutlet UILabel *lblNumber;
+@property (nonatomic, retain) IBOutlet UILabel *lblIssuedBy;
+@property (nonatomic, retain) IBOutlet UILabel *lblIssueDate;
+@property (nonatomic, retain) IBOutlet UILabel *lblDepCode;
+@property (nonatomic, retain) IBOutlet UILabel *lblHolder;
+@property (nonatomic, retain) IBOutlet UILabel *lblBirthDate;
+@property (nonatomic, retain) IBOutlet UILabel *lblBirthPlace;
 
 @end

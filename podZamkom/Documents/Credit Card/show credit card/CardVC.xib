@@ -96,21 +96,21 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CVC/CVV" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nC-Tn-g8p">
-                            <rect key="frame" x="20" y="244" width="85" height="21"/>
+                            <rect key="frame" x="0.0" y="244" width="161" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="7le-aP-TBL"/>
-                                <constraint firstAttribute="width" constant="85" id="S6Y-hI-J6z"/>
+                                <constraint firstAttribute="width" constant="161" id="S6Y-hI-J6z"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7V9-3A-ZjU">
-                            <rect key="frame" x="204" y="244" width="85" height="21"/>
+                            <rect key="frame" x="159" y="244" width="161" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="85" id="8Ri-Og-6G3"/>
+                                <constraint firstAttribute="width" constant="161" id="8Ri-Og-6G3"/>
                                 <constraint firstAttribute="height" constant="21" id="jO0-u6-ZCq"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
@@ -118,22 +118,22 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="541" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbE-0a-fnB">
-                            <rect key="frame" x="20" y="273" width="85" height="21"/>
+                            <rect key="frame" x="5" y="273" width="156" height="28"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="21" id="PKl-sZ-WJm"/>
-                                <constraint firstAttribute="width" constant="85" id="jkr-3W-0Fy"/>
+                                <constraint firstAttribute="height" constant="28" id="PKl-sZ-WJm"/>
+                                <constraint firstAttribute="width" constant="156" id="jkr-3W-0Fy"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="21"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1234" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98J-8R-1dq">
-                            <rect key="frame" x="204" y="273" width="85" height="21"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123456789012" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="161" translatesAutoresizingMaskIntoConstraints="NO" id="98J-8R-1dq">
+                            <rect key="frame" x="159" y="273" width="161" height="28"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="85" id="GZn-rL-9IT"/>
-                                <constraint firstAttribute="height" constant="21" id="Ywx-Xd-OVp"/>
+                                <constraint firstAttribute="width" constant="161" id="GZn-rL-9IT"/>
+                                <constraint firstAttribute="height" constant="28" id="Ywx-Xd-OVp"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="21"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -247,26 +247,26 @@
                         <constraint firstItem="yPg-y0-gU5" firstAttribute="top" secondItem="gDF-Yq-3Qp" secondAttribute="bottom" constant="41" id="8jh-le-OXJ"/>
                         <constraint firstItem="Vmk-uV-O70" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" constant="14" id="BuS-2H-P2N"/>
                         <constraint firstItem="9sj-Ez-0dG" firstAttribute="top" secondItem="Ryy-Ei-oZj" secondAttribute="top" constant="230" id="D0i-C8-WJ0"/>
-                        <constraint firstItem="9sj-Ez-0dG" firstAttribute="leading" secondItem="xbE-0a-fnB" secondAttribute="trailing" constant="54" id="Edx-8I-ucK"/>
+                        <constraint firstItem="9sj-Ez-0dG" firstAttribute="leading" secondItem="xbE-0a-fnB" secondAttribute="trailing" constant="-2" id="Edx-8I-ucK"/>
                         <constraint firstItem="arG-nI-6fW" firstAttribute="top" secondItem="gDF-Yq-3Qp" secondAttribute="bottom" constant="41" id="F1z-JX-zBR"/>
-                        <constraint firstItem="5nC-Tn-g8p" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" constant="20" id="FdB-SQ-Bd1"/>
+                        <constraint firstItem="5nC-Tn-g8p" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" id="FdB-SQ-Bd1"/>
                         <constraint firstItem="ysG-Ya-52k" firstAttribute="top" secondItem="gDF-Yq-3Qp" secondAttribute="bottom" constant="22" id="HIW-kX-9dp"/>
                         <constraint firstItem="7V9-3A-ZjU" firstAttribute="top" secondItem="77V-wy-iHr" secondAttribute="bottom" constant="15" id="I6l-L4-0Q6"/>
                         <constraint firstItem="gDF-Yq-3Qp" firstAttribute="top" secondItem="Vmk-uV-O70" secondAttribute="bottom" constant="16" id="KmO-fY-WvU"/>
                         <constraint firstItem="1f9-pe-Qqe" firstAttribute="top" secondItem="EFQ-Jk-fqd" secondAttribute="bottom" constant="15" id="M7h-dC-Y3z"/>
                         <constraint firstAttribute="trailing" secondItem="77V-wy-iHr" secondAttribute="trailing" id="Pfa-Km-sIx"/>
-                        <constraint firstItem="7V9-3A-ZjU" firstAttribute="leading" secondItem="9sj-Ez-0dG" secondAttribute="trailing" constant="43" id="RH4-14-cYS"/>
-                        <constraint firstItem="98J-8R-1dq" firstAttribute="leading" secondItem="9sj-Ez-0dG" secondAttribute="trailing" constant="43" id="Rmp-Ff-zOM"/>
+                        <constraint firstItem="7V9-3A-ZjU" firstAttribute="leading" secondItem="9sj-Ez-0dG" secondAttribute="trailing" constant="-2" id="RH4-14-cYS"/>
+                        <constraint firstItem="98J-8R-1dq" firstAttribute="leading" secondItem="9sj-Ez-0dG" secondAttribute="trailing" constant="-2" id="Rmp-Ff-zOM"/>
                         <constraint firstItem="1f9-pe-Qqe" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" id="SiL-92-aul"/>
                         <constraint firstItem="5nC-Tn-g8p" firstAttribute="top" secondItem="77V-wy-iHr" secondAttribute="bottom" constant="15" id="SyT-ea-wDS"/>
                         <constraint firstItem="EFQ-Jk-fqd" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" id="UiU-el-VQh"/>
                         <constraint firstItem="77V-wy-iHr" firstAttribute="top" secondItem="XG9-QG-zmU" secondAttribute="bottom" constant="15" id="Ynb-cl-toG"/>
                         <constraint firstItem="xbE-0a-fnB" firstAttribute="top" secondItem="5nC-Tn-g8p" secondAttribute="bottom" constant="8" id="Yq8-KP-Z2g"/>
-                        <constraint firstItem="xbE-0a-fnB" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" constant="20" id="ZVO-kH-KCW"/>
+                        <constraint firstItem="xbE-0a-fnB" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" constant="5" id="ZVO-kH-KCW"/>
                         <constraint firstItem="XG9-QG-zmU" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" constant="5" id="bpm-fv-tr7"/>
                         <constraint firstItem="gDF-Yq-3Qp" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" constant="20" id="dbn-BL-jjC"/>
                         <constraint firstItem="YFf-9V-UWG" firstAttribute="top" secondItem="gDF-Yq-3Qp" secondAttribute="bottom" constant="22" id="dxW-lH-y6r"/>
-                        <constraint firstItem="Rse-RF-iRH" firstAttribute="top" secondItem="98J-8R-1dq" secondAttribute="bottom" constant="15" id="e17-6l-mQ5"/>
+                        <constraint firstItem="Rse-RF-iRH" firstAttribute="top" secondItem="98J-8R-1dq" secondAttribute="bottom" constant="8" id="e17-6l-mQ5"/>
                         <constraint firstItem="7Oe-BA-QQZ" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" constant="271" id="eU5-4u-TZ7"/>
                         <constraint firstItem="7Oe-BA-QQZ" firstAttribute="top" secondItem="Ryy-Ei-oZj" secondAttribute="top" constant="15" id="hNd-M1-UeG"/>
                         <constraint firstItem="uAD-Ig-xGO" firstAttribute="leading" secondItem="Ryy-Ei-oZj" secondAttribute="leading" constant="14" id="jW5-W4-ofe"/>

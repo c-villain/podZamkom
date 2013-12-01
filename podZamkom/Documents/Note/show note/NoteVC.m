@@ -87,10 +87,10 @@
 -(void)sendBtnTapped
 {
     NSMutableString *message = [[NSMutableString alloc] init];
-    [message appendString:[Translator languageSelectedStringForKey:@"Title:"]];
+    [message appendString:[Translator languageSelectedStringForKey:@"Title: "]];
     [message appendString:note.title];
     [message appendString:@"\n"];
-    [message appendString:[Translator languageSelectedStringForKey:@"Note:"]];
+    [message appendString:[Translator languageSelectedStringForKey:@"Note: "]];
     [message appendString:note.content];
     [super sendMessage:message];
 }

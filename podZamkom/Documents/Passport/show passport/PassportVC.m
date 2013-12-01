@@ -37,6 +37,15 @@
     [ViewAppearance setGlowToLabel:self.lblBirthDate];
     [ViewAppearance setGlowToLabel:self.lblBirthPlace];
 
+    self.lblIssueDate.text = [Translator languageSelectedStringForKey:@"DATE OF ISSUE"];
+    self.lblDepCode.text = [Translator languageSelectedStringForKey:@"DEPARTMENT CODE"];
+    self.lblHolder.text = [Translator languageSelectedStringForKey:@"SURNAME, NAME"];
+    self.lblBirthDate.text = [Translator languageSelectedStringForKey:@"BIRTHDATE"];
+    self.lblBirthPlace.text = [Translator languageSelectedStringForKey:@"BIRTHPLACE"];
+    
+    [self.deleteBtn setTitle:[Translator languageSelectedStringForKey:@"DELETE PASSPORT"] forState:UIControlStateNormal];
+    [self.sendBtn setTitle:[Translator languageSelectedStringForKey:@"SEND PASSPORT"] forState:UIControlStateNormal];
+    
     self.country.image = [UIImage imageNamed:[Country getCurrentCountryByType:passport.country].image];
     self.numberField.text = [@"№ " stringByAppendingString: passport.number];
     self.depField.text = passport.department;
@@ -58,11 +67,12 @@
 
 -(void)deleteBtnTapped
 {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"ПОДТВЕРДИТЕ УДАЛЕНИЕ"
-                                                   message: @"Паспорт"
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: [Translator languageSelectedStringForKey:@"CONFIRM DELETION OF PASSPORT"]
+                          
+                                                   message: nil
                                                   delegate: self
-                                         cancelButtonTitle:@"Отмена"
-                                         otherButtonTitles:@"Удалить",nil];
+                                         cancelButtonTitle:[Translator languageSelectedStringForKey:@"Cancel"]
+                                         otherButtonTitles:[Translator languageSelectedStringForKey:@"Delete"],nil];
     
     
     [alert show];
@@ -85,7 +95,7 @@
 {
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = passport.number;
-    [super showMessageBoxWithTitle:@"Номер паспорта скопирован"];
+    [super showMessageBoxWithTitle:[Translator languageSelectedStringForKey:@"Passport number was copied"]];
 }
 
 
@@ -93,28 +103,28 @@
 {
     NSMutableString *message = [[NSMutableString alloc] init];
     
-    [message appendString:@"Название: "];
+    [message appendString:[Translator languageSelectedStringForKey:@"Title: "]];
     [message appendString:passport.docName];
     [message appendString:@"\n"];
-    [message appendString:@"№ паспорта: "];
+    [message appendString:[Translator languageSelectedStringForKey:@"Passport number: "]];
     [message appendString:passport.number];
     [message appendString:@"\n"];
-    [message appendString:@"ФИО: "];
+    [message appendString:[Translator languageSelectedStringForKey:@"Surname, name: "]];
     [message appendString:passport.holder];
     [message appendString:@"\n"];
-    [message appendString:@"Дата рождения: "];
+    [message appendString:[Translator languageSelectedStringForKey:@"Birthdate: "]];
     [message appendString:passport.birthDate];
     [message appendString:@"\n"];
-    [message appendString:@"Место рождения: "];
+    [message appendString:[Translator languageSelectedStringForKey:@"Birthplace: "]];
     [message appendString:passport.birthPlace];
     [message appendString:@"\n"];
-    [message appendString:@"Кем выдан: "];
+    [message appendString:@"Issued by: "];
     [message appendString:passport.department];
     [message appendString:@"\n"];
-    [message appendString:@"Код подразделения: "];
+    [message appendString:[Translator languageSelectedStringForKey:@"Departent code: "]];
     [message appendString:passport.departmentCode];
     [message appendString:@"\n"];
-    [message appendString:@"Дата выдачи: "];
+    [message appendString:[Translator languageSelectedStringForKey:@"Date of issue: "]];
     [message appendString:passport.issueDate];
     
     [super sendMessage:message];

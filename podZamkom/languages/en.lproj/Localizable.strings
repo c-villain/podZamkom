@@ -46,8 +46,8 @@
 "Note" = "Note";
 "CONFIRM DELETION OF NOTE" = "CONFIRM DELETION OF NOTE";
 "Note was copied" = "Note was copied";
-"Title:" = "Title:";
-"Note:" = "Note:";
+"Title: " = "Title: ";
+"Note: " = "Note: ";
 "DELETE NOTE" = "DELETE NOTE";
 "SEND NOTE" = "SEND NOTE";
 
@@ -94,10 +94,28 @@
 "Correspondent acc.: " = "Correspondent acc.: ";
 "Tax reg. reason code: " = "Tax reg. reason code: ";
 "Comments: " = "Comments: ";
+"DELETE BANK ACCOUNT" = "DELETE BANK ACCOUNT";
+"SEND BANK ACCOUNT" = "SEND BANK ACCOUNT";
 
-
-
-
-
-
+//passport screen:
+"NEW PASSPORT" = "NEW PASSPORT";
+"COUNTRY" = "COUNTRY";
+"PASSPORT NUMBER" = "PASSPORT NUMBER";
+"ISSUED BY" = "ISSUED BY";
+"DATE OF ISSUE" = "DATE OF ISSUE";
+"DEPARTMENT CODE" = "DEPARTMENT CODE";
+"SURNAME, NAME" = "SURNAME, NAME";
+"BIRTHDATE" = "BIRTHDATE";
+"BIRTHPLACE" = "BIRTHPLACE";
+"CONFIRM DELETION OF PASSPORT" = "CONFIRM DELETION OF PASSPORT";
+"Passport number was copied" = "Passport number was copied";
+"Passport number: " = "Passport number: ";
+"Surname, name: " = "Surname, name: ";
+"Birthdate: " = "Birthdate: ";
+"Birthplace: " = "Birthplace: ";
+"Issued by: " = "Issued by: ";
+"Departent code: " = "Departent code: ";
+"Date of issue: " = "Date of issue: ";
+"DELETE PASSPORT" = "DELETE PASSPORT";
+"SEND PASSPORT" = "SEND PASSPORT";
 

@@ -28,5 +28,12 @@
 @property (strong, nonatomic) IBOutlet UITextField *pinField;
 @property (strong, nonatomic) IBOutlet UITextField *colorField;
 @property (strong, nonatomic) IBOutlet UITextView *commentField;
-
+    
+    @property (strong, nonatomic) IBOutlet UILabel *lblBank;
+    @property (strong, nonatomic) IBOutlet UILabel *lblNumber;
+    @property (strong, nonatomic) IBOutlet UILabel *lblType;
+    @property (strong, nonatomic) IBOutlet UILabel *lblValid;
+    @property (strong, nonatomic) IBOutlet UILabel *lblHolder;
+    @property (strong, nonatomic) IBOutlet UILabel *lblColor;
+    @property (strong, nonatomic) IBOutlet UILabel *lblComments;
 @end

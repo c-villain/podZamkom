@@ -12,8 +12,16 @@
 
 - (void)viewDidLoad
 {
-    NSString* title = @"НОВЫЙ ПАСПОРТ";
-    
+    NSString* title = [Translator languageSelectedStringForKey:@"NEW PASSPORT"];
+    self.lblTitle.text = [Translator languageSelectedStringForKey:@"TITLE"];
+    self.lblCountry.text = [Translator languageSelectedStringForKey:@"COUNTRY"];
+    self.lblNumber.text = [Translator languageSelectedStringForKey:@"PASSPORT NUMBER"];
+    self.lblIssuedBy.text = [Translator languageSelectedStringForKey:@"ISSUED BY"];
+    self.lblIssueDate.text = [Translator languageSelectedStringForKey:@"DATE OF ISSUE"];
+    self.lblDepCode.text = [Translator languageSelectedStringForKey:@"DEPARTMENT CODE"];
+    self.lblHolder.text = [Translator languageSelectedStringForKey:@"SURNAME, NAME"];
+    self.lblBirthDate.text = [Translator languageSelectedStringForKey:@"BIRTHDATE"];
+    self.lblBirthPlace.text = [Translator languageSelectedStringForKey:@"BIRTHPLACE"];
     [(TextField *)self.dateIssueField initWithMask:@"99.99.9999"];
     [(TextField *)self.birthDateField initWithMask:@"99.99.9999"];
     

@@ -37,7 +37,7 @@
 {
     Note *note = [Note new];
     note.idDoc = self.selectedNote.idDoc;
-    note.title = @"Заметка";
+    note.title = [Translator languageSelectedStringForKey:@"Note"];
     if (![[self.noteTitle.text stringByReplacingOccurrencesOfString:@" " withString:@""] isEqualToString:@""])
         note.title = self.noteTitle.text;
     note.content = self.note.text;

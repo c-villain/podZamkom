@@ -12,7 +12,16 @@
 
 - (void)viewDidLoad
 {
-    NSString* title = @"НОВАЯ КАРТА";
+    NSString* title = [Translator languageSelectedStringForKey:@"NEW CARD"];
+    
+    self.lblBank.text = [Translator languageSelectedStringForKey:@"BANK"];
+    self.lblNumber.text = [Translator languageSelectedStringForKey:@"CARD NUMBER"];
+    self.lblType.text = [Translator languageSelectedStringForKey:@"CARD TYPE"];
+    self.lblValid.text = [Translator languageSelectedStringForKey:@"VALID THRU"];
+    self.lblHolder.text = [Translator languageSelectedStringForKey:@"HOLDER"];
+    self.lblColor.text = [Translator languageSelectedStringForKey:@"CARD COLOR"];
+    self.lblComments.text = [Translator languageSelectedStringForKey:@"COMMENTS"];
+    
     //забиваем маску для нужных текстовых полей:
     [(TextField *)self.numberField initWithMask:@"9999 9999 9999 9999"];
     [(TextField *)self.validThruDate initWithMask:@"99/99"];
@@ -41,6 +50,8 @@
         title = self.selectedCreditCard.bank;
         self.bankField.text = self.selectedCreditCard.bank;
         self.numberField.text = self.selectedCreditCard.number;
+        ( (Picker *) ((TextField *)self.typeField).picker).selectedIndex = self.selectedCreditCard.type;
+        ( (Picker *) ((TextField *)self.colorField).picker).selectedIndex = self.selectedCreditCard.color;
         [super showInTextField:self.typeField selectedPickerObject:[CardType initCardTypeArray][self.selectedCreditCard.type]];
         self.validThruDate.text = self.selectedCreditCard.validThru;
         self.cardHolderField.text = self.selectedCreditCard.holder;
