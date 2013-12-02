@@ -96,8 +96,7 @@
     passwordView.delegate = self;
     UINavigationController *navigationController= [[UINavigationController alloc] initWithRootViewController:passwordView];
     [[(AppDelegate*)[[UIApplication sharedApplication] delegate] window] setRootViewController:navigationController];
-    //    self.window.rootViewController = passwordView;
-        [self.window makeKeyAndVisible];
+    [self.window makeKeyAndVisible];
 }
 
 -(void)showMainVC //показываем главную форму после ввода пароля
@@ -105,7 +104,8 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     MainTableVC *mainVC = [storyboard instantiateViewControllerWithIdentifier:@"main"];
     LeftMenuVC *menuVC = [storyboard instantiateViewControllerWithIdentifier:@"leftMenu"];
-    SWRevealViewController *mainRevealController = [[SWRevealViewController alloc] initWithRearViewController:menuVC frontViewController:mainVC];
+    RevealVC *mainRevealController = [[RevealVC alloc] initWithRearViewController:menuVC frontViewController:mainVC];
+//    SWRevealViewController *mainRevealController = [[SWRevealViewController alloc] initWithRearViewController:menuVC frontViewController:mainVC];
     
     mainRevealController.rearViewRevealWidth = 55; //ширина левой менюшки
     mainRevealController.rearViewRevealOverdraw = 187; //максимальный вылет левой менюшки

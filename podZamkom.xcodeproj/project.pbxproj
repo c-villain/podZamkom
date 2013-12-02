@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A08D6FA1846B04A0041A41C /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08D6F91846B04A0041A41C /* Cell.m */; };
+		5A2597AF184D345A009C1C01 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2597AE184D345A009C1C01 /* SWRevealViewController.m */; };
 		5A361EF21848D70700DA3AFB /* passport_uk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A361EF11848D70700DA3AFB /* passport_uk@2x.png */; };
 		5A361EF41848D7C700DA3AFB /* UK@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A361EF31848D7C700DA3AFB /* UK@2x.png */; };
 		5A361EFA1848E28800DA3AFB /* Translator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A361EF91848E28800DA3AFB /* Translator.m */; };
@@ -18,6 +19,7 @@
 		5A3FCEDD184B904D00413F6E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A3FCED9184B904D00413F6E /* InfoPlist.strings */; };
 		5A3FCEDE184B904D00413F6E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A3FCEDB184B904D00413F6E /* Localizable.strings */; };
 		5A3FCEE1184BC9E800413F6E /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FCEE0184BC9E800413F6E /* Settings.m */; };
+		5A3FCEE4184D2E9800413F6E /* RevealVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FCEE3184D2E9800413F6E /* RevealVC.m */; };
 		5A64111E1847D7D5009AB22A /* passport_australia@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6410FE1847D7D5009AB22A /* passport_australia@2x.png */; };
 		5A64111F1847D7D5009AB22A /* passport_belarus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6410FF1847D7D5009AB22A /* passport_belarus@2x.png */; };
 		5A6411201847D7D5009AB22A /* passport_belg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411001847D7D5009AB22A /* passport_belg@2x.png */; };
@@ -104,7 +106,6 @@
 		5AC89A381840B9A000164B51 /* Passport.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC899461840B9A000164B51 /* Passport.m */; };
 		5AC89A391840B9A000164B51 /* Security.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC899491840B9A000164B51 /* Security.m */; };
 		5AC89A3A1840B9A000164B51 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC8994C1840B9A000164B51 /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		5AC89A3B1840B9A000164B51 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC8994F1840B9A000164B51 /* SWRevealViewController.m */; };
 		5AC89A3C1840B9A000164B51 /* line_under_title_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC899521840B9A000164B51 /* line_under_title_bar@2x.png */; };
 		5AC89A3D1840B9A000164B51 /* login_screen_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC899531840B9A000164B51 /* login_screen_bg.png */; };
 		5AC89A3E1840B9A000164B51 /* login_screen_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC899541840B9A000164B51 /* login_screen_bg@2x.png */; };
@@ -282,6 +283,8 @@
 /* Begin PBXFileReference section */
 		5A08D6F81846B04A0041A41C /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
 		5A08D6F91846B04A0041A41C /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
+		5A2597AD184D345A009C1C01 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		5A2597AE184D345A009C1C01 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		5A361EF11848D70700DA3AFB /* passport_uk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_uk@2x.png"; sourceTree = "<group>"; };
 		5A361EF31848D7C700DA3AFB /* UK@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UK@2x.png"; sourceTree = "<group>"; };
 		5A361EF81848E28800DA3AFB /* Translator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Translator.h; sourceTree = "<group>"; };
@@ -294,6 +297,8 @@
 		5A3FCEDC184B904D00413F6E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localizable.strings; sourceTree = "<group>"; };
 		5A3FCEDF184BC9E800413F6E /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		5A3FCEE0184BC9E800413F6E /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		5A3FCEE2184D2E9800413F6E /* RevealVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RevealVC.h; sourceTree = "<group>"; };
+		5A3FCEE3184D2E9800413F6E /* RevealVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RevealVC.m; sourceTree = "<group>"; };
 		5A6410FE1847D7D5009AB22A /* passport_australia@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_australia@2x.png"; sourceTree = "<group>"; };
 		5A6410FF1847D7D5009AB22A /* passport_belarus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_belarus@2x.png"; sourceTree = "<group>"; };
 		5A6411001847D7D5009AB22A /* passport_belg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_belg@2x.png"; sourceTree = "<group>"; };
@@ -421,8 +426,6 @@
 		5AC899491840B9A000164B51 /* Security.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Security.m; sourceTree = "<group>"; };
 		5AC8994B1840B9A000164B51 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		5AC8994C1840B9A000164B51 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
-		5AC8994E1840B9A000164B51 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		5AC8994F1840B9A000164B51 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		5AC899521840B9A000164B51 /* line_under_title_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "line_under_title_bar@2x.png"; sourceTree = "<group>"; };
 		5AC899531840B9A000164B51 /* login_screen_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_screen_bg.png; sourceTree = "<group>"; };
 		5AC899541840B9A000164B51 /* login_screen_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_screen_bg@2x.png"; sourceTree = "<group>"; };
@@ -1074,8 +1077,10 @@
 		5AC8994D1840B9A000164B51 /* Sliding menu */ = {
 			isa = PBXGroup;
 			children = (
-				5AC8994E1840B9A000164B51 /* SWRevealViewController.h */,
-				5AC8994F1840B9A000164B51 /* SWRevealViewController.m */,
+				5A2597AD184D345A009C1C01 /* SWRevealViewController.h */,
+				5A2597AE184D345A009C1C01 /* SWRevealViewController.m */,
+				5A3FCEE2184D2E9800413F6E /* RevealVC.h */,
+				5A3FCEE3184D2E9800413F6E /* RevealVC.m */,
 			);
 			path = "Sliding menu";
 			sourceTree = "<group>";
@@ -1781,6 +1786,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AC89A1F1840B9A000164B51 /* KSEnhancedKeyboard.m in Sources */,
+				5A3FCEE4184D2E9800413F6E /* RevealVC.m in Sources */,
 				5AC89A2F1840B9A000164B51 /* DBRecrypt.m in Sources */,
 				5AC89A331840B9A000164B51 /* BankAccount.m in Sources */,
 				5AC89A391840B9A000164B51 /* Security.m in Sources */,
@@ -1813,12 +1819,12 @@
 				5AC89ACF1840B9A000164B51 /* LeftMenuVC.m in Sources */,
 				5AC89A3A1840B9A000164B51 /* KeychainItemWrapper.m in Sources */,
 				5AC89A241840B9A000164B51 /* CurrencyType.m in Sources */,
-				5AC89A3B1840B9A000164B51 /* SWRevealViewController.m in Sources */,
 				5AC89A311840B9A000164B51 /* DBSelect.m in Sources */,
 				5AC89A1E1840B9A000164B51 /* ViewAppearance.m in Sources */,
 				5AC89AD41840B9A000164B51 /* SettingsVC.m in Sources */,
 				5AC89A271840B9A000164B51 /* TextField.m in Sources */,
 				5AC89A111840B9A000164B51 /* CardVC.m in Sources */,
+				5A2597AF184D345A009C1C01 /* SWRevealViewController.m in Sources */,
 				5AC89A1D1840B9A000164B51 /* ShowVC.m in Sources */,
 				5AC89A1C1840B9A000164B51 /* FrameVC.m in Sources */,
 				5AC89AD21840B9A000164B51 /* PasswordHelpVC.m in Sources */,

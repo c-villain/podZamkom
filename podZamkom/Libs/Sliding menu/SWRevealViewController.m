@@ -77,9 +77,8 @@ typedef enum
     CGPoint nowPoint = [touch locationInView:self.view];
     
     CGFloat moveX = nowPoint.x - _init.x;
-
     CGFloat moveY = nowPoint.y - _init.y;
-
+    
     if (abs(moveX) > kDirectionPanThreshold)
     {
         if (_direction == SWDirectionPanGestureRecognizerHorizontal)
@@ -354,6 +353,7 @@ static CGFloat scaledValue( CGFloat v1, CGFloat min2, CGFloat max2, CGFloat min1
 {
     SWRevealView *_contentView;
     UIPanGestureRecognizer *_panGestureRecognizer;
+    UITapGestureRecognizer *_tapGestureRecognizer;
     FrontViewPosition _frontViewPosition;
     FrontViewPosition _rearViewPosition;
     FrontViewPosition _rightViewPosition;
@@ -542,9 +542,6 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
         }
     }
     
-    //создаем подсветку навбара
-    [self.view addSubview: [ViewAppearance initGlowingBoarderForNavBar]];
-    [self createNavBarButtons];
     // Apple also tells us to do this:
     _contentView.backgroundColor = [UIColor blackColor];
     
@@ -559,92 +556,6 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
     [self _setFrontViewPosition:initialPosition withDuration:0.0];
 }
 
--(void)settingsBtnTapped
-{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    SettingsVC *settingsVC = [storyboard instantiateViewControllerWithIdentifier:@"settings"];
-    settingsVC.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self.navigationController pushViewController:settingsVC animated:YES];
-}
-
--(void)searchBtnTapped
-{
-    search = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
-    search.delegate = self;
-    search.showsCancelButton = YES;
-    search.barStyle = UIBarStyleBlackOpaque;
-    
-    self.navigationItem.leftBarButtonItem= [[UIBarButtonItem alloc] initWithCustomView:search];
-    self.navigationItem.titleView = nil;
-    self.navigationItem.rightBarButtonItem = nil;
-    //фейковая cancel кнопка
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(stopEditing)];
-    [search becomeFirstResponder];
-}
-/*
-- (BOOL)textFieldShouldReturn:(UITextField *)textField //or implement - (void)textFieldDidEndEditing:(UITextField *)textField
-{
-    [searchBar resignFirstResponder];
-    return YES;
-}
-*/
-
--(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    [search resignFirstResponder];
-}
-
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
-    if ([_searchDelegate respondsToSelector:@selector(SearchDoc:)])
-    {
-        [_searchDelegate SearchDoc:searchText];
-    }
-}
-
-
-- (void)createNavBarButtons
-{
-    [self setTitle];
-    //создаем кастомизированную кнопку settings:
-    UIButton *settingsBtn = [ViewAppearance initCustomButtonWithImage:@"title_bar_icon_settings.png"];
-    [settingsBtn addTarget:self action:@selector(settingsBtnTapped) forControlEvents:UIControlEventTouchUpInside]; //adding action
-    UIBarButtonItem *barButtonSettings = [[UIBarButtonItem alloc] initWithCustomView:settingsBtn];
-    self.navigationItem.rightBarButtonItem = barButtonSettings;
-    
-    //создаем кастомизированную кнопку search:
-    UIButton *searchBtn = [ViewAppearance initCustomButtonWithImage:@"title_bar_icon_search.png"];
-    [searchBtn addTarget:self action:@selector(searchBtnTapped) forControlEvents:UIControlEventTouchUpInside]; //adding action
-    UIBarButtonItem *barButtonSearch = [[UIBarButtonItem alloc] initWithCustomView:searchBtn];
-    self.navigationItem.leftBarButtonItem = barButtonSearch;
-}
-
-- (void)stopEditing
-{
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.2];
-    self.navigationItem.leftBarButtonItem = nil;
-    [search resignFirstResponder];
-    
-    [self createNavBarButtons];
-    [UIView commitAnimations];
-    
-    if ([_searchDelegate respondsToSelector:@selector(SearchStop)])
-    {
-        [_searchDelegate SearchStop];
-    }
-}
-
-- (void)setTitle
-{
-    self.navigationItem.titleView = [ViewAppearance initViewWithGlowingTitle: [Translator languageSelectedStringForKey:@"ALREADY UNDER LOCK"]];
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [self setTitle];
-    [self stopEditing]; //чтобы отключить режим поиска
-}
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -772,14 +683,30 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 {
     if ( _panGestureRecognizer == nil )
     {
-        SWDirectionPanGestureRecognizer *customRecognizer =
+        SWDirectionPanGestureRecognizer *panRecognizer =
             [[SWDirectionPanGestureRecognizer alloc] initWithTarget:self action:@selector(_handleRevealGesture:)];
         
-        customRecognizer.direction = SWDirectionPanGestureRecognizerHorizontal;
-        customRecognizer.delegate = self;
-        _panGestureRecognizer = customRecognizer ;
+        panRecognizer.direction = SWDirectionPanGestureRecognizerHorizontal;
+        panRecognizer.delegate = self;
+        [_contentView.frontView addGestureRecognizer:panRecognizer];
+        _panGestureRecognizer = panRecognizer ;
     }
     return _panGestureRecognizer;
+}
+
+
+- (UITapGestureRecognizer*)tapGestureRecognizer
+{
+    if ( _tapGestureRecognizer == nil )
+    {
+        UITapGestureRecognizer *tapRecognizer =
+            [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_handleTapGesture:)];
+        
+        tapRecognizer.delegate = self;
+        [_contentView.frontView addGestureRecognizer:tapRecognizer];
+        _tapGestureRecognizer = tapRecognizer ;
+    }
+    return _tapGestureRecognizer;
 }
 
 
@@ -915,19 +842,52 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 #pragma mark - Gesture Delegate
 
+
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)recognizer
 {
     // only allow gesture if no previous request is in process
-    if ( recognizer != _panGestureRecognizer || _animationQueue.count != 0 )
-        return NO;
+    if ( _animationQueue.count == 0 )
+    {
+        if ( recognizer == _panGestureRecognizer )
+            return [self _panGestureShouldBegin];
+        
+        if ( recognizer == _tapGestureRecognizer )
+            return [self _tapGestureShouldBegin];
+    }
+
+    return NO;
+}
+
+
+- (BOOL)_tapGestureShouldBegin
+{
+    if ( _frontViewPosition == FrontViewPositionLeft ||
+        _frontViewPosition == FrontViewPositionRightMostRemoved ||
+        _frontViewPosition ==FrontViewPositionLeftSideMostRemoved )
+            return NO;
+    
+    // forbid gesture if the following delegate is implemented and returns NO
+    if ( [_delegate respondsToSelector:@selector(revealControllerTapGestureShouldBegin:)] )
+        if ( [_delegate revealControllerTapGestureShouldBegin:self] == NO )
+            return NO;
+    
+    return YES;
+}
+
+
+- (BOOL)_panGestureShouldBegin
+{
+//    // only allow gesture if no previous request is in process
+//    if ( recognizer != _panGestureRecognizer || _animationQueue.count != 0 )
+//        return NO;
     
     // forbid gesture if the following delegate is implemented and returns NO
     if ( [_delegate respondsToSelector:@selector(revealControllerPanGestureShouldBegin:)] )
         if ( [_delegate revealControllerPanGestureShouldBegin:self] == NO )
             return NO;
 
-    UIView *recognizerView = recognizer.view;
-    CGFloat xLocation = [recognizer locationInView:recognizerView].x;
+    UIView *recognizerView = _panGestureRecognizer.view;
+    CGFloat xLocation = [_panGestureRecognizer locationInView:recognizerView].x;
     CGFloat width = recognizerView.bounds.size.width;
     
     BOOL draggableBorderAllowing = (
@@ -940,6 +900,15 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 
 #pragma mark - Gesture Based Reveal
+
+
+- (void)_handleTapGesture:(UITapGestureRecognizer *)recognizer
+{
+    NSTimeInterval duration = _toggleAnimationDuration;
+    [self _setFrontViewPosition:FrontViewPositionLeft withDuration:duration];
+}
+
+
 
 - (void)_handleRevealGesture:(UIPanGestureRecognizer *)recognizer
 {
@@ -1156,7 +1125,8 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
     void (^rightDeploymentCompletion)() = [self _rightViewDeploymentForNewFrontViewPosition:newPosition];
     void (^frontDeploymentCompletion)() = [self _frontViewDeploymentForNewFrontViewPosition:newPosition];
     
-    [self setNeedsStatusBarAppearanceUpdate];
+    if ( [self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)])
+        [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate) withObject:nil];
     
     void (^animations)() = ^()
     {

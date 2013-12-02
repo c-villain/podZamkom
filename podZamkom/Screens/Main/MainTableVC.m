@@ -51,9 +51,7 @@
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.translucent = NO;
     
-    //распознаватель жестов:
-    
-    SWRevealViewController *revealController = self.revealViewController;
+    RevealVC *revealController = self.revealViewController;
     if (revealController != nil)
     {
         [self.view addGestureRecognizer:revealController.panGestureRecognizer];
@@ -162,6 +160,8 @@
 {
     [self reloadData];
 }
+
+#pragma mark - Search Doc Delegate
 
 - (void)SearchDoc:(NSString *)searchText
 {

@@ -11,6 +11,7 @@
 #import "MainTableVC.h"
 #import "Security.h"
 #import "SWRevealViewController.h"
+#import "RevealVC.h"
 #import "LeftMenuVC.h"
 #import "DBlib.h"
 #import "Settings.h"

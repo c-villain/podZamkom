@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SWRevealViewController.h"
+#import "RevealVC.h"
 #import "ViewAppearance.h"
 
 #import "DBlib.h"

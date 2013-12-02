@@ -10,13 +10,11 @@
 #import "DocumentLib.h"
 #import "ViewAppearance.h"
 #import <ImageIO/CGImageSource.h>
-//#import "CGImageSource.h"
 
 @protocol DocSortingDelegate<NSObject>
 
 @optional
 //методы для сигнализирования главному окну, что кнопка из бокового меню была нажата
-//- (void)DocTypeButtonTapped:(LeftMenuVC *) controller;
 - (void)DocTypeButtonTapped:(DocTypeEnum ) docType;
 - (void)AllDocsButtonTyped;
 @end
