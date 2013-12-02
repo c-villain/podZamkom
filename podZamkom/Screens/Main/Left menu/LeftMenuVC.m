@@ -19,6 +19,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -112,11 +113,12 @@
     
     UILabel *cellCaption = (UILabel *)[cell viewWithTag:lblTag];
     cellCaption.text = cellDescription;
-    
+    //71
     UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 71, 320, 2)];/// change size as you need.
     separatorLineView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"divider_goriz.png"]];// you can also put image here
     
     [cell.contentView addSubview:separatorLineView];
+    
 }
 
 
@@ -126,6 +128,11 @@
     UIView *selectionColor = [[UIView alloc] init];
     selectionColor.backgroundColor = [UIColor clearColor];
     cell.selectedBackgroundView = selectionColor;
+    //71
+    UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 71, 320, 2)];/// change size as you need.
+    separatorLineView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"divider_goriz.png"]];// you can also put image here
+
+    [cell.selectedBackgroundView addSubview:separatorLineView];
     return YES;
 }
 

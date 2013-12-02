@@ -605,7 +605,8 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 
 
 - (void)createNavBarButtons
-{    
+{
+    [self setTitle];
     //создаем кастомизированную кнопку settings:
     UIButton *settingsBtn = [ViewAppearance initCustomButtonWithImage:@"title_bar_icon_settings.png"];
     [settingsBtn addTarget:self action:@selector(settingsBtnTapped) forControlEvents:UIControlEventTouchUpInside]; //adding action
@@ -636,9 +637,14 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
     }
 }
 
--(void)viewWillAppear:(BOOL)animated
+- (void)setTitle
 {
     self.navigationItem.titleView = [ViewAppearance initViewWithGlowingTitle: [Translator languageSelectedStringForKey:@"ALREADY UNDER LOCK"]];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self setTitle];
 }
 
 - (void)viewDidAppear:(BOOL)animated
