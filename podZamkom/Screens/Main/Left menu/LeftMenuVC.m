@@ -124,6 +124,7 @@
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     UITableViewCell *cell = (UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     UIView *selectionColor = [[UIView alloc] init];
     selectionColor.backgroundColor = [UIColor clearColor];
@@ -131,7 +132,6 @@
     //71
     UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 71, 320, 2)];/// change size as you need.
     separatorLineView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"divider_goriz.png"]];// you can also put image here
-
     [cell.selectedBackgroundView addSubview:separatorLineView];
     return YES;
 }

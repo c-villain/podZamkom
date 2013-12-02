@@ -544,7 +544,6 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
     
     //создаем подсветку навбара
     [self.view addSubview: [ViewAppearance initGlowingBoarderForNavBar]];
-    
     [self createNavBarButtons];
     // Apple also tells us to do this:
     _contentView.backgroundColor = [UIColor blackColor];
@@ -565,7 +564,6 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     SettingsVC *settingsVC = [storyboard instantiateViewControllerWithIdentifier:@"settings"];
     settingsVC.modalPresentationStyle = UIModalPresentationFullScreen;
-    //    [self.view.window.rootViewController presentViewController:settingsVC animated:YES completion:nil];
     [self.navigationController pushViewController:settingsVC animated:YES];
 }
 
@@ -590,6 +588,7 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
     return YES;
 }
 */
+
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [search resignFirstResponder];
@@ -620,9 +619,8 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
     self.navigationItem.leftBarButtonItem = barButtonSearch;
 }
 
-- (void)stopEditing {
-    
-    
+- (void)stopEditing
+{
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.2];
     self.navigationItem.leftBarButtonItem = nil;
@@ -645,6 +643,7 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 -(void)viewWillAppear:(BOOL)animated
 {
     [self setTitle];
+    [self stopEditing]; //чтобы отключить режим поиска
 }
 
 - (void)viewDidAppear:(BOOL)animated
