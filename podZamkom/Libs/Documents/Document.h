@@ -24,8 +24,6 @@ typedef enum {
 @property (nonatomic, strong) NSString *docName; // имя документа
 @property (nonatomic, strong) NSString *detail; // детали документа
 @property (nonatomic, strong) NSString *dateOfCreation; // дата создания документа
-//@property (nonatomic, strong) NSString *imageFile; // рисунок (путь) для документа
-//@property (nonatomic, strong) UIImage *image; //рисунок для документа
 @property (nonatomic, strong) UIView *viewWithImage;
 
 @end

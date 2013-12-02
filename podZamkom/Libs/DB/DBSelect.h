@@ -4,7 +4,8 @@
 @interface DBadapter (DBSelect)
 
 -(NSArray *) ReadData;
--(NSArray *)ReadDocsWithType:(DocTypeEnum)docType;
+//-(NSArray *)ReadDocsWithType:(DocTypeEnum)docType;
+-(NSArray *)ReadDocsWithType:(DocTypeEnum *)docType;
 +(Document *) DBSelect: (Document *)doc withKey: (NSString *)key;
 +(Document *) DBSelect: (Document *)doc;
 -(Document *) SelectDocument: (Document *)doc;

@@ -5,86 +5,40 @@
 //читает все данные из таблицы DocList
 -(NSArray *)ReadData
 {
-    [self checkAndCreateDBFile];
-    [self CreateDBTablesIfNotExists];
-    NSMutableArray *documents = [[NSMutableArray alloc] init]; //массив документов
-    sqlite3 *db;
-    sqlite3_stmt *statement;
-    NSString *querySQL = [NSString stringWithFormat: @"SELECT *from DocList"];
-    const char *query_stmt = [querySQL UTF8String];
-    
-    if (sqlite3_open([DBpath UTF8String], &db)==SQLITE_OK)
-    {
-        if (sqlite3_prepare_v2(db, query_stmt, -1, &statement, NULL)== SQLITE_OK)
-        {
-            while (sqlite3_step(statement) == SQLITE_ROW)
-            {
-                Document *document = [Document new];
-                document.idDocList = sqlite3_column_int(statement, 0);
-                
-                document.docType = sqlite3_column_int(statement, 1);
-                
-                document = [self SelectDocument:document];
-                
-                switch (document.docType)
-                {
-                    case NoteDoc:
-                        document.docName = ((Note *)document).title;
-                        document.detail = ((Note *)document).content;
-                        break;
-                    case CardDoc:
-                        document.docName = ((CreditCard *)document).bank;
-                        document.detail = ((CreditCard *)document).number;
-
-                        break;
-                    case LoginDoc:
-                        document.docName = ((Login *)document).url;
-                        document.detail = ((Login *)document).login;
-                        break;
-                    case BankAccountDoc:
-                        document.docName = ((BankAccount *)document).bank;
-                        document.detail = ((BankAccount *)document).accountNumber;
-                        break;
-                    case PassportDoc:
-                        document.docName = ((Passport *)document).docName;
-                        document.detail = ((Passport *)document).number;
-                        break;
-                    default:
-                    break;
-                }
-
-                document.viewWithImage = [self CreateViewWithImageForDocument:document];
-                
-                [documents addObject:document];
-            }
-            sqlite3_finalize(statement);
-        }
-    }
-    sqlite3_close(db);
-    return documents;
+    return [self selectDocumentswithType:nil];
 }
 
--(NSArray *)ReadDocsWithType:(DocTypeEnum)docType
+-(NSArray *)ReadDocsWithType:(DocTypeEnum *)docType
+{
+    return [self selectDocumentswithType:docType];
+}
+
+-(NSArray *)selectDocumentswithType:(DocTypeEnum *)docType
 {
     [self checkAndCreateDBFile];
     [self CreateDBTablesIfNotExists];
+    NSString *querySQL = [NSString stringWithFormat: @"SELECT *from DocList"];
+    if (docType != nil)
+        querySQL = [querySQL stringByAppendingString:@" WHERE doc_type = ?"];
     NSMutableArray *documents = [[NSMutableArray alloc] init]; //массив документов
     sqlite3 *db;
     sqlite3_stmt *statement;
-    NSString *querySQL = [NSString stringWithFormat: @"SELECT *from DocList WHERE doc_type =?"];
     const char *query_stmt = [querySQL UTF8String];
     
     if (sqlite3_open([DBpath UTF8String], &db)==SQLITE_OK)
     {
         if (sqlite3_prepare_v2(db, query_stmt, -1, &statement, NULL)== SQLITE_OK)
         {
-            sqlite3_bind_int(statement, 1, docType);
+            if (docType != nil)
+                sqlite3_bind_int(statement, 1, *docType);
             while (sqlite3_step(statement) == SQLITE_ROW)
             {
                 Document *document = [Document new];
                 document.idDocList = sqlite3_column_int(statement, 0);
                 
                 document.docType = sqlite3_column_int(statement, 1);
+                
+                document.dateOfCreation = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 2)];
                 
                 document = [self SelectDocument:document];
                 
@@ -118,16 +72,15 @@
                 document.viewWithImage = [self CreateViewWithImageForDocument:document];
                 
                 [documents addObject:document];
-
+                
             }
             sqlite3_finalize(statement);
         }
     }
     sqlite3_close(db);
     return documents;
+
 }
-
-
 
 -(UIView *) CreateViewWithImageForDocument:(Document *)doc
 {
@@ -216,44 +169,29 @@
 +(Document *) DBSelect: (Document *)doc withKey: (NSString *)key
 {
     DBadapter *dbAdapter = [[DBadapter alloc] init];
+    Document *document = [Document new];
     switch (doc.docType)
     {
-//        case NoteDoc:
-//            return [dbAdapter GetNoteDocById:(int)doc.idDoc withKey: key];
-//            break;
-//        case CardDoc:
-//            return [dbAdapter GetCreditCardDocById:(int)doc.idDoc withKey: key];
-//            break;
-//        case LoginDoc:
-//            return [dbAdapter GetLoginDocById:(int)doc.idDoc withKey: key];
-//            break;
-//        case BankAccountDoc:
-//            return [dbAdapter GetBankAccountDocById:(int)doc.idDoc withKey: key];
-//            break;
-//        case PassportDoc:
-//            return [dbAdapter GetPassportDocById:(int)doc.idDoc withKey: key];
-//            break;
-//        default:
-//            return nil;
         case NoteDoc:
-            return [dbAdapter GetNoteDocById:(int)doc.idDocList withKey: key];
+            document = [dbAdapter GetNoteDocById:(int)doc.idDocList withKey: key];
             break;
         case CardDoc:
-            return [dbAdapter GetCreditCardDocById:(int)doc.idDocList withKey: key];
+            document =  [dbAdapter GetCreditCardDocById:(int)doc.idDocList withKey: key];
             break;
         case LoginDoc:
-            return [dbAdapter GetLoginDocById:(int)doc.idDocList withKey: key];
+            document =  [dbAdapter GetLoginDocById:(int)doc.idDocList withKey: key];
             break;
         case BankAccountDoc:
-            return [dbAdapter GetBankAccountDocById:(int)doc.idDocList withKey: key];
+            document =  [dbAdapter GetBankAccountDocById:(int)doc.idDocList withKey: key];
             break;
         case PassportDoc:
-            return [dbAdapter GetPassportDocById:(int)doc.idDocList withKey: key];
+            document =  [dbAdapter GetPassportDocById:(int)doc.idDocList withKey: key];
             break;
         default:
             return nil;
-
     }
+    document.dateOfCreation = doc.dateOfCreation;
+    return document;
 }
 
 +(Document *) DBSelect: (Document *)doc

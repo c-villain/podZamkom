@@ -70,7 +70,7 @@ CREATE  TABLE IF NOT EXISTS Passport (pk_passport_id INTEGER PRIMARY KEY  AUTOIN
 {
     NSDate *currentTime = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"HH:mm      dd-MM-yyyy"];
+    [dateFormatter setDateFormat:@"MMM dd, YYYY hh:mm"];
     NSString *resultString = [dateFormatter stringFromDate: currentTime];
     return resultString;
 }

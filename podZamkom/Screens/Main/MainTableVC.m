@@ -105,9 +105,10 @@
         [subview removeFromSuperview];
     }
     
-    
     cell.name.text = doc.docName;
     cell.detail.text = doc.detail;
+    cell.dateOfCreation.text = doc.dateOfCreation;
+    
     [cell.viewWithImage addSubview:doc.viewWithImage];
         
     ////
@@ -152,7 +153,8 @@
 
 - (void)DocTypeButtonTapped:(DocTypeEnum) docType
 {
-    documents = [dbAdapter ReadDocsWithType:docType];
+    //TODO!
+    documents = [dbAdapter ReadDocsWithType:&docType];
     [self.tableView reloadData];
 }
 
