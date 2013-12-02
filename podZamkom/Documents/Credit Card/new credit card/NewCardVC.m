@@ -69,7 +69,7 @@
     card.idDoc = self.selectedCreditCard.idDoc;
     card.docType = CardDoc;
     
-    card.bank = @"Банк";
+    card.bank = [Translator languageSelectedStringForKey:@"Bank"];
     if (![[self.bankField.text stringByReplacingOccurrencesOfString:@" " withString:@""]  isEqual: @""])
         card.bank = self.bankField.text;
     

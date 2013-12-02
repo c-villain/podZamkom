@@ -30,6 +30,16 @@
 "Cancel" = "Cancel";
 "Delete" = "Delete";
 
+
+//left menu screen:
+"All" = "All";
+"Notes" = "Notes";
+"Cards" = "Cards";
+"Passports" = "Passports";
+"Bank accounts" = "Bank accounts";
+"Logins" = "Logins";
+"New document" = "New document";
+
 //new doc screen:
 "NEW DOCUMENT" = "NEW DOCUMENT";
 "NOTE" = "NOTE";
@@ -63,6 +73,7 @@
 "DELETE LOGIN" = "DELETE LOGIN";
 
 //credit card screen:
+"Bank" = "Bank";
 "CONFIRM DELETION OF CARD" = "CONFIRM DELETION OF CARD";
 "Card number was copied" = "Card number was copied";
 "NEW CARD" = "NEW CARD";
@@ -98,6 +109,7 @@
 "SEND BANK ACCOUNT" = "SEND BANK ACCOUNT";
 
 //passport screen:
+"Passport" = "Passport";
 "NEW PASSPORT" = "NEW PASSPORT";
 "COUNTRY" = "COUNTRY";
 "PASSPORT NUMBER" = "PASSPORT NUMBER";

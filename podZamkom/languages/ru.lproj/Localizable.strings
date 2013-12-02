@@ -72,6 +72,7 @@
 "DELETE LOGIN" = "УДАЛИТЬ ЛОГИН";
 
 //credit card screen:
+"Bank" = "Банк";
 "CONFIRM DELETION OF CARD" = "ПОДТВЕРДИТЕ УДАЛЕНИЕ КАРТЫ";
 "Card number was copied" = "Номер карты скопирован";
 "NEW CARD" = "НОВАЯ КАРТА";
@@ -105,6 +106,7 @@
 "SEND BANK ACCOUNT" = "ОТПРАВИТЬ СЧЕТ";
 
 //passport screen:
+"Passport" = "Паспорт";
 "NEW PASSPORT" = "НОВЫЙ ПАСПОРТ";
 "COUNTRY" = "СТРАНА";
 "PASSPORT NUMBER" = "СЕРИЯ И НОМЕР";

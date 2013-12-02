@@ -72,7 +72,7 @@
     Passport *passport = [Passport new];
     passport.idDoc = self.selectedPassport.idDoc;
     passport.docType = PassportDoc;
-    passport.docName = @"Паспорт";
+    passport.docName = [Translator languageSelectedStringForKey:@"Passport"];
     
     if (![[self.nameField.text stringByReplacingOccurrencesOfString:@" " withString:@""]  isEqual: @""])
         passport.docName = self.nameField.text;

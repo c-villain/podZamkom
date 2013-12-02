@@ -20,7 +20,7 @@
 @end
 
 
-@interface RevealVC : SWRevealViewController
+@interface RevealVC : SWRevealViewController <UISearchBarDelegate>
 {
     UISearchBar *search;
 }
