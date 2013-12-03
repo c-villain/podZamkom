@@ -131,3 +131,9 @@
 "DELETE PASSPORT" = "DELETE PASSPORT";
 "SEND PASSPORT" = "SEND PASSPORT";
 
+//app voting:
+"Like this app?" = "Like this app?";
+"Why not rate in the AppStore?" = "Why not rate in the AppStore?";
+"No, thanks" = "No, thanks";
+"Yes" = "Yes";
+"Remind me later" = "Remind me later";

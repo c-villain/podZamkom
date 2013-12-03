@@ -39,12 +39,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    //показываем алерт голосования:
+    if ([Settings getLaunchCount] >= 1)
+    {
+        UIAlertView *alert  = [[UIAlertView alloc]
+                               initWithTitle:[Translator languageSelectedStringForKey:@"Like this app?"]
+                               message:[Translator languageSelectedStringForKey:@"Why not rate in the AppStore?"]
+                               delegate:self
+                               cancelButtonTitle:[Translator languageSelectedStringForKey:@"No, thanks"]
+                               otherButtonTitles:[Translator languageSelectedStringForKey:@"Yes"],
+                                                [Translator languageSelectedStringForKey:@"Remind me later"],
+                                                nil];
+        [alert show];
+    }
+
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     // Uncomment the following line to preserve selection between presentations.
      self.clearsSelectionOnViewWillAppear = NO;
  
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:35.0f/255.0f green:35.0f/255.0f blue:41.0f/255.0f alpha:1.0f]];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
@@ -63,6 +79,25 @@
     self.revealViewController.searchDelegate = self;
     //убираю разделители между строками таблицы, чтобы кастомизировать их в функции
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+}
+
+//voting:
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) //, thanks
+    {
+        
+    }
+    
+    if (buttonIndex == 1) //yes, vote in appstore
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.google.com"]];
+    }
+    
+    if (buttonIndex == 2) //remind later
+    {
+
+    }
 }
 
 - (void)didReceiveMemoryWarning

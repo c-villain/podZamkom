@@ -105,6 +105,7 @@
     [self presentViewController:messageController animated:YES completion:nil];
 }
 
+//для смс, результат отправки:
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult) result
 {
     switch (result) {

@@ -38,4 +38,18 @@
     return;
 }
 
++(void)increaseAppLaunchConting
+{
+    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] init];
+    NSInteger launchCount = [userDefaults integerForKey:@"launchCount"];
+    launchCount ++;
+    [userDefaults setInteger:launchCount forKey:@"launchCount"];
+    [userDefaults synchronize];
+}
+
++(NSInteger)getLaunchCount
+{
+    NSUserDefaults * userDefaults= [[NSUserDefaults alloc] init];
+    return [userDefaults integerForKey:@"launchCount"];
+}
 @end

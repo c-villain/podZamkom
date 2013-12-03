@@ -15,7 +15,8 @@
 #import "RNBlurModalView.h" //для нотификации, что скопирован текст
 #import <MessageUI/MessageUI.h> //для функции посыла сообщения
 
-@interface ShowVC : UIViewController<MFMessageComposeViewControllerDelegate>
+//MFMessageComposeViewControllerDelegate - для смс, результат отправки:
+@interface ShowVC : UIViewController <MFMessageComposeViewControllerDelegate>
 
 - (void)viewDidLoad: (NSString*)title;
 

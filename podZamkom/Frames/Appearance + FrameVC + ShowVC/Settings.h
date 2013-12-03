@@ -13,5 +13,7 @@
 +(void)saveSelectedLanguage:(NSString*)language;
 +(void)setDefaultLanguage;
 +(void)setNotFirstAppRun;
++(void)increaseAppLaunchConting;
++(NSInteger)getLaunchCount;
 
 @end

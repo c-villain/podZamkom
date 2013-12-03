@@ -23,11 +23,11 @@
 }
 
 
-//- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-//{
-//    [self startApp];
-//    return YES;
-//}
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [Settings increaseAppLaunchConting];
+    return YES;
+}
 
 -(BOOL)isNotFirstAppRun
 {
