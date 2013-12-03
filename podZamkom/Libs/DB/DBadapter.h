@@ -10,6 +10,7 @@
 #import <sqlite3.h>
 #import "FBEncryptorAES.h"
 #import "DocumentLib.h"
+#import "Settings.h"
 
 @interface DBadapter : NSObject
 {

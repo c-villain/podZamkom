@@ -128,5 +128,10 @@
 "DELETE PASSPORT" = "УДАЛИТЬ ПАСПОРТ";
 "SEND PASSPORT" = "ОТПРАВИТЬ";
 
-
+//app voting:
+"Like this app?" = "Понравилось приложение?";
+"Why not rate in the AppStore?" = "Оценить в AppStore?";
+"No, thanks" = "Нет, спасибо";
+"Yes" = "Да";
+"Remind me later" = "Напомнить позже";
 

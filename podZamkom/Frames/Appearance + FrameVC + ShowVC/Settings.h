@@ -10,10 +10,17 @@
 
 @interface Settings : NSObject
 
++(NSString*)getCurrentDate;
++(NSDate *)getDateFromString:(NSString *)dateString;
 +(void)saveSelectedLanguage:(NSString*)language;
 +(void)setDefaultLanguage;
 +(void)setNotFirstAppRun;
++(BOOL)isNotFirstAppRun;
 +(void)increaseAppLaunchConting;
 +(NSInteger)getLaunchCount;
++(NSString *)getCurrentVersion;
++(void)setVersionWhenRateUsed;
++(NSString *)getVersionWhenRateUsed;
++(void)setRate;
 
 @end

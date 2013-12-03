@@ -10,6 +10,23 @@
 
 @implementation Settings
 
++(NSString*)getCurrentDate
+{
+    NSDate *currentTime = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMM dd, YYYY hh:mm"];
+    NSString *resultString = [dateFormatter stringFromDate: currentTime];
+    return resultString;
+}
+
++(NSDate *)getDateFromString:(NSString *)dateString
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    // this is imporant - we set our input date format to match our input string
+    // if format doesn't match you'll get nil from your string, so be careful
+    [dateFormatter setDateFormat:@"MMM dd, YYYY hh:mm"];
+    return [dateFormatter dateFromString:dateString];
+}
 +(void)saveSelectedLanguage:(NSString*)language
 {
     NSUserDefaults *userDefaults = [[NSUserDefaults alloc] init];
@@ -38,6 +55,11 @@
     return;
 }
 
++(BOOL)isNotFirstAppRun
+{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:@"isNotFirstRun"];
+}
+
 +(void)increaseAppLaunchConting
 {
     NSUserDefaults *userDefaults = [[NSUserDefaults alloc] init];
@@ -45,6 +67,42 @@
     launchCount ++;
     [userDefaults setInteger:launchCount forKey:@"launchCount"];
     [userDefaults synchronize];
+}
+
++(NSString *)getCurrentVersion
+{
+    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+}
+
++(void)setVersionWhenRateUsed
+{
+    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] init];
+    [userDefaults setObject:[self getCurrentVersion] forKey:@"rateLastVersionUsed"];
+    [userDefaults synchronize];
+}
+
++(NSString *)getVersionWhenRateUsed
+{
+    return [[NSUserDefaults standardUserDefaults] stringForKey:@"rateLastVersionUsed"];
+
+}
+
++(void)setDateWhenRateUsed
+{
+    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] init];
+    [userDefaults setObject:[self getCurrentDate] forKey:@"rateDateUsed"];
+    [userDefaults synchronize];
+}
+
++(void)setRate
+{
+    [self setDateWhenRateUsed];
+    [self setVersionWhenRateUsed];
+}
+
++(NSDate *)getDateWhenRateUsed
+{
+    return [self getDateFromString:[[NSUserDefaults standardUserDefaults] stringForKey:@"rateDateUsed"]];
 }
 
 +(NSInteger)getLaunchCount

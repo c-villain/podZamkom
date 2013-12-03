@@ -66,15 +66,6 @@ CREATE  TABLE IF NOT EXISTS Passport (pk_passport_id INTEGER PRIMARY KEY  AUTOIN
     }
 }
 
--(NSString*)getCurrentDate
-{
-    NSDate *currentTime = [NSDate date];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MMM dd, YYYY hh:mm"];
-    NSString *resultString = [dateFormatter stringFromDate: currentTime];
-    return resultString;
-}
-
 //insert docType and Date of creation
 //return id of inserting row
 -(int)insertIntoDocList:(int)docType 
@@ -87,7 +78,7 @@ CREATE  TABLE IF NOT EXISTS Passport (pk_passport_id INTEGER PRIMARY KEY  AUTOIN
         sqlite3_prepare_v2(db, insert_stmt, -1, &statement, NULL);
         {
             sqlite3_bind_int(statement, 1, docType);
-            sqlite3_bind_text(statement, 2, [[self getCurrentDate] UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement, 2, [[Settings getCurrentDate] UTF8String], -1, SQLITE_TRANSIENT);
             if (sqlite3_step(statement) == SQLITE_DONE)
             {
                 sqlite3_finalize(statement);

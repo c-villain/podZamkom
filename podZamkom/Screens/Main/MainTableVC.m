@@ -40,8 +40,12 @@
 {
     [super viewDidLoad];
 
-    //показываем алерт голосования:
-    if ([Settings getLaunchCount] >= 1)
+//    показываем алерт голосования:
+//    если счетчик показа приложения кратен 4 (чтобы слишком уж не доставать пользвателя) и при этом, если раньше было  голосование, то смотрим на версию приложения: если версия старая, то снова просим проголосовать:)
+//    если же за данную версию юзер проголосовал, то алерт уже не показываем)
+//    то показываем голосовалку:
+    if ((([Settings getLaunchCount] %4) == 0) && (![[Settings getCurrentVersion] isEqualToString:[Settings getVersionWhenRateUsed]]))
+
     {
         UIAlertView *alert  = [[UIAlertView alloc]
                                initWithTitle:[Translator languageSelectedStringForKey:@"Like this app?"]
@@ -81,22 +85,23 @@
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }
 
-//voting:
+//голосование:
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 0) //, thanks
+    if (buttonIndex == 0) //no, thanks
     {
-        
+        [Settings setRate]; //ставим, что якобы юзер проголосовал:)
     }
     
     if (buttonIndex == 1) //yes, vote in appstore
     {
+        [Settings setRate];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.google.com"]];
     }
     
     if (buttonIndex == 2) //remind later
     {
-
+        //ignore:
     }
 }
 
