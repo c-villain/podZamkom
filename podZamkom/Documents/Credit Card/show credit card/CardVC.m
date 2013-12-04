@@ -32,7 +32,7 @@
     [ViewAppearance setGlowToLabel:self.lblPin];
     [ViewAppearance setGlowToLabel:self.lblComment];
     self.lblComment.text = [Translator languageSelectedStringForKey:@"COMMENTS"];
-    
+    [self.deleteBtn setTitle:[Translator languageSelectedStringForKey:@"DELETE CARD"] forState:UIControlStateNormal];
     //забиваю значения:
     self.cardBank.text = card.bank;
     self.cardNumber.text = card.number;

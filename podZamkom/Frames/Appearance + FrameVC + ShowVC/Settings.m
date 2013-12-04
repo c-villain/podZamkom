@@ -36,6 +36,7 @@
 
 +(void)setDefaultLanguage
 {
+    
     NSString *language = @"en";
     if ([[[NSLocale preferredLanguages] objectAtIndex:0]  isEqual: @"ru"])
         language = @"ru";

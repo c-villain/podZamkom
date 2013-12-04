@@ -6,4 +6,132 @@
   Copyright (c) 2013 Alexander Kraev. All rights reserved.
 */
 
-"app name" = "UNTER VERSCHLUSS";
+//password screen:
+"UNDER LOCK" = "UNTER VERSCHLUSS";
+"SET PASSWORD" = "PASSWORT FESTLEGEN";
+"ENTER PASSWORD" = "PASSWORT EINGEBEN ";
+"Enter password\nfor logging into" = "Bitte Passwort \nfürs Einloggen eingeben ";
+"Set password.\nIt could be changed\n in settings." = "Legen Sie Passwort für App fest.\nPasswort kann später in\n den Einstellungen geändert werden ";
+"Incorrect password.\nTry again." = "Falsche Passwort.\nBitte versuchen Sie noch einmal.";
+"Forgot your password?" = "Passwort vergessen?";
+"FORGOT PASSWORD?" = "PASSWORT VERGESSEN?";
+"First of all try to enter password with capital letters in different places. If it will not help you, you should reinstall application. Unfortunately all documents will be deleted after this." = "Vor allem versuchen Sie bitte Ihr Passwort mit Grossbuchstaben in verschiedenen Stellen einzugeben. Wenn es nicht reicht, dann ist unser App erneut zu installieren. Leider werden danach alle Dokumente gelöscht.";
+
+//settings screen:
+"SETTINGS" = "EINSTELLUNGEN";
+"PASSWORD" = "PASSWORT";
+"EMERGENCY PASSWORD" = "SONDERPASSWORT";
+"LANGUAGE" = "SPRACHE";
+"Every time ask for logging in (recommended)" = "Passwort fürs Einloggen benutzen (empfohlen)";
+"Delete documents after tenth attempt to enter password" = "Alle Daten nach 10 falschen Versuchen der Passworteingabe löschen";
+"After entering this password all documents will be deleted" = "Bei der Eingabe dieses Passwortes werden beim Appstart alle Daten sofort gelöscht";
+"DELETE ALL" = "ALLE DATEN LÖSCHEN";
+"CONFIRM DELETION OF ALL DOCUMENTS" = "BITTE DI LÖSCHUNG ALLER DATEN BESTÄTIGEN";
+"Cancel" = "Widerruf";
+"Delete" = "Löschen";
+
+//left menu screen:
+"All" = "Alles";
+"Notes" = "Notizen";
+"Cards" = "Karten";
+"Passports" = "Pässe";
+"Bank accounts" = "Konten";
+"Logins" = "Logine";
+"New document" = "Neues Dokument";
+
+//new doc screen + main screen
+"NEW DOCUMENT" = "NEUES DOKUMENT";
+"NOTE" = "NOTIZ";
+"PASSPORT" = "PASS";
+"CREDIT CARD" = "KARTE";
+"BANK ACCOUNT" = "KONTO";
+"LOGIN" = "LOGIN";
+"ALREADY UNDER LOCK" = "JETZT UNTER VERSCHLUSS ";
+
+//note screen
+"NEW NOTE" = "NEUE NOTIZ ";
+"TITLE" = "BEZEICHNUNG";
+"NOTE" = "NOTIZ";
+"Note" = "Notiz";
+"CONFIRM DELETION OF NOTE" = "BITTE DIE LÖSCHUNG DER NOTIZ BESTÄTIGEN ";
+"Note was copied" = "Notiz ist kopiert";
+"Title: " = "Bezeichnung: ";
+"Note: " = "Notiz: ";
+"DELETE NOTE" = "NOTIZ LÖSCHEN";
+"SEND NOTE" = "NOTIZ SENDEN";
+
+//login screen:
+"NEW LOGIN" = "NEUER LOGIN";
+"URL" = "Adresse der Webseite";
+"LOGIN" = "LOGIN";
+"COMMENTS" = "KOMMENTARE";
+"Login" = "Login";
+"CONFIRM DELETION OF LOGIN" = "BITTE LÖSCHUNG DES LOGINS BESTÄTIGEN ";
+"Login was copied" = "Login ist kopiert";
+"Password was copied" = "Passwort ist kopiert";
+"DELETE LOGIN" = "LOGIN LÖSCHEN";
+
+//credit card screen:
+"Bank" = "Bank";
+"CONFIRM DELETION OF CARD" = "BITTE LÖSCHUNG DER KARTE BESTÄTIGEN ";
+"Card number was copied" = "Kartennummer ist kopiert ";
+"NEW CARD" = "NEUE KARTE";
+"BANK" = "BANK";
+"CARD NUMBER" = "KARTENNUMMER";
+"CARD TYPE" = "KARTENTYP";
+"VALID THRU" = "GÜLTIG BIS";
+"HOLDER" = "NAME DES INHABERS";
+"CARD COLOR" = "KARTENFARBE";
+"DELETE CARD" = "KARTE LÖSCHEN";
+
+//bank account screen:
+"NEW BANK ACCOUNT" = "NEUES KONTO ";
+"BANK" = "BANK";
+"CURRENCY" = "DEVISENTYP";
+"BIK CODE" = "BIK";
+"CORRESPONDENT ACCOUNT" = "KORRESPONDENZKONTO";
+"TAXPAYER ID" = "Steuer-ID-Nr.";
+"TAX REGISTRATION REASON CODE" = "KENNZIFFER DER ANMELDUNGSURSACHE";
+"Bank account" = "Kontonummer";
+"Bank account was copied" = "Kontonummer ist kopiert";
+"CONFIRM DELETION OF BANK ACCOUNT" = "BESTÄTIGEN SIE KONTOLÖSCHUNG ";
+"Bank: " = "Bank: ";
+"Account: " = "Konto-Nr.: ";
+"Currency: " = "Kontowährung: ";
+"BIK: " = "BIK: ";
+"Taxpayer id: " = "Steuer-ID-Nr.: ";
+"Correspondent acc.: " = "Korrespondenzkonto: ";
+"Tax reg. reason code: " = "Kennziffer der Anmeldungsursache: ";
+"Comments: " = "Kommentar: ";
+"DELETE BANK ACCOUNT" = "KONTO LÖSCHEN";
+"SEND BANK ACCOUNT" = "KONTO SENDEN";
+
+//passport screen:
+"Passport" = "Pass";
+"NEW PASSPORT" = "NEUER PASS";
+"COUNTRY" = "LAND";
+"PASSPORT NUMBER" = "SERIE UND NUMMER ";
+"ISSUED BY" = "AUSGESTELLT DURCH";
+"DATE OF ISSUE" = "AUSSTELLUNGSDATUM";
+"DEPARTMENT CODE" = "CODE DER STRUKTUREINHEIT";
+"SURNAME, NAME" = "VOR-, VATERS-, FAMILIENNAME";
+"BIRTHDATE" = "GEBURTSDATUM";
+"BIRTHPLACE" = "GEBURTSORT";
+"CONFIRM DELETION OF PASSPORT" = "BESTÄTIGEN SIE PASSLÖSCHUNG ";
+"Passport number was copied" = "Passnummer ist kopiert";
+"Passport number: " = "Pass-Nr.: ";
+"Surname, name: " = "VOR-, VATERS-, FAMILIENNAME: ";
+"Birthdate: " = "Geburtsdatum: ";
+"Birthplace: " = "Geburtsort: ";
+"Issued by: " = "Ausgestellt durch: ";
+"Departent code: " = "Code der Struktureinheit: ";
+"Date of issue: " = "Ausstellungsdatum: ";
+"DELETE PASSPORT" = "PASS LÖSCHEN ";
+"SEND PASSPORT" = "SENDEN";
+
+//app voting:
+"Like this app?" = "Hat Ihnen unser App gefallen?";
+"Why not rate in the AppStore?" = "Bei AppStore bewerten?";
+"No, thanks" = "Nein, danke";
+"Yes" = "Ja";
+"Remind me later" = "Später erinnern ";

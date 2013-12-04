@@ -63,7 +63,6 @@
 {
     [Security savePassword:controller.passcode];
     [Settings setNotFirstAppRun];
-    [Settings setDefaultLanguage];
     [self performSelector:@selector(showMainVC) withObject:nil afterDelay:0.1];
 }
 
@@ -75,6 +74,9 @@
 
 -(void)showLoginScreen
 {
+    //если запуск первый, то выставляем дефолтный язык=)
+    if (NO == [Settings isNotFirstAppRun])
+        [Settings setDefaultLanguage];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Password" bundle:nil];
     PasswordVC *passwordView = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
     if (NO == [Settings isNotFirstAppRun] ) //если первый запуск, то показываем форму в режиме установка пароля
