@@ -6,4 +6,132 @@
   Copyright (c) 2013 Alexander Kraev. All rights reserved.
 */
 
-"app name" = "UNTER VERSCHLUSS";
+//password screen:
+"UNDER LOCK" = "SOUS CLEF";
+"SET PASSWORD" = "CRÉER LE MOT DE PASSE";
+"ENTER PASSWORD" = "ENTRER LE MOT DE PASSE";
+"Enter password\nfor logging into" = "Entrez le mot de passe\n pour entrer à l'application";
+"Set password.\nIt could be changed\n in settings." = "Définissez le mot de passe pour l’application.\nOn peut changer le mot de passe dans\nles paramètres.";
+"Incorrect password.\nTry again." = "Mot de passe incorrect.\nEssayer de nouveau.";
+"Forgot your password?" = "Mot de passe oublié?";
+"FORGOT PASSWORD?" = "MOT DE PASSE OUBLIÉ?";
+"First of all try to enter password with capital letters in different places. If it will not help you, you should reinstall application. Unfortunately all documents will be deleted after this." = "D’abord, tâchez d’entrer le mot de passe avec les majuscules sur les positions différentes. Si cela ne travaille pas, une seule décision est une réinstallation de l’application. Malheureusement, tous les documents seront supprimés.";
+
+//settings screen:
+"SETTINGS" = "PARAMЀTRES";
+"PASSWORD" = "MOT DE PASSE";
+"EMERGENCY PASSWORD" = "MOT DE PASSE URGENT";
+"LANGUAGE" = "LANGUE";
+"Every time ask for logging in (recommended)" = "Utiliser le mot de passe pour entrer (c’est recommandé)";
+"Delete documents after tenth attempt to enter password"  = "Supprimer toutes les données après les 10 efforts d’entrer";
+"After entering this password all documents will be deleted" = "Après l’entrée de ce mot de passe pendant la mise en marche de l’application, toutes les données se suppriment tout de suite.";
+"DELETE ALL" = "SUPPRIMER TOUTES LES DONNÉES";
+"CONFIRM DELETION OF ALL DOCUMENTS"  = "CONFIRMEZ LA SUPRESSION DE TOUTES LES DONNÉES";
+"Cancel" = "Retour";
+"Delete" = "Supprimer";
+
+//left menu screen:
+"All" = "Tout";
+"Notes" = "Notes";
+"Cards" = "Cartes";
+"Passports"  = "Passeports";
+"Bank accounts" = "Comptes bancaires";
+"Logins" = "Logins";
+"New document" = "Nouveau document";
+
+//new doc screen + main screen
+"NEW DOCUMENT" = "NOUVEAU DOCUMENT";
+"NOTE" = "NOTE";
+"PASSPORT" = "PASSEPORT";
+"CREDIT CARD" = "CARTE";
+"BANK ACCOUNT"  = "COMPTE BANCAIRE";
+"LOGIN" = "LOGIN";
+"ALREADY UNDER LOCK" = "SOUS CLEF DÉJÀ";
+
+//note screen
+"NEW NOTE" = "NOUVELLE NOTE";
+"TITLE" = "TITRE";
+"NOTE" = "NOTE";
+"Note" = "Note";
+"CONFIRM DELETION OF NOTE" = "CONFIRMEZ LA SUPRESSION DE LA NOTE";
+"Note was copied" = "La note est copiée";
+"Title: " = "Titre: ";
+"Note: " = "Note: ";
+"DELETE NOTE" = "SUPPRIMER LA NOTE";
+"SEND NOTE" = "ENVOYER LA NOTE";
+
+//login screen:
+"NEW LOGIN" = "NOUVEL LOGIN";
+"URL" = "ADRESSE DU SITE";
+"LOGIN" = "LOGIN";
+"COMMENTS" = "COMMENTAIRES";
+"Login" = "Login";
+"CONFIRM DELETION OF LOGIN" = "CONFIRMEZ LA SUPRESSION DU LOGIN";
+"Login was copied" = "Le login est copié";
+"Password was copied"  = "Le mot de passe est copié";
+"DELETE LOGIN" = "SUPPRIMER LE LOGIN";
+
+//credit card screen:
+"Bank" = "Banque";
+"CONFIRM DELETION OF CARD" = "CONFIRMEZ LA SUPRESSION DE LA CARTE";
+"Card number was copied" = "Le numéro de la carte est copié";
+"NEW CARD" = "NOUVELLE CARTE";
+"BANK" = "BANQUE";
+"CARD NUMBER" = "NUMÉRO DE LA CARTE";
+"CARD TYPE" = "TYPE DE LA CARTE";
+"VALID THRU" = "VALABLE DANS";
+"HOLDER" = "NOM DU TITULAIRE";
+"CARD COLOR" = "COULEUR DE LA CARTE";
+"DELETE CARD" = "SUPPRIMER LA CARTE";
+
+//bank account screen:
+"NEW BANK ACCOUNT" = "NOUVEL COMPTE";
+"BANK" = "BANQUE";
+"CURRENCY" = "TYPE DE LA MONNAIE";
+"BIK CODE" = "BIC CODE";
+"CORRESPONDENT ACCOUNT" = "COMPTE DE CORRESPONDANT";
+"TAXPAYER ID" = "CODE INSÉE";
+"TAX REGISTRATION REASON CODE" = "CODE POUR LES BESOINS DE LA COMPTABILITÉ";
+"Bank account" = "Numéro du compte bancaire";
+"Bank account was copied" = "Numéro du compte bancaire a été copié";
+"CONFIRM DELETION OF BANK ACCOUNT" = "CONFIRMEZ LA SUPRESSION DU COMPTE BANCAIRE";
+"Bank: " = "Banque: ";
+"Account: " = "Compte: ";
+"Currency: " = "Monnaie: ";
+"BIK: " = "BIC";
+"Taxpayer id: " = "Code Insee: ";
+"Correspondent acc.: "= "Compte de correspondant: ";
+"Tax reg. reason code: " = "Code pour les besoins de la comptabilité: ";
+"Comments: " = "Commentaire: ";
+"DELETE BANK ACCOUNT" = "SUPPRIMER LE COMPTE BANCAIRE";
+"SEND BANK ACCOUNT" = "ENVOYER LE COMPTE BANCAIRE";
+
+//passport screen:
+"Passport" = "Passeport";
+"NEW PASSPORT" = "NOUVEAU PASSEPORT";
+"COUNTRY" = "PAYS";
+"PASSPORT NUMBER" = "SÉRIE ET NUMÉRO DU PASSEPORT";
+"ISSUED BY" = "AUTORITÉ DE DÉLIVRANCE";
+"DATE OF ISSUE" = "DATE D’ÉMISSION";
+"DEPARTMENT CODE" = "CODE DU SUBDIVISION";
+"SURNAME, NAME" = "PRÉNOM, NOM";
+"BIRTHDATE" = "DATE DE NAISSANCE";
+"BIRTHPLACE" = "LIEU DE NAISSANCE";
+"CONFIRM DELETION OF PASSPORT" = "CONFIRMEZ LA SUPRESSION DU PASSEPORT";
+"Passport number was copied" = "Numéro du passeport est copié";
+"Passport number: " = "Numéro du passeport: ";
+"Surname, name: " = "Prénom, nom: ";
+"Birthdate: " = "Date de naissance: ";
+"Birthplace: " = "Lieu de naissance: ";
+"Issued by: " = "Autorité de délivrance: ";
+"Departent code: " = "Code de subdivision: ";
+"Date of issue: " = "Date d'émission: ";
+"DELETE PASSPORT" = "SUPPRIMER LE PASSEPORT";
+"SEND PASSPORT" = "ENVOYER";
+
+//app voting:
+"Like this app?" = "Amez-vous cette application?";
+"Why not rate in the AppStore?" = "Déterminer en AppStore?";
+"No, thanks"  = "Non, merci";
+"Yes" = "Oui";
+"Remind me later" = "Rappeler plus tard";

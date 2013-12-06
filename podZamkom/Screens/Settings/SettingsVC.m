@@ -81,6 +81,7 @@
     [self dehiglightButtonsWithLanguages];
     UIButton* languageBtn;
     NSString *language = [[NSUserDefaults standardUserDefaults] stringForKey:@"Language"];
+    selectedLanguage = language;
     if ([language  isEqual: @"ru"])
         languageBtn = self.rusSwitch;
     if ([language  isEqual: @"de"])
@@ -105,7 +106,6 @@
 
 - (void)viewDidLoad
 {
-//    [super viewDidLoad:[super languageSelectedStringForKey:[Translator languageSelectedStringForKey:@"SETTINGS"]]];
     [super viewDidLoad:[Translator languageSelectedStringForKey:@"SETTINGS"]];
     self.lblPassword.text = [Translator languageSelectedStringForKey:@"PASSWORD"];
     self.lblXtraPassword.text = [Translator languageSelectedStringForKey:@"EMERGENCY PASSWORD"];

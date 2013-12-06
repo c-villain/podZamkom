@@ -829,11 +829,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="СТРАНА" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Rh-OS-GqL">
-                                        <rect key="frame" x="21" y="63" width="90" height="21"/>
+                                        <rect key="frame" x="21" y="63" width="155" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="1lY-6Q-k1m"/>
-                                            <constraint firstAttribute="width" constant="90" id="fo4-Q1-lay"/>
+                                            <constraint firstAttribute="width" constant="155" id="fo4-Q1-lay"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                         <color key="textColor" red="0.44705882349999998" green="0.50196078430000002" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -881,10 +881,10 @@
                                         </connections>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="КЕМ ВЫДАН" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQN-WA-pX7">
-                                        <rect key="frame" x="21" y="169" width="138" height="21"/>
+                                        <rect key="frame" x="21" y="169" width="279" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="138" id="DZe-XH-nmX"/>
+                                            <constraint firstAttribute="width" constant="279" id="DZe-XH-nmX"/>
                                             <constraint firstAttribute="height" constant="21" id="dnN-TH-dyl"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
@@ -1116,11 +1116,11 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="РОССИЙСКАЯ ФЕДЕРАЦИЯ" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yLs-kE-BUk" customClass="TextField">
-                                        <rect key="frame" x="124" y="59" width="176" height="30"/>
+                                        <rect key="frame" x="197" y="59" width="103" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="a3c-HV-6lP"/>
-                                            <constraint firstAttribute="width" constant="176" id="aa9-ja-uRr"/>
+                                            <constraint firstAttribute="width" constant="103" id="aa9-ja-uRr"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
@@ -1164,7 +1164,7 @@
                                     <constraint firstItem="t0g-ZA-qaZ" firstAttribute="top" secondItem="aRu-eF-aAo" secondAttribute="bottom" constant="15" id="YKn-IJ-8gl"/>
                                     <constraint firstItem="hHq-1j-35e" firstAttribute="leading" secondItem="9ZJ-Py-R2V" secondAttribute="leading" constant="22" id="YkB-8F-Xf1"/>
                                     <constraint firstItem="L8i-W0-Jg2" firstAttribute="leading" secondItem="6tW-if-AtF" secondAttribute="trailing" constant="14" id="ZDj-BL-xXn"/>
-                                    <constraint firstItem="yLs-kE-BUk" firstAttribute="leading" secondItem="4Rh-OS-GqL" secondAttribute="trailing" constant="13" id="bjN-6n-13e"/>
+                                    <constraint firstItem="yLs-kE-BUk" firstAttribute="leading" secondItem="4Rh-OS-GqL" secondAttribute="trailing" constant="21" id="bjN-6n-13e"/>
                                     <constraint firstItem="L8i-W0-Jg2" firstAttribute="top" secondItem="9ZJ-Py-R2V" secondAttribute="top" constant="11" id="blL-dV-SUB"/>
                                     <constraint firstItem="gGA-Fm-Tmy" firstAttribute="leading" secondItem="U4u-OH-mv4" secondAttribute="trailing" constant="9" id="ccx-Cg-qen"/>
                                     <constraint firstItem="fQN-WA-pX7" firstAttribute="top" secondItem="ANO-cZ-SWe" secondAttribute="bottom" constant="15" id="dCz-JA-2O8"/>
@@ -1948,10 +1948,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="VISA" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S7T-1C-ise" customClass="TextField">
-                                        <rect key="frame" x="148" y="171" width="152" height="30"/>
+                                        <rect key="frame" x="208" y="171" width="92" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="152" id="eHN-8N-sns"/>
+                                            <constraint firstAttribute="width" constant="92" id="eHN-8N-sns"/>
                                             <constraint firstAttribute="height" constant="30" id="g29-cW-fzE"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2017,11 +2017,11 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ИМЯ ВЛАДЕЛЬЦА" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nkn-dt-cSC">
-                                        <rect key="frame" x="20" y="284" width="188" height="21"/>
+                                        <rect key="frame" x="20" y="284" width="281" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="DJw-MC-3hW"/>
-                                            <constraint firstAttribute="width" constant="188" id="Lpc-79-Jqn"/>
+                                            <constraint firstAttribute="width" constant="281" id="Lpc-79-Jqn"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                         <color key="textColor" red="0.44705882349999998" green="0.50196078430000002" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -2080,11 +2080,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VALID THRU" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roe-Dc-LuE">
-                                        <rect key="frame" x="20" y="231" width="108" height="21"/>
+                                        <rect key="frame" x="20" y="231" width="176" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="1l9-LG-0cv"/>
-                                            <constraint firstAttribute="width" constant="108" id="htB-sE-olV"/>
+                                            <constraint firstAttribute="width" constant="176" id="htB-sE-olV"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                         <color key="textColor" red="0.44705882349999998" green="0.50196078430000002" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -2110,11 +2110,11 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="НОМЕР КАРТЫ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CD-Eg-bU4">
-                                        <rect key="frame" x="20" y="82" width="117" height="21"/>
+                                        <rect key="frame" x="20" y="82" width="280" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="IlS-EL-9L0"/>
-                                            <constraint firstAttribute="width" constant="117" id="yZF-pQ-B4n"/>
+                                            <constraint firstAttribute="width" constant="280" id="yZF-pQ-B4n"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                         <color key="textColor" red="0.44705882349999998" green="0.50196078430000002" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -2159,10 +2159,10 @@
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="06/17" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F7g-Ug-oyv" customClass="TextField">
-                                        <rect key="frame" x="140" y="227" width="160" height="30"/>
+                                        <rect key="frame" x="214" y="227" width="86" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="160" id="Nlt-tK-ioE"/>
+                                            <constraint firstAttribute="width" constant="86" id="Nlt-tK-ioE"/>
                                             <constraint firstAttribute="height" constant="30" id="efm-Ge-4nj"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2181,10 +2181,10 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ТИП КАРТЫ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fu-Dz-RgA">
-                                        <rect key="frame" x="20" y="173" width="99" height="25"/>
+                                        <rect key="frame" x="20" y="173" width="176" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="99" id="0aM-eY-IfV"/>
+                                            <constraint firstAttribute="width" constant="176" id="0aM-eY-IfV"/>
                                             <constraint firstAttribute="height" constant="25" id="zaK-ft-YFx"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
@@ -2222,10 +2222,10 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ЦВЕТ КАРТЫ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJU-U6-Flu">
-                                        <rect key="frame" x="20" y="481" width="108" height="21"/>
+                                        <rect key="frame" x="20" y="481" width="180" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="108" id="651-af-k78"/>
+                                            <constraint firstAttribute="width" constant="180" id="651-af-k78"/>
                                             <constraint firstAttribute="height" constant="21" id="StF-Ck-f18"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
@@ -2233,11 +2233,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" tag="107" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BLACK" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GLm-F9-vvE" customClass="TextField">
-                                        <rect key="frame" x="154" y="477" width="147" height="30"/>
+                                        <rect key="frame" x="208" y="477" width="93" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Ly9-b7-U2W"/>
-                                            <constraint firstAttribute="width" constant="147" id="caZ-iY-adA"/>
+                                            <constraint firstAttribute="width" constant="93" id="caZ-iY-adA"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
@@ -2259,8 +2259,8 @@
                                     <constraint firstItem="AJU-U6-Flu" firstAttribute="top" secondItem="tZ4-r6-lMP" secondAttribute="bottom" constant="15" id="8Bi-Fy-o3D"/>
                                     <constraint firstItem="oaK-qn-dnM" firstAttribute="leading" secondItem="sd6-e1-6Hf" secondAttribute="leading" constant="20" id="8Nd-7f-Inu"/>
                                     <constraint firstItem="fTq-l8-nsV" firstAttribute="leading" secondItem="sd6-e1-6Hf" secondAttribute="leading" id="9Bq-Ha-o6a"/>
-                                    <constraint firstItem="F7g-Ug-oyv" firstAttribute="leading" secondItem="roe-Dc-LuE" secondAttribute="trailing" constant="12" id="BdF-9w-1ab"/>
-                                    <constraint firstItem="iYm-1e-IRV" firstAttribute="leading" secondItem="6CD-Eg-bU4" secondAttribute="trailing" constant="-117" id="Dbl-nD-M5Z"/>
+                                    <constraint firstItem="F7g-Ug-oyv" firstAttribute="leading" secondItem="roe-Dc-LuE" secondAttribute="trailing" constant="18" id="BdF-9w-1ab"/>
+                                    <constraint firstItem="iYm-1e-IRV" firstAttribute="leading" secondItem="6CD-Eg-bU4" secondAttribute="trailing" constant="-280" id="Dbl-nD-M5Z"/>
                                     <constraint firstAttribute="trailing" secondItem="iYm-1e-IRV" secondAttribute="trailing" constant="20" symbolic="YES" id="Dp0-dt-zgo"/>
                                     <constraint firstItem="fhF-GP-yS1" firstAttribute="leading" secondItem="bKW-Bw-E77" secondAttribute="trailing" constant="3" id="GCZ-jd-fWW"/>
                                     <constraint firstItem="Nkn-dt-cSC" firstAttribute="leading" secondItem="sd6-e1-6Hf" secondAttribute="leading" constant="20" id="HaH-pQ-dwV"/>
@@ -2279,7 +2279,7 @@
                                     <constraint firstItem="bKW-Bw-E77" firstAttribute="top" secondItem="nBG-hy-Q93" secondAttribute="bottom" constant="15" id="UHn-Za-Omn"/>
                                     <constraint firstItem="nBG-hy-Q93" firstAttribute="leading" secondItem="sd6-e1-6Hf" secondAttribute="leading" id="Urz-Vf-qgX"/>
                                     <constraint firstItem="TH3-i8-nka" firstAttribute="leading" secondItem="sd6-e1-6Hf" secondAttribute="leading" id="YVX-w0-1Hy"/>
-                                    <constraint firstItem="S7T-1C-ise" firstAttribute="leading" secondItem="9fu-Dz-RgA" secondAttribute="trailing" constant="29" id="ZXk-b5-IxK"/>
+                                    <constraint firstItem="S7T-1C-ise" firstAttribute="leading" secondItem="9fu-Dz-RgA" secondAttribute="trailing" constant="12" id="ZXk-b5-IxK"/>
                                     <constraint firstItem="1OF-8k-RI5" firstAttribute="top" secondItem="vl6-t8-EID" secondAttribute="bottom" constant="15" id="Zsa-dq-xTd"/>
                                     <constraint firstItem="Rej-OK-rF5" firstAttribute="top" secondItem="iYm-1e-IRV" secondAttribute="bottom" constant="15" id="aW5-F1-0ih"/>
                                     <constraint firstItem="q5P-zx-Qjx" firstAttribute="top" secondItem="hyP-jm-LsU" secondAttribute="bottom" constant="15" id="aaW-pr-efN"/>
@@ -2296,7 +2296,7 @@
                                     <constraint firstItem="F7g-Ug-oyv" firstAttribute="top" secondItem="eAz-5U-vIw" secondAttribute="bottom" constant="11" id="nYw-oM-bwf"/>
                                     <constraint firstItem="WNX-AV-wYE" firstAttribute="leading" secondItem="sd6-e1-6Hf" secondAttribute="leading" constant="20" id="ogP-qA-d6X"/>
                                     <constraint firstItem="9fu-Dz-RgA" firstAttribute="top" secondItem="Rej-OK-rF5" secondAttribute="bottom" constant="15" id="p8v-yo-Xbl"/>
-                                    <constraint firstItem="GLm-F9-vvE" firstAttribute="leading" secondItem="AJU-U6-Flu" secondAttribute="trailing" constant="26" id="qYu-iu-TaA"/>
+                                    <constraint firstItem="GLm-F9-vvE" firstAttribute="leading" secondItem="AJU-U6-Flu" secondAttribute="trailing" constant="8" id="qYu-iu-TaA"/>
                                     <constraint firstItem="VW2-lk-RlA" firstAttribute="leading" secondItem="sd6-e1-6Hf" secondAttribute="leading" id="qnd-qZ-Joj"/>
                                     <constraint firstAttribute="bottom" secondItem="q5P-zx-Qjx" secondAttribute="bottom" constant="20" id="rvC-Ut-TlO"/>
                                     <constraint firstItem="eAz-5U-vIw" firstAttribute="top" secondItem="S7T-1C-ise" secondAttribute="bottom" constant="13" id="scw-Iz-dTS"/>

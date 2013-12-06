@@ -718,9 +718,9 @@
 				5AC898D61840B9A000164B51 /* Documents */,
 				5AC8991E1840B9A000164B51 /* Languages */,
 				5AC899251840B9A000164B51 /* Libs */,
-				5AC899501840B9A000164B51 /* Resources */,
 				5AC899F11840B9A000164B51 /* Screens */,
 				5AC89A091840B9A000164B51 /* Supporting Files */,
+				5AC899501840B9A000164B51 /* Resources */,
 			);
 			path = podZamkom;
 			sourceTree = "<group>";
