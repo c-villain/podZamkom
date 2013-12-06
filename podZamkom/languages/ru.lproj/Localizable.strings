@@ -82,6 +82,7 @@
 "VALID THRU" = "VALID THRU";
 "HOLDER" = "ИМЯ ВЛАДЕЛЬЦА";
 "CARD COLOR" = "ЦВЕТ КАРТЫ";
+"DELETE CARD" = "УДАЛИТЬ КАРТУ";
 
 //bank account screen:
 "NEW BANK ACCOUNT" = "НОВЫЙ СЧЕТ";
