@@ -81,7 +81,6 @@
     [self dehiglightButtonsWithLanguages];
     UIButton* languageBtn;
     NSString *language = [[NSUserDefaults standardUserDefaults] stringForKey:@"Language"];
-    selectedLanguage = language;
     if ([language  isEqual: @"ru"])
         languageBtn = self.rusSwitch;
     if ([language  isEqual: @"de"])
@@ -150,7 +149,8 @@
     [Security saveDeleteorNotFilesAfterTenErrors:self.deleteFilesAfterTenErrors.on];
     
     //сохраняем выбранный язык для локализации:
-    [Settings saveSelectedLanguage:selectedLanguage];
+    if (![selectedLanguage  isEqual: @""] && selectedLanguage != nil)
+        [Settings saveSelectedLanguage:selectedLanguage];
     [super showMainVC];
 }
 
