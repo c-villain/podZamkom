@@ -54,7 +54,11 @@
     sqlite3_stmt *statement;
     int typeid = NoteDoc;
     int docListRowId = [self insertIntoDocList:typeid];
+    
     if (docListRowId == 0)
+        return NO;
+    
+    if (![self insertPhotosWithDocId:docListRowId photoList:note.docPhotos])
         return NO;
     
     const char *insert_stmt = "INSERT INTO Note(fk_doc_id, title, content) VALUES(?,?,?)";
@@ -88,6 +92,9 @@
     int typeid = LoginDoc;
     int docListRowId = [self insertIntoDocList:typeid];
     if (docListRowId == 0)
+        return NO;
+    
+    if (![self insertPhotosWithDocId:docListRowId photoList:login.docPhotos])
         return NO;
     
     const char *insert_stmt = "INSERT INTO Login(fk_doc_id, url, user_name, password, comments) VALUES(?,?,?,?,?)";
@@ -125,6 +132,9 @@
     if (docListRowId == 0)
         return NO;
 
+    if (![self insertPhotosWithDocId:docListRowId photoList:creditCard.docPhotos])
+        return NO;
+    
     const char *insert_stmt = "INSERT INTO CreditCard(fk_doc_id, bank, holder, card_type, number, validThru, cvc, pin, card_color, comments) VALUES(?,?,?,?,?,?,?,?,?,?)";
     
     sqlite3 *db;
@@ -161,6 +171,9 @@
     int typeid = PassportDoc;
     int docListRowId = [self insertIntoDocList:typeid];
     if (docListRowId == 0)
+        return NO;
+    
+    if (![self insertPhotosWithDocId:docListRowId photoList:passport.docPhotos])
         return NO;
     
     const char *insert_stmt = "INSERT INTO Passport(fk_doc_id, name, country, number, department, date_of_issue, department_code, holder, birth_date, birth_place) VALUES(?,?,?,?,?,?,?,?,?,?)";
@@ -200,6 +213,9 @@
     int typeid = BankAccountDoc;
     int docListRowId = [self insertIntoDocList:typeid];
     if (docListRowId == 0)
+        return NO;
+    
+    if (![self insertPhotosWithDocId:docListRowId photoList:bankAccount.docPhotos])
         return NO;
     
     const char *insert_stmt = "INSERT INTO BankAccount(fk_doc_id, bank, account_number, currency_type, bik, correspond_number, inn, kpp, comments) VALUES(?,?,?,?,?,?,?,?,?)";

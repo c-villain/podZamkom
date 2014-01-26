@@ -2,18 +2,20 @@
 
 @implementation DBadapter (DBSelect)
 
-//читает все данные из таблицы DocList
--(NSArray *)ReadData
+
++(NSArray *)ReadData
 {
-    return [self selectDocumentswithType:nil];
+    DBadapter *db = [[DBadapter alloc] init];
+    return [db selectDocumentswithType:nil andPhotos:NO];
 }
 
--(NSArray *)ReadDocsWithType:(DocTypeEnum *)docType
++(NSArray *)ReadDocsWithType:(DocTypeEnum *)docType
 {
-    return [self selectDocumentswithType:docType];
+    DBadapter *db = [[DBadapter alloc] init];
+    return [db selectDocumentswithType:docType andPhotos:NO];
 }
 
--(NSArray *)selectDocumentswithType:(DocTypeEnum *)docType
+-(NSArray *)selectDocumentswithType:(DocTypeEnum *)docType andPhotos:(BOOL)withPhotos
 {
     [self checkAndCreateDBFile];
     [self CreateDBTablesIfNotExists];
@@ -40,7 +42,7 @@
                 
                 document.dateOfCreation = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 2)];
                 
-                document = [self SelectDocument:document];
+                document = [self SelectDocument:document withPhotos:withPhotos];
                 
                 switch (document.docType)
                 {
@@ -79,8 +81,8 @@
     }
     sqlite3_close(db);
     return documents;
-
 }
+
 
 -(UIView *) CreateViewWithImageForDocument:(Document *)doc
 {
@@ -93,22 +95,16 @@
             //124 x 75
             CreditCard *card = (CreditCard *)doc;
             view=[[UIView alloc]initWithFrame:CGRectMake(0,0, 124, 75)];
-            int stretchableCap = 20;
             
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, 124, 75)];
             UIImage *bg = [UIImage imageNamed:[CardColor getCardColorByType:card.color].image];
-            UIImage *stretchIcon = [bg stretchableImageWithLeftCapWidth:stretchableCap topCapHeight:0];
-            [imageView setImage:stretchIcon];
-            view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-            view.autoresizesSubviews = YES;
+            UIImageView *imageView = [[[UIImageView alloc] initWithFrame:CGRectMake(0,0, 124, 75)] initWithImage:bg];
+            
+            imageView.contentMode = UIViewContentModeScaleAspectFill;
             [view addSubview:imageView];
             
-            UIImageView *typeView = [[UIImageView alloc] initWithFrame:CGRectMake(92,52, 25, 15)];
             UIImage *type = [UIImage imageNamed: [CardType getCurrentCardByType:card.type].image];
-            UIImage *typeIcon = [type stretchableImageWithLeftCapWidth:stretchableCap topCapHeight:0];
-            [typeView setImage:typeIcon];
-            view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-            view.autoresizesSubviews = YES;
+            UIImageView *typeView = [[[UIImageView alloc] initWithFrame:CGRectMake(92,52, 25, 15)] initWithImage:type];
+            typeView.contentMode = UIViewContentModeScaleAspectFill;
             [view addSubview:typeView];
             
             UILabel *bank = [[UILabel alloc] initWithFrame:CGRectMake(5, 10, 114, 19)]; //(x,y,width,height)
@@ -145,13 +141,9 @@
             //124 x 75
             Passport *passport = (Passport *)doc;
             view=[[UIView alloc]initWithFrame:CGRectMake(67,0, 57, 75)];
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, 57, 75)];
-            int stretchableCap = 20;
             UIImage *bg = [UIImage imageNamed:[Country getCurrentCountryByType:passport.country].passport];
-            UIImage *stretchIcon = [bg stretchableImageWithLeftCapWidth:stretchableCap topCapHeight:0];
-            [imageView setImage:stretchIcon];
-            view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-            view.autoresizesSubviews = YES;
+            UIImageView *imageView = [[[UIImageView alloc] initWithFrame:CGRectMake(0,0, 57, 75)] initWithImage:bg];
+            imageView.contentMode = UIViewContentModeScaleAspectFill;
             [view addSubview:imageView];
             break;
         }
@@ -166,10 +158,11 @@
     return view;
 }
 
-+(Document *) DBSelect: (Document *)doc withKey: (NSString *)key
++(Document *) DBSelect: (Document *)doc withKey: (NSString *)key withPhotos:(BOOL)selectPhotos
 {
     DBadapter *dbAdapter = [[DBadapter alloc] init];
-    Document *document = [Document new];
+    Document *document;
+    
     switch (doc.docType)
     {
         case NoteDoc:
@@ -190,18 +183,20 @@
         default:
             return nil;
     }
+    if (selectPhotos)
+        document.docPhotos = [self GetPhotosById:doc.idDocList];
     document.dateOfCreation = doc.dateOfCreation;
     return document;
 }
 
-+(Document *) DBSelect: (Document *)doc
++(Document *) DBSelect: (Document *)doc withPhotos:(BOOL)selectPhotos
 {
-    return [self DBSelect:doc withKey:[Security getPassword]];
+    return [DBadapter DBSelect:doc withKey:[Security getPassword] withPhotos:selectPhotos];
 }
 
--(Document *) SelectDocument: (Document *)doc
+-(Document *) SelectDocument: (Document *)doc withPhotos:(BOOL)selectPhotos
 {
-    return [DBadapter DBSelect:doc withKey:[Security getPassword]];
+    return [DBadapter DBSelect:doc withKey:[Security getPassword] withPhotos:selectPhotos];
 }
 
 /*
@@ -250,6 +245,8 @@
         Note * note = [Note new];
         note.docType = NoteDoc;
         note.idDocList = idDoc;
+
+//    note.docPhotos = [self GetPhotosById:idDoc];
         sqlite3 *db;
         sqlite3_stmt *statement;
         NSString *querySQL = [NSString stringWithFormat: @"SELECT pk_note_id, title, content from Note where fk_doc_id = %d", idDoc];
@@ -275,6 +272,48 @@
         sqlite3_close(db);
         return note;
 }
+
++(NSMutableArray *) GetPhotosById: (int) idDoc
+{
+    DBadapter *db = [[DBadapter alloc] init];
+    return [db GetPhotosById:idDoc];
+}
+
+-(NSMutableArray *) GetPhotosById: (int) idDoc
+{
+    NSMutableArray *photoArray = [[NSMutableArray alloc] init];
+    
+    sqlite3 *db;
+    sqlite3_stmt *statement;
+    
+    NSData* blob = nil;
+    NSData* imageData = nil;
+    NSString *querySQL = [NSString stringWithFormat: @"SELECT photo from Photos where fk_doc_id = %d", idDoc];
+    const char *query_stmt = [querySQL UTF8String];
+    
+    if (sqlite3_open([DBpath UTF8String], &db)==SQLITE_OK)
+    {
+        if (sqlite3_prepare_v2(db, query_stmt, -1, &statement, NULL)== SQLITE_OK)
+        {
+            while (sqlite3_step(statement) == SQLITE_ROW)
+            {
+                int length = sqlite3_column_bytes(statement, 0);
+                blob = [NSData dataWithBytes:sqlite3_column_blob(statement, 0) length:length];
+                imageData = [FBEncryptorAES decryptImage:blob];
+                
+                UIImage *photo = [[UIImage alloc] initWithData:imageData];
+                
+                [photoArray addObject:photo];
+            }
+            sqlite3_finalize(statement);
+        }
+        else
+            return nil;
+    }
+    sqlite3_close(db);
+    return photoArray;
+}
+
 
 /*
 CreditCard (pk_card_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, fk_doc_id INTEGER, bank BLOB, holder BLOB, card_type INTEGER, number BLOB, validThru BLOB, cvc BLOB, pin BLOB, card_color INTEGER, comments BLOB, FOREIGN KEY(fk_doc_id) REFERENCES DocList (pk_doc_id)

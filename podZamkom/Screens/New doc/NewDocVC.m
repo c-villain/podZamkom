@@ -70,7 +70,7 @@
 {
     static NSString *cellIdentifier;
     NSString *cellDescription = @"";
-    NSInteger lblTag;
+    NSInteger lblTag = 200;
     switch (indexPath.item)
     {
         case 0:

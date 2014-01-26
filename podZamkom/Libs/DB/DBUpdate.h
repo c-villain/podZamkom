@@ -1,4 +1,5 @@
 #import "DBadapter.h"
+#import "DBDelete.h"
 
 @interface DBadapter (DBUpdate)
 

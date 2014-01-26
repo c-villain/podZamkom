@@ -20,6 +20,7 @@
 
 @implementation FrameVC
 
+
 - (void)registerForKeyboardNotifications
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -39,6 +40,10 @@
     
     [self registerForKeyboardNotifications];
     
+    [self.colView registerClass:[PhotoCell class] forCellWithReuseIdentifier:@"photoCell"];
+    
+    firstOpenEditVC = YES;
+    self.photoList = [[NSMutableArray alloc] init];
 	self.navigationItem.titleView = [ViewAppearance initViewWithGlowingTitle:title];
     //создаем кастомизированную кнопку back:
     self.navigationItem.hidesBackButton = YES;
@@ -59,8 +64,19 @@
     self.enhancedKeyboard = [[KSEnhancedKeyboard alloc] init];
     self.enhancedKeyboard.delegate = self;
     
+    if (self.selectedDocument != nil)
+    {
+        self.photoList = self.selectedDocument.docPhotos;
+    }
+    
     toolbar = [self.enhancedKeyboard getToolbarWithPrevEnabled:YES NextEnabled:YES DoneEnabled:YES];
     donePressed = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [activeField resignFirstResponder];
+    //    [self.noteTitle resignFirstResponder];
 }
 
 -(void)backBtnTapped
@@ -86,13 +102,10 @@
 
 -(void)showMainVC
 {
-    
-    [self.navigationController popToRootViewControllerAnimated:YES];
-    /*
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     MainTableVC *mainVC = [storyboard instantiateViewControllerWithIdentifier:@"main"];
     LeftMenuVC *menuVC = [storyboard instantiateViewControllerWithIdentifier:@"leftMenu"];
-    SWRevealViewController *mainRevealController = [[SWRevealViewController alloc] initWithRearViewController:menuVC frontViewController:mainVC];
+    RevealVC *mainRevealController = [[RevealVC alloc] initWithRearViewController:menuVC frontViewController:mainVC];
     
     mainRevealController.rearViewRevealWidth = 55; //ширина левой менюшки
     mainRevealController.rearViewRevealOverdraw = 187; //максимальный вылет левой менюшки
@@ -104,12 +117,11 @@
     mainRevealController.frontViewShadowRadius = 20.0f;
     mainRevealController.toggleAnimationDuration = 0.5;
     
+    
     [mainRevealController setFrontViewPosition:FrontViewPositionRight];
     
-//    UINavigationController *navigationController= [[UINavigationController alloc] initWithRootViewController:mainRevealController];
-//    [self.navigationController pushViewController:mainRevealController animated:YES];
-    [self.navigationController popToViewController:mainRevealController animated:YES];
-     */
+    UINavigationController *navigationController= [[UINavigationController alloc] initWithRootViewController:mainRevealController];
+    [self.view.window setRootViewController:navigationController];
 }
 
 - (void)popCurrentViewController:(UIViewController *)onWhichViewController
@@ -161,6 +173,7 @@
     if ((TextField *)[self.view viewWithTag:nextTag + 1] != nil)
         showNext = YES;
 }
+
 - (void)doneDidTouchDown
 {
     donePressed = YES;
@@ -216,13 +229,11 @@
             formattedValue = [formattedValue stringByAppendingString:_mask];
         }
         
-        if (aRange.location + 1 < [((TextField*)aTextField).mask length])
-        {
-            //   if([_mask isEqualToString:@" "])
-            //       formattedValue = [formattedValue stringByAppendingString:_mask];
-            _mask = [((TextField*)aTextField).mask substringWithRange:NSMakeRange(aRange.location + 1, 1)];
-            
-        }
+//        if (aRange.location + 1 < [((TextField*)aTextField).mask length])
+//        {
+//            _mask = [((TextField*)aTextField).mask substringWithRange:NSMakeRange(aRange.location + 1, 1)];
+//            
+//        }
     }
     //Adding the user entered character
     formattedValue = [formattedValue stringByAppendingString:aString];
@@ -273,8 +284,8 @@
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
     UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
-    self.scrollView.contentInset = contentInsets;
-    self.scrollView.scrollIndicatorInsets = contentInsets;
+    self.colView.contentInset = contentInsets;
+    self.colView.scrollIndicatorInsets = contentInsets;
     // If active text field is hidden by keyboard, scroll it so it's visible
     // Your application might not need or want this behavior.
     CGRect aRect = self.view.frame;
@@ -286,7 +297,7 @@
     {
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:0.7];
-        [self.scrollView scrollRectToVisible:activeField.frame animated:YES];
+        [self.colView scrollRectToVisible:activeField.frame animated:YES];
         [UIView commitAnimations];
     }
 }
@@ -299,8 +310,8 @@
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.7];
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-    self.scrollView.contentInset = contentInsets;
-    self.scrollView.scrollIndicatorInsets = contentInsets;
+    self.colView.contentInset = contentInsets;
+    self.colView.scrollIndicatorInsets = contentInsets;
     [UIView commitAnimations];
 }
 
@@ -329,4 +340,81 @@
     //    [activeField setText:type.name];
 }
 
+#pragma mark - UICollectionView Datasource
+// 1
+- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section
+{
+    return self.photoList.count;
+}
+// 2
+- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView
+{
+    return 1;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    PhotoCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"photoCell" forIndexPath:indexPath];
+    cell.index = indexPath.item;
+    
+    cell.photoCellDelegate = self;
+    UIImage *newPhoto = [self.photoList objectAtIndex:indexPath.row];
+    
+    [cell initWithImage:newPhoto];
+    return cell;
+}
+
+
+- (NSUInteger) supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    PhotoCell *cell = (PhotoCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    GGFullscreenImageViewController *vc = [[GGFullscreenImageViewController alloc] init];
+    
+    vc.liftedImageView = cell.contentView.subviews[1];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)DeleteCell:(NSInteger)index
+{
+    [self.colView performBatchUpdates:^{
+        [self.photoList removeObjectAtIndex:index];
+        NSIndexPath *indexPath =[NSIndexPath indexPathForRow:index inSection:0];
+        [self.colView deleteItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+
+#pragma mark - Add Image Delegate
+
+- (void)AddNewPhotoPressed:(UIImage *)selectedPhotoData;
+{
+    [self.photoList addObject:selectedPhotoData];
+    [self.colView reloadData];
+    [self.colView reloadItemsAtIndexPaths:[self.colView indexPathsForVisibleItems]];
+}
+
+
+/*
+- (UIViewController*)viewController
+{
+    for (UIView* next = [self superview]; next; next = next.superview)
+    {
+        UIResponder* nextResponder = [next nextResponder];
+        
+        if ([nextResponder isKindOfClass:[UIViewController class]])
+        {
+            return (UIViewController*)nextResponder;
+        }
+    }
+    
+    return nil;
+}
+*/
 @end

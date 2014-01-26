@@ -13,6 +13,10 @@
 +(BOOL)UpdateDocument: (Document *) doc withKey:(NSString *) key
 {
     DBadapter *db = [[DBadapter alloc] init];
+    if (![self DeletePhotos:doc])
+        return NO;
+    if (![self insertPhotosWithDocId:(int)doc.idDocList photoList:doc.docPhotos withKey:key])
+        return NO;
     switch (doc.docType)
     {
         case NoteDoc:
@@ -47,7 +51,6 @@
             sqlite3_bind_text(statement, 1, [[FBEncryptorAES encryptString:note.title withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement, 2, [[FBEncryptorAES encryptString:note.content withKey:key] UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_int64(statement, 3, note.idDoc);
-//            sqlite3_bind_int64(statement, 3, note.idDoc);
 
             if (sqlite3_step(statement) == SQLITE_DONE)
             {

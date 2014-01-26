@@ -78,7 +78,7 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *cellDescription = @"";
-    NSInteger lblTag;
+    NSInteger lblTag = 300;
     switch (indexPath.item)
     {
         case 0:

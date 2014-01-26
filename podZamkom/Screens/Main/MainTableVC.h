@@ -18,8 +18,8 @@
 
 @interface MainTableVC : UITableViewController <DocSortingDelegate, UISearchBarDelegate, SearchDocDelegate>
 {
-    NSArray *documents;
-    DBadapter *dbAdapter;
+    NSMutableArray *documents; //документы для выбора
+    NSArray *cashDocs; //кэш для документов: здесь всегда хранятся все документы
 }
 
 @end

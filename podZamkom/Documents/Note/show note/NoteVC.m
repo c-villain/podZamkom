@@ -15,14 +15,14 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        note = noteDoc;
+        document = noteDoc;
     }
     return self;
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad: note.title];
+    [super viewDidLoad: ((Note *)document).title];
     
     self.lblTitle.text = [Translator languageSelectedStringForKey:@"TITLE"];
     self.lblNote.text = [Translator languageSelectedStringForKey:@"NOTE"];
@@ -31,18 +31,10 @@
     [ViewAppearance setGlowToLabel:self.lblNote];
     // Do any additional setup after loading the view from its nib.
     
-    self.noteTitle.text = note.title;
-    self.noteContent.text = note.content;
+    self.noteTitle.text = ((Note *)document).title;
+    self.noteContent.text = ((Note *)document).content;
     [self.deleteBtn setTitle:[Translator languageSelectedStringForKey:@"DELETE NOTE"] forState:UIControlStateNormal];
     [self.sendBtn setTitle:[Translator languageSelectedStringForKey:@"SEND NOTE"] forState:UIControlStateNormal];
-}
-
--(void)editBtnTapped
-{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    NewNoteVC *myController = [storyboard instantiateViewControllerWithIdentifier:@"newNote"];
-    myController.selectedNote = note;
-    [self.navigationController pushViewController:myController animated:YES];
 }
 
 -(void)deleteBtnTapped
@@ -66,7 +58,7 @@
     }
     else
     {
-        if ([DBadapter DeleteDocument:note])
+        if ([DBadapter DeleteDocument:((Note *)document)])
             [super showMainVC];
     }
 }
@@ -88,10 +80,10 @@
 {
     NSMutableString *message = [[NSMutableString alloc] init];
     [message appendString:[Translator languageSelectedStringForKey:@"Title: "]];
-    [message appendString:note.title];
+    [message appendString:((Note *)document).title];
     [message appendString:@"\n"];
     [message appendString:[Translator languageSelectedStringForKey:@"Note: "]];
-    [message appendString:note.content];
+    [message appendString:((Note *)document).content];
     [super sendMessage:message];
 }
 

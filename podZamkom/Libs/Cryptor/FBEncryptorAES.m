@@ -131,15 +131,31 @@
                                   iv:nil];
     return [data base64EncodedStringWithSeparateLines:separateLines];
 }
-/*
-+ (NSString*)encryptString:(NSString*)string
+
++ (NSData*)encryptImage:(NSData*)imageData withKey: (NSString*)key
 {
-    NSData* data = [self encryptData:[string dataUsingEncoding:NSUTF8StringEncoding]
-                                 key:[[Security getPassword] dataUsingEncoding:NSUTF8StringEncoding]
+    return [self encryptData:imageData
+                                 key:[key dataUsingEncoding:NSUTF8StringEncoding]
                                   iv:nil];
-    return [data base64EncodedStringWithSeparateLines:YES];
 }
-*/
+
+
++ (NSData*)encryptImage:(NSData*)imageData
+{
+    return [self encryptImage:imageData withKey: [Security getPassword]];
+}
+
++ (NSData*)decryptImage:(NSData*)encryptedImageData withKey: (NSString *)key
+{
+    return [self decryptData:encryptedImageData
+                                 key:[key dataUsingEncoding:NSUTF8StringEncoding]
+                                  iv:nil];
+}
+
++ (NSData*)decryptImage:(NSData*)encryptedImageData
+{
+    return [self decryptImage:encryptedImageData withKey:[Security getPassword]];
+}
 
 + (NSString*)encryptString:(NSString*)string
 {

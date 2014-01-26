@@ -7,10 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NoteCV.h"
 
-@interface CollectionView : UICollectionView <UICollectionViewDataSource, UICollectionViewDelegate>
+#import "CollectionRV.h"
+#import "PhotoCell.h"
+#import "GGFullScreenImageViewController.h"
+#import "DocCRVs.h"
 
-@property (nonatomic, weak) IBOutlet NoteCV *noteCV;
+@interface CollectionView : UICollectionView
+
+@property (nonatomic, weak) IBOutlet NoteCRV *collectionNoteCV;
+@property (nonatomic, weak) IBOutlet BankAccountCRV *collectionBankAccountCV;
+@property (nonatomic, weak) IBOutlet CardCRV  *collectionCardCV;
+@property (nonatomic, weak) IBOutlet PassportCRV  *collectionPassportCV;
+@property (nonatomic, weak) IBOutlet LoginCRV  *collectionLoginCV;
 
 @end

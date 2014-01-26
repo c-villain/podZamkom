@@ -8,11 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ShowVC.h"
+#import "PhotoVC.h"
 
 @interface NoteVC : ShowVC 
-{
-    Note *note;
-}
 
 @property (strong, nonatomic) IBOutlet UILabel *noteTitle;
 @property (strong, nonatomic) IBOutlet UITextView *noteContent;

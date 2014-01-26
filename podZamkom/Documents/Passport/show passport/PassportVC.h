@@ -9,9 +9,6 @@
 #import "ShowVC.h"
 
 @interface PassportVC : ShowVC
-{
-    Passport *passport;
-}
 
 @property (strong, nonatomic) IBOutlet UILabel *lblCountry;
 @property (strong, nonatomic) IBOutlet UILabel *lblIssueDate;

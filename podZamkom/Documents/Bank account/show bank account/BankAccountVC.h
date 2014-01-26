@@ -10,9 +10,6 @@
 #import "ShowVC.h"
 
 @interface BankAccountVC : ShowVC
-{
-    BankAccount *bankAccount;
-}
 
 @property (strong, nonatomic) IBOutlet UILabel *lblBank;
 @property (strong, nonatomic) IBOutlet UILabel *accountNumberField;

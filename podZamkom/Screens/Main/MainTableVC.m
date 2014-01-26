@@ -16,16 +16,8 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    dbAdapter = [[DBadapter alloc] init];
-    [self reloadData];
+//    [self reloadData];
 }
-
--(void)reloadData
-{
-    documents = [dbAdapter ReadData];
-    [self.tableView reloadData];
-}
-
 
 //чтобы не было смещения в таблице относительно навбара
 - (void) viewDidLayoutSubviews
@@ -83,6 +75,9 @@
     self.revealViewController.searchDelegate = self;
     //убираю разделители между строками таблицы, чтобы кастомизировать их в функции
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    cashDocs = [DBadapter ReadData]; //записываем все документы в кэш
+    documents =  [NSMutableArray arrayWithArray:cashDocs];
 }
 
 //голосование:
@@ -96,7 +91,7 @@
     if (buttonIndex == 1) //yes, vote in appstore
     {
         [Settings setRate];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.google.com"]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/pod-zamkom/id780849347?l=ru&ls=1&mt=8"]];
     }
     
     if (buttonIndex == 2) //remind later
@@ -168,7 +163,7 @@
     UIViewController *detailVC;
     Document *doc = [documents objectAtIndex:indexPath.row];
     
-    doc = [DBadapter DBSelect:doc];
+    doc = [DBadapter DBSelect:doc withPhotos:YES];
     switch (doc.docType) {
         case NoteDoc:
             detailVC = [[NoteVC alloc] initWithNibName:@"NoteVC" bundle:nil Note:(Note *)doc];
@@ -193,21 +188,27 @@
 
 - (void)DocTypeButtonTapped:(DocTypeEnum) docType
 {
-    //TODO!
-    documents = [dbAdapter ReadDocsWithType:&docType];
+    [documents removeAllObjects];
+    for (Document* doc in cashDocs)
+    {
+        if (doc.docType == docType)
+            [documents addObject:doc];
+    }
     [self.tableView reloadData];
+
 }
 
 - (void)AllDocsButtonTyped
 {
-    [self reloadData];
+//    [self reloadData];
+    documents =  [NSMutableArray arrayWithArray:cashDocs];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Search Doc Delegate
 
 - (void)SearchDoc:(NSString *)searchText
 {
-    documents = [dbAdapter ReadData];
     NSMutableArray *goodDocs = [[NSMutableArray alloc] init];
     NSMutableArray* badDocs = [NSMutableArray array];
     
@@ -226,8 +227,10 @@
 
 - (void)SearchStop
 {
-    [self reloadData];
+    documents =  [NSMutableArray arrayWithArray:cashDocs];
+    [self.tableView reloadData];
 }
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

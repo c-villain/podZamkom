@@ -25,16 +25,15 @@
 
 +(BOOL)DeleteAllDocs
 {
-    DBadapter *dbAdapter = [[DBadapter alloc] init];
-    NSArray *documents = [dbAdapter ReadData]; //читаем данные старым паролем
+    NSArray *documents = [DBadapter ReadData]; //читаем данные старым паролем
     NSUInteger docCount = documents.count;
     
     for (NSUInteger docNum = 0; docNum < docCount; docNum ++)
     {
         Document *doc = [documents objectAtIndex:docNum];
-        doc = [dbAdapter SelectDocument:doc];
+        doc = [DBadapter DBSelect:doc withPhotos:YES];
         doc.idDoc = doc.idDocList;
-        if (![dbAdapter DeleteDocument:doc])
+        if (![DBadapter DeleteDocument:doc])
             return NO;
     }
     return YES;
@@ -44,7 +43,6 @@
 {
     sqlite3_stmt *statement;
     const char *delete_stmt;
-    int64_t idDocList = doc.idDocList;
     switch (doc.docType) {
         case NoteDoc:
             delete_stmt = "Delete from Note where fk_doc_id = ?";
@@ -65,19 +63,22 @@
             break;
     }
     DBadapter *dbAdapter = [[DBadapter alloc] init];
+    if (![self DeletePhotos:doc])
+        return NO;
     sqlite3 *db;
     if (sqlite3_open([DBpath UTF8String], &db)==SQLITE_OK)
     {
         sqlite3_prepare_v2(db, delete_stmt, -1, &statement, NULL);
         {
-            sqlite3_bind_int64(statement, 1, idDocList);
-            sqlite3_bind_int64(statement, 2, idDocList);
+            sqlite3_bind_int64(statement, 1, doc.idDocList);
+            sqlite3_bind_int64(statement, 2, doc.idDocList);
             
             if (sqlite3_step(statement) == SQLITE_DONE)
             {
                 sqlite3_finalize(statement);
                 sqlite3_close(db);
-                if ([dbAdapter DeleteDocumentFromList:doc]) {
+                
+                if ([dbAdapter DeleteDocumentFromList:doc] && [dbAdapter DeletePhotos:doc]) {
                     return YES;
                 }
             }
@@ -100,6 +101,37 @@
         sqlite3_prepare_v2(db, delete_stmt, -1, &statement, NULL);
         {
             sqlite3_bind_int64(statement, 1, idDocList);
+            
+            if (sqlite3_step(statement) == SQLITE_DONE)
+            {
+                sqlite3_finalize(statement);
+                sqlite3_close(db);
+                return YES;
+            }
+        }
+    }
+    sqlite3_close(db);
+    return NO;
+}
+
++(BOOL)DeletePhotos: (Document *) doc
+{
+    DBadapter *dbAdapter = [[DBadapter alloc] init];
+    return [dbAdapter DeletePhotos:doc];
+}
+
+-(BOOL)DeletePhotos: (Document *) doc
+{
+    sqlite3_stmt *statement;
+    const char *delete_stmt;
+    delete_stmt = "Delete from Photos where fk_doc_id = ?";
+    
+    sqlite3 *db;
+    if (sqlite3_open([DBpath UTF8String], &db)==SQLITE_OK)
+    {
+        sqlite3_prepare_v2(db, delete_stmt, -1, &statement, NULL);
+        {
+            sqlite3_bind_int64(statement, 1, doc.idDocList);
             
             if (sqlite3_step(statement) == SQLITE_DONE)
             {

@@ -12,16 +12,30 @@
 #import "DocumentLib.h"
 #import "Settings.h"
 
+
+@class DBadapter;
+@protocol RecryptDelegate<NSObject>
+@optional
+- (void)RowWasProcessed:(CGFloat)progress;
+@end
+
+
 @interface DBadapter : NSObject
 {
     NSString *DBname;
     NSString *DBpath;
 }
 
+@property (nonatomic, weak) id<RecryptDelegate> recryptDelegate;
+
 -(id)init;
 -(void)checkAndCreateDBFile;
 -(void)CreateDBTablesIfNotExists;
 
 -(int)insertIntoDocList:(int)docType;
++(int)insertPhotosWithDocId:(int)docId photoList:(NSMutableArray *)photoArray withKey:(NSString *) key;
+-(int)insertPhotosWithDocId:(int)docId photoList:(NSMutableArray *)photoArray withKey:(NSString *) key;
+
+-(int)insertPhotosWithDocId:(int)docId photoList:(NSMutableArray *)photoArray;
 
 @end

@@ -10,9 +10,6 @@
 #import "ShowVC.h"
 
 @interface LoginVC : ShowVC
-{
-    Login *login;
-}
 
 @property (strong, nonatomic) IBOutlet UILabel *loginUrl;
 @property (strong, nonatomic) IBOutlet UILabel *loginLogin;

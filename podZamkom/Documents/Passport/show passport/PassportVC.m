@@ -19,7 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        passport = passportDoc;
+        document = passportDoc;
     }
     return self;
 }
@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad: passport.docName];
+    [super viewDidLoad: ((Passport *)document).docName];
     // Do any additional setup after loading the view from its nib.
     [ViewAppearance setGlowToLabel:self.lblCountry];
     [ViewAppearance setGlowToLabel:self.lblIssueDate];
@@ -46,17 +46,17 @@
     [self.deleteBtn setTitle:[Translator languageSelectedStringForKey:@"DELETE PASSPORT"] forState:UIControlStateNormal];
     [self.sendBtn setTitle:[Translator languageSelectedStringForKey:@"SEND PASSPORT"] forState:UIControlStateNormal];
     
-    self.country.image = [UIImage imageNamed:[Country getCurrentCountryByType:passport.country].image];
-    self.numberField.text = [@"№ " stringByAppendingString: passport.number];
-    self.depField.text = passport.department;
-    self.depCodeField.text = passport.departmentCode;
-    self.issueDateField.text = passport.issueDate;
-    self.holderField.text = passport.holder;
-    self.birthDateField.text = passport.birthDate;
-    self.birthPlaceField.text = passport.birthPlace;
-    
+    self.country.image = [UIImage imageNamed:[Country getCurrentCountryByType:((Passport *)document).country].image];
+    self.numberField.text = [@"№ " stringByAppendingString: ((Passport *)document).number];
+    self.depField.text = ((Passport *)document).department;
+    self.depCodeField.text = ((Passport *)document).departmentCode;
+    self.issueDateField.text = ((Passport *)document).issueDate;
+    self.holderField.text = ((Passport *)document).holder;
+    self.birthDateField.text = ((Passport *)document).birthDate;
+    self.birthPlaceField.text = ((Passport *)document).birthPlace;
 }
 
+/*
 -(void)editBtnTapped
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -64,7 +64,7 @@
     myController.selectedPassport = passport;
     [self.navigationController pushViewController:myController animated:YES];
 }
-
+*/
 -(void)deleteBtnTapped
 {
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle: [Translator languageSelectedStringForKey:@"CONFIRM DELETION OF PASSPORT"]
@@ -86,7 +86,7 @@
     }
     else
     {
-        if ([DBadapter DeleteDocument:passport])
+        if ([DBadapter DeleteDocument:((Passport *)document)])
             [super showMainVC];
     }
 }
@@ -94,7 +94,7 @@
 -(void)copyBtnTapped:(id)sender
 {
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-    pasteboard.string = passport.number;
+    pasteboard.string = ((Passport *)document).number;
     [super showMessageBoxWithTitle:[Translator languageSelectedStringForKey:@"Passport number was copied"]];
 }
 
@@ -104,28 +104,28 @@
     NSMutableString *message = [[NSMutableString alloc] init];
     
     [message appendString:[Translator languageSelectedStringForKey:@"Title: "]];
-    [message appendString:passport.docName];
+    [message appendString:((Passport *)document).docName];
     [message appendString:@"\n"];
     [message appendString:[Translator languageSelectedStringForKey:@"Passport number: "]];
-    [message appendString:passport.number];
+    [message appendString:((Passport *)document).number];
     [message appendString:@"\n"];
     [message appendString:[Translator languageSelectedStringForKey:@"Surname, name: "]];
-    [message appendString:passport.holder];
+    [message appendString:((Passport *)document).holder];
     [message appendString:@"\n"];
     [message appendString:[Translator languageSelectedStringForKey:@"Birthdate: "]];
-    [message appendString:passport.birthDate];
+    [message appendString:((Passport *)document).birthDate];
     [message appendString:@"\n"];
     [message appendString:[Translator languageSelectedStringForKey:@"Birthplace: "]];
-    [message appendString:passport.birthPlace];
+    [message appendString:((Passport *)document).birthPlace];
     [message appendString:@"\n"];
     [message appendString:@"Issued by: "];
-    [message appendString:passport.department];
+    [message appendString:((Passport *)document).department];
     [message appendString:@"\n"];
     [message appendString:[Translator languageSelectedStringForKey:@"Departent code: "]];
-    [message appendString:passport.departmentCode];
+    [message appendString:((Passport *)document).departmentCode];
     [message appendString:@"\n"];
     [message appendString:[Translator languageSelectedStringForKey:@"Date of issue: "]];
-    [message appendString:passport.issueDate];
+    [message appendString:((Passport *)document).issueDate];
     
     [super sendMessage:message];
 }

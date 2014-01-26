@@ -8,6 +8,11 @@
 
 #import "ShowVC.h"
 
+#import "MainTableVC.h"
+#import "Security.h"
+#import "SWRevealViewController.h"
+#import "LeftMenuVC.h"
+
 @interface ShowVC ()
 
 @end
@@ -37,7 +42,7 @@
     [backButton addTarget:self action:@selector(backBtnTapped) forControlEvents:UIControlEventTouchUpInside]; //adding action
     UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     self.navigationItem.leftBarButtonItem = backBarButton;
-    
+
     UIButton *saveButton = [ViewAppearance initCustomButtonWithImage:@"title_bar_icon_edit.png"];
     [saveButton addTarget:self action:@selector(editBtnTapped) forControlEvents:UIControlEventTouchUpInside]; //adding action
     UIBarButtonItem *saveBarButton = [[UIBarButtonItem alloc] initWithCustomView:saveButton];
@@ -46,6 +51,15 @@
     //создаем подсветку навбара
     [self.view addSubview:[ViewAppearance initGlowingBoarderForNavBar]];
     
+    
+    //создаем надпись для кнопки фотокопии:
+    NSString *photoBtnTitle = @"";
+    photoBtnTitle = [photoBtnTitle stringByAppendingString:[Translator languageSelectedStringForKey: @"PHOTOS ("]];
+    
+    NSString *photosCount = [NSString stringWithFormat: @"%lu", (unsigned long)document.docPhotos.count];
+    photoBtnTitle = [photoBtnTitle stringByAppendingString:photosCount];
+    photoBtnTitle = [photoBtnTitle stringByAppendingString:@")"];
+    [self.photoBtn setTitle: photoBtnTitle  forState:UIControlStateNormal];
 }
 
 -(void)backBtnTapped
@@ -55,12 +69,60 @@
 
 -(void)showMainVC
 {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    MainTableVC *mainVC = [storyboard instantiateViewControllerWithIdentifier:@"main"];
+    LeftMenuVC *menuVC = [storyboard instantiateViewControllerWithIdentifier:@"leftMenu"];
+    RevealVC *mainRevealController = [[RevealVC alloc] initWithRearViewController:menuVC frontViewController:mainVC];
+    
+    mainRevealController.rearViewRevealWidth = 55; //ширина левой менюшки
+    mainRevealController.rearViewRevealOverdraw = 187; //максимальный вылет левой менюшки
+    mainRevealController.bounceBackOnOverdraw = NO;
+    mainRevealController.stableDragOnOverdraw = YES;
+    mainRevealController.bounceBackOnLeftOverdraw = NO;
+    mainRevealController.stableDragOnLeftOverdraw = YES;
+    
+    mainRevealController.frontViewShadowRadius = 20.0f;
+    mainRevealController.toggleAnimationDuration = 0.5;
+    
+    
+    [mainRevealController setFrontViewPosition:FrontViewPositionRight];
+    
+    UINavigationController *navigationController= [[UINavigationController alloc] initWithRootViewController:mainRevealController];
+    [self.view.window setRootViewController:navigationController];
 }
 
-//метод для переопределения каждый в своем классе:
 -(void)editBtnTapped
 {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    FrameVC* myController;
+    
+    switch (document.docType)
+    {
+        case NoteDoc:
+            myController = [storyboard instantiateViewControllerWithIdentifier:@"newNote"];
+            myController.selectedDocument = document;
+            break;
+        case CardDoc:
+            myController = [storyboard instantiateViewControllerWithIdentifier:@"newCard"];
+            myController.selectedDocument = document;
+            break;
+        case LoginDoc:
+            myController = [storyboard instantiateViewControllerWithIdentifier:@"newLogin"];
+            myController.selectedDocument = document;
+            break;
+        case BankAccountDoc:
+            myController = [storyboard instantiateViewControllerWithIdentifier:@"newBankAccount"];
+            myController.selectedDocument = document;
+            break;
+        case PassportDoc:
+            myController = [storyboard instantiateViewControllerWithIdentifier:@"newPassport"];
+            myController.selectedDocument = document;
+            break;
+        default:
+            break;
+    }
+    
+    [self.navigationController pushViewController:myController animated:YES];
 }
 
 - (IBAction) deleteDoc: (id)sender
@@ -84,6 +146,19 @@
 - (IBAction) sendDoc: (id)sender
 {
     [self sendBtnTapped];
+}
+
+- (IBAction) showPhotos: (id)sender
+{
+    [self photoBtnTapped];
+}
+
+-(void)photoBtnTapped
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PhotoVC *photoView = [storyboard instantiateViewControllerWithIdentifier:@"photoView"];
+    photoView.document = document;
+    [self presentViewController:photoView animated:YES completion:nil];
 }
 
 -(void)sendBtnTapped
@@ -131,10 +206,10 @@
     RNBlurModalView *modal = [[RNBlurModalView alloc] initWithLogo:@"title_bar_icon_save.png" withTitle:title message:nil];
     modal.dismissButtonRight = YES;
     [modal hideCloseButton:YES];
-    [modal showWithDuration:0.3f delay:0.4 options:UIViewAnimationOptionTransitionNone completion:^{
-        [modal hideWithDuration:0.3f delay:0.4 options:UIViewAnimationOptionTransitionNone completion:nil];
+//    [modal showWithDuration:0.3f delay:0.4 options:UIViewAnimationOptionTransitionNone completion:^{
+    [modal showWithDuration:0.3f delay:0.4 options:UIViewAnimationOptionLayoutSubviews completion:^{
+        [modal hideWithDuration:0.3f delay:0.4 options:UIViewAnimationOptionLayoutSubviews completion:nil];
     }];
-
 }
 
 - (void)didReceiveMemoryWarning

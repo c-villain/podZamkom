@@ -15,5 +15,7 @@
 
 +(BOOL)DeleteDocument: (Document *) doc;
 -(BOOL)DeleteDocument: (Document *) doc;
++(BOOL)DeletePhotos: (Document *) doc;
+-(BOOL)DeletePhotos: (Document *) doc;
 
 @end

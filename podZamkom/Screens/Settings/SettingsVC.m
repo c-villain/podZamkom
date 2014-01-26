@@ -110,6 +110,9 @@
     self.lblXtraPassword.text = [Translator languageSelectedStringForKey:@"EMERGENCY PASSWORD"];
     self.lblLocalize.text = [Translator languageSelectedStringForKey:@"LANGUAGE"];
     
+    [self.sendMailBtn setTitle:[Translator languageSelectedStringForKey:@"CONTACT WITH DEVELOPERS"] forState:UIControlStateNormal];
+    [self.voteAppBtn setTitle:[Translator languageSelectedStringForKey:@"VOTE FOR APP"] forState:UIControlStateNormal];
+    
     [ViewAppearance setGlowToLabel:self.lblPassword];
     [ViewAppearance setGlowToLabel:self.lblXtraPassword];
     [ViewAppearance setGlowToLabel:self.lblLocalize];
@@ -132,26 +135,62 @@
 
 -(void)saveBtnTapped
 {
-    //если не совпадает эстренный пароль с введенным, то сохраняем
-    if (![self.fieldWithXtraPassword.text isEqualToString:[Security getXtraPassword]])
-    {
-        [Security saveXtraPassword:self.fieldWithXtraPassword.text];
-    }
-    //если не совпадает обычныый пароль с введенным, то сохраняем и перешифровываем базу:
+    [activeField resignFirstResponder];
+    CGRect size = CGRectMake(0, 0 , 150, 150);
+    self.progressView = [[M13ProgressViewPie alloc] initWithFrame:size];
 
-    if (![self.fieldWithPassword.text isEqualToString:[Security getPassword]])
-    {
-        if ([DBadapter DBRecryptWithPassword:self.fieldWithPassword.text])
-            [Security savePassword:self.fieldWithPassword.text];
-    }
+    DBadapter *db = [[DBadapter alloc] init];
+    db.recryptDelegate = self;
+    RNBlurModalView *modal = [[RNBlurModalView alloc] initWithView:self.progressView];
+    modal.dismissButtonRight = YES;
+    [modal hideCloseButton:YES];
+    [modal show];
     
-    [Security saveUseOrNotPassword:self.usePassword.on];
-    [Security saveDeleteorNotFilesAfterTenErrors:self.deleteFilesAfterTenErrors.on];
+    dispatch_queue_t downloadQueue = dispatch_queue_create("downloader", NULL);
+    dispatch_async(downloadQueue, ^{
+        //если не совпадает эстренный пароль с введенным, то сохраняем
+        if (![self.fieldWithXtraPassword.text isEqualToString:[Security getXtraPassword]])
+        {
+            [Security saveXtraPassword:self.fieldWithXtraPassword.text];
+        }
+        //если не совпадает обычныый пароль с введенным, то сохраняем и перешифровываем базу:
+        
+        if (![self.fieldWithPassword.text isEqualToString:[Security getPassword]])
+        {
+            if ([db  DbRecryptWithPassword:self.fieldWithPassword.text])
+                [Security savePassword:self.fieldWithPassword.text];
+        }
+        
+        [Security saveUseOrNotPassword:self.usePassword.on];
+        [Security saveDeleteorNotFilesAfterTenErrors:self.deleteFilesAfterTenErrors.on];
+        
+        //сохраняем выбранный язык для локализации:
+        if (![selectedLanguage  isEqual: @""] && selectedLanguage != nil)
+            [Settings saveSelectedLanguage:selectedLanguage];
+        // do any UI stuff on the main UI thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.progressView performAction:M13ProgressViewActionSuccess animated:YES];
+            [self performSelector:@selector(goToRoot) withObject:nil afterDelay:self.progressView.animationDuration + .1];
+        });
+        
+    });
     
-    //сохраняем выбранный язык для локализации:
-    if (![selectedLanguage  isEqual: @""] && selectedLanguage != nil)
-        [Settings saveSelectedLanguage:selectedLanguage];
+}
+
+- (void)RowWasProcessed:(CGFloat)progress
+{
+    [self.progressView setProgress:progress animated:YES];
+    if (progress == 1.00)
+        [self performSelector:@selector(setComplete) withObject:nil afterDelay:self.progressView.animationDuration + .2];
+}
+
+- (void) goToRoot
+{
     [super showMainVC];
+}
+- (void)setComplete
+{
+    [self.progressView performAction:M13ProgressViewActionSuccess animated:YES];
 }
 
 -(void)deleteBtnTapped
@@ -183,6 +222,59 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)voteForApp:(id)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/pod-zamkom/id780849347?l=ru&ls=1&mt=8"]];
+}
+
+- (IBAction)showEmail:(id)sender
+{
+    // Email Subject
+    NSString *emailTitle = @"Под замком / Under lock / v. ";
+    emailTitle = [emailTitle stringByAppendingString:[Settings getCurrentVersion]];
+    // Email Content
+    NSString *messageBody = @"";
+    if (![[[NSUserDefaults standardUserDefaults] stringForKey:@"Language"]  isEqual: @"ru"])
+        messageBody = [messageBody stringByAppendingString:@"Please write here in Russian or English"];
+    // To address
+    NSArray *toRecipents = [NSArray arrayWithObject:@"support@xserious.com"];
+    
+    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+    mc.mailComposeDelegate = self;
+    [mc setSubject:emailTitle];
+    [mc setMessageBody:messageBody isHTML:NO];
+    [mc setToRecipients:toRecipents];
+    
+    // Present mail view controller on screen
+    [self presentViewController:mc animated:YES completion:NULL];
+    
+}
+
+
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+    
+    // Close the Mail Interface
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 @end

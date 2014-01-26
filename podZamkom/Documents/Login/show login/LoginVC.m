@@ -19,7 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        login = loginDoc;
+        document = loginDoc;
     }
     return self;
 }
@@ -30,19 +30,19 @@
     //по умолчанию ввод защищенный
     //поэтому если решили сменить ввод, то показываем пароль
     [self.visibleBtn setSelected:!self.visibleBtn.selected];
-    [_loginPassword setSecureTextEntry:!_loginPassword.secureTextEntry];
+    [self.loginPassword setSecureTextEntry:!self.loginPassword.secureTextEntry];
     
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad: login.url];
+    [super viewDidLoad: ((Login *)document).url];
     // Do any additional setup after loading the view from its nib.
     
-    self.loginUrl.text = login.url;
-    self.loginLogin.text = login.login;
-    self.loginPassword.text = login.password;
-    self.loginComment.text = login.comment;
+    self.loginUrl.text = ((Login *)document).url;
+    self.loginLogin.text = ((Login *)document).login;
+    self.loginPassword.text = ((Login *)document).password;
+    self.loginComment.text = ((Login *)document).comment;
     
     [ViewAppearance setGlowToLabel:self.lblUrl];
     [ViewAppearance setGlowToLabel:self.lblLogin];
@@ -54,14 +54,6 @@
     self.lblPassword.text = [Translator languageSelectedStringForKey:@"PASSWORD"];
     self.lblComment.text = [Translator languageSelectedStringForKey:@"COMMENTS"];
     [self.deleteBtn setTitle:[Translator languageSelectedStringForKey:@"DELETE LOGIN"] forState:UIControlStateNormal];
-}
-
--(void)editBtnTapped
-{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    NewLoginVC *myController = [storyboard instantiateViewControllerWithIdentifier:@"newLogin"];
-    myController.selectedLogin = login;
-    [self.navigationController pushViewController:myController animated:YES];
 }
 
 -(void)deleteBtnTapped
@@ -85,7 +77,7 @@
     }
     else
     {
-        if ([DBadapter DeleteDocument:login])
+        if ([DBadapter DeleteDocument:((Login *)document)])
             [super showMainVC];
     }
 }

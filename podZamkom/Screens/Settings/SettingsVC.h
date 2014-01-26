@@ -10,15 +10,23 @@
 #import "FrameVC.h"
 #import "Security.h"
 #import "DBlib.h"
+#import <MessageUI/MessageUI.h> 
+#import "Settings.h"
 
-@interface SettingsVC : FrameVC
+@interface SettingsVC : FrameVC <RecryptDelegate, MFMailComposeViewControllerDelegate>
 {
     NSString *selectedLanguage;
 }
 
+- (IBAction)showEmail:(id)sender;
+
 @property (nonatomic, retain) IBOutlet UITextField *fieldWithPassword;
 @property (nonatomic, retain) IBOutlet UITextField *fieldWithXtraPassword;
 @property (nonatomic, retain) IBOutlet UIButton *visibleBtn; //кнопка скрытия/показа пароля
+
+@property (nonatomic, retain) IBOutlet UIButton *sendMailBtn; //кнопка написать разрабочткам
+@property (nonatomic, retain) IBOutlet UIButton *voteAppBtn; //кнопка голосования
+
 @property (nonatomic, retain) IBOutlet UIButton *xtraPasswdVisibleBtn; //кнопка скрытия/показа экстренного пароля
 
 @property (nonatomic, retain) IBOutlet UISwitch *usePassword; //использовать пароль для входа

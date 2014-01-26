@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A033F68188313AC00BFD687 /* CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A033F67188313AC00BFD687 /* CollectionView.m */; };
+		5A033F6B1883249D00BFD687 /* CollectionRV.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A033F6A1883249D00BFD687 /* CollectionRV.m */; };
 		5A08D6FA1846B04A0041A41C /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08D6F91846B04A0041A41C /* Cell.m */; };
-		5A2597AF184D345A009C1C01 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2597AE184D345A009C1C01 /* SWRevealViewController.m */; };
+		5A19D0A41891A6600080F3CF /* M13ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A19D0A31891A6600080F3CF /* M13ProgressView.m */; };
+		5A19D0A71891A78C0080F3CF /* M13ProgressViewPie.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A19D0A61891A78C0080F3CF /* M13ProgressViewPie.m */; };
+		5A34AC7F1885BECB00CB7D28 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A34AC7E1885BECB00CB7D28 /* PhotoCell.m */; };
 		5A361EF21848D70700DA3AFB /* passport_uk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A361EF11848D70700DA3AFB /* passport_uk@2x.png */; };
 		5A361EF41848D7C700DA3AFB /* UK@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A361EF31848D7C700DA3AFB /* UK@2x.png */; };
 		5A361EFA1848E28800DA3AFB /* Translator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A361EF91848E28800DA3AFB /* Translator.m */; };
@@ -52,6 +56,7 @@
 		5A64113B1847D7D5009AB22A /* passport_switzerland@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A64111B1847D7D5009AB22A /* passport_switzerland@2x.png */; };
 		5A64113C1847D7D5009AB22A /* passport_ukraine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A64111C1847D7D5009AB22A /* passport_ukraine@2x.png */; };
 		5A64113D1847D7D5009AB22A /* passport_usa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A64111D1847D7D5009AB22A /* passport_usa@2x.png */; };
+		5A717D50188DC72300D1774F /* LoginCRV.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A717D4F188DC72300D1774F /* LoginCRV.m */; };
 		5AA46C4117FB21B0008EE800 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4017FB21B0008EE800 /* Foundation.framework */; };
 		5AA46C4317FB21B0008EE800 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4217FB21B0008EE800 /* CoreGraphics.framework */; };
 		5AA46C4517FB21B0008EE800 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4417FB21B0008EE800 /* UIKit.framework */; };
@@ -61,6 +66,12 @@
 		5AA46C6A17FB21B0008EE800 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AA46C6817FB21B0008EE800 /* InfoPlist.strings */; };
 		5AA46C6C17FB21B0008EE800 /* podZamkomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA46C6B17FB21B0008EE800 /* podZamkomTests.m */; };
 		5AB3447C1823047E0007F714 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB3447B1823047E0007F714 /* libsqlite3.dylib */; };
+		5AB54AD71889C23E008E2035 /* PhotoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB54AD61889C23E008E2035 /* PhotoViewCell.m */; };
+		5AB54ADD1889C799008E2035 /* PhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB54ADC1889C799008E2035 /* PhotoVC.m */; };
+		5AB54AE01889DD77008E2035 /* GGFullScreenImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB54ADF1889DD77008E2035 /* GGFullScreenImageViewController.m */; };
+		5AC3FE90187DC438005C009A /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC3FE8F187DC438005C009A /* SWRevealViewController.m */; };
+		5AC3FECE18807F8C005C009A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC3FECD18807F8C005C009A /* QuartzCore.framework */; };
+		5AC3FED018807FD8005C009A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC3FECF18807FD8005C009A /* CoreText.framework */; };
 		5AC89A0D1840B9A000164B51 /* NewBankAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC898DA1840B9A000164B51 /* NewBankAccountVC.m */; };
 		5AC89A0E1840B9A000164B51 /* BankAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC898DD1840B9A000164B51 /* BankAccountVC.m */; };
 		5AC89A0F1840B9A000164B51 /* BankAccountVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AC898DE1840B9A000164B51 /* BankAccountVC.xib */; };
@@ -268,6 +279,10 @@
 		5AC89AF3184227C800164B51 /* icon_copy_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC89AF1184227C800164B51 /* icon_copy_white@2x.png */; };
 		5AC89AF51842398900164B51 /* icon_link_grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC89AF41842398900164B51 /* icon_link_grey@2x.png */; };
 		5AC89AF718429DF300164B51 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC89AF618429DF300164B51 /* MessageUI.framework */; };
+		5AE1C7D7188C4F9200079943 /* CardCRV.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE1C7D6188C4F9200079943 /* CardCRV.m */; };
+		5AE1C7DB188D880500079943 /* NoteCRV.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE1C7DA188D880500079943 /* NoteCRV.m */; };
+		5AE1C7DE188D8B0800079943 /* BankAccountCRV.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE1C7DD188D8B0800079943 /* BankAccountCRV.m */; };
+		5AE1C7E2188DA90300079943 /* PassportCRV.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE1C7E1188DA90300079943 /* PassportCRV.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -281,10 +296,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A033F66188313AC00BFD687 /* CollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionView.h; sourceTree = "<group>"; };
+		5A033F67188313AC00BFD687 /* CollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionView.m; sourceTree = "<group>"; };
+		5A033F691883249D00BFD687 /* CollectionRV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionRV.h; sourceTree = "<group>"; };
+		5A033F6A1883249D00BFD687 /* CollectionRV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionRV.m; sourceTree = "<group>"; };
 		5A08D6F81846B04A0041A41C /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
 		5A08D6F91846B04A0041A41C /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
-		5A2597AD184D345A009C1C01 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		5A2597AE184D345A009C1C01 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		5A19D0A21891A6600080F3CF /* M13ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M13ProgressView.h; sourceTree = "<group>"; };
+		5A19D0A31891A6600080F3CF /* M13ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M13ProgressView.m; sourceTree = "<group>"; };
+		5A19D0A51891A78C0080F3CF /* M13ProgressViewPie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M13ProgressViewPie.h; sourceTree = "<group>"; };
+		5A19D0A61891A78C0080F3CF /* M13ProgressViewPie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M13ProgressViewPie.m; sourceTree = "<group>"; };
+		5A34AC7D1885BECB00CB7D28 /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
+		5A34AC7E1885BECB00CB7D28 /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
 		5A361EF11848D70700DA3AFB /* passport_uk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_uk@2x.png"; sourceTree = "<group>"; };
 		5A361EF31848D7C700DA3AFB /* UK@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UK@2x.png"; sourceTree = "<group>"; };
 		5A361EF81848E28800DA3AFB /* Translator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Translator.h; sourceTree = "<group>"; };
@@ -331,6 +354,8 @@
 		5A64111B1847D7D5009AB22A /* passport_switzerland@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_switzerland@2x.png"; sourceTree = "<group>"; };
 		5A64111C1847D7D5009AB22A /* passport_ukraine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_ukraine@2x.png"; sourceTree = "<group>"; };
 		5A64111D1847D7D5009AB22A /* passport_usa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_usa@2x.png"; sourceTree = "<group>"; };
+		5A717D4E188DC72300D1774F /* LoginCRV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginCRV.h; sourceTree = "<group>"; };
+		5A717D4F188DC72300D1774F /* LoginCRV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginCRV.m; sourceTree = "<group>"; };
 		5AA46C3D17FB21B0008EE800 /* podZamkom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = podZamkom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AA46C4017FB21B0008EE800 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5AA46C4217FB21B0008EE800 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -341,6 +366,16 @@
 		5AA46C6917FB21B0008EE800 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5AA46C6B17FB21B0008EE800 /* podZamkomTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = podZamkomTests.m; sourceTree = "<group>"; };
 		5AB3447B1823047E0007F714 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		5AB54AD51889C23E008E2035 /* PhotoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewCell.h; sourceTree = "<group>"; };
+		5AB54AD61889C23E008E2035 /* PhotoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewCell.m; sourceTree = "<group>"; };
+		5AB54ADB1889C799008E2035 /* PhotoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoVC.h; sourceTree = "<group>"; };
+		5AB54ADC1889C799008E2035 /* PhotoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoVC.m; sourceTree = "<group>"; };
+		5AB54ADE1889DD77008E2035 /* GGFullScreenImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GGFullScreenImageViewController.h; path = Photo/GGFullScreenImageViewController.h; sourceTree = "<group>"; };
+		5AB54ADF1889DD77008E2035 /* GGFullScreenImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GGFullScreenImageViewController.m; path = Photo/GGFullScreenImageViewController.m; sourceTree = "<group>"; };
+		5AC3FE8E187DC438005C009A /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		5AC3FE8F187DC438005C009A /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		5AC3FECD18807F8C005C009A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5AC3FECF18807FD8005C009A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		5AC898D91840B9A000164B51 /* NewBankAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewBankAccountVC.h; sourceTree = "<group>"; };
 		5AC898DA1840B9A000164B51 /* NewBankAccountVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewBankAccountVC.m; sourceTree = "<group>"; };
 		5AC898DC1840B9A000164B51 /* BankAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankAccountVC.h; sourceTree = "<group>"; };
@@ -600,6 +635,16 @@
 		5AC89AF1184227C800164B51 /* icon_copy_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_copy_white@2x.png"; sourceTree = "<group>"; };
 		5AC89AF41842398900164B51 /* icon_link_grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_link_grey@2x.png"; sourceTree = "<group>"; };
 		5AC89AF618429DF300164B51 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		5AE1C7D5188C4F9200079943 /* CardCRV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardCRV.h; sourceTree = "<group>"; };
+		5AE1C7D6188C4F9200079943 /* CardCRV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardCRV.m; sourceTree = "<group>"; };
+		5AE1C7D8188C61D800079943 /* NewDocVCs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewDocVCs.h; sourceTree = "<group>"; };
+		5AE1C7D9188D880500079943 /* NoteCRV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteCRV.h; sourceTree = "<group>"; };
+		5AE1C7DA188D880500079943 /* NoteCRV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteCRV.m; sourceTree = "<group>"; };
+		5AE1C7DC188D8B0800079943 /* BankAccountCRV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankAccountCRV.h; sourceTree = "<group>"; };
+		5AE1C7DD188D8B0800079943 /* BankAccountCRV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankAccountCRV.m; sourceTree = "<group>"; };
+		5AE1C7DF188D8CA100079943 /* DocCRVs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DocCRVs.h; sourceTree = "<group>"; };
+		5AE1C7E0188DA90300079943 /* PassportCRV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassportCRV.h; sourceTree = "<group>"; };
+		5AE1C7E1188DA90300079943 /* PassportCRV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassportCRV.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -607,6 +652,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AC3FED018807FD8005C009A /* CoreText.framework in Frameworks */,
+				5AC3FECE18807F8C005C009A /* QuartzCore.framework in Frameworks */,
 				5A361EFF1849501300DA3AFB /* ImageIO.framework in Frameworks */,
 				5AC89AF718429DF300164B51 /* MessageUI.framework in Frameworks */,
 				5AB3447C1823047E0007F714 /* libsqlite3.dylib in Frameworks */,
@@ -636,6 +683,17 @@
 				5A3FCEDB184B904D00413F6E /* Localizable.strings */,
 			);
 			path = fr.lproj;
+			sourceTree = "<group>";
+		};
+		5A5012B518888B5300EAAC68 /* Photo view */ = {
+			isa = PBXGroup;
+			children = (
+				5AB54AD51889C23E008E2035 /* PhotoViewCell.h */,
+				5AB54AD61889C23E008E2035 /* PhotoViewCell.m */,
+				5AB54ADB1889C799008E2035 /* PhotoVC.h */,
+				5AB54ADC1889C799008E2035 /* PhotoVC.m */,
+			);
+			path = "Photo view";
 			sourceTree = "<group>";
 		};
 		5A6410FD1847D7D5009AB22A /* passports */ = {
@@ -700,6 +758,8 @@
 		5AA46C3F17FB21B0008EE800 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5AC3FECF18807FD8005C009A /* CoreText.framework */,
+				5AC3FECD18807F8C005C009A /* QuartzCore.framework */,
 				5A361EFE1849501300DA3AFB /* ImageIO.framework */,
 				5AC89AF618429DF300164B51 /* MessageUI.framework */,
 				5AB3447B1823047E0007F714 /* libsqlite3.dylib */,
@@ -743,14 +803,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		5AC3FE91187DFA3F005C009A /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				5AB54ADE1889DD77008E2035 /* GGFullScreenImageViewController.h */,
+				5AB54ADF1889DD77008E2035 /* GGFullScreenImageViewController.m */,
+			);
+			name = Photo;
+			sourceTree = "<group>";
+		};
 		5AC898D61840B9A000164B51 /* Documents */ = {
 			isa = PBXGroup;
 			children = (
+				5A5012B518888B5300EAAC68 /* Photo view */,
 				5AC898D71840B9A000164B51 /* Bank account */,
 				5AC898DF1840B9A000164B51 /* Credit Card */,
 				5AC898E71840B9A000164B51 /* Login */,
 				5AC898EF1840B9A000164B51 /* Note */,
 				5AC898F71840B9A000164B51 /* Passport */,
+				5AE1C7D8188C61D800079943 /* NewDocVCs.h */,
+				5AE1C7DF188D8CA100079943 /* DocCRVs.h */,
 			);
 			path = Documents;
 			sourceTree = "<group>";
@@ -769,6 +841,8 @@
 			children = (
 				5AC898D91840B9A000164B51 /* NewBankAccountVC.h */,
 				5AC898DA1840B9A000164B51 /* NewBankAccountVC.m */,
+				5AE1C7DC188D8B0800079943 /* BankAccountCRV.h */,
+				5AE1C7DD188D8B0800079943 /* BankAccountCRV.m */,
 			);
 			path = "new bank account";
 			sourceTree = "<group>";
@@ -797,6 +871,8 @@
 			children = (
 				5AC898E11840B9A000164B51 /* NewCardVC.h */,
 				5AC898E21840B9A000164B51 /* NewCardVC.m */,
+				5AE1C7D5188C4F9200079943 /* CardCRV.h */,
+				5AE1C7D6188C4F9200079943 /* CardCRV.m */,
 			);
 			path = "new credit card";
 			sourceTree = "<group>";
@@ -825,6 +901,8 @@
 			children = (
 				5AC898E91840B9A000164B51 /* NewLoginVC.h */,
 				5AC898EA1840B9A000164B51 /* NewLoginVC.m */,
+				5A717D4E188DC72300D1774F /* LoginCRV.h */,
+				5A717D4F188DC72300D1774F /* LoginCRV.m */,
 			);
 			path = "new login";
 			sourceTree = "<group>";
@@ -853,6 +931,8 @@
 			children = (
 				5AC898F11840B9A000164B51 /* NewNoteVC.h */,
 				5AC898F21840B9A000164B51 /* NewNoteVC.m */,
+				5AE1C7D9188D880500079943 /* NoteCRV.h */,
+				5AE1C7DA188D880500079943 /* NoteCRV.m */,
 			);
 			path = "new note";
 			sourceTree = "<group>";
@@ -881,6 +961,8 @@
 			children = (
 				5AC898F91840B9A000164B51 /* NewPassportVC.h */,
 				5AC898FA1840B9A000164B51 /* NewPassportVC.m */,
+				5AE1C7E0188DA90300079943 /* PassportCRV.h */,
+				5AE1C7E1188DA90300079943 /* PassportCRV.m */,
 			);
 			path = "new passport";
 			sourceTree = "<group>";
@@ -920,6 +1002,16 @@
 				5A361EF91848E28800DA3AFB /* Translator.m */,
 				5A3FCEDF184BC9E800413F6E /* Settings.h */,
 				5A3FCEE0184BC9E800413F6E /* Settings.m */,
+				5A033F66188313AC00BFD687 /* CollectionView.h */,
+				5A033F67188313AC00BFD687 /* CollectionView.m */,
+				5A033F691883249D00BFD687 /* CollectionRV.h */,
+				5A033F6A1883249D00BFD687 /* CollectionRV.m */,
+				5A34AC7D1885BECB00CB7D28 /* PhotoCell.h */,
+				5A34AC7E1885BECB00CB7D28 /* PhotoCell.m */,
+				5A19D0A21891A6600080F3CF /* M13ProgressView.h */,
+				5A19D0A31891A6600080F3CF /* M13ProgressView.m */,
+				5A19D0A51891A78C0080F3CF /* M13ProgressViewPie.h */,
+				5A19D0A61891A78C0080F3CF /* M13ProgressViewPie.m */,
 			);
 			path = "Appearance + FrameVC + ShowVC";
 			sourceTree = "<group>";
@@ -994,6 +1086,7 @@
 		5AC899251840B9A000164B51 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				5AC3FE91187DFA3F005C009A /* Photo */,
 				5AC89AEB1842266B00164B51 /* Message box */,
 				5AC899261840B9A000164B51 /* Cryptor */,
 				5AC8992B1840B9A000164B51 /* DB */,
@@ -1077,8 +1170,8 @@
 		5AC8994D1840B9A000164B51 /* Sliding menu */ = {
 			isa = PBXGroup;
 			children = (
-				5A2597AD184D345A009C1C01 /* SWRevealViewController.h */,
-				5A2597AE184D345A009C1C01 /* SWRevealViewController.m */,
+				5AC3FE8E187DC438005C009A /* SWRevealViewController.h */,
+				5AC3FE8F187DC438005C009A /* SWRevealViewController.m */,
 				5A3FCEE2184D2E9800413F6E /* RevealVC.h */,
 				5A3FCEE3184D2E9800413F6E /* RevealVC.m */,
 			);
@@ -1537,6 +1630,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Alexander Kraev";
 				TargetAttributes = {
+					5AA46C3C17FB21B0008EE800 = {
+						DevelopmentTeam = TP33793R45;
+					};
 					5AA46C5D17FB21B0008EE800 = {
 						TestTargetID = 5AA46C3C17FB21B0008EE800;
 					};
@@ -1786,15 +1882,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AC89A1F1840B9A000164B51 /* KSEnhancedKeyboard.m in Sources */,
+				5A717D50188DC72300D1774F /* LoginCRV.m in Sources */,
 				5A3FCEE4184D2E9800413F6E /* RevealVC.m in Sources */,
 				5AC89A2F1840B9A000164B51 /* DBRecrypt.m in Sources */,
 				5AC89A331840B9A000164B51 /* BankAccount.m in Sources */,
 				5AC89A391840B9A000164B51 /* Security.m in Sources */,
+				5A033F6B1883249D00BFD687 /* CollectionRV.m in Sources */,
 				5AC89ACE1840B9A000164B51 /* AppDelegate.m in Sources */,
 				5AC89AD51840B9A000164B51 /* main.m in Sources */,
+				5A033F68188313AC00BFD687 /* CollectionView.m in Sources */,
 				5AC89A221840B9A000164B51 /* CardType.m in Sources */,
 				5AC89A251840B9A000164B51 /* PickerObject.m in Sources */,
 				5AC89A371840B9A000164B51 /* Note.m in Sources */,
+				5A19D0A41891A6600080F3CF /* M13ProgressView.m in Sources */,
 				5A361EFA1848E28800DA3AFB /* Translator.m in Sources */,
 				5AC89A361840B9A000164B51 /* Login.m in Sources */,
 				5AC89A301840B9A000164B51 /* DBSave.m in Sources */,
@@ -1802,15 +1902,20 @@
 				5AC89A2D1840B9A000164B51 /* DBadapter.m in Sources */,
 				5AC89A101840B9A000164B51 /* NewCardVC.m in Sources */,
 				5AC89A351840B9A000164B51 /* Document.m in Sources */,
+				5AB54ADD1889C799008E2035 /* PhotoVC.m in Sources */,
 				5AC89A2C1840B9A000164B51 /* NSData+Base64.m in Sources */,
+				5AE1C7E2188DA90300079943 /* PassportCRV.m in Sources */,
 				5AC89A261840B9A000164B51 /* Picker.m in Sources */,
 				5AC89A161840B9A000164B51 /* NewNoteVC.m in Sources */,
 				5AC89AD31840B9A000164B51 /* PasswordVC.m in Sources */,
 				5AC89A171840B9A000164B51 /* NoteVC.m in Sources */,
+				5A34AC7F1885BECB00CB7D28 /* PhotoCell.m in Sources */,
+				5AE1C7DE188D8B0800079943 /* BankAccountCRV.m in Sources */,
 				5A08D6FA1846B04A0041A41C /* Cell.m in Sources */,
 				5AC89A191840B9A000164B51 /* NewPassportVC.m in Sources */,
 				5AC89A1A1840B9A000164B51 /* PassportVC.m in Sources */,
 				5AC89A0E1840B9A000164B51 /* BankAccountVC.m in Sources */,
+				5AB54AD71889C23E008E2035 /* PhotoViewCell.m in Sources */,
 				5AC89A141840B9A000164B51 /* LoginVC.m in Sources */,
 				5AC89AD01840B9A000164B51 /* MainTableVC.m in Sources */,
 				5AC89A321840B9A000164B51 /* DBUpdate.m in Sources */,
@@ -1822,18 +1927,22 @@
 				5AC89A311840B9A000164B51 /* DBSelect.m in Sources */,
 				5AC89A1E1840B9A000164B51 /* ViewAppearance.m in Sources */,
 				5AC89AD41840B9A000164B51 /* SettingsVC.m in Sources */,
+				5AB54AE01889DD77008E2035 /* GGFullScreenImageViewController.m in Sources */,
 				5AC89A271840B9A000164B51 /* TextField.m in Sources */,
 				5AC89A111840B9A000164B51 /* CardVC.m in Sources */,
-				5A2597AF184D345A009C1C01 /* SWRevealViewController.m in Sources */,
+				5A19D0A71891A78C0080F3CF /* M13ProgressViewPie.m in Sources */,
+				5AC3FE90187DC438005C009A /* SWRevealViewController.m in Sources */,
 				5AC89A1D1840B9A000164B51 /* ShowVC.m in Sources */,
 				5AC89A1C1840B9A000164B51 /* FrameVC.m in Sources */,
 				5AC89AD21840B9A000164B51 /* PasswordHelpVC.m in Sources */,
+				5AE1C7DB188D880500079943 /* NoteCRV.m in Sources */,
 				5AC89A0D1840B9A000164B51 /* NewBankAccountVC.m in Sources */,
 				5AC89AEE1842266B00164B51 /* RNBlurModalView.m in Sources */,
 				5A3FCEE1184BC9E800413F6E /* Settings.m in Sources */,
 				5AC89AD11840B9A000164B51 /* NewDocVC.m in Sources */,
 				5AC89A341840B9A000164B51 /* CreditCard.m in Sources */,
 				5AC89A231840B9A000164B51 /* Country.m in Sources */,
+				5AE1C7D7188C4F9200079943 /* CardCRV.m in Sources */,
 				5AC89A381840B9A000164B51 /* Passport.m in Sources */,
 				5AC89A2E1840B9A000164B51 /* DBDelete.m in Sources */,
 				5AC89A211840B9A000164B51 /* CardColor.m in Sources */,
@@ -2011,6 +2120,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "podZamkom/Supporting Files/podZamkom-Prefix.pch";
 				INFOPLIST_FILE = "podZamkom/Supporting Files/podZamkom-Info.plist";
@@ -2025,6 +2135,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "podZamkom/Supporting Files/podZamkom-Prefix.pch";
 				INFOPLIST_FILE = "podZamkom/Supporting Files/podZamkom-Info.plist";

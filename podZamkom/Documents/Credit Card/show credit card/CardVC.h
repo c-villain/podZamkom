@@ -10,9 +10,6 @@
 #import "ShowVC.h"
 
 @interface CardVC : ShowVC
-{
-    CreditCard *card;
-}
 
 @property (strong, nonatomic) IBOutlet UILabel *cardBank;
 @property (strong, nonatomic) IBOutlet UILabel *cardNumber;

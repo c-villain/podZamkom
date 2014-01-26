@@ -43,6 +43,8 @@ extern NSString * const kRNBlurDidHidewNotification;
 - (id)initWithViewController:(UIViewController*)viewController logo:(NSString*)imageName title:(NSString*)title message:(NSString*)message;
 - (id)initWithParentView:(UIView*)parentView view:(UIView*)view;
 - (id)initWithParentView:(UIView*)parentView logo: (NSString*)imageName title:(NSString*)title message:(NSString*)message;
+
+- (id)initWithSubView: (UIView*)subView;
 - (id)initWithView:(UIView*)view;
 - (id)initWithLogo: (NSString*)imageName withTitle:(NSString*)title message:(NSString*)message;
 

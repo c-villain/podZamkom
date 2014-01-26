@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -12,6 +12,7 @@
                 <outlet property="lblTitle" destination="LZJ-WJ-uqT" id="rpH-hb-8OD"/>
                 <outlet property="noteContent" destination="yto-d4-jcw" id="Peq-9V-zjt"/>
                 <outlet property="noteTitle" destination="2PF-3R-jrv" id="nOH-DV-Djy"/>
+                <outlet property="photoBtn" destination="QHh-NB-GSX" id="XjE-kq-27Y"/>
                 <outlet property="sendBtn" destination="Hz6-kL-jfb" id="CJo-Ck-Xe3"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -22,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FiE-cw-N96">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="540"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="НАЗВАНИЕ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZJ-WJ-uqT">
@@ -105,15 +106,15 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-kL-jfb">
-                            <rect key="frame" x="0.0" y="445" width="320" height="51"/>
+                            <rect key="frame" x="0.0" y="452" width="158" height="51"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.28235294119999998" green="0.53333333329999999" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="backgroundColor" red="0.2901960784" green="0.75294117650000003" blue="0.41176470590000003" alpha="1" colorSpace="deviceRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="320" id="LMX-CD-GMJ"/>
+                                <constraint firstAttribute="width" constant="158" id="LMX-CD-GMJ"/>
                                 <constraint firstAttribute="height" constant="51" id="vGP-em-XdQ"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
-                            <state key="normal" title="ОТПРАВИТЬ ЗАМЕТКУ">
+                            <state key="normal" title="ОТПРАВИТЬ">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -135,12 +136,30 @@
                                 <action selector="copyDoc:" destination="-1" eventType="touchUpInside" id="pUP-ol-Qe1"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHh-NB-GSX">
+                            <rect key="frame" x="162" y="452" width="158" height="51"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.28235294119999998" green="0.53333333329999999" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="158" id="HJH-Ei-BW2"/>
+                                <constraint firstAttribute="height" constant="51" id="Q0T-bR-Ko6"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
+                            <state key="normal" title="ФОТОКОПИИ">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="showPhotos:" destination="-1" eventType="touchUpInside" id="ZwE-MK-5l4"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="Hz6-kL-jfb" secondAttribute="bottom" constant="44" id="4Ob-va-KU6"/>
+                        <constraint firstAttribute="bottom" secondItem="Hz6-kL-jfb" secondAttribute="bottom" constant="1" id="4Ob-va-KU6"/>
                         <constraint firstItem="LZJ-WJ-uqT" firstAttribute="top" secondItem="FiE-cw-N96" secondAttribute="top" constant="20" id="AEd-7u-UcY"/>
                         <constraint firstItem="AIb-3g-oNQ" firstAttribute="top" secondItem="yto-d4-jcw" secondAttribute="bottom" constant="16" id="EUN-Wa-TKd"/>
                         <constraint firstItem="AIb-3g-oNQ" firstAttribute="leading" secondItem="FiE-cw-N96" secondAttribute="leading" id="Jwy-xq-rBZ"/>
+                        <constraint firstItem="QHh-NB-GSX" firstAttribute="top" secondItem="7pa-Yk-21M" secondAttribute="bottom" constant="15" id="KNC-zz-Yc1"/>
                         <constraint firstAttribute="trailing" secondItem="LZJ-WJ-uqT" secondAttribute="trailing" constant="55" id="LHH-Hb-WjA"/>
                         <constraint firstItem="yto-d4-jcw" firstAttribute="leading" secondItem="FiE-cw-N96" secondAttribute="leading" constant="8" id="OBL-QT-aup"/>
                         <constraint firstItem="cHy-Wo-lQ4" firstAttribute="leading" secondItem="FiE-cw-N96" secondAttribute="leading" id="PRy-Vs-GrW"/>
@@ -149,6 +168,7 @@
                         <constraint firstItem="Muv-QM-1wQ" firstAttribute="leading" secondItem="FiE-cw-N96" secondAttribute="leading" constant="13" id="XEq-xs-vfR"/>
                         <constraint firstItem="Hz6-kL-jfb" firstAttribute="leading" secondItem="FiE-cw-N96" secondAttribute="leading" id="YeU-EB-eL7"/>
                         <constraint firstItem="Am2-oK-XcK" firstAttribute="leading" secondItem="FiE-cw-N96" secondAttribute="leading" constant="273" id="aZt-KS-P0l"/>
+                        <constraint firstItem="QHh-NB-GSX" firstAttribute="leading" secondItem="Hz6-kL-jfb" secondAttribute="trailing" constant="4" id="anx-Hr-U0B"/>
                         <constraint firstItem="yto-d4-jcw" firstAttribute="top" secondItem="Muv-QM-1wQ" secondAttribute="bottom" constant="2" id="dw0-8Z-Uli"/>
                         <constraint firstItem="Am2-oK-XcK" firstAttribute="top" secondItem="FiE-cw-N96" secondAttribute="top" constant="13" id="i9K-tn-FM2"/>
                         <constraint firstItem="7pa-Yk-21M" firstAttribute="top" secondItem="AIb-3g-oNQ" secondAttribute="bottom" constant="8" id="kyT-Vc-x3i"/>
@@ -156,14 +176,14 @@
                         <constraint firstItem="2PF-3R-jrv" firstAttribute="top" secondItem="LZJ-WJ-uqT" secondAttribute="bottom" constant="8" id="qQk-5L-W7G"/>
                         <constraint firstItem="7pa-Yk-21M" firstAttribute="leading" secondItem="FiE-cw-N96" secondAttribute="leading" id="tpb-HA-1s3"/>
                         <constraint firstItem="Muv-QM-1wQ" firstAttribute="top" secondItem="cHy-Wo-lQ4" secondAttribute="bottom" constant="8" id="vlt-Uw-RxA"/>
-                        <constraint firstItem="Hz6-kL-jfb" firstAttribute="top" secondItem="7pa-Yk-21M" secondAttribute="bottom" constant="8" id="wUC-EE-Ezd"/>
+                        <constraint firstItem="Hz6-kL-jfb" firstAttribute="top" secondItem="7pa-Yk-21M" secondAttribute="bottom" constant="15" id="wUC-EE-Ezd"/>
                     </constraints>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="FiE-cw-N96" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="OdU-zS-sNl"/>
-                <constraint firstAttribute="bottom" secondItem="FiE-cw-N96" secondAttribute="bottom" constant="-36" id="UWr-Hp-Vqk"/>
+                <constraint firstAttribute="bottom" secondItem="FiE-cw-N96" secondAttribute="bottom" id="UWr-Hp-Vqk"/>
                 <constraint firstAttribute="trailing" secondItem="FiE-cw-N96" secondAttribute="trailing" id="hiH-AZ-Cay"/>
                 <constraint firstItem="FiE-cw-N96" firstAttribute="top" secondItem="1" secondAttribute="top" id="mh9-1j-crp"/>
             </constraints>

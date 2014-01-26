@@ -53,6 +53,12 @@
 
 + (NSString*)decryptString:(NSString*)encryptedString withKey: (NSString *)key;
 + (NSString*)decryptString:(NSString*)encryptedString;
+
++ (NSData*)encryptImage:(NSData*)imageData withKey: (NSString*)key;
++ (NSData*)encryptImage:(NSData*)imageData;
+
++ (NSData*)decryptImage:(NSData*)encryptedImageData withKey: (NSString *)key;
++ (NSData*)decryptImage:(NSData*)encryptedImageData;
 //-----------------
 // API (utilities)
 //-----------------

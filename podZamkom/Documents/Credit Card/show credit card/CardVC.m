@@ -19,14 +19,14 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        card = cardDoc;
+        document = cardDoc;
     }
     return self;
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad: card.bank];
+    [super viewDidLoad: ((CreditCard *)document).bank];
     // Do any additional setup after loading the view from its nib.
     [ViewAppearance setGlowToLabel:self.lblCvc];
     [ViewAppearance setGlowToLabel:self.lblPin];
@@ -34,25 +34,18 @@
     self.lblComment.text = [Translator languageSelectedStringForKey:@"COMMENTS"];
     [self.deleteBtn setTitle:[Translator languageSelectedStringForKey:@"DELETE CARD"] forState:UIControlStateNormal];
     //забиваю значения:
-    self.cardBank.text = card.bank;
-    self.cardNumber.text = card.number;
-    self.cardValidThru.text = card.validThru;
-    self.cardHolder.text = card.holder;
-    self.cardCvc.text = card.cvc;
-    self.cardPin.text = card.pin;
-    self.cardComment.text = card.comments;
+    self.cardBank.text = ((CreditCard *)document).bank;
+    self.cardNumber.text = ((CreditCard *)document).number;
+    self.cardValidThru.text = ((CreditCard *)document).validThru;
+    self.cardHolder.text = ((CreditCard *)document).holder;
+    self.cardCvc.text = ((CreditCard *)document).cvc;
+    self.cardPin.text = ((CreditCard *)document).pin;
+    self.cardComment.text = ((CreditCard *)document).comments;
     
-    self.cardType.image = [UIImage imageNamed:[CardType getCurrentCardByType:card.type].image];
-    self.cardColor.image = [UIImage imageNamed:[CardColor getCardColorByType:card.color].image];
+    self.cardType.image = [UIImage imageNamed:[CardType getCurrentCardByType:((CreditCard *)document).type].image];
+    self.cardColor.image = [UIImage imageNamed:[CardColor getCardColorByType:((CreditCard *)document).color].image];
 }
 
--(void)editBtnTapped
-{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    NewCardVC *myController = [storyboard instantiateViewControllerWithIdentifier:@"newCard"];
-    myController.selectedCreditCard = card;
-    [self.navigationController pushViewController:myController animated:YES];
-}
 
 -(void)deleteBtnTapped
 {
@@ -75,7 +68,7 @@
     }
     else
     {
-        if ([DBadapter DeleteDocument:card])
+        if ([DBadapter DeleteDocument:(CreditCard *)document])
             [super showMainVC];
     }
 }

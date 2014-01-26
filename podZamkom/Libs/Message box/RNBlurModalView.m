@@ -93,6 +93,18 @@ typedef void (^RNBlurCompletion)(void);
     RNBlurCompletion _completion;
 }
 
++ (UIView*)generatePopupWithView:(UIView*)view
+{
+    CGFloat defaultWidth = 160.f;
+    CGRect frame = CGRectMake(0, 0, defaultWidth, 0);
+//    CGFloat padding = 10.f;
+    UIView *popupView = [[UIView alloc] initWithFrame:frame];
+    popupView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
+    
+    [popupView addSubview:view];
+    return popupView;
+}
+
 + (UIView*)generateModalViewWithLogo:(NSString*)imageName withTitle:(NSString*)title message:(NSString*)message {
     CGFloat defaultWidth = 160.f;
     CGRect frame = CGRectMake(0, 0, defaultWidth, 0);
@@ -144,6 +156,7 @@ typedef void (^RNBlurCompletion)(void);
     
     return view;
 }
+
 
 
 - (id)initWithFrame:(CGRect)frame {
@@ -235,6 +248,15 @@ typedef void (^RNBlurCompletion)(void);
     return self;
 }
 
+- (id)initWithSubView: (UIView*)subView
+{
+    UIView *view = [RNBlurModalView generatePopupWithView:subView];
+    if (self = [self initWithView:view]) {
+        // nothing to see here
+    }
+    return self;
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     
@@ -274,9 +296,7 @@ typedef void (^RNBlurCompletion)(void);
         [_parentView insertSubview:_blurView belowSubview:self];
 
     }
-    
-    
-    
+
     self.hidden = NO;
 
     _contentView.center = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
@@ -331,8 +351,8 @@ typedef void (^RNBlurCompletion)(void);
             _blurView = [[RNBlurView alloc] initWithCoverView:_parentView];
             _blurView.alpha = 0.f;
             self.frame = CGRectMake(0, 0, _parentView.bounds.size.width, _parentView.bounds.size.height/2);
-
-//            [_parentView insertSubview:_blurView belowSubview:self];
+//TODO!
+            [_parentView insertSubview:_blurView belowSubview:self];
         }
         
         self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4, 0.4);
@@ -686,7 +706,13 @@ typedef void (^RNBlurCompletion)(void);
     
     //perform convolution
     error = vImageBoxConvolve_ARGB8888(&inBuffer, &outBuffer2, NULL, 0, 0, boxSize, boxSize, NULL, kvImageEdgeExtend);
+    if (error) {
+        NSLog(@"error from convolution %ld", error);
+    }
     error = vImageBoxConvolve_ARGB8888(&outBuffer2, &inBuffer, NULL, 0, 0, boxSize, boxSize, NULL, kvImageEdgeExtend);
+    if (error) {
+        NSLog(@"error from convolution %ld", error);
+    }
     error = vImageBoxConvolve_ARGB8888(&inBuffer, &outBuffer, NULL, 0, 0, boxSize, boxSize, NULL, kvImageEdgeExtend);
 
     if (error) {

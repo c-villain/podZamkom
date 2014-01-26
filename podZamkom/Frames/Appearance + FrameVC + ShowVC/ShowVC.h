@@ -15,8 +15,15 @@
 #import "RNBlurModalView.h" //для нотификации, что скопирован текст
 #import <MessageUI/MessageUI.h> //для функции посыла сообщения
 
+#import "NewDocVCs.h"
+#import "PhotoVC.h"
+
+
 //MFMessageComposeViewControllerDelegate - для смс, результат отправки:
 @interface ShowVC : UIViewController <MFMessageComposeViewControllerDelegate>
+{
+    Document *document;
+}
 
 - (void)viewDidLoad: (NSString*)title;
 
@@ -29,8 +36,10 @@
 - (IBAction) copyDoc: (id)sender;
 
 @property (nonatomic, nonatomic) IBOutlet UIButton *sendBtn;
+@property (nonatomic, nonatomic) IBOutlet UIButton *photoBtn;
 
 - (IBAction) sendDoc: (id)sender;
+- (IBAction) showPhotos: (id)sender;
 
 - (void)showMainVC;
 -(void)showMessageBoxWithTitle:(NSString*)title;

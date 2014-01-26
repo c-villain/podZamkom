@@ -16,5 +16,5 @@
 @synthesize detail;
 @synthesize dateOfCreation;
 @synthesize viewWithImage;
-
+@synthesize docPhotos;
 @end

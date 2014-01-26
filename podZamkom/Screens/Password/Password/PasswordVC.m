@@ -94,7 +94,6 @@
     
     // the text width might have changed (in case it was shortened before due to
     // lack of space and isn't anymore now), so we get the frame size again
-    titleSize = self.forgetBtn.titleLabel.frame.size;
     
     self.forgetBtn.imageEdgeInsets = UIEdgeInsetsMake(0.0, titleSize.width + 320/2 - titleSize.width/2 + spacing, 0.0, 0.0);
     //---------------
