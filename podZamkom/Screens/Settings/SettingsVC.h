@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <sys/utsname.h> 
 #import "FrameVC.h"
 #import "Security.h"
 #import "DBlib.h"
@@ -25,7 +26,12 @@
 @property (nonatomic, retain) IBOutlet UIButton *visibleBtn; //кнопка скрытия/показа пароля
 
 @property (nonatomic, retain) IBOutlet UIButton *sendMailBtn; //кнопка написать разрабочткам
+
+@property (nonatomic, retain) IBOutlet UIButton *syncDropBoxBtn; //кнопка sync с дропбоксом
+
 @property (nonatomic, retain) IBOutlet UIButton *voteAppBtn; //кнопка голосования
+
+@property (nonatomic, retain) IBOutlet UIButton *syncBtn; //кнопка синхронизации
 
 @property (nonatomic, retain) IBOutlet UIButton *xtraPasswdVisibleBtn; //кнопка скрытия/показа экстренного пароля
 

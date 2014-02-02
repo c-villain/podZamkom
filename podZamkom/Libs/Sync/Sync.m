@@ -64,16 +64,6 @@
 
 - (NSString*)readValueFromFileWithKey: (NSString *)key
 {
-    /*
-    // Build the path...
-    NSString* filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString* fileName = @"myTextFile.txt";
-    NSString* fileAtPath = [filePath stringByAppendingPathComponent:fileName];
-    
-    
-    // The main act...
-    return [[[NSString alloc] initWithData:[NSData dataWithContentsOfFile:fileAtPath] encoding:NSUTF8StringEncoding] autorelease];
-     */
     NSString *data = [[NSString alloc] initWithData:[NSData dataWithContentsOfFile:BUpath] encoding:NSUTF8StringEncoding];
     NSRange range = [data rangeOfString:key];
     NSString *substring = [[data substringFromIndex:NSMaxRange(range) + 1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
@@ -98,6 +88,9 @@
     
     NSString *data = [sync readValueFromFileWithKey:@"password hash"];
     NSLog(@"password hash is %@", data);
+    
+    int rc = [DBadapter BackupDb];
+    NSLog(@"%i", rc);
 }
 
 @end

@@ -23,7 +23,10 @@
 @interface DBadapter : NSObject
 {
     NSString *DBname;
+    NSString *BUname;
+    
     NSString *DBpath;
+    NSString *BUpath;
 }
 
 @property (nonatomic, weak) id<RecryptDelegate> recryptDelegate;

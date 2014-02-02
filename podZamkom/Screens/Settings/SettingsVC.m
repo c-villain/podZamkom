@@ -14,6 +14,7 @@
 @synthesize usePassword;
 @synthesize deleteFilesAfterTenErrors;
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -106,6 +107,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad:[Translator languageSelectedStringForKey:@"SETTINGS"]];
+    
     self.lblPassword.text = [Translator languageSelectedStringForKey:@"PASSWORD"];
     self.lblXtraPassword.text = [Translator languageSelectedStringForKey:@"EMERGENCY PASSWORD"];
     self.lblLocalize.text = [Translator languageSelectedStringForKey:@"LANGUAGE"];
@@ -130,6 +132,7 @@
     
     [self.deleteBtn setTitle:[Translator languageSelectedStringForKey:@"DELETE ALL"] forState:UIControlStateNormal];
     
+    [self.syncBtn setTitle:[Translator languageSelectedStringForKey:@"SYNCHRONIZATION"] forState:UIControlStateNormal];
     [self highlightButtonWithLanguage];
 }
 
@@ -234,14 +237,21 @@
     // Email Subject
     NSString *emailTitle = @"Под замком / Under lock / v. ";
     emailTitle = [emailTitle stringByAppendingString:[Settings getCurrentVersion]];
+    
+    emailTitle = [emailTitle stringByAppendingString: @"/ "];
+    emailTitle = [emailTitle stringByAppendingString: machineName()];
+    
     // Email Content
     NSString *messageBody = @"";
     if (![[[NSUserDefaults standardUserDefaults] stringForKey:@"Language"]  isEqual: @"ru"])
         messageBody = [messageBody stringByAppendingString:@"Please write here in Russian or English"];
+
     // To address
     NSArray *toRecipents = [NSArray arrayWithObject:@"support@xserious.com"];
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+    if (mc == nil)
+        return;
     mc.mailComposeDelegate = self;
     [mc setSubject:emailTitle];
     [mc setMessageBody:messageBody isHTML:NO];
@@ -252,6 +262,14 @@
     
 }
 
+NSString* machineName()
+{
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    
+    return [NSString stringWithCString:systemInfo.machine
+                              encoding:NSUTF8StringEncoding];
+}
 
 - (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {

@@ -10,6 +10,7 @@
 
 @interface DBadapter (DBBackup)
 
-int loadOrSaveDb(sqlite3 *pInMemory, const char *zFilename, int isSave);
++(int)BackupDb;
++(int)RestoreDb;
 
 @end

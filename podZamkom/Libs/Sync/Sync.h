@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Security.h"
 #import "NSString+Hash.h"
+#import "DBlib.h"
 
 @interface Sync : NSObject
 {

@@ -160,30 +160,46 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIViewController *detailVC;
-    Document *doc = [documents objectAtIndex:indexPath.row];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]
+                                        initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    spinner.center = cell.center;
+    spinner.hidesWhenStopped = YES;
+    [self.view addSubview:spinner];
+    [spinner startAnimating];
     
-    doc = [DBadapter DBSelect:doc withPhotos:YES];
-    switch (doc.docType) {
-        case NoteDoc:
-            detailVC = [[NoteVC alloc] initWithNibName:@"NoteVC" bundle:nil Note:(Note *)doc];
-            break;
-        case CardDoc:
-            detailVC = [[CardVC alloc] initWithNibName:@"CardVC" bundle:nil Card:(CreditCard *) doc];
-            break;
-        case LoginDoc:
-            detailVC = [[LoginVC alloc] initWithNibName:@"LoginVC" bundle:nil Login:(Login *) doc];
-            break;
-        case BankAccountDoc:
-            detailVC = [[BankAccountVC alloc] initWithNibName:@"BankAccountVC" bundle:nil BankAccount:(BankAccount *) doc];
-            break;
-        case PassportDoc:
-            detailVC = [[PassportVC alloc] initWithNibName:@"PassportVC" bundle:nil Passport:(Passport *)doc];
-            break;
-        default:
-            break;
-    }
-    [self.navigationController pushViewController:detailVC animated:YES];
+    dispatch_queue_t downloadQueue = dispatch_queue_create("downloader", NULL);
+    dispatch_async(downloadQueue, ^{
+        UIViewController *detailVC;
+        Document *doc = [documents objectAtIndex:indexPath.row];
+        
+        doc = [DBadapter DBSelect:doc withPhotos:YES];
+        switch (doc.docType) {
+            case NoteDoc:
+                detailVC = [[NoteVC alloc] initWithNibName:@"NoteVC" bundle:nil Note:(Note *)doc];
+                break;
+            case CardDoc:
+                detailVC = [[CardVC alloc] initWithNibName:@"CardVC" bundle:nil Card:(CreditCard *) doc];
+                break;
+            case LoginDoc:
+                detailVC = [[LoginVC alloc] initWithNibName:@"LoginVC" bundle:nil Login:(Login *) doc];
+                break;
+            case BankAccountDoc:
+                detailVC = [[BankAccountVC alloc] initWithNibName:@"BankAccountVC" bundle:nil BankAccount:(BankAccount *) doc];
+                break;
+            case PassportDoc:
+                detailVC = [[PassportVC alloc] initWithNibName:@"PassportVC" bundle:nil Passport:(Passport *)doc];
+                break;
+            default:
+                break;
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [spinner stopAnimating];
+            [self.navigationController pushViewController:detailVC animated:YES];
+        });
+        
+    });
 }
 
 - (void)DocTypeButtonTapped:(DocTypeEnum) docType

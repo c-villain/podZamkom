@@ -17,36 +17,42 @@
  ** a database file on disk. pInMemory is probably an in-memory database,
  ** but this function will also work fine if it is not.
  **
- ** Parameter zFilename points to a nul-terminated string containing the
- ** name of the database file on disk to load from or save to. If parameter
- ** isSave is non-zero, then the contents of the file zFilename are
+ ** If parameter isSave is non-zero, then the contents of the file db are
  ** overwritten with the contents of the database opened by pInMemory. If
  ** parameter isSave is zero, then the contents of the database opened by
- ** pInMemory are replaced by data loaded from the file zFilename.
+ ** pInMemory are replaced by data loaded from the file db.
  **
  ** If the operation is successful, SQLITE_OK is returned. Otherwise, if
  ** an error occurs, an SQLite error code is returned.
  */
-int loadOrSaveDb(sqlite3 *pInMemory, const char *zFilename, int isSave)
+-(int)loadOrSaveDb:(int) isSave
 {
     int rc;                   /* Function return code */
-    sqlite3 *pFile;           /* Database connection opened on zFilename */
+    sqlite3 *db;              /* Database connection opened on zFilename */
+    sqlite3 *budb = NULL;
     sqlite3_backup *pBackup;  /* Backup object used to copy data */
     sqlite3 *pTo;             /* Database to copy to (pFile or pInMemory) */
     sqlite3 *pFrom;           /* Database to copy from (pFile or pInMemory) */
     
+
+    [self checkAndCreateBuFile];
+    rc = sqlite3_open([BUpath UTF8String], &budb);
+    if( rc != SQLITE_OK )
+        return rc;
+
     /* Open the database file identified by zFilename. Exit early if this fails
      ** for any reason. */
-    rc = sqlite3_open(zFilename, &pFile);
+    rc = sqlite3_open([DBpath UTF8String], &db);
     if( rc==SQLITE_OK ){
+        
         
         /* If this is a 'load' operation (isSave==0), then data is copied
          ** from the database file just opened to database pInMemory.
          ** Otherwise, if this is a 'save' operation (isSave==1), then data
          ** is copied from pInMemory to pFile.  Set the variables pFrom and
          ** pTo accordingly. */
-        pFrom = (isSave ? pInMemory : pFile);
-        pTo   = (isSave ? pFile     : pInMemory);
+        pFrom = (isSave ? budb : db);
+        pTo   = (isSave ? db : budb);
         
         /* Set up the backup procedure to copy from the "main" database of
          ** connection pFile to the main database of connection pInMemory.
@@ -65,13 +71,50 @@ int loadOrSaveDb(sqlite3 *pInMemory, const char *zFilename, int isSave)
             (void)sqlite3_backup_step(pBackup, -1);
             (void)sqlite3_backup_finish(pBackup);
         }
-        rc = sqlite3_errcode(pTo);
+        rc = sqlite3_errcode(budb);
     }
     
     /* Close the database connection opened on database file zFilename
      ** and return the result of this function. */
-    (void)sqlite3_close(pFile);
+    (void)sqlite3_close(db);
+    (void)sqlite3_close(budb);
     return rc;
 }
 
+-(void)checkAndCreateBuFile
+{
+    //Database name
+    BUname = @"backup.sqlite";
+    
+    //Getting DB Path
+    NSArray *dbPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    //
+    NSString *dbDir = [dbPath objectAtIndex:0];
+    BUpath = [dbDir stringByAppendingPathComponent:BUname];
+    
+    BOOL Success;
+    
+    //NSFileManager maintains file
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    //Checks Database Path
+    Success = [fileManager fileExistsAtPath:DBpath];
+    if (Success)
+        return;
+    NSString *databasePathFromApp = [[[NSBundle mainBundle] resourcePath]stringByAppendingPathComponent:BUname];
+    [fileManager copyItemAtPath:databasePathFromApp toPath:BUpath error:nil];
+}
+
+
++(int)BackupDb
+{
+    DBadapter *db = [[DBadapter alloc] init];
+    return [db loadOrSaveDb: 0];
+}
+
++(int)RestoreDb
+{
+    DBadapter *db = [[DBadapter alloc] init];
+    return [db loadOrSaveDb: 1];
+}
 @end

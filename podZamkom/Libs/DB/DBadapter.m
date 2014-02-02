@@ -31,12 +31,14 @@ CREATE TABLE IF NOT EXISTS Photos (pk_photo_id INTEGER PRIMARY KEY AUTOINCREMENT
 {
     //Database name
     DBname = @"podzamkom.sqlite";
+//    BUname = @"underlock.sqlite";
 
     //Getting DB Path
     NSArray *dbPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     //
     NSString *dbDir = [dbPath objectAtIndex:0];
     DBpath = [dbDir stringByAppendingPathComponent:DBname];
+//    BUpath = [dbDir stringByAppendingPathComponent:BUname];
     return self;
 }
 
@@ -53,7 +55,6 @@ CREATE TABLE IF NOT EXISTS Photos (pk_photo_id INTEGER PRIMARY KEY AUTOINCREMENT
         return;
     NSString *databasePathFromApp = [[[NSBundle mainBundle] resourcePath]stringByAppendingPathComponent:DBname];
     [fileManager copyItemAtPath:databasePathFromApp toPath:DBpath error:nil];
-   
 }
 
 -(void)CreateDBTablesIfNotExists
