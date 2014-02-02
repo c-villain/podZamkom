@@ -27,6 +27,7 @@
     [dateFormatter setDateFormat:@"MMM dd, YYYY hh:mm"];
     return [dateFormatter dateFromString:dateString];
 }
+
 +(void)saveSelectedLanguage:(NSString*)language
 {
     NSUserDefaults *userDefaults = [[NSUserDefaults alloc] init];
@@ -111,4 +112,13 @@
     NSUserDefaults * userDefaults= [[NSUserDefaults alloc] init];
     return [userDefaults integerForKey:@"launchCount"];
 }
+
++(BOOL)isLinkWithDropBox
+{
+    NSInteger sync = [[NSUserDefaults standardUserDefaults] integerForKey:@"dropbox.sync.linked"];
+    if (sync > 0)
+        return YES;
+    return NO;
+}
+
 @end

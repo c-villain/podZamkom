@@ -4,3 +4,4 @@
 #import "DBUpdate.h"
 #import "DBRecrypt.h"
 #import "DBDelete.h"
+#import "DBBackup.h"

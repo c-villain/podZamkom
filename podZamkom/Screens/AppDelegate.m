@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 
+#define APP_KEY     @"gtte7h3d4b8fv08"
+#define APP_SECRET  @"9mkx1c4ak8ep6ss"
+
 @interface AppDelegate()<SWRevealViewControllerDelegate>
 @end
 
@@ -25,6 +28,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    DBAccountManager* accountMgr = [[DBAccountManager alloc]
+                                    initWithAppKey:APP_KEY
+                                    secret:APP_SECRET];
+    [DBAccountManager setSharedManager:accountMgr];
     [Settings increaseAppLaunchConting];
     return YES;
 }
@@ -190,5 +197,19 @@
 - (void)revealController:(SWRevealViewController *)revealController didHideFrontViewController:(UIViewController *)viewController
 {
     NSLog( @"%@: %@", NSStringFromSelector(_cmd), viewController);
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url
+  sourceApplication:(NSString *)source annotation:(id)annotation {
+    DBAccount *account = [[DBAccountManager sharedManager] handleOpenURL:url];
+    if (account) {
+        if ([_dropboxSyncDelegate respondsToSelector:@selector(linkingAccountFinished)])
+        {
+            [_dropboxSyncDelegate linkingAccountFinished];
+        }
+
+        return YES;
+    }
+    return NO;
 }
 @end

@@ -22,5 +22,6 @@
 +(void)setVersionWhenRateUsed;
 +(NSString *)getVersionWhenRateUsed;
 +(void)setRate;
++(BOOL)isLinkWithDropBox;
 
 @end

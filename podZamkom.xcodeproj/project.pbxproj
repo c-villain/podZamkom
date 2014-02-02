@@ -56,6 +56,10 @@
 		5A64113B1847D7D5009AB22A /* passport_switzerland@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A64111B1847D7D5009AB22A /* passport_switzerland@2x.png */; };
 		5A64113C1847D7D5009AB22A /* passport_ukraine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A64111C1847D7D5009AB22A /* passport_ukraine@2x.png */; };
 		5A64113D1847D7D5009AB22A /* passport_usa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A64111D1847D7D5009AB22A /* passport_usa@2x.png */; };
+		5A6C3B621896EE2D0065B115 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6C3B611896EE2D0065B115 /* CFNetwork.framework */; };
+		5A6C3B641896EE3D0065B115 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6C3B631896EE3D0065B115 /* Security.framework */; };
+		5A6C3B661896EE4B0065B115 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6C3B651896EE4B0065B115 /* SystemConfiguration.framework */; };
+		5A6C3B681896EE5C0065B115 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6C3B671896EE5C0065B115 /* libc++.dylib */; };
 		5A717D50188DC72300D1774F /* LoginCRV.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A717D4F188DC72300D1774F /* LoginCRV.m */; };
 		5AA46C4117FB21B0008EE800 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4017FB21B0008EE800 /* Foundation.framework */; };
 		5AA46C4317FB21B0008EE800 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4217FB21B0008EE800 /* CoreGraphics.framework */; };
@@ -65,6 +69,11 @@
 		5AA46C6217FB21B0008EE800 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4417FB21B0008EE800 /* UIKit.framework */; };
 		5AA46C6A17FB21B0008EE800 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AA46C6817FB21B0008EE800 /* InfoPlist.strings */; };
 		5AA46C6C17FB21B0008EE800 /* podZamkomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA46C6B17FB21B0008EE800 /* podZamkomTests.m */; };
+		5AAA161C189959E9000C3365 /* SyncVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAA161B189959E9000C3365 /* SyncVC.m */; };
+		5AAA1622189ABF5E000C3365 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AAA1621189ABF5E000C3365 /* Dropbox.framework */; };
+		5AAA1626189C2BAA000C3365 /* Sync.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAA1625189C2BAA000C3365 /* Sync.m */; };
+		5AAA1629189C48D2000C3365 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAA1628189C48D2000C3365 /* NSString+Hash.m */; };
+		5AAA162C189E502E000C3365 /* DBBackup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAA162B189E502E000C3365 /* DBBackup.m */; };
 		5AB3447C1823047E0007F714 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB3447B1823047E0007F714 /* libsqlite3.dylib */; };
 		5AB54AD71889C23E008E2035 /* PhotoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB54AD61889C23E008E2035 /* PhotoViewCell.m */; };
 		5AB54ADD1889C799008E2035 /* PhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB54ADC1889C799008E2035 /* PhotoVC.m */; };
@@ -354,6 +363,10 @@
 		5A64111B1847D7D5009AB22A /* passport_switzerland@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_switzerland@2x.png"; sourceTree = "<group>"; };
 		5A64111C1847D7D5009AB22A /* passport_ukraine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_ukraine@2x.png"; sourceTree = "<group>"; };
 		5A64111D1847D7D5009AB22A /* passport_usa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_usa@2x.png"; sourceTree = "<group>"; };
+		5A6C3B611896EE2D0065B115 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		5A6C3B631896EE3D0065B115 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		5A6C3B651896EE4B0065B115 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5A6C3B671896EE5C0065B115 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		5A717D4E188DC72300D1774F /* LoginCRV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginCRV.h; sourceTree = "<group>"; };
 		5A717D4F188DC72300D1774F /* LoginCRV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginCRV.m; sourceTree = "<group>"; };
 		5AA46C3D17FB21B0008EE800 /* podZamkom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = podZamkom.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -365,6 +378,15 @@
 		5AA46C6717FB21B0008EE800 /* podZamkomTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "podZamkomTests-Info.plist"; sourceTree = "<group>"; };
 		5AA46C6917FB21B0008EE800 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5AA46C6B17FB21B0008EE800 /* podZamkomTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = podZamkomTests.m; sourceTree = "<group>"; };
+		5AAA161A189959E9000C3365 /* SyncVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncVC.h; sourceTree = "<group>"; };
+		5AAA161B189959E9000C3365 /* SyncVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncVC.m; sourceTree = "<group>"; };
+		5AAA1621189ABF5E000C3365 /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dropbox.framework; sourceTree = "<group>"; };
+		5AAA1624189C2BAA000C3365 /* Sync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sync.h; sourceTree = "<group>"; };
+		5AAA1625189C2BAA000C3365 /* Sync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sync.m; sourceTree = "<group>"; };
+		5AAA1627189C48D2000C3365 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		5AAA1628189C48D2000C3365 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		5AAA162A189E501E000C3365 /* DBBackup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBBackup.h; sourceTree = "<group>"; };
+		5AAA162B189E502E000C3365 /* DBBackup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBBackup.m; sourceTree = "<group>"; };
 		5AB3447B1823047E0007F714 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		5AB54AD51889C23E008E2035 /* PhotoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewCell.h; sourceTree = "<group>"; };
 		5AB54AD61889C23E008E2035 /* PhotoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewCell.m; sourceTree = "<group>"; };
@@ -652,6 +674,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A6C3B681896EE5C0065B115 /* libc++.dylib in Frameworks */,
+				5A6C3B661896EE4B0065B115 /* SystemConfiguration.framework in Frameworks */,
+				5A6C3B641896EE3D0065B115 /* Security.framework in Frameworks */,
+				5A6C3B621896EE2D0065B115 /* CFNetwork.framework in Frameworks */,
 				5AC3FED018807FD8005C009A /* CoreText.framework in Frameworks */,
 				5AC3FECE18807F8C005C009A /* QuartzCore.framework in Frameworks */,
 				5A361EFF1849501300DA3AFB /* ImageIO.framework in Frameworks */,
@@ -659,6 +685,7 @@
 				5AB3447C1823047E0007F714 /* libsqlite3.dylib in Frameworks */,
 				5AA46C4317FB21B0008EE800 /* CoreGraphics.framework in Frameworks */,
 				5AA46C4517FB21B0008EE800 /* UIKit.framework in Frameworks */,
+				5AAA1622189ABF5E000C3365 /* Dropbox.framework in Frameworks */,
 				5AA46C4117FB21B0008EE800 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -758,6 +785,11 @@
 		5AA46C3F17FB21B0008EE800 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5AAA1621189ABF5E000C3365 /* Dropbox.framework */,
+				5A6C3B671896EE5C0065B115 /* libc++.dylib */,
+				5A6C3B651896EE4B0065B115 /* SystemConfiguration.framework */,
+				5A6C3B631896EE3D0065B115 /* Security.framework */,
+				5A6C3B611896EE2D0065B115 /* CFNetwork.framework */,
 				5AC3FECF18807FD8005C009A /* CoreText.framework */,
 				5AC3FECD18807F8C005C009A /* QuartzCore.framework */,
 				5A361EFE1849501300DA3AFB /* ImageIO.framework */,
@@ -801,6 +833,24 @@
 				5AA46C6817FB21B0008EE800 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5AAA1619189959BC000C3365 /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+				5AAA161A189959E9000C3365 /* SyncVC.h */,
+				5AAA161B189959E9000C3365 /* SyncVC.m */,
+			);
+			path = Sync;
+			sourceTree = "<group>";
+		};
+		5AAA1623189C2B9C000C3365 /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+				5AAA1624189C2BAA000C3365 /* Sync.h */,
+				5AAA1625189C2BAA000C3365 /* Sync.m */,
+			);
+			path = Sync;
 			sourceTree = "<group>";
 		};
 		5AC3FE91187DFA3F005C009A /* Photo */ = {
@@ -1086,6 +1136,7 @@
 		5AC899251840B9A000164B51 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				5AAA1623189C2B9C000C3365 /* Sync */,
 				5AC3FE91187DFA3F005C009A /* Photo */,
 				5AC89AEB1842266B00164B51 /* Message box */,
 				5AC899261840B9A000164B51 /* Cryptor */,
@@ -1104,6 +1155,8 @@
 				5AC899281840B9A000164B51 /* FBEncryptorAES.m */,
 				5AC899291840B9A000164B51 /* NSData+Base64.h */,
 				5AC8992A1840B9A000164B51 /* NSData+Base64.m */,
+				5AAA1627189C48D2000C3365 /* NSString+Hash.h */,
+				5AAA1628189C48D2000C3365 /* NSString+Hash.m */,
 			);
 			path = Cryptor;
 			sourceTree = "<group>";
@@ -1124,6 +1177,8 @@
 				5AC899361840B9A000164B51 /* DBSelect.m */,
 				5AC899371840B9A000164B51 /* DBUpdate.h */,
 				5AC899381840B9A000164B51 /* DBUpdate.m */,
+				5AAA162A189E501E000C3365 /* DBBackup.h */,
+				5AAA162B189E502E000C3365 /* DBBackup.m */,
 			);
 			path = DB;
 			sourceTree = "<group>";
@@ -1449,6 +1504,7 @@
 		5AC899F11840B9A000164B51 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				5AAA1619189959BC000C3365 /* Sync */,
 				5AC899F21840B9A000164B51 /* AppDelegate.h */,
 				5AC899F31840B9A000164B51 /* AppDelegate.m */,
 				5AC899F41840B9A000164B51 /* Main */,
@@ -1916,6 +1972,7 @@
 				5AC89A1A1840B9A000164B51 /* PassportVC.m in Sources */,
 				5AC89A0E1840B9A000164B51 /* BankAccountVC.m in Sources */,
 				5AB54AD71889C23E008E2035 /* PhotoViewCell.m in Sources */,
+				5AAA162C189E502E000C3365 /* DBBackup.m in Sources */,
 				5AC89A141840B9A000164B51 /* LoginVC.m in Sources */,
 				5AC89AD01840B9A000164B51 /* MainTableVC.m in Sources */,
 				5AC89A321840B9A000164B51 /* DBUpdate.m in Sources */,
@@ -1932,10 +1989,13 @@
 				5AC89A111840B9A000164B51 /* CardVC.m in Sources */,
 				5A19D0A71891A78C0080F3CF /* M13ProgressViewPie.m in Sources */,
 				5AC3FE90187DC438005C009A /* SWRevealViewController.m in Sources */,
+				5AAA161C189959E9000C3365 /* SyncVC.m in Sources */,
 				5AC89A1D1840B9A000164B51 /* ShowVC.m in Sources */,
 				5AC89A1C1840B9A000164B51 /* FrameVC.m in Sources */,
 				5AC89AD21840B9A000164B51 /* PasswordHelpVC.m in Sources */,
 				5AE1C7DB188D880500079943 /* NoteCRV.m in Sources */,
+				5AAA1626189C2BAA000C3365 /* Sync.m in Sources */,
+				5AAA1629189C48D2000C3365 /* NSString+Hash.m in Sources */,
 				5AC89A0D1840B9A000164B51 /* NewBankAccountVC.m in Sources */,
 				5AC89AEE1842266B00164B51 /* RNBlurModalView.m in Sources */,
 				5A3FCEE1184BC9E800413F6E /* Settings.m in Sources */,
@@ -2121,6 +2181,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/c-villain/Downloads/dropbox-ios-sync-sdk-2.0.3",
+					"/Users/c-villain/Developer/app\\ Под\\ замком/podZamkom",
+					"/Users/c-villain/Downloads/dropbox-ios-sdk-1.3.10",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "podZamkom/Supporting Files/podZamkom-Prefix.pch";
 				INFOPLIST_FILE = "podZamkom/Supporting Files/podZamkom-Info.plist";
@@ -2136,6 +2202,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/c-villain/Downloads/dropbox-ios-sync-sdk-2.0.3",
+					"/Users/c-villain/Developer/app\\ Под\\ замком/podZamkom",
+					"/Users/c-villain/Downloads/dropbox-ios-sdk-1.3.10",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "podZamkom/Supporting Files/podZamkom-Prefix.pch";
 				INFOPLIST_FILE = "podZamkom/Supporting Files/podZamkom-Info.plist";

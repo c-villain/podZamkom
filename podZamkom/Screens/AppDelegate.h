@@ -15,10 +15,18 @@
 #import "LeftMenuVC.h"
 #import "DBlib.h"
 #import "Settings.h"
+#import <Dropbox/Dropbox.h>
+
+@protocol DropboxSyncDelegate<NSObject>
+@optional
+- (void)linkingAccountFinished;
+@end
 
 @class SWRevealViewController;
 @interface AppDelegate : UIResponder <UIApplicationDelegate, PasswordVCDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (weak) id<DropboxSyncDelegate> dropboxSyncDelegate;
 
 @end
