@@ -11,15 +11,32 @@
 @implementation Sync
 
 -(id)init
-{
+{/*
     //Database name
     BUname = @"underlock";
     
     //Getting DB Path
     NSArray *dbPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    //
+    
+    NSError *error;
     NSString *dbDir = [dbPath objectAtIndex:0];
     BUpath = [dbDir stringByAppendingPathComponent:BUname];
+    return self;
+    */
+    //Database name
+    BUname = @"cash.underlock";
+    
+    //Getting DB Path
+    NSArray *dbPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSError *error;
+    NSString *dbDir = [dbPath objectAtIndex:0];
+    BUpath = [dbDir stringByAppendingPathComponent:@"Backup"];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:BUpath])
+        
+        [[NSFileManager defaultManager] createDirectoryAtPath:BUpath withIntermediateDirectories:NO attributes:nil error:&error];
+    
+    BUpath = [dbDir stringByAppendingPathComponent:@"Backup/cash.underlock"];
     return self;
 }
 
@@ -80,7 +97,7 @@
     return passwordHash;
 }
 
-+(void)WriteDataToBUFile:(NSString*)aString
++(void)CreateBackup
 {
     Sync *sync = [[Sync alloc] init];
     [sync checkAndCreateBuFile];

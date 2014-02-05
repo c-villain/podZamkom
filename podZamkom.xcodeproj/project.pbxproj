@@ -12,8 +12,7 @@
 		5A08D6FA1846B04A0041A41C /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08D6F91846B04A0041A41C /* Cell.m */; };
 		5A19D0A41891A6600080F3CF /* M13ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A19D0A31891A6600080F3CF /* M13ProgressView.m */; };
 		5A19D0A71891A78C0080F3CF /* M13ProgressViewPie.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A19D0A61891A78C0080F3CF /* M13ProgressViewPie.m */; };
-		5A1A5DCA189E7E7A00DF30F6 /* DropBoxManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1A5DC9189E7E7A00DF30F6 /* DropBoxManager.m */; };
-		5A1A5DCE189E80E600DF30F6 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1A5DCD189E80E600DF30F6 /* Dropbox.framework */; };
+		5A1A5DCA189E7E7A00DF30F6 /* DropBoxManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1A5DC9189E7E7A00DF30F6 /* DropBoxManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5A34AC7F1885BECB00CB7D28 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A34AC7E1885BECB00CB7D28 /* PhotoCell.m */; };
 		5A361EF21848D70700DA3AFB /* passport_uk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A361EF11848D70700DA3AFB /* passport_uk@2x.png */; };
 		5A361EF41848D7C700DA3AFB /* UK@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A361EF31848D7C700DA3AFB /* UK@2x.png */; };
@@ -63,6 +62,7 @@
 		5A6C3B661896EE4B0065B115 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6C3B651896EE4B0065B115 /* SystemConfiguration.framework */; };
 		5A6C3B681896EE5C0065B115 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6C3B671896EE5C0065B115 /* libc++.dylib */; };
 		5A717D50188DC72300D1774F /* LoginCRV.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A717D4F188DC72300D1774F /* LoginCRV.m */; };
+		5A7AD14C18A163EF004F7D42 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7AD14B18A163EE004F7D42 /* DropboxSDK.framework */; };
 		5AA46C4117FB21B0008EE800 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4017FB21B0008EE800 /* Foundation.framework */; };
 		5AA46C4317FB21B0008EE800 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4217FB21B0008EE800 /* CoreGraphics.framework */; };
 		5AA46C4517FB21B0008EE800 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4417FB21B0008EE800 /* UIKit.framework */; };
@@ -318,7 +318,6 @@
 		5A19D0A61891A78C0080F3CF /* M13ProgressViewPie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M13ProgressViewPie.m; sourceTree = "<group>"; };
 		5A1A5DC8189E7E7A00DF30F6 /* DropBoxManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropBoxManager.h; sourceTree = "<group>"; };
 		5A1A5DC9189E7E7A00DF30F6 /* DropBoxManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropBoxManager.m; sourceTree = "<group>"; };
-		5A1A5DCD189E80E600DF30F6 /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dropbox.framework; sourceTree = "<group>"; };
 		5A34AC7D1885BECB00CB7D28 /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
 		5A34AC7E1885BECB00CB7D28 /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
 		5A361EF11848D70700DA3AFB /* passport_uk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_uk@2x.png"; sourceTree = "<group>"; };
@@ -373,6 +372,7 @@
 		5A6C3B671896EE5C0065B115 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		5A717D4E188DC72300D1774F /* LoginCRV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginCRV.h; sourceTree = "<group>"; };
 		5A717D4F188DC72300D1774F /* LoginCRV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginCRV.m; sourceTree = "<group>"; };
+		5A7AD14B18A163EE004F7D42 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		5AA46C3D17FB21B0008EE800 /* podZamkom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = podZamkom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AA46C4017FB21B0008EE800 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5AA46C4217FB21B0008EE800 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -682,13 +682,13 @@
 				5A6C3B641896EE3D0065B115 /* Security.framework in Frameworks */,
 				5A6C3B621896EE2D0065B115 /* CFNetwork.framework in Frameworks */,
 				5AC3FED018807FD8005C009A /* CoreText.framework in Frameworks */,
+				5A7AD14C18A163EF004F7D42 /* DropboxSDK.framework in Frameworks */,
 				5AC3FECE18807F8C005C009A /* QuartzCore.framework in Frameworks */,
 				5A361EFF1849501300DA3AFB /* ImageIO.framework in Frameworks */,
 				5AC89AF718429DF300164B51 /* MessageUI.framework in Frameworks */,
 				5AB3447C1823047E0007F714 /* libsqlite3.dylib in Frameworks */,
 				5AA46C4317FB21B0008EE800 /* CoreGraphics.framework in Frameworks */,
 				5AA46C4517FB21B0008EE800 /* UIKit.framework in Frameworks */,
-				5A1A5DCE189E80E600DF30F6 /* Dropbox.framework in Frameworks */,
 				5AA46C4117FB21B0008EE800 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -788,7 +788,7 @@
 		5AA46C3F17FB21B0008EE800 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5A1A5DCD189E80E600DF30F6 /* Dropbox.framework */,
+				5A7AD14B18A163EE004F7D42 /* DropboxSDK.framework */,
 				5A6C3B671896EE5C0065B115 /* libc++.dylib */,
 				5A6C3B651896EE4B0065B115 /* SystemConfiguration.framework */,
 				5A6C3B631896EE3D0065B115 /* Security.framework */,

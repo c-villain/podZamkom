@@ -38,6 +38,14 @@ static DropboxManager *singletonManager = nil;
     }
 }
 
++(BOOL)checkForLinkAccount
+{
+    [[DropboxManager alloc] init];
+    if (![[DBSession sharedSession] isLinked])
+        return false;
+    return true;
+}
+
 -(void)checkForLink
 {
     if(![[DBSession sharedSession] isLinked])
@@ -152,10 +160,33 @@ static DropboxManager *singletonManager = nil;
 #pragma mark -
 #pragma mark Fileupload
 
--(void)uploadFile
+-(void)syncFolder
 {
     if([[DBSession sharedSession] isLinked])
+    {
+        [self.objRestClient deletePath:strDestDirectory];
+        NSError *error;
+        NSArray *subPaths = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:strFilePath error:&error];
+    
+        for(NSString *path in subPaths)
+        {
+            strFileName = path;
+            NSString *from = [strFilePath stringByAppendingPathComponent:path];
+            [self.objRestClient uploadFile:strFileName toPath:strDestDirectory withParentRev:nil fromPath:from];
+        }
+    }
+    else
+        [self checkForLink];
+}
+
+-(void)uploadFile
+{
+    
+    if([[DBSession sharedSession] isLinked])
+    {
+        [self.objRestClient deletePath:strDestDirectory];
         [self.objRestClient uploadFile:strFileName toPath:strDestDirectory withParentRev:nil fromPath:strFilePath];
+    }
     else
         [self checkForLink];
 }
@@ -170,7 +201,9 @@ static DropboxManager *singletonManager = nil;
 
 - (void)restClient:(DBRestClient*)client uploadedFile:(NSString*)destPath from:(NSString*)srcPath metadata:(DBMetadata*)metadata
 {
-    if([self.apiCallDelegate respondsToSelector:@selector(finishedUploadeFile)])
+    SEL setErrorSelector = sel_registerName("finishedUploadeFile:");
+//    if([self.apiCallDelegate respondsToSelector:@selector(finishedUploadeFile)])
+    if([self.apiCallDelegate respondsToSelector:setErrorSelector])
         [self.apiCallDelegate finishedUploadFile];
     
     NSLog(@"File uploaded successfully to path: %@", metadata.path);
@@ -314,3 +347,4 @@ static DropboxManager *singletonManager = nil;
     if([apiCallDelegate respondsToSelector:@selector(getFolderContentFailed:)])
         [apiCallDelegate getFolderContentFailed:[error localizedDescription]];
 }
+@end

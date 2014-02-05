@@ -8,14 +8,16 @@
 
 #import "FrameVC.h"
 //#import <DropboxSDK/DropboxSDK.h>
-#import <Dropbox/Dropbox.h>
+//#import <Dropbox/Dropbox.h>
+#import "DropboxManager.h"
 #import "AppDelegate.h"
 #import "Sync.h"
 
-@interface SyncVC : FrameVC <DropboxSyncDelegate>
+@interface SyncVC : FrameVC <DropBoxDelegate, DropboxSyncDelegate>
 {
-//    DropboxManager *objManager;
+    DropboxManager *objManager;
 }
+
 @property (nonatomic, retain) IBOutlet UISwitch *dropboxSync; //использовать пароль для входа
 
 @property (nonatomic, retain) IBOutlet UIButton *createBackupBtn; //кнопка создать backup

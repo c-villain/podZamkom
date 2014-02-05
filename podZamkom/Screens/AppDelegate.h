@@ -15,7 +15,7 @@
 #import "LeftMenuVC.h"
 #import "DBlib.h"
 #import "Settings.h"
-#import <Dropbox/Dropbox.h>
+#import "DropBoxManager.h"
 
 @protocol DropboxSyncDelegate<NSObject>
 @optional

@@ -29,8 +29,11 @@
     [super viewDidLoad:[Translator languageSelectedStringForKey:@"SYNCHRONIZATION"]];
 	// Do any additional setup after loading the view.
     
-    self.dropboxSync.on = [Settings isLinkWithDropBox];
+    objManager = [DropboxManager dropBoxManager];
+    objManager.apiCallDelegate =self;
+    [objManager initDropbox];
     
+    self.dropboxSync.on = [self CheckIfDropBoxAccountIsLinked];
     [self.navigationItem.rightBarButtonItem setEnabled:NO];
     //скрываем кнопки создать копию и восстановить данные, если не было линковки с аккаунтом дропбокса:
     if (![self.dropboxSync isOn])
@@ -42,10 +45,6 @@
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.dropboxSyncDelegate = self;
-}
-
-- (DBAccountManager *)manager {
-    return [DBAccountManager sharedManager];
 }
 
 - (void)setButtonsVisibility:(BOOL)visible
@@ -65,9 +64,20 @@
                      }];
 }
 
+-(BOOL)CheckIfDropBoxAccountIsLinked
+{
+//    if (objManager == nil)
+//    {
+//        objManager = [DropboxManager dropBoxManager];
+//        objManager.apiCallDelegate =self;
+//        [objManager initDropbox];
+//    }
+    return [objManager isLoggedIn];
+}
+
 - (void)linkingAccountFinished
 {
-    if ([Settings isLinkWithDropBox])
+    if ([self CheckIfDropBoxAccountIsLinked])
     {
         [self setButtonsVisibility:YES];
     }
@@ -82,30 +92,58 @@
 {
     if ([self.dropboxSync isOn])
     {
-        if (![Settings isLinkWithDropBox])
-            [self.manager linkFromController:self];
+        if (![self CheckIfDropBoxAccountIsLinked])
+        {
+//            objManager = [DropboxManager dropBoxManager];
+//            objManager.apiCallDelegate =self;
+//            [objManager initDropbox];
+            [objManager checkForLink];
+        }
         else
-            [self setButtonsVisibility:YES];
-    }
+            [self setButtonsVisibility:YES];    }
     else
     {
-        
-        [self.manager.linkedAccount unlink];
+        if (objManager)
+            [objManager logoutFromDropbox];
         [self setButtonsVisibility:NO];
     }
+    
 }
 
 - (IBAction)createBackup:(id)sender
 {
     /*
-    DBAccount *account = [self.manager linkedAccount];
+    //создаем файл бэкапа базы данных и справочной информации для последующей синхронизации:
+    [Sync CreateBackup];
+
+    objManager.currentPostType = DropBoxUploadFile;
     
-    if (account) {
-        DBFilesystem *filesystem = [[DBFilesystem alloc] initWithAccount:account];
-        [DBFilesystem setSharedFilesystem:filesystem];
-    }*/
+    NSArray *dbPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    //
+    NSString *dbDir = [dbPath objectAtIndex:0];
+//    dbDir = [dbDir stringByAppendingPathComponent:@"Backup"];
     
-    [Sync WriteDataToBUFile:@"HELLO!"];
+    NSLog(@"%@",dbDir);
+    dbDir = [dbDir stringByAppendingPathComponent:@"backup.sqlite"];
+    objManager.strFileName  = [NSString stringWithFormat:@"backup.sqlite"];;
+    objManager.strFilePath = dbDir;
+    objManager.strDestDirectory = @"/Under lock/Backup";
+    [objManager uploadFile];
+     */
+    
+    //создаем файл бэкапа базы данных и справочной информации для последующей синхронизации:
+    [Sync CreateBackup];
+    
+    objManager.currentPostType = DropBoxUploadFile;
+    
+    NSArray *dbPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    //
+    NSString *dbDir = [dbPath objectAtIndex:0];
+        dbDir = [dbDir stringByAppendingPathComponent:@"Backup"];
+    objManager.strFilePath = dbDir;
+    objManager.strDestDirectory = @"/Backup";
+    [objManager syncFolder];
+    
 }
 
 - (IBAction)restoreBackup:(id)sender
@@ -119,4 +157,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)finishedUploadFile
+{
+    NSLog(@"Uploaded successfully.");
+}
+
+- (void)failedToUploadFile:(NSString*)withMessage
+{
+    NSLog(@"Failed to upload error is %@",withMessage);
+}
+ 
 @end

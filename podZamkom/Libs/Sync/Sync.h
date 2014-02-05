@@ -17,6 +17,6 @@
     NSString *BUpath;
 }
 
-+(void)WriteDataToBUFile:(NSString*)aString;
++(void)CreateBackup;
 
 @end

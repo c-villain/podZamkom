@@ -82,7 +82,7 @@
 }
 
 -(void)checkAndCreateBuFile
-{
+{/*
     //Database name
     BUname = @"backup.sqlite";
     
@@ -91,6 +91,25 @@
     //
     NSString *dbDir = [dbPath objectAtIndex:0];
     BUpath = [dbDir stringByAppendingPathComponent:BUname];
+    */
+    
+    //Database name
+    BUname = @"backup.sqlite";
+    
+    //Getting DB Path
+    NSArray *dbPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    //
+    
+    NSError *error;
+    NSString *dbDir = [dbPath objectAtIndex:0];
+    BUpath = [dbDir stringByAppendingPathComponent:@"Backup"];
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:BUpath])
+        
+        [[NSFileManager defaultManager] createDirectoryAtPath:BUpath withIntermediateDirectories:NO attributes:nil error:&error];
+
+    BUpath = [dbDir stringByAppendingPathComponent:@"Backup/backup.sqlite"];
+
     
     BOOL Success;
     

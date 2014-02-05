@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <DropboxSDK/DropboxSDK.h>
 
-#define kDropbox_AppKey @"" // Provide your key here
-#define kDropbox_AppSecret @"" // Provide your secret key here
-#define kDropbox_RootFolder kDBRootDropbox //Decide level access like root or app
+#define kDropbox_AppKey @"pop3ulvz03nmdig" // Provide your key here
+#define kDropbox_AppSecret @"s7etth4oaoze8ig" // Provide your secret key here
+
+#define kDropbox_RootFolder kDBRootAppFolder //Decide level access like root or app
 
 @protocol DropBoxDelegate;
 
@@ -64,6 +65,9 @@ typedef enum
 //Initialize dropbox
 -(void)initDropbox;
 
++(BOOL)checkForLinkAccount;
+-(void)checkForLink;
+
 //Authentication Verification
 -(BOOL)handledURL:(NSURL*)url;
 -(void)dropboxDidLogin;
@@ -71,6 +75,9 @@ typedef enum
 
 //Upload file
 -(void)uploadFile;
+
+//upload folder
+-(void)syncFolder;
 
 //Download File
 -(void)downlaodFileFromSourcePath:(NSString*)pstrSourcePath destinationPath:(NSString*)toPath;
