@@ -55,21 +55,8 @@
     [fileManager copyItemAtPath:databasePathFromApp toPath:BUpath error:nil];
 }
 
-- (void)writeStringToFile:(NSString*)aString {
-    /*
-    // Build the path, and create if needed.
-    NSString* filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString* fileName = @"myTextFile.txt";
-    NSString* fileAtPath = [filePath stringByAppendingPathComponent:fileName];
-    
-    
-    if (![[NSFileManager defaultManager] fileExistsAtPath:fileAtPath]) {
-        [[NSFileManager defaultManager] createFileAtPath:fileAtPath contents:nil attributes:nil];
-    }
-    
-    // The main act...
-    [[aString dataUsingEncoding:NSUTF8StringEncoding] writeToFile:fileAtPath atomically:NO];
-     */
+- (void)writeStringToFile:(NSString*)aString
+{
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:BUpath]) {
         [[NSFileManager defaultManager] createFileAtPath:BUpath contents:nil attributes:nil];
@@ -97,7 +84,7 @@
     return passwordHash;
 }
 
-+(void)CreateBackup
++(int32_t)CreateBackup
 {
     Sync *sync = [[Sync alloc] init];
     [sync checkAndCreateBuFile];
@@ -106,8 +93,45 @@
     NSString *data = [sync readValueFromFileWithKey:@"password hash"];
     NSLog(@"password hash is %@", data);
     
-    int rc = [DBadapter BackupDb];
-    NSLog(@"%i", rc);
+    return [DBadapter BackupDb];
 }
 
++(int)RestoreBackup:(NSString *) backupPassword
+{
+    Sync *sync = [[Sync alloc] init];
+    NSString *passwdEtalon = [sync readValueFromFileWithKey:@"password hash"];
+    if (![passwdEtalon isEqualToString:[backupPassword sha256String]])
+        return 1;
+    if ([DBadapter RestoreDb])
+        return 2;
+    NSString *currentPasswd = [Security getPassword];
+    [Security savePassword:backupPassword];
+    if (![DBadapter DBRecryptWithPassword:currentPasswd])
+        return 3;
+    [Security savePassword:currentPasswd];
+    return 0;
+}
+
++(BOOL)DeleteBackupFolder
+{
+    NSFileManager *manager = [NSFileManager defaultManager];
+    NSError *error = nil;
+    
+    //Checks Database Path
+    //создаем пути, куда сохранять:
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents directory
+    NSString *dirPath = [documentsDirectory stringByAppendingPathComponent:@"/Backup"];
+    
+    BOOL isDirectory;
+    
+    //проверяем существует ли директория Backup:
+    if (![manager fileExistsAtPath:dirPath isDirectory:&isDirectory] || !isDirectory)
+    {
+        [manager removeItemAtPath:dirPath error:&error];
+        if (error != nil)
+            return NO;
+    }
+    return YES;
+}
 @end

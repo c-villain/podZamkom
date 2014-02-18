@@ -108,7 +108,6 @@ static DropboxManager *singletonManager = nil;
             break;
     }
     
-    //[(MainViewController*)apiCallDelegate setLoginStatus];
 }
 
 -(void)dropboxDidNotLogin
@@ -160,38 +159,211 @@ static DropboxManager *singletonManager = nil;
 #pragma mark -
 #pragma mark Fileupload
 
--(void)syncFolder
+-(void)uploadFolder
 {
+    command = UPLOAD;
+//    if([[DBSession sharedSession] isLinked])
+//    {
+//        [self.objRestClient deletePath:strDestDirectory];
+//        NSError *error;
+//        
+//        NSArray *subPaths = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:strFilePath error:&error];
+//    
+//        folderSize = [self folderSize:strFilePath];
+//        uploadSize = 0;
+//        for(NSString *path in subPaths)
+//        {
+//            strFileName = path;
+//            NSString *from = [strFilePath stringByAppendingPathComponent:path];
+////            NSString *parentRiv = [strDestDirectory stringByAppendingPathComponent: strFileName];
+//            [self.objRestClient uploadFile:strFileName toPath:strDestDirectory withParentRev:nil fromPath:from];
+//        }
+//    }
+//    else
+//        [self checkForLink];
+    
     if([[DBSession sharedSession] isLinked])
     {
-        [self.objRestClient deletePath:strDestDirectory];
         NSError *error;
+        
         NSArray *subPaths = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:strFilePath error:&error];
-    
+        folderSize = [self folderSize:strFilePath];
         for(NSString *path in subPaths)
         {
             strFileName = path;
-            NSString *from = [strFilePath stringByAppendingPathComponent:path];
-            [self.objRestClient uploadFile:strFileName toPath:strDestDirectory withParentRev:nil fromPath:from];
+            
+            NSString *parentRiv = [strDestDirectory stringByAppendingPathComponent: strFileName];
+            
+            
+            [self.objRestClient loadMetadata:parentRiv];
         }
     }
     else
         [self checkForLink];
+
+
 }
+
+- (void)restClient:(DBRestClient*)client loadedMetadata:(DBMetadata*)metadata
+{
+    switch (command) {
+        case UPLOAD:
+            if (metadata.isDirectory)
+            {
+                NSLog(@"uploadFile failed. pathname is directory");
+            } else
+            {
+                NSLog(@"%lld", metadata.totalBytes);
+                if([[DBSession sharedSession] isLinked])
+                {
+                    NSError *error;
+                    
+                    NSArray *subPaths = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:strFilePath error:&error];
+                    
+                    folderSize = [self folderSize:strFilePath];
+                    for(NSString *path in subPaths)
+                    {
+                        strFileName = path;
+                        NSString *from = [strFilePath stringByAppendingPathComponent:path];
+                        if ([strFileName isEqualToString:metadata.filename])
+                            [self.objRestClient uploadFile:strFileName toPath:strDestDirectory withParentRev:metadata.rev fromPath:from];
+                    }
+                }
+                else
+                    [self checkForLink];
+            }
+            break;
+            
+       case DOWNLOAD:
+            if ([metadata.filename isEqualToString:@"backup.sqlite"])
+                uploadDb = metadata.totalBytes;
+            if ([metadata.filename isEqualToString:@"cash.underlock"])
+                uploadCash = metadata.totalBytes;
+            backupSize = uploadDb + uploadCash;
+            
+            //скачиваем файлы:
+            [self downloadFileFromSourcePath:@"/Backup/backup.sqlite" destinationPath:[self GetDbPathInDropBox:DB]];
+            [self downloadFileFromSourcePath:@"/Backup/cash.underlock" destinationPath:[self GetDbPathInDropBox:CASH]];
+            //--------------------------------------------
+            break;
+    }
+
+    
+    }
+
+
+- (unsigned long long int)folderSize:(NSString *)folderPath
+{
+    NSArray *filesArray = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:folderPath error:nil];
+    NSEnumerator *filesEnumerator = [filesArray objectEnumerator];
+    NSString *fileName;
+    unsigned long long int fileSize = 0;
+    
+    while (fileName = [filesEnumerator nextObject]) {
+        NSDictionary *fileDictionary = [[NSFileManager defaultManager] attributesOfItemAtPath:[folderPath stringByAppendingPathComponent:fileName] error:nil];
+        fileSize += [fileDictionary fileSize];
+    }
+    
+    return fileSize;
+}
+
+-(NSString *)GetDbPathInDropBox: (BackupPath) path
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents directory
+    switch (path)
+    {
+        case DB:
+            return [documentsDirectory stringByAppendingPathComponent:@"Backup/backup.sqlite"];
+        case BACKUPDIR:
+            return [documentsDirectory stringByAppendingPathComponent:@"/Backup"];
+        case CASH:
+            return [documentsDirectory stringByAppendingPathComponent:@"Backup/cash.underlock"];
+    }
+}
+
+
+-(void)downloadFolder
+{
+    command = DOWNLOAD;
+    /*
+    NSFileManager *manager = [NSFileManager defaultManager];
+    NSError *error = nil;
+   
+    //Checks Database Path
+    //создаем пути, куда сохранять:
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents directory
+    
+    NSString *dbPath = [documentsDirectory stringByAppendingPathComponent:@"Backup/backup.sqlite"];
+    NSString *cashPath = [documentsDirectory stringByAppendingPathComponent:@"Backup/cash.underlock"];
+
+    NSString *dirPath = [documentsDirectory stringByAppendingPathComponent:@"/Backup"];
+    
+    BOOL isDirectory;
+    
+    //проверяем существует ли директория Backup:
+    if (![manager fileExistsAtPath:dirPath isDirectory:&isDirectory] || !isDirectory)
+    {
+        //если нет, то создаем:
+        NSDictionary *attr = [NSDictionary dictionaryWithObject:NSFileProtectionComplete
+                                                         forKey:NSFileProtectionKey];
+        [manager createDirectoryAtPath:dirPath withIntermediateDirectories:YES attributes:attr error:&error];
+    }
+    
+    else
+    {
+        [manager removeItemAtPath:dbPath error:&error];
+        [manager removeItemAtPath:cashPath error:&error];
+    }
+    
+    //скачиваем файлы:
+    [self downloadFileFromSourcePath:@"/Backup/backup.sqlite" destinationPath:dbPath];
+    [self downloadFileFromSourcePath:@"/Backup/cash.underlock" destinationPath:cashPath];
+    
+     */
+    
+    //--------------------------------------------
+    NSFileManager *manager = [NSFileManager defaultManager];
+    NSError *error = nil;
+    //Checks Database Path
+    //создаем пути, куда сохранять:
+    BOOL isDirectory;
+    
+    //проверяем существует ли директория Backup:
+    if (![manager fileExistsAtPath:[self GetDbPathInDropBox:BACKUPDIR] isDirectory:&isDirectory] || !isDirectory)
+    {
+        //если нет, то создаем:
+        NSDictionary *attr = [NSDictionary dictionaryWithObject:NSFileProtectionComplete
+                                                         forKey:NSFileProtectionKey];
+        [manager createDirectoryAtPath:[self GetDbPathInDropBox:BACKUPDIR] withIntermediateDirectories:YES attributes:attr error:&error];
+    }
+    
+    else
+    {
+        [manager removeItemAtPath: [self GetDbPathInDropBox:DB] error:&error];
+        [manager removeItemAtPath: [self GetDbPathInDropBox:CASH] error:&error];
+    }
+
+    
+    [self.objRestClient loadMetadata:@"/Backup/backup.sqlite"];
+    [self.objRestClient loadMetadata:@"/Backup/cash.underlock"];
+}
+
 
 -(void)uploadFile
 {
-    
     if([[DBSession sharedSession] isLinked])
     {
-        [self.objRestClient deletePath:strDestDirectory];
+//        [self.objRestClient deletePath:strDestDirectory];
         [self.objRestClient uploadFile:strFileName toPath:strDestDirectory withParentRev:nil fromPath:strFilePath];
     }
     else
         [self checkForLink];
 }
 
--(void)downlaodFileFromSourcePath:(NSString*)pstrSourcePath destinationPath:(NSString*)toPath
+
+-(void)downloadFileFromSourcePath:(NSString*)pstrSourcePath destinationPath:(NSString*)toPath
 {
     if([[DBSession sharedSession] isLinked])
         [self.objRestClient loadFile:pstrSourcePath intoPath:toPath];
@@ -201,9 +373,7 @@ static DropboxManager *singletonManager = nil;
 
 - (void)restClient:(DBRestClient*)client uploadedFile:(NSString*)destPath from:(NSString*)srcPath metadata:(DBMetadata*)metadata
 {
-    SEL setErrorSelector = sel_registerName("finishedUploadeFile:");
-//    if([self.apiCallDelegate respondsToSelector:@selector(finishedUploadeFile)])
-    if([self.apiCallDelegate respondsToSelector:setErrorSelector])
+    if([self.apiCallDelegate respondsToSelector:@selector(finishedUploadFile)])
         [self.apiCallDelegate finishedUploadFile];
     
     NSLog(@"File uploaded successfully to path: %@", metadata.path);
@@ -229,6 +399,49 @@ static DropboxManager *singletonManager = nil;
     NSLog(@"File upload failed with error - %@", error);
 }
 
+-(void) restClient:(DBRestClient *)client loadProgress:(CGFloat)progress forFile:(NSString *)destPath
+{
+    if ([destPath isEqualToString:@"/Backup/backup.sqlite"])
+        currentUploadCash = uploadDb * progress;
+    if ([destPath isEqualToString:@"/Backup/cash.underlock"])
+        currentUploadDb = uploadDb * progress;
+    
+    if([self.apiCallDelegate respondsToSelector:@selector(downloadProgressed:)])
+    [self.apiCallDelegate downloadProgressed:(double)(currentUploadCash + currentUploadDb)/backupSize];
+}
+
+-(void) restClient:(DBRestClient *)client uploadProgress:(CGFloat)progress forFile:(NSString *)destPath from:(NSString *)srcPath
+{
+    static NSDate* date = nil;
+    static double oldUploadedFileSize = 0;
+    if (!date) {
+        date = [[NSDate date] retain];
+    } else {
+//        NSTimeInterval sec = -[date timeIntervalSinceNow];
+        [date release];
+        date = [[NSDate date] retain];
+        NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:srcPath error:nil];
+        double uploadedFileSize = (double)[fileAttributes fileSize] * progress;
+        if ([destPath isEqualToString:@"/Backup/backup.sqlite"])
+            uploadDb = uploadedFileSize;
+        if ([destPath isEqualToString:@"/Backup/cash.underlock"])
+            uploadCash = uploadedFileSize;
+            
+//        uploadSize += uploadedFileSize;
+//        double uploadedFileSize = (double)(folderSize* progress);
+//        CGFloat absProgress = uploadedFileSize/folderSize;
+//        if (sec) {
+//            NSLog(@"speed approx. %.2f KB/s", (uploadedFileSize - oldUploadedFileSize )/1024.0 / sec );
+//        }
+        NSLog(@"%f", (double)(uploadCash + uploadDb)/folderSize);
+        if([self.apiCallDelegate respondsToSelector:@selector(downloadProgressed:)])
+            [self.apiCallDelegate downloadProgressed:(double)(uploadCash + uploadDb)/folderSize];
+        
+        oldUploadedFileSize = uploadedFileSize;
+    }
+}
+
+
 #pragma mark -
 #pragma mark Create Folder
 
@@ -239,6 +452,7 @@ static DropboxManager *singletonManager = nil;
     else
         [self checkForLink];
 }
+
 
 - (void)restClient:(DBRestClient*)client createdFolder:(DBMetadata*)folder
 {
@@ -318,22 +532,7 @@ static DropboxManager *singletonManager = nil;
         [self checkForLink];
 }
 
-- (void)restClient:(DBRestClient*)client loadedMetadata:(DBMetadata*)metadata
-{
-    if (metadata.isDirectory)
-    {
-        NSLog(@"Folder '%@' contains:", metadata.contents);
-        for (DBMetadata *file in metadata.contents)
-        {
-            NSLog(@"\t%@", file);
-        }
-        
-        if([apiCallDelegate respondsToSelector:@selector(getFolderContentFinished:)])
-            [apiCallDelegate getFolderContentFinished:metadata];
-    }
-    NSLog(@"Folder list success: %@", metadata.path);
-    
-}
+
 
 - (void)restClient:(DBRestClient*)client metadataUnchangedAtPath:(NSString*)path
 {

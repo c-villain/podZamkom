@@ -25,6 +25,17 @@ typedef enum
     DropBoxUploadFile = 4
 } DropBoxPostType;
 
+typedef enum {
+    UPLOAD = 0,
+    DOWNLOAD
+} Command;
+
+typedef enum {
+    DB = 0,
+    CASH,
+    BACKUPDIR
+} BackupPath;
+
 @interface DropboxManager : NSObject <DBRestClientDelegate,DBSessionDelegate,UIAlertViewDelegate>
 {
     UIViewController<DropBoxDelegate> *apiCallDelegate;
@@ -40,6 +51,25 @@ typedef enum
     NSString *strDestDirectory;
     NSString *strFolderCreate;
     NSString *strFolderToList;
+    unsigned long long int folderSize; //размер папки Backup в телефоне
+    unsigned long long int uploadSize;
+    
+    unsigned long long int backupSize; //размер резервной копии в dropbox-е
+    
+    unsigned long long int uploadCash;
+    unsigned long long int currentUploadCash; //текущий размер загруженного кэша
+
+    unsigned long long int uploadDb;
+    unsigned long long int currentUploadDb; //текущий размер загруженной копии
+    
+    
+    NSString *destPathToBeUsed;
+    NSString *origPathToBeUsed;
+    
+    int command; //текущая команда (upload/download)
+    
+//    NSString *dbPath;   //   @"Backup/backup.sqlite"
+//    NSString *cashPath; //   @"Backup/cash.underlock"
 }
 
 @property (nonatomic,retain) DBSession *objDBSession;
@@ -59,6 +89,9 @@ typedef enum
 
 @property (nonatomic,retain) NSString *strFolderToList;
 
+
+-(NSString *)GetDbPathInDropBox: (BackupPath) path; //получает путь бэкапа на сервере dropbox
+
 //Singleton
 +(id)dropBoxManager;
 
@@ -77,10 +110,13 @@ typedef enum
 -(void)uploadFile;
 
 //upload folder
--(void)syncFolder;
+-(void)uploadFolder;
+
+//download folder
+-(void)downloadFolder;
 
 //Download File
--(void)downlaodFileFromSourcePath:(NSString*)pstrSourcePath destinationPath:(NSString*)toPath;
+-(void)downloadFileFromSourcePath:(NSString*)pstrSourcePath destinationPath:(NSString*)toPath;
 
 //Create Folder
 -(void)createFolder;
@@ -110,6 +146,8 @@ typedef enum
 
 - (void)finishedDownloadFile;
 - (void)failedToDownloadFile:(NSString*)withMessage;
+
+- (void)downloadProgressed:(CGFloat)progress;
 
 - (void)getFolderContentFinished:(DBMetadata*)metadata;
 - (void)getFolderContentFailed:(NSString*)withMessage;

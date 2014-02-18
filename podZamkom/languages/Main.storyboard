@@ -615,15 +615,15 @@
                                     <action selector="restoreBackup:" destination="A30-9V-uAQ" eventType="touchUpInside" id="lC5-M2-Tut"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ПОСЛЕДНЯЯ КОПИЯ 16.07.2014 15:25" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAg-SH-MDa">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ПОСЛЕДНЯЯ КОПИЯ 16.07.2014 15:25:15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAg-SH-MDa">
                                 <rect key="frame" x="0.0" y="259" width="320" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="aUl-LU-O3g"/>
                                     <constraint firstAttribute="width" constant="320" id="ykL-Kv-st4"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="11"/>
+                                <color key="textColor" red="0.44705882349999998" green="0.50196078430000002" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -647,6 +647,7 @@
                     <connections>
                         <outlet property="createBackupBtn" destination="snP-aT-pfC" id="a3r-5f-3ME"/>
                         <outlet property="dropboxSync" destination="sJn-Bh-I90" id="vsA-WM-qig"/>
+                        <outlet property="lblDropboxSync" destination="ScV-yU-yU9" id="27j-tG-tY4"/>
                         <outlet property="lblLastBackup" destination="kAg-SH-MDa" id="sTL-3b-GPd"/>
                         <outlet property="restoreBackupBtn" destination="3jg-e1-PmM" id="Vx4-ux-IjI"/>
                     </connections>

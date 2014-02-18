@@ -7,17 +7,22 @@
 //
 
 #import "FrameVC.h"
-//#import <DropboxSDK/DropboxSDK.h>
-//#import <Dropbox/Dropbox.h>
 #import "DropboxManager.h"
 #import "AppDelegate.h"
 #import "Sync.h"
+#import "M13ProgressHUD.h"
+#import "M13ProgressViewRing.h"
 
-@interface SyncVC : FrameVC <DropBoxDelegate, DropboxSyncDelegate>
+@interface SyncVC : FrameVC <DropBoxDelegate, DropboxSyncDelegate, UIAlertViewDelegate>
 {
     DropboxManager *objManager;
+    NSString *syncPasswd;
+    int filesDownloaded;
+    M13ProgressHUD *HUD;
+    RNBlurModalView *modal;
 }
 
+@property (strong, nonatomic) IBOutlet UILabel *lblDropboxSync;
 @property (nonatomic, retain) IBOutlet UISwitch *dropboxSync; //использовать пароль для входа
 
 @property (nonatomic, retain) IBOutlet UIButton *createBackupBtn; //кнопка создать backup

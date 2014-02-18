@@ -12,6 +12,7 @@
 
 +(NSString*)getCurrentDate;
 +(NSDate *)getDateFromString:(NSString *)dateString;
++(NSString *)getStringFromDate:(NSDate *)date;
 +(void)saveSelectedLanguage:(NSString*)language;
 +(void)setDefaultLanguage;
 +(void)setNotFirstAppRun;
@@ -23,5 +24,8 @@
 +(NSString *)getVersionWhenRateUsed;
 +(void)setRate;
 +(BOOL)isLinkWithDropBox;
+
++(void)setDateSync;
++(NSString *)getLastDateSync;
 
 @end

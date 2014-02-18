@@ -136,3 +136,19 @@
 "Yes" = "Да";
 "Remind me later" = "Напомнить позже";
 
+"PHOTOS (" = "ФОТОКОПИИ (";
+"PHOTO" = "ФОТО";
+"CONTACT WITH DEVELOPERS" = "НАПИСАТЬ РАЗРАБОТЧИКАМ";
+"VOTE FOR APP" = "ОЦЕНИТЬ ПРИЛОЖЕНИЕ";
+"SYNCHRONIZATION" = "СИНХРОНИЗАЦИЯ";
+
+//sync:
+"Sync using Dropbox" = "Синхронизировать через Dropbox";
+"CREATE BACKUP" = "СОЗДАТЬ РЕЗЕРВНУЮ КОПИЮ";
+"RECOVER DATA" = "ВОССТАНОВИТЬ ДАННЫЕ";
+"Error!" = "Ошибка!";
+"Wrong password!" = "Неправильный пароль!";
+"Try again" = "Попробовать еще раз";
+"Last backup: " = "Последняя копия: ";
+"Enter" = "Ввести";
+"Enter password which was used during last backup" = "Введите пароль, который использовался при создании прошлой копии";

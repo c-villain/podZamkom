@@ -14,7 +14,7 @@
 {
     NSDate *currentTime = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MMM dd, YYYY hh:mm"];
+    [dateFormatter setDateFormat:@"MMM dd, YYYY hh:mm:ss"];
     NSString *resultString = [dateFormatter stringFromDate: currentTime];
     return resultString;
 }
@@ -24,9 +24,21 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     // this is imporant - we set our input date format to match our input string
     // if format doesn't match you'll get nil from your string, so be careful
-    [dateFormatter setDateFormat:@"MMM dd, YYYY hh:mm"];
+    [dateFormatter setDateFormat:@"MMM dd, YYYY hh:mm:ss"];
     return [dateFormatter dateFromString:dateString];
 }
+
++(NSString *)getStringFromDate:(NSDate *)date
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMM dd, YYYY hh:mm:ss"];
+    
+    //Optionally for time zone converstions
+//    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
+    
+    return [formatter stringFromDate:date];
+}
+
 
 +(void)saveSelectedLanguage:(NSString*)language
 {
@@ -105,6 +117,21 @@
 +(NSDate *)getDateWhenRateUsed
 {
     return [self getDateFromString:[[NSUserDefaults standardUserDefaults] stringForKey:@"rateDateUsed"]];
+}
+
+
++(void)setDateSync
+{
+    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] init];
+    [userDefaults setObject:[self getCurrentDate] forKey:@"lastSyncDate"];
+    [userDefaults synchronize];
+}
+
++(NSString *)getLastDateSync
+{
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"lastSyncDate"])
+        return [[NSUserDefaults standardUserDefaults] stringForKey:@"lastSyncDate"];
+    return @"";
 }
 
 +(NSInteger)getLaunchCount

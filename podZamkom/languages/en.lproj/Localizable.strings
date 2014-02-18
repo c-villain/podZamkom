@@ -138,3 +138,21 @@
 "No, thanks" = "No, thanks";
 "Yes" = "Yes";
 "Remind me later" = "Remind me later";
+"PHOTOS (" = "PHOTOS (";
+"PHOTO" = "PHOTO";
+"CONTACT WITH DEVELOPERS" = "CONTACT WITH DEVELOPERS";
+"VOTE FOR APP" = "VOTE FOR APP";
+"SYNCHRONIZATION" = "SYNCHRONIZATION";
+
+//sync:
+"Sync using Dropbox" = "Sync using Dropbox";
+"CREATE BACKUP" = "CREATE BACKUP";
+"RECOVER DATA" = "RECOVER DATA";
+"Error!" = "Error!";
+"Wrong password!" = "Wrong password!";
+"Try again" = "Try again";
+"Last backup: " = "Last backup: ";
+"Enter" = "Enter";
+"Enter password which was used during last backup" = "Enter password which was used during last backup";
+
+

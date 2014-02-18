@@ -17,6 +17,7 @@
     NSString *BUpath;
 }
 
-+(void)CreateBackup;
-
++(int32_t)CreateBackup;
++(int)RestoreBackup:(NSString *) backupPassword;
++(BOOL)DeleteBackupFolder;
 @end

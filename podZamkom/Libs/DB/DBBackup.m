@@ -136,4 +136,5 @@
     DBadapter *db = [[DBadapter alloc] init];
     return [db loadOrSaveDb: 1];
 }
+
 @end
