@@ -54,13 +54,13 @@ typedef enum {
     unsigned long long int folderSize; //размер папки Backup в телефоне
     unsigned long long int uploadSize;
     
-    unsigned long long int backupSize; //размер резервной копии в dropbox-е
+//    static unsigned long long int backupSize; //размер резервной копии в dropbox-е
     
     unsigned long long int uploadCash;
-    unsigned long long int currentUploadCash; //текущий размер загруженного кэша
+//    unsigned long long int currentUploadCash; //текущий размер загруженного кэша
 
     unsigned long long int uploadDb;
-    unsigned long long int currentUploadDb; //текущий размер загруженной копии
+//    unsigned long long int currentUploadDb; //текущий размер загруженной копии
     
     
     NSString *destPathToBeUsed;
@@ -68,6 +68,7 @@ typedef enum {
     
     int command; //текущая команда (upload/download)
     
+    int filesDownloaded;
 //    NSString *dbPath;   //   @"Backup/backup.sqlite"
 //    NSString *cashPath; //   @"Backup/cash.underlock"
 }
@@ -129,6 +130,9 @@ typedef enum {
 //List Folders
 -(void)listFolders;
 
+-(void)clearSession; //stop loads
+-(void)clearSync; //stop uploads
+
 @end
 
 @protocol DropBoxDelegate <NSObject>
@@ -142,10 +146,10 @@ typedef enum {
 - (void)failedToCreateFolder:(NSString*)withMessage;
 
 - (void)finishedUploadFile;
-- (void)failedToUploadFile:(NSString*)withMessage;
+- (void)failedToUploadFile:(NSError*)error;
 
 - (void)finishedDownloadFile;
-- (void)failedToDownloadFile:(NSString*)withMessage;
+- (void)failedToDownloadFile:(NSError *)error;
 
 - (void)downloadProgressed:(CGFloat)progress;
 

@@ -20,7 +20,6 @@
 
 @implementation FrameVC
 
-
 - (void)registerForKeyboardNotifications
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -32,7 +31,67 @@
                                              selector:@selector(keyboardWillBeHidden:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(passwordShow)
+//                                                 name:@"appDidBecomeActive"
+//                                               object:nil];
 }
+/*
+- (void)passwordShow
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PasswordVC *passwordView = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
+    if (NO == [Settings isNotFirstAppRun] ) //если первый запуск, то показываем форму в режиме установка пароля
+    {
+        passwordView = [passwordView initForAction:PasscodeActionSet];
+        [Security saveUseOrNotPassword:YES]; //по умолч.: всегда спрашивать пароль при входе
+        
+    }
+    else // если не первый запуск, то сравниваем введенный пароль с ранее установленным
+    {
+        passwordView = [passwordView initForAction:PasscodeActionEnter];
+        passwordView.passcode = [Security getPassword]; //передаем пароль для сверки
+        passwordView.xtraPasscode = [Security getXtraPassword]; //передаем экстренный пароль
+        passwordView.deleteAfterTenErrors = [Security getDeleteorNotFilesAfterTenErrors]; //передаем удалять файлы после 10 попыток или нет
+    }
+//    passwordView.delegate = self;
+}
+
+- (void)PasswordVCDidEnterPasscode:(PasswordVC *)controller
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    //    [self performSelector:@selector(showMainVC) withObject:nil afterDelay:0.1];
+}
+
+- (void)PasswordVCDidSetPasscode:(PasswordVC *)controller
+{
+//    [Security savePassword:controller.passcode];
+//    [Settings setNotFirstAppRun];
+//    [self performSelector:@selector(showMainVC) withObject:nil afterDelay:0.1];
+}
+
+
+- (void)PasswordVCDidChangePasscode:(PasswordVC *)controller
+{
+    //поменяли пароль
+//    [Security savePassword:controller.passcode];
+}
+
+- (void)DeleteAllCharacters:(PasswordVC *)controller
+{
+//    if ([DBadapter DeleteAllDocs])
+//        [self showMainVC];
+}
+
+- (void)PasswordVCDidEnterXtraPasscode:(PasswordVC *)controller
+{
+//    //если пользователь ввел экстренный пароль:
+//    if ([DBadapter DeleteAllDocs])
+//        [self showMainVC];
+}
+*/
+
 
 - (void)viewDidLoad: (NSString*)title
 {

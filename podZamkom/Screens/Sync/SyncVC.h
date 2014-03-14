@@ -13,11 +13,10 @@
 #import "M13ProgressHUD.h"
 #import "M13ProgressViewRing.h"
 
-@interface SyncVC : FrameVC <DropBoxDelegate, DropboxSyncDelegate, UIAlertViewDelegate>
+@interface SyncVC : FrameVC <DropBoxDelegate, DropboxSyncDelegate, UIAlertViewDelegate, SyncDelegate>
 {
     DropboxManager *objManager;
     NSString *syncPasswd;
-    int filesDownloaded;
     M13ProgressHUD *HUD;
     RNBlurModalView *modal;
 }

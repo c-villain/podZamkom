@@ -11,18 +11,7 @@
 @implementation Sync
 
 -(id)init
-{/*
-    //Database name
-    BUname = @"underlock";
-    
-    //Getting DB Path
-    NSArray *dbPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    
-    NSError *error;
-    NSString *dbDir = [dbPath objectAtIndex:0];
-    BUpath = [dbDir stringByAppendingPathComponent:BUname];
-    return self;
-    */
+{
     //Database name
     BUname = @"cash.underlock";
     
@@ -69,8 +58,13 @@
 - (NSString*)readValueFromFileWithKey: (NSString *)key
 {
     NSString *data = [[NSString alloc] initWithData:[NSData dataWithContentsOfFile:BUpath] encoding:NSUTF8StringEncoding];
-    NSRange range = [data rangeOfString:key];
+    NSRange range;
+    if (!([data rangeOfString:key].length > 0))
+        return nil;
+    range = [data rangeOfString:key];
     NSString *substring = [[data substringFromIndex:NSMaxRange(range) + 1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if (!([substring rangeOfString:@"}"].length > 0))
+        return nil;
     range = [substring rangeOfString:@"}"];
     substring = [[substring substringToIndex:NSMaxRange(range) - 1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     return substring;
@@ -90,26 +84,41 @@
     [sync checkAndCreateBuFile];
     [sync writeStringToFile:[self PasswordHashKey]];
     
-    NSString *data = [sync readValueFromFileWithKey:@"password hash"];
-    NSLog(@"password hash is %@", data);
-    
     return [DBadapter BackupDb];
 }
 
-+(int)RestoreBackup:(NSString *) backupPassword
+
+-(int32_t)RestoreBackup:(NSString *) backupPassword
 {
-    Sync *sync = [[Sync alloc] init];
-    NSString *passwdEtalon = [sync readValueFromFileWithKey:@"password hash"];
+    NSString *passwdEtalon = [self readValueFromFileWithKey:@"password hash"];
+    
+    int32_t res = 0;
+    if (passwdEtalon == nil)
+        return res = 4; //поврежден файл с кэшем
+    
     if (![passwdEtalon isEqualToString:[backupPassword sha256String]])
-        return 1;
+        return res = 1;
+    
     if ([DBadapter RestoreDb])
-        return 2;
+        return res = 2;
+    
     NSString *currentPasswd = [Security getPassword];
     [Security savePassword:backupPassword];
-    if (![DBadapter DBRecryptWithPassword:currentPasswd])
-        return 3;
+    
+    DBadapter *db = [[DBadapter alloc] init];
+    db.recryptDelegate = self;
+    if (![db DbRecryptWithPassword:currentPasswd])
+        return res = 3;
     [Security savePassword:currentPasswd];
-    return 0;
+    return res;
+}
+
+- (void)RowWasProcessed:(CGFloat)progress
+{
+    if ([self.restoreDelegate respondsToSelector:@selector(RestoreProcessed:)])
+    {
+        [self.restoreDelegate RestoreProcessed:progress];
+    }
 }
 
 +(BOOL)DeleteBackupFolder

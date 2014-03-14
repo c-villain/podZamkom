@@ -11,9 +11,11 @@
 #import "DocumentLib.h"
 #import "PhotoViewCell.h"
 #import "ViewAppearance.h"
+#import "Settings.h"
+#import "RNBlurModalView.h" 
 
 
-@interface PhotoVC : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface PhotoVC : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate>
 
 @property (nonatomic, retain) IBOutlet UICollectionView *colView;
 @property (nonatomic, strong) Document *document;

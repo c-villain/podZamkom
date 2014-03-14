@@ -18,10 +18,10 @@ typedef enum {
     PasscodeActionEnter
 } PasscodeAction;
 
+
 @class PasswordVC;
 
 @protocol PasswordVCDelegate <NSObject>
-
 @optional
 //методы для сигнализирования appdelegate,  что происходит с вводом пароля
 - (void)PasswordVCDidChangePasscode:(PasswordVC *)controller;
@@ -32,6 +32,7 @@ typedef enum {
 - (void)PasswordVC:(PasswordVC *)controller didFailToEnterPasscode:(NSInteger)attempts;
 
 @end
+
 
 @interface PasswordVC : UIViewController <UITextViewDelegate>
 {

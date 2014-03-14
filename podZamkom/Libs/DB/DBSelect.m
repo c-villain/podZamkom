@@ -184,7 +184,7 @@
             return nil;
     }
     if (selectPhotos)
-        document.docPhotos = [self GetPhotosById:doc.idDocList];
+        document.docPhotos = [self GetPhotosById:(int32_t)doc.idDocList];
     document.dateOfCreation = doc.dateOfCreation;
     return document;
 }

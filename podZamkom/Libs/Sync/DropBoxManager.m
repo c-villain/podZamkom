@@ -16,6 +16,12 @@
 
 static DropboxManager *singletonManager = nil;
 
+static unsigned long long int backupSize; //размер резервной копии в dropbox-е
+
+static unsigned long long int currentUploadCash; //текущий размер загруженного кэша
+
+static unsigned long long int currentUploadDb; //текущий размер загруженной копии
+
 +(id)dropBoxManager
 {
     if(!singletonManager)
@@ -121,7 +127,7 @@ static DropboxManager *singletonManager = nil;
             
         case DropBoxUploadFile:
             if([self.apiCallDelegate respondsToSelector:@selector(failedToUploadFile:)])
-                [self.apiCallDelegate failedToUploadFile:@"Problem connecting dropbox. Please try again later."];
+                [self.apiCallDelegate failedToUploadFile:[NSError errorWithDomain:@"Underlock" code:401 userInfo:nil]];
             break;
             
         case DropBoxGetFolderList:
@@ -162,26 +168,6 @@ static DropboxManager *singletonManager = nil;
 -(void)uploadFolder
 {
     command = UPLOAD;
-//    if([[DBSession sharedSession] isLinked])
-//    {
-//        [self.objRestClient deletePath:strDestDirectory];
-//        NSError *error;
-//        
-//        NSArray *subPaths = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:strFilePath error:&error];
-//    
-//        folderSize = [self folderSize:strFilePath];
-//        uploadSize = 0;
-//        for(NSString *path in subPaths)
-//        {
-//            strFileName = path;
-//            NSString *from = [strFilePath stringByAppendingPathComponent:path];
-////            NSString *parentRiv = [strDestDirectory stringByAppendingPathComponent: strFileName];
-//            [self.objRestClient uploadFile:strFileName toPath:strDestDirectory withParentRev:nil fromPath:from];
-//        }
-//    }
-//    else
-//        [self checkForLink];
-    
     if([[DBSession sharedSession] isLinked])
     {
         NSError *error;
@@ -200,13 +186,12 @@ static DropboxManager *singletonManager = nil;
     }
     else
         [self checkForLink];
-
-
 }
 
 - (void)restClient:(DBRestClient*)client loadedMetadata:(DBMetadata*)metadata
 {
-    switch (command) {
+    switch (command)
+    {
         case UPLOAD:
             if (metadata.isDirectory)
             {
@@ -236,20 +221,21 @@ static DropboxManager *singletonManager = nil;
             
        case DOWNLOAD:
             if ([metadata.filename isEqualToString:@"backup.sqlite"])
+            {
                 uploadDb = metadata.totalBytes;
-            if ([metadata.filename isEqualToString:@"cash.underlock"])
-                uploadCash = metadata.totalBytes;
-            backupSize = uploadDb + uploadCash;
-            
-            //скачиваем файлы:
-            [self downloadFileFromSourcePath:@"/Backup/backup.sqlite" destinationPath:[self GetDbPathInDropBox:DB]];
-            [self downloadFileFromSourcePath:@"/Backup/cash.underlock" destinationPath:[self GetDbPathInDropBox:CASH]];
-            //--------------------------------------------
-            break;
-    }
+                backupSize += uploadDb;
+                [self downloadFileFromSourcePath:@"/Backup/backup.sqlite" destinationPath:[self GetDbPathInDropBox:DB]];
 
-    
+            }
+            if ([metadata.filename isEqualToString:@"cash.underlock"])
+            {
+                uploadCash = metadata.totalBytes;
+                backupSize += uploadCash;
+                [self downloadFileFromSourcePath:@"/Backup/cash.underlock" destinationPath:[self GetDbPathInDropBox:CASH]];
+            }
+        break;
     }
+}
 
 
 - (unsigned long long int)folderSize:(NSString *)folderPath
@@ -286,44 +272,6 @@ static DropboxManager *singletonManager = nil;
 -(void)downloadFolder
 {
     command = DOWNLOAD;
-    /*
-    NSFileManager *manager = [NSFileManager defaultManager];
-    NSError *error = nil;
-   
-    //Checks Database Path
-    //создаем пути, куда сохранять:
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents directory
-    
-    NSString *dbPath = [documentsDirectory stringByAppendingPathComponent:@"Backup/backup.sqlite"];
-    NSString *cashPath = [documentsDirectory stringByAppendingPathComponent:@"Backup/cash.underlock"];
-
-    NSString *dirPath = [documentsDirectory stringByAppendingPathComponent:@"/Backup"];
-    
-    BOOL isDirectory;
-    
-    //проверяем существует ли директория Backup:
-    if (![manager fileExistsAtPath:dirPath isDirectory:&isDirectory] || !isDirectory)
-    {
-        //если нет, то создаем:
-        NSDictionary *attr = [NSDictionary dictionaryWithObject:NSFileProtectionComplete
-                                                         forKey:NSFileProtectionKey];
-        [manager createDirectoryAtPath:dirPath withIntermediateDirectories:YES attributes:attr error:&error];
-    }
-    
-    else
-    {
-        [manager removeItemAtPath:dbPath error:&error];
-        [manager removeItemAtPath:cashPath error:&error];
-    }
-    
-    //скачиваем файлы:
-    [self downloadFileFromSourcePath:@"/Backup/backup.sqlite" destinationPath:dbPath];
-    [self downloadFileFromSourcePath:@"/Backup/cash.underlock" destinationPath:cashPath];
-    
-     */
-    
-    //--------------------------------------------
     NSFileManager *manager = [NSFileManager defaultManager];
     NSError *error = nil;
     //Checks Database Path
@@ -373,41 +321,111 @@ static DropboxManager *singletonManager = nil;
 
 - (void)restClient:(DBRestClient*)client uploadedFile:(NSString*)destPath from:(NSString*)srcPath metadata:(DBMetadata*)metadata
 {
-    if([self.apiCallDelegate respondsToSelector:@selector(finishedUploadFile)])
-        [self.apiCallDelegate finishedUploadFile];
-    
-    NSLog(@"File uploaded successfully to path: %@", metadata.path);
+    filesDownloaded++;
+    if (filesDownloaded == 2)
+    {
+        uploadCash = 0;
+        uploadDb = 0;
+        currentUploadCash = 0;
+        currentUploadDb = 0;
+        backupSize = 0;
+        
+        filesDownloaded = 0;
+        
+        if([self.apiCallDelegate respondsToSelector:@selector(finishedUploadFile)])
+            [self.apiCallDelegate finishedUploadFile];
+    }
 }
 
 - (void)restClient:(DBRestClient*)client loadedFile:(NSString*)destPath contentType:(NSString*)contentType
 {
-    if([self.apiCallDelegate respondsToSelector:@selector(finishedDownloadFile)])
-        [self.apiCallDelegate finishedDownloadFile];
+    filesDownloaded++;
+    if (filesDownloaded == 2)
+    {
+        uploadCash = 0;
+        uploadDb = 0;
+        currentUploadCash = 0;
+        currentUploadDb = 0;
+        backupSize = 0;
+        
+        filesDownloaded = 0;
+        
+        if([self.apiCallDelegate respondsToSelector:@selector(finishedDownloadFile)])
+            [self.apiCallDelegate finishedDownloadFile];
+    }
 }
+
+-(void)removeObjRestClient:(NSSet *)objects
+{
+    
+}
+
+-(void)clearSession
+{
+    if (self.objDBSession != nil)
+        [self.objDBSession unlinkAll];
+    if (self.objRestClient != nil)
+    {
+        [self.objRestClient cancelFileLoad:@"/Backup/cash.underlock"];
+        [self.objRestClient cancelFileLoad:@"/Backup/backup.sqlite"];
+        
+        uploadCash = 0;
+        uploadDb = 0;
+        currentUploadCash = 0;
+        currentUploadDb = 0;
+        backupSize = 0;
+        
+        filesDownloaded = 0;
+    }
+}
+
+-(void)clearSync
+{
+    if (self.objDBSession != nil)
+        [self.objDBSession unlinkAll];
+    if (self.objRestClient != nil)
+    {
+        [self.objRestClient cancelFileUpload:@"/Backup/cash.underlock"];
+        [self.objRestClient cancelFileUpload:@"/Backup/backup.sqlite"];
+        
+        //обнуляю текущие значения загруженного кэша:
+        uploadDb = 0;
+        uploadCash = 0;
+        folderSize = 0;
+        
+        filesDownloaded = 0;
+    }
+}
+
 
 -(void)restClient:(DBRestClient *)client loadFileFailedWithError:(NSError *)error
 {
+    filesDownloaded = 0;
     if([self.apiCallDelegate respondsToSelector:@selector(failedToDownloadFile:)])
-        [self.apiCallDelegate failedToDownloadFile:[error description]];
+        [self.apiCallDelegate failedToDownloadFile:error];
 }
 
 - (void)restClient:(DBRestClient*)client uploadFileFailedWithError:(NSError*)error
 {
+    filesDownloaded = 0;
     if([self.apiCallDelegate respondsToSelector:@selector(failedToUploadFile:)])
-        [self.apiCallDelegate failedToUploadFile:[error description]];
+        [self.apiCallDelegate failedToUploadFile:error];
     
     NSLog(@"File upload failed with error - %@", error);
 }
 
+
 -(void) restClient:(DBRestClient *)client loadProgress:(CGFloat)progress forFile:(NSString *)destPath
 {
-    if ([destPath isEqualToString:@"/Backup/backup.sqlite"])
-        currentUploadCash = uploadDb * progress;
-    if ([destPath isEqualToString:@"/Backup/cash.underlock"])
+    if ([[[destPath lastPathComponent] stringByDeletingPathExtension] isEqualToString:@"cash"])
+        currentUploadCash = uploadCash * progress;
+    if ([[[destPath lastPathComponent] stringByDeletingPathExtension] isEqualToString:@"backup"])
         currentUploadDb = uploadDb * progress;
     
+    NSLog(@"%f", (double)(currentUploadCash + currentUploadDb)/backupSize);
+
     if([self.apiCallDelegate respondsToSelector:@selector(downloadProgressed:)])
-    [self.apiCallDelegate downloadProgressed:(double)(currentUploadCash + currentUploadDb)/backupSize];
+        [self.apiCallDelegate downloadProgressed:(double)(currentUploadCash + currentUploadDb)/backupSize];
 }
 
 -(void) restClient:(DBRestClient *)client uploadProgress:(CGFloat)progress forFile:(NSString *)destPath from:(NSString *)srcPath
@@ -546,4 +564,5 @@ static DropboxManager *singletonManager = nil;
     if([apiCallDelegate respondsToSelector:@selector(getFolderContentFailed:)])
         [apiCallDelegate getFolderContentFailed:[error localizedDescription]];
 }
+
 @end

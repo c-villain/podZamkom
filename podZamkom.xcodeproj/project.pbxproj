@@ -10,8 +10,9 @@
 		5A033F68188313AC00BFD687 /* CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A033F67188313AC00BFD687 /* CollectionView.m */; };
 		5A033F6B1883249D00BFD687 /* CollectionRV.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A033F6A1883249D00BFD687 /* CollectionRV.m */; };
 		5A08D6FA1846B04A0041A41C /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08D6F91846B04A0041A41C /* Cell.m */; };
-		5A19D0A41891A6600080F3CF /* M13ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A19D0A31891A6600080F3CF /* M13ProgressView.m */; };
-		5A19D0A71891A78C0080F3CF /* M13ProgressViewPie.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A19D0A61891A78C0080F3CF /* M13ProgressViewPie.m */; };
+		5A0A8E9E18B4014B0056B985 /* M13ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A8E9B18B4014B0056B985 /* M13ProgressView.m */; };
+		5A0A8E9F18B4014B0056B985 /* M13ProgressViewPie.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A8E9D18B4014B0056B985 /* M13ProgressViewPie.m */; };
+		5A15744018D2462B00749316 /* StartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A15743F18D2462B00749316 /* StartVC.m */; };
 		5A1A5DCA189E7E7A00DF30F6 /* DropBoxManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1A5DC9189E7E7A00DF30F6 /* DropBoxManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5A34AC7F1885BECB00CB7D28 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A34AC7E1885BECB00CB7D28 /* PhotoCell.m */; };
 		5A361EF21848D70700DA3AFB /* passport_uk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A361EF11848D70700DA3AFB /* passport_uk@2x.png */; };
@@ -65,7 +66,6 @@
 		5A6C3B661896EE4B0065B115 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6C3B651896EE4B0065B115 /* SystemConfiguration.framework */; };
 		5A6C3B681896EE5C0065B115 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6C3B671896EE5C0065B115 /* libc++.dylib */; };
 		5A717D50188DC72300D1774F /* LoginCRV.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A717D4F188DC72300D1774F /* LoginCRV.m */; };
-		5A7AD14C18A163EF004F7D42 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7AD14B18A163EE004F7D42 /* DropboxSDK.framework */; };
 		5AA46C4117FB21B0008EE800 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4017FB21B0008EE800 /* Foundation.framework */; };
 		5AA46C4317FB21B0008EE800 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4217FB21B0008EE800 /* CoreGraphics.framework */; };
 		5AA46C4517FB21B0008EE800 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4417FB21B0008EE800 /* UIKit.framework */; };
@@ -113,7 +113,6 @@
 		5AC89A261840B9A000164B51 /* Picker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC8991A1840B9A000164B51 /* Picker.m */; };
 		5AC89A271840B9A000164B51 /* TextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC8991D1840B9A000164B51 /* TextField.m */; };
 		5AC89A291840B9A000164B51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AC899231840B9A000164B51 /* Main.storyboard */; };
-		5AC89A2A1840B9A000164B51 /* Password.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AC899241840B9A000164B51 /* Password.storyboard */; };
 		5AC89A2B1840B9A000164B51 /* FBEncryptorAES.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC899281840B9A000164B51 /* FBEncryptorAES.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5AC89A2C1840B9A000164B51 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC8992A1840B9A000164B51 /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5AC89A2D1840B9A000164B51 /* DBadapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC8992D1840B9A000164B51 /* DBadapter.m */; };
@@ -296,6 +295,7 @@
 		5AE1C7DB188D880500079943 /* NoteCRV.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE1C7DA188D880500079943 /* NoteCRV.m */; };
 		5AE1C7DE188D8B0800079943 /* BankAccountCRV.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE1C7DD188D8B0800079943 /* BankAccountCRV.m */; };
 		5AE1C7E2188DA90300079943 /* PassportCRV.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE1C7E1188DA90300079943 /* PassportCRV.m */; };
+		5AF83E4518B54BE100428BFA /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF83E4418B54BE100428BFA /* DropboxSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -315,10 +315,12 @@
 		5A033F6A1883249D00BFD687 /* CollectionRV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionRV.m; sourceTree = "<group>"; };
 		5A08D6F81846B04A0041A41C /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
 		5A08D6F91846B04A0041A41C /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
-		5A19D0A21891A6600080F3CF /* M13ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M13ProgressView.h; sourceTree = "<group>"; };
-		5A19D0A31891A6600080F3CF /* M13ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M13ProgressView.m; sourceTree = "<group>"; };
-		5A19D0A51891A78C0080F3CF /* M13ProgressViewPie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M13ProgressViewPie.h; sourceTree = "<group>"; };
-		5A19D0A61891A78C0080F3CF /* M13ProgressViewPie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M13ProgressViewPie.m; sourceTree = "<group>"; };
+		5A0A8E9A18B4014B0056B985 /* M13ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M13ProgressView.h; sourceTree = "<group>"; };
+		5A0A8E9B18B4014B0056B985 /* M13ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M13ProgressView.m; sourceTree = "<group>"; };
+		5A0A8E9C18B4014B0056B985 /* M13ProgressViewPie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M13ProgressViewPie.h; sourceTree = "<group>"; };
+		5A0A8E9D18B4014B0056B985 /* M13ProgressViewPie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M13ProgressViewPie.m; sourceTree = "<group>"; };
+		5A15743E18D2462B00749316 /* StartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartVC.h; path = "Start screen/StartVC.h"; sourceTree = "<group>"; };
+		5A15743F18D2462B00749316 /* StartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartVC.m; path = "Start screen/StartVC.m"; sourceTree = "<group>"; };
 		5A1A5DC8189E7E7A00DF30F6 /* DropBoxManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropBoxManager.h; sourceTree = "<group>"; };
 		5A1A5DC9189E7E7A00DF30F6 /* DropBoxManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropBoxManager.m; sourceTree = "<group>"; };
 		5A34AC7D1885BECB00CB7D28 /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
@@ -381,7 +383,6 @@
 		5A6C3B671896EE5C0065B115 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		5A717D4E188DC72300D1774F /* LoginCRV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginCRV.h; sourceTree = "<group>"; };
 		5A717D4F188DC72300D1774F /* LoginCRV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginCRV.m; sourceTree = "<group>"; };
-		5A7AD14B18A163EE004F7D42 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		5AA46C3D17FB21B0008EE800 /* podZamkom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = podZamkom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AA46C4017FB21B0008EE800 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5AA46C4217FB21B0008EE800 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -460,7 +461,6 @@
 		5AC8991C1840B9A000164B51 /* TextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextField.h; sourceTree = "<group>"; };
 		5AC8991D1840B9A000164B51 /* TextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextField.m; sourceTree = "<group>"; };
 		5AC899231840B9A000164B51 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		5AC899241840B9A000164B51 /* Password.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Password.storyboard; sourceTree = "<group>"; };
 		5AC899271840B9A000164B51 /* FBEncryptorAES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBEncryptorAES.h; sourceTree = "<group>"; };
 		5AC899281840B9A000164B51 /* FBEncryptorAES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBEncryptorAES.m; sourceTree = "<group>"; };
 		5AC899291840B9A000164B51 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
@@ -679,6 +679,7 @@
 		5AE1C7DF188D8CA100079943 /* DocCRVs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DocCRVs.h; sourceTree = "<group>"; };
 		5AE1C7E0188DA90300079943 /* PassportCRV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassportCRV.h; sourceTree = "<group>"; };
 		5AE1C7E1188DA90300079943 /* PassportCRV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassportCRV.m; sourceTree = "<group>"; };
+		5AF83E4418B54BE100428BFA /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -691,7 +692,7 @@
 				5A6C3B641896EE3D0065B115 /* Security.framework in Frameworks */,
 				5A6C3B621896EE2D0065B115 /* CFNetwork.framework in Frameworks */,
 				5AC3FED018807FD8005C009A /* CoreText.framework in Frameworks */,
-				5A7AD14C18A163EF004F7D42 /* DropboxSDK.framework in Frameworks */,
+				5AF83E4518B54BE100428BFA /* DropboxSDK.framework in Frameworks */,
 				5AC3FECE18807F8C005C009A /* QuartzCore.framework in Frameworks */,
 				5A361EFF1849501300DA3AFB /* ImageIO.framework in Frameworks */,
 				5AC89AF718429DF300164B51 /* MessageUI.framework in Frameworks */,
@@ -715,6 +716,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A15743D18D245A800749316 /* Start screen */ = {
+			isa = PBXGroup;
+			children = (
+				5A15743E18D2462B00749316 /* StartVC.h */,
+				5A15743F18D2462B00749316 /* StartVC.m */,
+			);
+			name = "Start screen";
+			sourceTree = "<group>";
+		};
 		5A3FCED8184B904D00413F6E /* fr.lproj */ = {
 			isa = PBXGroup;
 			children = (
@@ -738,6 +748,10 @@
 		5A5627CC18B1281A00851BAE /* Progress */ = {
 			isa = PBXGroup;
 			children = (
+				5A0A8E9A18B4014B0056B985 /* M13ProgressView.h */,
+				5A0A8E9B18B4014B0056B985 /* M13ProgressView.m */,
+				5A0A8E9C18B4014B0056B985 /* M13ProgressViewPie.h */,
+				5A0A8E9D18B4014B0056B985 /* M13ProgressViewPie.m */,
 				5A5627D318B1298100851BAE /* M13ProgressViewRing.h */,
 				5A5627D418B1298100851BAE /* M13ProgressViewRing.m */,
 				5A5627CD18B1281A00851BAE /* M13ProgressHUD.h */,
@@ -810,7 +824,7 @@
 		5AA46C3F17FB21B0008EE800 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5A7AD14B18A163EE004F7D42 /* DropboxSDK.framework */,
+				5AF83E4418B54BE100428BFA /* DropboxSDK.framework */,
 				5A6C3B671896EE5C0065B115 /* libc++.dylib */,
 				5A6C3B651896EE4B0065B115 /* SystemConfiguration.framework */,
 				5A6C3B631896EE3D0065B115 /* Security.framework */,
@@ -892,6 +906,7 @@
 		5AC898D61840B9A000164B51 /* Documents */ = {
 			isa = PBXGroup;
 			children = (
+				5A15743D18D245A800749316 /* Start screen */,
 				5A5012B518888B5300EAAC68 /* Photo view */,
 				5AC898D71840B9A000164B51 /* Bank account */,
 				5AC898DF1840B9A000164B51 /* Credit Card */,
@@ -1085,10 +1100,6 @@
 				5A033F6A1883249D00BFD687 /* CollectionRV.m */,
 				5A34AC7D1885BECB00CB7D28 /* PhotoCell.h */,
 				5A34AC7E1885BECB00CB7D28 /* PhotoCell.m */,
-				5A19D0A21891A6600080F3CF /* M13ProgressView.h */,
-				5A19D0A31891A6600080F3CF /* M13ProgressView.m */,
-				5A19D0A51891A78C0080F3CF /* M13ProgressViewPie.h */,
-				5A19D0A61891A78C0080F3CF /* M13ProgressViewPie.m */,
 			);
 			path = "Appearance + FrameVC + ShowVC";
 			sourceTree = "<group>";
@@ -1155,7 +1166,6 @@
 				5AC89ADB184145A300164B51 /* en.lproj */,
 				5AC89ADE184145A300164B51 /* ru.lproj */,
 				5AC899231840B9A000164B51 /* Main.storyboard */,
-				5AC899241840B9A000164B51 /* Password.storyboard */,
 			);
 			path = Languages;
 			sourceTree = "<group>";
@@ -1711,7 +1721,7 @@
 		5AA46C3517FB21B0008EE800 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Alexander Kraev";
 				TargetAttributes = {
 					5AA46C3C17FB21B0008EE800 = {
@@ -1869,7 +1879,6 @@
 				5AC89AC21840B9A000164B51 /* Ukraine@2x.png in Resources */,
 				5AC89A181840B9A000164B51 /* NoteVC.xib in Resources */,
 				5AC89A7F1840B9A000164B51 /* menu_cards@2x.png in Resources */,
-				5AC89A2A1840B9A000164B51 /* Password.storyboard in Resources */,
 				5AC89AF3184227C800164B51 /* icon_copy_white@2x.png in Resources */,
 				5AC89ABD1840B9A000164B51 /* Russia@2x.png in Resources */,
 				5A6411351847D7D5009AB22A /* passport_portugal@2x.png in Resources */,
@@ -1974,11 +1983,11 @@
 				5A033F6B1883249D00BFD687 /* CollectionRV.m in Sources */,
 				5AC89ACE1840B9A000164B51 /* AppDelegate.m in Sources */,
 				5AC89AD51840B9A000164B51 /* main.m in Sources */,
+				5A0A8E9E18B4014B0056B985 /* M13ProgressView.m in Sources */,
 				5A033F68188313AC00BFD687 /* CollectionView.m in Sources */,
 				5AC89A221840B9A000164B51 /* CardType.m in Sources */,
 				5AC89A251840B9A000164B51 /* PickerObject.m in Sources */,
 				5AC89A371840B9A000164B51 /* Note.m in Sources */,
-				5A19D0A41891A6600080F3CF /* M13ProgressView.m in Sources */,
 				5A361EFA1848E28800DA3AFB /* Translator.m in Sources */,
 				5AC89A361840B9A000164B51 /* Login.m in Sources */,
 				5AC89A301840B9A000164B51 /* DBSave.m in Sources */,
@@ -2004,6 +2013,7 @@
 				5AC89A0E1840B9A000164B51 /* BankAccountVC.m in Sources */,
 				5AB54AD71889C23E008E2035 /* PhotoViewCell.m in Sources */,
 				5AAA162C189E502E000C3365 /* DBBackup.m in Sources */,
+				5A15744018D2462B00749316 /* StartVC.m in Sources */,
 				5AC89A141840B9A000164B51 /* LoginVC.m in Sources */,
 				5AC89AD01840B9A000164B51 /* MainTableVC.m in Sources */,
 				5AC89A321840B9A000164B51 /* DBUpdate.m in Sources */,
@@ -2018,7 +2028,7 @@
 				5AB54AE01889DD77008E2035 /* GGFullScreenImageViewController.m in Sources */,
 				5AC89A271840B9A000164B51 /* TextField.m in Sources */,
 				5AC89A111840B9A000164B51 /* CardVC.m in Sources */,
-				5A19D0A71891A78C0080F3CF /* M13ProgressViewPie.m in Sources */,
+				5A0A8E9F18B4014B0056B985 /* M13ProgressViewPie.m in Sources */,
 				5AC3FE90187DC438005C009A /* SWRevealViewController.m in Sources */,
 				5AAA161C189959E9000C3365 /* SyncVC.m in Sources */,
 				5AC89A1D1840B9A000164B51 /* ShowVC.m in Sources */,
@@ -2139,7 +2149,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2178,7 +2187,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2210,15 +2218,11 @@
 		5AA46C7017FB21B0008EE800 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/c-villain/Downloads/dropbox-ios-sync-sdk-2.0.3",
-					"/Users/c-villain/Developer/app\\ Под\\ замком/podZamkom",
-					"/Users/c-villain/Downloads/dropbox-ios-sdk-1.3.10",
-				);
+				FRAMEWORK_SEARCH_PATHS = "/Users/c-villain/Developer/app\\ Под\\ замком/podZamkom";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "podZamkom/Supporting Files/podZamkom-Prefix.pch";
 				INFOPLIST_FILE = "podZamkom/Supporting Files/podZamkom-Info.plist";
@@ -2231,15 +2235,11 @@
 		5AA46C7117FB21B0008EE800 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/c-villain/Downloads/dropbox-ios-sync-sdk-2.0.3",
-					"/Users/c-villain/Developer/app\\ Под\\ замком/podZamkom",
-					"/Users/c-villain/Downloads/dropbox-ios-sdk-1.3.10",
-				);
+				FRAMEWORK_SEARCH_PATHS = "/Users/c-villain/Developer/app\\ Под\\ замком/podZamkom";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "podZamkom/Supporting Files/podZamkom-Prefix.pch";
 				INFOPLIST_FILE = "podZamkom/Supporting Files/podZamkom-Info.plist";
@@ -2252,7 +2252,6 @@
 		5AA46C7317FB21B0008EE800 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/podZamkom.app/podZamkom";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -2275,7 +2274,6 @@
 		5AA46C7417FB21B0008EE800 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/podZamkom.app/podZamkom";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

@@ -40,7 +40,8 @@
 - (IBAction) showHelp: (id)sender
 {
     PasswordHelpVC *help = [[PasswordHelpVC alloc] initWithNibName:@"PasswordHelpVC" bundle:nil];
-    [self presentViewController:help animated:YES completion:nil];
+    
+    [self.navigationController presentViewController:help animated:YES completion:nil];
 }
 
 - (id)initForAction:(PasscodeAction)action
@@ -178,7 +179,7 @@
                 {
                     [_delegate PasswordVCDidEnterPasscode:self];
                 }
-                [self dismiss];
+//                [self dismiss];
             }
             else //если пароли не совпадают
             {

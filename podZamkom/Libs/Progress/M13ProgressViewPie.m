@@ -1,5 +1,5 @@
 //
-//  M13ProgressViewRing.m
+//  M13ProgressViewPie.m
 //  M13ProgressView
 //
 /*Copyright (c) 2013 Brandon McQuilkin
@@ -11,14 +11,10 @@
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#import "M13ProgressViewRing.h"
-#import <CoreGraphics/CoreGraphics.h>
+#import "M13ProgressViewPie.h"
 
-@interface M13ProgressViewRing ()
-/**The number formatter to display the progress percentage.*/
-@property (nonatomic, retain) NSNumberFormatter *percentageFormatter;
-/**The label that shows the percentage.*/
-@property (nonatomic, retain) UILabel *percentageLabel;
+@interface M13ProgressViewPie ()
+
 /**The start progress for the progress animation.*/
 @property (nonatomic, assign) CGFloat animationFromValue;
 /**The end progress for the progress animation.*/
@@ -35,19 +31,20 @@
 @property (nonatomic, retain) CAShapeLayer *backgroundLayer;
 /**The layer that is used to render icons for success or failure.*/
 @property (nonatomic, retain) CAShapeLayer *iconLayer;
+/**The layer that is used to display the indeterminate view.*/
+@property (nonatomic, retain) CAShapeLayer *indeterminateLayer;
 /**The action currently being performed.*/
 @property (nonatomic, assign) M13ProgressViewAction currentAction;
+
 @end
 
+#define kM13ProgressViewPieHideKey @"Hide"
+#define kM13ProgressViewPieShowKey @"Show"
 
-#define kM13ProgressViewRingHideKey @"Hide"
-#define kM13ProgressViewRingShowKey @"Show"
-
-@implementation M13ProgressViewRing
+@implementation M13ProgressViewPie
 {
     //Wether or not the corresponding values have been overriden by the user
     BOOL _backgroundRingWidthOverriden;
-    BOOL _progressRingWidthOverriden;
 }
 
 @synthesize progress;
@@ -87,19 +84,14 @@
     self.backgroundColor = [UIColor clearColor];
     
     //Set defaut sizes
-    _backgroundRingWidth = fmaxf(self.bounds.size.width * .025, 1.0);
-    _progressRingWidth = 3 * _backgroundRingWidth;
-    _progressRingWidthOverriden = NO;
     _backgroundRingWidthOverriden = NO;
+    _backgroundRingWidth = fmaxf(self.bounds.size.width * .025, 1.0);
+    
     self.animationDuration = .3;
     
     //Set default colors
     self.primaryColor = [UIColor colorWithRed:0 green:122/255.0 blue:1.0 alpha:1.0];
     self.secondaryColor = self.primaryColor;
-    
-    //Set up the number formatter
-    _percentageFormatter = [[NSNumberFormatter alloc] init];
-    _percentageFormatter.numberStyle = NSNumberFormatterPercentStyle;
     
     //Set up the background layer
     _backgroundLayer = [CAShapeLayer layer];
@@ -111,24 +103,21 @@
     
     //Set up the progress layer
     _progressLayer = [CAShapeLayer layer];
-    _progressLayer.strokeColor = self.primaryColor.CGColor;
-    _progressLayer.fillColor = nil;
-    _progressLayer.lineCap = kCALineCapButt;
-    _progressLayer.lineWidth = _progressRingWidth;
+    _progressLayer.fillColor = self.primaryColor.CGColor;
+    _progressLayer.backgroundColor = [UIColor clearColor].CGColor;
     [self.layer addSublayer:_progressLayer];
+    
+    //Set the indeterminate layer
+    _indeterminateLayer = [CAShapeLayer layer];
+    _indeterminateLayer.fillColor = self.primaryColor.CGColor;
+    _indeterminateLayer.opacity = 0;
+    [self.layer addSublayer:_indeterminateLayer];
     
     //Set up the icon layer
     _iconLayer = [CAShapeLayer layer];
     _iconLayer.fillColor = self.primaryColor.CGColor;
     _iconLayer.fillRule = kCAFillRuleNonZero;
     [self.layer addSublayer:_iconLayer];
-    
-    //Set the label
-    _percentageLabel = [[UILabel alloc] init];
-    _percentageLabel.textAlignment = NSTextAlignmentCenter;
-    _percentageLabel.contentMode = UIViewContentModeCenter;
-    _percentageLabel.frame = self.bounds;
-    [self addSubview:_percentageLabel];
 }
 
 #pragma mark Appearance
@@ -138,6 +127,7 @@
     [super setPrimaryColor:primaryColor];
     _progressLayer.strokeColor = self.primaryColor.CGColor;
     _iconLayer.fillColor = self.primaryColor.CGColor;
+    _indeterminateLayer.fillColor = self.primaryColor.CGColor;
     [self setNeedsDisplay];
 }
 
@@ -152,33 +142,8 @@
 {
     _backgroundRingWidth = backgroundRingWidth;
     _backgroundLayer.lineWidth = _backgroundRingWidth;
-    _progressRingWidthOverriden = YES;
+    _backgroundRingWidthOverriden = YES;
     [self setNeedsDisplay];
-}
-
-- (void)setProgressRingWidth:(CGFloat)progressRingWidth
-{
-    _progressRingWidth = progressRingWidth;
-    _progressLayer.lineWidth = _progressRingWidth;
-    _progressRingWidthOverriden = YES;
-    [self setNeedsDisplay];
-}
-
-- (void)setShowPercentage:(BOOL)showPercentage
-{
-    _showPercentage = showPercentage;
-    if (_showPercentage == YES) {
-        if (_percentageLabel.superview == nil) {
-            //Show the label if not already
-            [self addSubview:_percentageLabel];
-            [self setNeedsLayout];
-        }
-    } else {
-        if (_percentageLabel.superview != nil) {
-            //Hide the label if not already
-            [_percentageLabel removeFromSuperview];
-        }
-    }
 }
 
 #pragma mark Actions
@@ -206,8 +171,8 @@
             self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(animateProgress:)];
             [self.displayLink addToRunLoop:NSRunLoop.mainRunLoop forMode:NSRunLoopCommonModes];
         } /*else {
-            //Reuse the current display link
-        }*/
+           //Reuse the current display link
+           }*/
     }
 }
 
@@ -240,8 +205,12 @@
     if (action == M13ProgressViewActionNone && _currentAction != M13ProgressViewActionNone) {
         //Animate
         [CATransaction begin];
-        [_iconLayer addAnimation:[self hideAnimation] forKey:kM13ProgressViewRingHideKey];
-        [_percentageLabel.layer addAnimation:[self showAnimation] forKey:kM13ProgressViewRingShowKey];
+        [_iconLayer addAnimation:[self hideAnimation] forKey:kM13ProgressViewPieHideKey];
+        if (self.indeterminate) {
+            [_indeterminateLayer addAnimation:[self showAnimation] forKey:kM13ProgressViewPieShowKey];
+        } else {
+            [_progressLayer addAnimation:[self showAnimation] forKey:kM13ProgressViewPieShowKey];
+        }
         [CATransaction commit];
         _currentAction = action;
     } else if (action == M13ProgressViewActionSuccess && _currentAction != M13ProgressViewActionSuccess) {
@@ -251,17 +220,21 @@
             [self drawIcon];
             //Animate
             [CATransaction begin];
-            [_iconLayer addAnimation:[self showAnimation] forKey:kM13ProgressViewRingShowKey];
-            [_percentageLabel.layer addAnimation:[self hideAnimation] forKey:kM13ProgressViewRingHideKey];
+            [_iconLayer addAnimation:[self showAnimation] forKey:kM13ProgressViewPieShowKey];
+            if (self.indeterminate) {
+                [_indeterminateLayer addAnimation:[self hideAnimation] forKey:kM13ProgressViewPieHideKey];
+            } else {
+               [_progressLayer addAnimation:[self hideAnimation] forKey:kM13ProgressViewPieHideKey];
+            }
             [CATransaction commit];
         } else if (_currentAction == M13ProgressViewActionFailure) {
             //Hide the icon layer before showing
             [CATransaction begin];
-            [_iconLayer addAnimation:[self hideAnimation] forKey:kM13ProgressViewRingHideKey];
+            [_iconLayer addAnimation:[self hideAnimation] forKey:kM13ProgressViewPieHideKey];
             [CATransaction setCompletionBlock:^{
                 _currentAction = action;
                 [self drawIcon];
-                [_iconLayer addAnimation:[self showAnimation] forKey:kM13ProgressViewRingShowKey];
+                [_iconLayer addAnimation:[self showAnimation] forKey:kM13ProgressViewPieShowKey];
             }];
             [CATransaction commit];
         }
@@ -271,17 +244,21 @@
             _currentAction = action;
             [self drawIcon];
             [CATransaction begin];
-            [_iconLayer addAnimation:[self showAnimation] forKey:kM13ProgressViewRingShowKey];
-            [_percentageLabel.layer addAnimation:[self hideAnimation] forKey:kM13ProgressViewRingHideKey];
+            [_iconLayer addAnimation:[self showAnimation] forKey:kM13ProgressViewPieShowKey];
+            if (self.indeterminate) {
+                [_indeterminateLayer addAnimation:[self hideAnimation] forKey:kM13ProgressViewPieHideKey];
+            } else {
+                [_progressLayer addAnimation:[self hideAnimation] forKey:kM13ProgressViewPieHideKey];
+            }
             [CATransaction commit];
         } else if (_currentAction == M13ProgressViewActionSuccess) {
             //Hide the icon layer before showing
             [CATransaction begin];
-            [_iconLayer addAnimation:[self hideAnimation] forKey:kM13ProgressViewRingHideKey];
+            [_iconLayer addAnimation:[self hideAnimation] forKey:kM13ProgressViewPieHideKey];
             [CATransaction setCompletionBlock:^{
                 _currentAction = action;
                 [self drawIcon];
-                [_iconLayer addAnimation:[self showAnimation] forKey:kM13ProgressViewRingShowKey];
+                [_iconLayer addAnimation:[self showAnimation] forKey:kM13ProgressViewPieShowKey];
             }];
             [CATransaction commit];
         }
@@ -293,7 +270,7 @@
     [super setIndeterminate:indeterminate];
     if (self.indeterminate == YES) {
         //Draw the indeterminate circle
-        [self drawBackground];
+        [self drawIndeterminate];
         
         //Create the rotation animation
         CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
@@ -303,16 +280,16 @@
         rotationAnimation.repeatCount = HUGE_VALF;
         
         //Set the animations
-        [_backgroundLayer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+        [_indeterminateLayer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
         [CATransaction begin];
-        [_progressLayer addAnimation:[self hideAnimation] forKey:kM13ProgressViewRingHideKey];
-        [_percentageLabel.layer addAnimation:[self hideAnimation] forKey:kM13ProgressViewRingHideKey];
+        [_progressLayer addAnimation:[self hideAnimation] forKey:kM13ProgressViewPieHideKey];
+        [_indeterminateLayer addAnimation:[self showAnimation] forKey:kM13ProgressViewPieShowKey];
         [CATransaction commit];
     } else {
         //Animate
         [CATransaction begin];
-        [_progressLayer addAnimation:[self showAnimation] forKey:kM13ProgressViewRingShowKey];
-        [_percentageLabel.layer addAnimation:[self showAnimation] forKey:kM13ProgressViewRingShowKey];
+        [_progressLayer addAnimation:[self showAnimation] forKey:kM13ProgressViewPieShowKey];
+        [_indeterminateLayer addAnimation:[self hideAnimation] forKey:kM13ProgressViewPieHideKey];
         [CATransaction setCompletionBlock:^{
             //Remove the rotation animation and reset the background
             [_backgroundLayer removeAnimationForKey:@"rotationAnimation"];
@@ -358,18 +335,11 @@
     _backgroundLayer.frame = self.bounds;
     _progressLayer.frame = self.bounds;
     _iconLayer.frame = self.bounds;
-    _percentageLabel.frame = self.bounds;
-    
-    //Update font size
-    _percentageLabel.font = [UIFont systemFontOfSize:(self.bounds.size.width / 5)];
-    _percentageLabel.textColor = self.primaryColor;
+    _indeterminateLayer.frame = self.bounds;
     
     //Update line widths if not overriden
     if (!_backgroundRingWidthOverriden) {
         _backgroundRingWidth = fmaxf(self.frame.size.width * .025, 1.0);
-    }
-    if (!_progressRingWidthOverriden) {
-        _progressRingWidth = _backgroundRingWidth * 3;
     }
     
     //Redraw
@@ -384,6 +354,7 @@
     }
     [super setFrame:frame];
 }
+
 
 #pragma mark Drawing
 
@@ -450,7 +421,6 @@
     [xPath addLineToPoint:CGPointMake(size, size)];
     [xPath closePath];
     
-    
     //Center it
     [xPath applyTransform:CGAffineTransformMakeTranslation(radius - (1.5 * size), radius - (1.5 * size))];
     
@@ -470,14 +440,9 @@
     CGPoint center = CGPointMake(self.bounds.size.width / 2.0, self.bounds.size.width / 2.0);
     CGFloat radius = (self.bounds.size.width - _backgroundRingWidth) / 2.0;
     
-    //If indeterminate, recalculate the end angle
-    if (self.indeterminate) {
-        endAngle = .8 * endAngle;
-    }
-    
     //Draw path
     UIBezierPath *path = [UIBezierPath bezierPath];
-    path.lineWidth = _progressRingWidth;
+    path.lineWidth = _backgroundRingWidth;
     path.lineCapStyle = kCGLineCapRound;
     [path addArcWithCenter:center radius:radius startAngle:startAngle endAngle:endAngle clockwise:YES];
     
@@ -491,19 +456,17 @@
     float startAngle = - M_PI_2;
     float endAngle = startAngle + (2.0 * M_PI * self.progress);
     CGPoint center = CGPointMake(self.bounds.size.width / 2.0, self.bounds.size.width / 2.0);
-    CGFloat radius = (self.bounds.size.width - _progressRingWidth) / 2.0;
+    CGFloat radius = (self.bounds.size.width - _backgroundRingWidth) / 2.0;
     
     //Draw path
     UIBezierPath *path = [UIBezierPath bezierPath];
-    path.lineCapStyle = kCGLineCapButt;
-    path.lineWidth = _progressRingWidth;
+    [path moveToPoint:CGPointMake(self.bounds.size.width / 2.0, self.bounds.size.height / 2.0)];
     [path addArcWithCenter:center radius:radius startAngle:startAngle endAngle:endAngle clockwise:YES];
+    [path closePath];
     
     //Set the path
     [_progressLayer setPath:path.CGPath];
     
-    //Update label
-    _percentageLabel.text = [_percentageFormatter stringFromNumber:[NSNumber numberWithFloat:self.progress]];
 }
 
 - (void)drawIcon
@@ -516,6 +479,24 @@
         //Clear layer
         _iconLayer.path = nil;
     }
+}
+
+- (void)drawIndeterminate
+{
+    //Create parameters to draw progress
+    float startAngle = - M_PI_2;
+    float endAngle = startAngle + (2.0 * M_PI * .2);
+    CGPoint center = CGPointMake(self.bounds.size.width / 2.0, self.bounds.size.width / 2.0);
+    CGFloat radius = (self.bounds.size.width - _backgroundRingWidth) / 2.0;
+    
+    //Draw path
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:CGPointMake(self.bounds.size.width / 2.0, self.bounds.size.height / 2.0)];
+    [path addArcWithCenter:center radius:radius startAngle:startAngle endAngle:endAngle clockwise:YES];
+    [path closePath];
+    
+    //Set the path
+    [_indeterminateLayer setPath:path.CGPath];
 }
 
 @end

@@ -20,7 +20,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        filesDownloaded = 0;
     }
     return self;
 }
@@ -85,6 +84,7 @@
     else
     {
         [self setButtonsVisibility:NO];
+        self.dropboxSync.on = NO;
     }
 
 }
@@ -96,28 +96,66 @@
         if (![self CheckIfDropBoxAccountIsLinked])
         {
             [objManager checkForLink];
+            self.dropboxSync.on = NO;
         }
         else
-            [self setButtonsVisibility:YES];    }
+            [self setButtonsVisibility:YES];
+    }
     else
     {
         if (objManager)
             [objManager logoutFromDropbox];
         [self setButtonsVisibility:NO];
+        self.dropboxSync.on = NO;
     }
     
 }
 
-- (IBAction)createBackup:(id)sender
+- (void)initProgressView: (Command) command
 {
+    CGRect bounds = [[ UIScreen mainScreen ] bounds];
+    UIView * progressView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, bounds.size.width, bounds.size.height)];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, bounds.size.height*5/6, bounds.size.width, 51)];
+    
+    SEL sel = nil;
+    NSString *currentCommand = @"";
+    switch (command)
+    {
+        case DOWNLOAD:
+            sel = @selector(stopRestore);
+            currentCommand = [Translator languageSelectedStringForKey:@"Downloading"];
+            break;
+        case UPLOAD:
+            sel = @selector(stopSync);
+            currentCommand = [Translator languageSelectedStringForKey:@"Uploading"];
+            break;
+    }
+    [btn addTarget:self action:sel forControlEvents:UIControlEventTouchUpInside];
+    btn.backgroundColor = [UIColor colorWithRed:248.0f/255.0f green:48.0f/255.0f blue:71.0f/255.0f alpha:1.0f];
+    [btn setTitle: [Translator languageSelectedStringForKey:@"Stop"] forState: UIControlStateNormal];
+    
+    [progressView addSubview:btn];
+    
     CGRect size = CGRectMake(0, 0 , 150, 150);
     HUD = [[[M13ProgressHUD alloc] initWithFrame:size] initWithProgressView:[[M13ProgressViewRing alloc] init]];
     HUD.progressViewSize = CGSizeMake(60.0, 60.0);
-    modal = [[RNBlurModalView alloc] initWithView:HUD];
+    
+    [progressView addSubview:HUD];
+    
+    [progressView bringSubviewToFront:btn];
+    modal = [[RNBlurModalView alloc] initWithView:progressView];
+    
     modal.dismissButtonRight = YES;
     [modal hideCloseButton:YES];
     [modal show];
     [HUD show:YES];
+    HUD.status = currentCommand;
+}
+
+- (IBAction)createBackup:(id)sender
+{
+    [self initProgressView:UPLOAD];
+    
     //создаем файл бэкапа базы данных и справочной информации для последующей синхронизации:
     if ([Sync CreateBackup])
     {
@@ -129,25 +167,29 @@
     NSArray *dbPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     //
     NSString *dbDir = [dbPath objectAtIndex:0];
-        dbDir = [dbDir stringByAppendingPathComponent:@"Backup"];
+    dbDir = [dbDir stringByAppendingPathComponent:@"Backup"];
     objManager.strFilePath = dbDir;
     objManager.strDestDirectory = @"/Backup";
-    HUD.status = @"Загружаю";
+    
     [objManager uploadFolder];
 }
 
 - (IBAction)restoreBackup:(id)sender
 {
-    CGRect size = CGRectMake(0, 0 , 150, 150);
-    HUD = [[[M13ProgressHUD alloc] initWithFrame:size] initWithProgressView:[[M13ProgressViewRing alloc] init]];
-    HUD.progressViewSize = CGSizeMake(60.0, 60.0);
-    modal = [[RNBlurModalView alloc] initWithView:HUD];
-    modal.dismissButtonRight = YES;
-    [modal hideCloseButton:YES];
-    [modal show];
-    [HUD show:YES];
-    HUD.status = @"Загружаю";
+    [self initProgressView:DOWNLOAD];
     [objManager downloadFolder];
+}
+
+-(void)stopSync
+{
+    [objManager clearSync];
+    [self hideProgressBar];
+}
+
+-(void)stopRestore
+{
+    [objManager clearSession];
+    [self hideProgressBar];
 }
 
 -(void)setProgress:(CGFloat)progress withMessage: (NSString *)message
@@ -158,44 +200,140 @@
 
 - (void)setComplete
 {
-    HUD.status = @"Готово!";
+    HUD.status = [Translator languageSelectedStringForKey:@"Done"];
     [HUD performAction:M13ProgressViewActionSuccess animated:YES];
     [self performSelector:@selector(reset) withObject:nil afterDelay:1.5];
+}
+
+- (void)setDownloadComplete
+{
+    HUD.status = [Translator languageSelectedStringForKey:@"Done"];
+    [HUD performAction:M13ProgressViewActionSuccess animated:YES];
+    [self performSelector:@selector(resetWhenRestore) withObject:nil afterDelay:1.5];
 }
 
 - (void)setFailed: (NSString *) errorMes
 {
     [HUD performAction:M13ProgressViewActionFailure animated:YES];
     HUD.status = errorMes;
-    [self performSelector:@selector(reset) withObject:nil afterDelay:1.5];
+    [self performSelector:@selector(reset) withObject:nil afterDelay:2.0];
 }
 
-- (void)reset
+-(void)hideProgressBar
 {
+    [HUD setProgress:0 animated:YES];
     [HUD hide:YES];
     //Enable other controls
     [modal hide];
 }
 
+- (void)resetWhenRestore
+{
+    [self hideProgressBar];
+    [self showPasswordAlert];
+}
+
+-(void)showPasswordAlert
+{
+    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:[Translator languageSelectedStringForKey:@"PASSWORD"] message:[Translator languageSelectedStringForKey:@"Enter password which was used during last backup"] delegate:self cancelButtonTitle:[Translator languageSelectedStringForKey:@"Cancel"] otherButtonTitles: nil];
+    alert.tag = 100;
+    alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
+    [alert addButtonWithTitle:[Translator languageSelectedStringForKey:@"Enter"]];
+    [alert show];
+}
+
+-(void)showErrorPasswordAlert
+{
+    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:[Translator languageSelectedStringForKey:@"Error!"]
+                                                     message:[Translator languageSelectedStringForKey:@"Wrong password!"]
+                                                    delegate:self
+                                           cancelButtonTitle:[Translator languageSelectedStringForKey:@"Cancel"]
+                          
+                                           otherButtonTitles: nil];
+    [alert addButtonWithTitle:[Translator languageSelectedStringForKey:@"Try again"]];
+    alert.tag = 101;
+    [alert show];
+
+}
+
+- (void)reset
+{
+    [self hideProgressBar];
+}
+
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1)
+    switch (alertView.tag)
     {
-        UITextField *password = [alertView textFieldAtIndex:0];
-        syncPasswd = password.text;
-        int res = [Sync RestoreBackup:syncPasswd];
-        if (res == 0) [super showMainVC];
-        if (res == 1)
-        {
-            UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:[Translator languageSelectedStringForKey:@"Error!"]
-                                                             message:[Translator languageSelectedStringForKey:@"Wrong password!"]
-                                                            delegate:self
-                                                   cancelButtonTitle:[Translator languageSelectedStringForKey:@"Try again"]
-                                                   otherButtonTitles: nil];
-            [alert show];
-        }
+        case 100:
+            if (buttonIndex == 1)
+            {
+                [HUD performAction:M13ProgressViewActionNone animated:YES];
+                [modal show];
+                [HUD show:YES];
+                HUD.status = [Translator languageSelectedStringForKey:@"Unpacking"];
+                dispatch_queue_t downloadQueue = dispatch_queue_create("downloader", NULL);
+                dispatch_async(downloadQueue, ^{
+                
+                Sync *sync = [[Sync alloc] init];
+                    sync.restoreDelegate = self;
+                    
+                UITextField *password = [alertView textFieldAtIndex:0];
+                syncPasswd = password.text;
+                int res = [sync RestoreBackup:syncPasswd];
+                   
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        if (res == 0)
+                        {
+                            [HUD performAction:M13ProgressViewActionSuccess animated:YES];
+                            [super performSelector:@selector(goToRoot) withObject:nil afterDelay:self.progressView.animationDuration + .3];
+                        }
+                        if (res == 1)
+//                            [self showErrorPasswordAlert];
+                        {
+                            [self hideProgressBar];
+//                            [self setFailed:[Translator languageSelectedStringForKey:@"Wrong password!"]];
+                            [self showErrorPasswordAlert];
+                            
+                        }
+                        
+                        //поврежден файл с кэшем:
+                        if (res == 4)
+                            [self setFailed:[Translator languageSelectedStringForKey:@"Backup\nis corrupted!"]];
+
+                    });
+                
+                });
+            }
+
+            break;
+            
+        case 101:
+            
+            if (buttonIndex == 0)
+            {
+                [self stopRestore];
+            }
+            
+            if (buttonIndex == 1)
+            {
+                [self hideProgressBar];
+                [self showPasswordAlert];
+            }
+            break;
     }
+}
+
+- (void)RestoreProcessed:(CGFloat)progress
+{
+    [HUD setProgress:progress animated:YES];
+}
+
+- (void) goToRoot
+{
+    [super showMainVC];
 }
 
 - (void)didReceiveMemoryWarning
@@ -206,45 +344,67 @@
 
 - (void)finishedUploadFile
 {
-    filesDownloaded++;
-    if (filesDownloaded == 2)
-    {
-        [self performSelector:@selector(setComplete) withObject:nil afterDelay:self.progressView.animationDuration + .2];
-//        [HUD setProgress:1.0 animated:YES];
-        filesDownloaded = 0;
-        [Settings setDateSync];
-        self.lblLastBackup.text = [[Translator languageSelectedStringForKey:@"Last backup: "]  stringByAppendingString:[Settings getLastDateSync]];
-        [Sync DeleteBackupFolder];
-//        [self performSelector:@selector(setComplete) withObject:nil afterDelay:HUD.animationDuration + .1];
-    }
+    [self performSelector:@selector(setComplete) withObject:nil afterDelay:self.progressView.animationDuration + .2];
+    [Settings setDateSync];
+    self.lblLastBackup.text = [[Translator languageSelectedStringForKey:@"Last backup: "]  stringByAppendingString:[Settings getLastDateSync]];
+    [Sync DeleteBackupFolder];
 }
 
 - (void)finishedDownloadFile
 {
-    filesDownloaded++;
-    if (filesDownloaded == 2)
-    {
-        [self performSelector:@selector(setComplete) withObject:nil afterDelay:self.progressView.animationDuration + .2];
-        filesDownloaded = 0;
-        UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:[Translator languageSelectedStringForKey:@"PASSWORD"] message:[Translator languageSelectedStringForKey:@"Enter password which was used during last backup"] delegate:self cancelButtonTitle:[Translator languageSelectedStringForKey:@"Cancel"] otherButtonTitles: nil];
-        alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
-        [alert addButtonWithTitle:[Translator languageSelectedStringForKey:@"Enter"]];
-        [alert show];
-    }
+    [self performSelector:@selector(setDownloadComplete) withObject:nil afterDelay:self.progressView.animationDuration + .2];
+}
+
+- (void)failedToDownloadFile:(NSError *)error
+{
+    [objManager clearSession]; //stop load
+    [self setFailedDependOnError:error];
 }
 
 - (void)downloadProgressed:(CGFloat)progress;
 {
     [HUD setProgress:progress animated:YES];
     if (progress == 1.00)
-        HUD.status = @"Завершаю";
-//        [self performSelector:@selector(setComplete) withObject:nil afterDelay:self.progressView.animationDuration + .2];
+    {
+        HUD.status = [Translator languageSelectedStringForKey:@"Almost done"];
+    }
 }
 
-
-- (void)failedToUploadFile:(NSString*)withMessage
+- (void)failedToUploadFile:(NSError*)error
 {
-    [self setFailed: withMessage];
+    [objManager clearSync]; //stop upload
+    [self setFailedDependOnError:error];
 }
- 
+
+
+-(void)setFailedDependOnError:(NSError*)error
+{
+    if (error.code == 100)
+        [self setFailed:[Translator languageSelectedStringForKey:@"Canceled"]];
+    
+    else if (error.code == 401)
+        [self setFailed:[Translator languageSelectedStringForKey:@"Re-auth\nplease"]];
+    
+    else if (error.code == 404)
+    {
+        [self setFailed:[Translator languageSelectedStringForKey:@"Backup\nwas not found!"]];
+        [Settings deleteLastDateSync];
+        self.lblLastBackup.text = @"";
+    }
+    else if (error.code == 507)
+        [self setFailed:[Translator languageSelectedStringForKey:@"User is over Dropbox\nstorage quota"]];
+    
+    else if (error.code > 507)
+        [self setFailed:[Translator languageSelectedStringForKey:@"Server error"]];
+    
+    else
+        [self setFailed:[Translator languageSelectedStringForKey:@"Error!"]];
+}
+
+-(void)stopSyncing
+{
+    [objManager clearSync]; //stop upload
+    [objManager clearSession]; //stop load
+}
+
 @end

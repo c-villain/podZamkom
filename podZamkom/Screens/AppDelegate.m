@@ -5,11 +5,9 @@
 //  Created by Alexander Kraev on 01.10.13.
 //  Copyright (c) 2013 Alexander Kraev. All rights reserved.
 //
+#define ROOTVIEW [[[UIApplication sharedApplication] keyWindow] rootViewController]
 
 #import "AppDelegate.h"
-
-//#define APP_KEY     @"gtte7h3d4b8fv08"
-//#define APP_SECRET  @"9mkx1c4ak8ep6ss"
 
 @interface AppDelegate()<SWRevealViewControllerDelegate>
 @end
@@ -18,25 +16,20 @@
 
 - (void)startApp
 {
+    [self showMainVC];
     // Override point for customization after application launch.
-    if ([Security getUseOrNotPassword] || (NO == [Settings isNotFirstAppRun]) )
-        [self showLoginScreen];
-    else
-        [self showMainVC];
+//    if ([Security getUseOrNotPassword] || (NO == [Settings isNotFirstAppRun]) )
+//        [self showLoginScreen];
+//    else
+//        [self showMainVC];
 }
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-//    DBAccountManager* accountMgr = [[DBAccountManager alloc]
-//                                    initWithAppKey:APP_KEY
-//                                    secret:APP_SECRET];
-//    [DBAccountManager setSharedManager:accountMgr];
     [Settings increaseAppLaunchConting];
     return YES;
 }
-
 
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -49,6 +42,8 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    if ([_dropboxSyncDelegate respondsToSelector:@selector(stopSyncing)])
+        [_dropboxSyncDelegate stopSyncing];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -56,10 +51,36 @@
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
+
+- (UIViewController *)topViewController{
+//    return [self topViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+    return [self topViewController:self.window.rootViewController];
+}
+
+- (UIViewController *)topViewController:(UIViewController *)rootViewController
+{
+    if (rootViewController.presentedViewController == nil) {
+        return rootViewController;
+    }
+    
+    if ([rootViewController.presentedViewController isMemberOfClass:[UINavigationController class]]) {
+        UINavigationController *navigationController = (UINavigationController *)rootViewController.presentedViewController;
+        UIViewController *lastViewController = [[navigationController viewControllers] lastObject];
+        return [self topViewController:lastViewController];
+    }
+    
+    UIViewController *presentedViewController = (UIViewController *)rootViewController.presentedViewController;
+    return [self topViewController:presentedViewController];
+}
+
+
+
+
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [self startApp];
+    if ([Security getUseOrNotPassword] || (NO == [Settings isNotFirstAppRun]) )
+        [self showLoginScreen];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -77,7 +98,6 @@
 - (void)PasswordVCDidEnterPasscode:(PasswordVC *)controller
 {
     [self.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
-    [self performSelector:@selector(showMainVC) withObject:nil afterDelay:0.1];
 }
 
 -(void)showLoginScreen
@@ -85,7 +105,7 @@
     //если запуск первый, то выставляем дефолтный язык=)
     if (NO == [Settings isNotFirstAppRun])
         [Settings setDefaultLanguage];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Password" bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PasswordVC *passwordView = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
     if (NO == [Settings isNotFirstAppRun] ) //если первый запуск, то показываем форму в режиме установка пароля
     {
@@ -101,9 +121,11 @@
         passwordView.deleteAfterTenErrors = [Security getDeleteorNotFilesAfterTenErrors]; //передаем удалять файлы после 10 попыток или нет
     }
     passwordView.delegate = self;
-    UINavigationController *navigationController= [[UINavigationController alloc] initWithRootViewController:passwordView];
-    [[(AppDelegate*)[[UIApplication sharedApplication] delegate] window] setRootViewController:navigationController];
-    [self.window makeKeyAndVisible];
+    
+    
+    [self.window.rootViewController presentViewController:passwordView
+                                                 animated:YES
+                                               completion:nil];
 }
 
 -(void)showMainVC //показываем главную форму после ввода пароля
@@ -126,9 +148,10 @@
     mainRevealController.delegate = self;
     
     [mainRevealController setFrontViewPosition:FrontViewPositionRight];
-    
-    UINavigationController *navigationController= [[UINavigationController alloc] initWithRootViewController:mainRevealController];
-    [[(AppDelegate*)[[UIApplication sharedApplication] delegate] window] setRootViewController:navigationController];
+
+    [self.window.rootViewController presentViewController:mainRevealController
+                                                 animated:YES
+                                               completion:nil];
 }
 
 - (void)PasswordVCDidChangePasscode:(PasswordVC *)controller
@@ -150,65 +173,13 @@
         [self showMainVC];
 }
 
-- (void)revealController:(SWRevealViewController *)revealController willMoveToPosition:(FrontViewPosition)position
-{
-    
-}
-
-- (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position
-{
-
-}
-
-- (void)revealController:(SWRevealViewController *)revealController willRevealRearViewController:(UIViewController *)viewController
-{
-    NSLog( @"%@: %@", NSStringFromSelector(_cmd), viewController);
-}
-
-- (void)revealController:(SWRevealViewController *)revealController didRevealRearViewController:(UIViewController *)viewController
-{
-    NSLog( @"%@: %@", NSStringFromSelector(_cmd), viewController);
-}
-
-- (void)revealController:(SWRevealViewController *)revealController willHideRearViewController:(UIViewController *)viewController
-{
-    NSLog( @"%@: %@", NSStringFromSelector(_cmd), viewController);
-}
-
-- (void)revealController:(SWRevealViewController *)revealController didHideRearViewController:(UIViewController *)viewController
-{
-    NSLog( @"%@: %@", NSStringFromSelector(_cmd), viewController);
-}
-
-- (void)revealController:(SWRevealViewController *)revealController willShowFrontViewController:(UIViewController *)viewController
-{
-    NSLog( @"%@: %@", NSStringFromSelector(_cmd), viewController);
-}
-
-- (void)revealController:(SWRevealViewController *)revealController didShowFrontViewController:(UIViewController *)viewController
-{
-    NSLog( @"%@: %@", NSStringFromSelector(_cmd), viewController);
-}
-
-- (void)revealController:(SWRevealViewController *)revealController willHideFrontViewController:(UIViewController *)viewController
-{
-    NSLog( @"%@: %@", NSStringFromSelector(_cmd), viewController);
-}
-
-- (void)revealController:(SWRevealViewController *)revealController didHideFrontViewController:(UIViewController *)viewController
-{
-    NSLog( @"%@: %@", NSStringFromSelector(_cmd), viewController);
-}
-
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url sourceApplication:(NSString *)source annotation:(id)annotation
 {
     DropboxManager *manager = [[DropboxManager alloc] init];
     if ([manager handledURL:url])
     {
         if ([_dropboxSyncDelegate respondsToSelector:@selector(linkingAccountFinished)])
-                    {
-                        [_dropboxSyncDelegate linkingAccountFinished];
-                    }
+            [_dropboxSyncDelegate linkingAccountFinished];
         return YES;
     }
     return NO;

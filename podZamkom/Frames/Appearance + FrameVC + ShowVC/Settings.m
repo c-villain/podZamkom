@@ -74,6 +74,18 @@
     return [[NSUserDefaults standardUserDefaults] boolForKey:@"isNotFirstRun"];
 }
 
++(BOOL)isTipWasShown
+{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:@"isTipWasShown"];
+}
+
++(void)setTipWasShown
+{
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isTipWasShown"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    return;
+}
+
 +(void)increaseAppLaunchConting
 {
     NSUserDefaults *userDefaults = [[NSUserDefaults alloc] init];
@@ -134,6 +146,13 @@
     return @"";
 }
 
++(void)deleteLastDateSync
+{
+    NSUserDefaults *userDefaults = [[NSUserDefaults alloc] init];
+    [userDefaults setObject:@"" forKey:@"lastSyncDate"];
+    [userDefaults synchronize];
+}
+    
 +(NSInteger)getLaunchCount
 {
     NSUserDefaults * userDefaults= [[NSUserDefaults alloc] init];

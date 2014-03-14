@@ -324,16 +324,17 @@ typedef void (^RNBlurCompletion)(void);
     [self performSelector:@selector(delayedShow) withObject:nil afterDelay:kRNBlurDefaultDelay];
 }
 
+//чтобы показывать всегда в центре поп-ап закомментил frame:
 
 - (void)delayedShow {
     if (! self.isVisible) {
         if (! self.superview) {
             if (_controller) {
-                self.frame = CGRectMake(0, 0, _controller.view.bounds.size.width, _controller.view.bounds.size.height/4);
+//                self.frame = CGRectMake(0, 0, _controller.view.bounds.size.width, _controller.view.bounds.size.height/4);
                 [_controller.view addSubview:self];
             }
             else if(_parentView) {
-                self.frame = CGRectMake(0, 0, _parentView.bounds.size.width, _parentView.bounds.size.height/4);
+//                self.frame = CGRectMake(0, 0, _parentView.bounds.size.width, _parentView.bounds.size.height/4);
 
                 [_parentView addSubview:self];
             }
@@ -343,14 +344,14 @@ typedef void (^RNBlurCompletion)(void);
         if (_controller) {
             _blurView = [[RNBlurView alloc] initWithCoverView:_controller.view];
             _blurView.alpha = 0.f;
-            self.frame = CGRectMake(0, 0, _controller.view.bounds.size.width, _controller.view.bounds.size.height/2);
+//            self.frame = CGRectMake(0, 0, _controller.view.bounds.size.width, _controller.view.bounds.size.height/2);
 
             [_controller.view insertSubview:_blurView belowSubview:self];
         }
         else if(_parentView) {
             _blurView = [[RNBlurView alloc] initWithCoverView:_parentView];
             _blurView.alpha = 0.f;
-            self.frame = CGRectMake(0, 0, _parentView.bounds.size.width, _parentView.bounds.size.height/2);
+//            self.frame = CGRectMake(0, 0, _parentView.bounds.size.width, _parentView.bounds.size.height/2);
 //TODO!
             [_parentView insertSubview:_blurView belowSubview:self];
         }

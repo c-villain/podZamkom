@@ -28,6 +28,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+
     //--------------------
     //создаем top bar
     UINavigationBar *navBar = [[UINavigationBar alloc] init];
@@ -56,7 +57,40 @@
     self.colView.delegate = self;
     [self.colView registerClass:[PhotoViewCell class] forCellWithReuseIdentifier:@"photoShowCell"];
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"login_screen_bg"]];
+    
+    //----long press:
+    UILongPressGestureRecognizer *lpgr
+    = [[UILongPressGestureRecognizer alloc]
+       initWithTarget:self action:@selector(handleLongPress:)];
+    lpgr.minimumPressDuration = .5; //seconds
+    lpgr.delegate = self;
+    [self.colView addGestureRecognizer:lpgr];
 }
+
+-(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+    if (gestureRecognizer.state != UIGestureRecognizerStateEnded) {
+        return;
+    }
+    CGPoint p = [gestureRecognizer locationInView:self.colView];
+    
+    NSIndexPath *indexPath = [self.colView indexPathForItemAtPoint:p];
+    if (indexPath == nil){
+        NSLog(@"couldn't find index path");
+    } else {
+        // get the cell at indexPath (the one you long pressed)
+        // do stuff with the cell
+        
+        UIImage *selectedPhoto = [self.document.docPhotos objectAtIndex:indexPath.row];
+        NSArray *objectsToShare = [NSArray arrayWithObject:selectedPhoto];
+
+        UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+        
+        [self presentViewController:controller animated:YES completion:nil];
+    }
+}
+
+
 
 -(void)backBtnTapped
 {
@@ -97,5 +131,6 @@
     vc.liftedImageView = cell.contentView.subviews[0];
     [self presentViewController:vc animated:YES completion:nil];
 }
+
 
 @end

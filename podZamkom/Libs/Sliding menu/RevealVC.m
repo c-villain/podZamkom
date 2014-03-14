@@ -32,6 +32,14 @@
 - (void)loadView
 {
     [super loadView];
+    
+    self.navigationItem.hidesBackButton = YES;
+    
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:35.0f/255.0f green:35.0f/255.0f blue:41.0f/255.0f alpha:1.0f]];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    self.navigationController.navigationBarHidden = NO;
+    self.navigationController.navigationBar.translucent = NO;
+//
     //создаем подсветку навбара
     [self.view addSubview: [ViewAppearance initGlowingBoarderForNavBar]];
     [self createNavBarButtons];
@@ -70,12 +78,11 @@
 {
     search = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
     search.delegate = self;
-    search.showsCancelButton = YES;
+    search.showsCancelButton = NO;
     search.barStyle = UIBarStyleBlackOpaque;
     
     self.navigationItem.leftBarButtonItem= [[UIBarButtonItem alloc] initWithCustomView:search];
     self.navigationItem.titleView = nil;
-    self.navigationItem.rightBarButtonItem = nil;
     //фейковая cancel кнопка
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(stopEditing)];
     [search becomeFirstResponder];

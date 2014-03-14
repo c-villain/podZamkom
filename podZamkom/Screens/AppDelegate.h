@@ -20,6 +20,7 @@
 @protocol DropboxSyncDelegate<NSObject>
 @optional
 - (void)linkingAccountFinished;
+- (void)stopSyncing;
 @end
 
 @class SWRevealViewController;

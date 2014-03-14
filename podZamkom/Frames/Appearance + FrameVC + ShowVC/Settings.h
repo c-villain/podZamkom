@@ -24,6 +24,9 @@
 +(NSString *)getVersionWhenRateUsed;
 +(void)setRate;
 +(BOOL)isLinkWithDropBox;
++(BOOL)isTipWasShown;
++(void)setTipWasShown;
++(void)deleteLastDateSync;
 
 +(void)setDateSync;
 +(NSString *)getLastDateSync;

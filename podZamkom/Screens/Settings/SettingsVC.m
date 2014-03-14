@@ -229,7 +229,9 @@
 
 - (IBAction)voteForApp:(id)sender
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/pod-zamkom/id780849347?l=ru&ls=1&mt=8"]];
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/pod-zamkom/id780849347?l=ru&ls=1&mt=8"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/app/id780849347"]];
+    
 }
 
 - (IBAction)showEmail:(id)sender

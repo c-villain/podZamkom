@@ -31,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
 //    показываем алерт голосования:
 //    если счетчик показа приложения кратен 4 (чтобы слишком уж не доставать пользвателя) и при этом, если раньше было  голосование, то смотрим на версию приложения: если версия старая, то снова просим проголосовать:)
 //    если же за данную версию юзер проголосовал, то алерт уже не показываем)
@@ -58,11 +58,7 @@
  
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:35.0f/255.0f green:35.0f/255.0f blue:41.0f/255.0f alpha:1.0f]];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    self.navigationController.navigationBarHidden = NO;
-    self.navigationController.navigationBar.translucent = NO;
-    
+
     RevealVC *revealController = self.revealViewController;
     if (revealController != nil)
     {
@@ -91,7 +87,7 @@
     if (buttonIndex == 1) //yes, vote in appstore
     {
         [Settings setRate];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/pod-zamkom/id780849347?l=ru&ls=1&mt=8"]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/app/id780849347"]];
     }
     
     if (buttonIndex == 2) //remind later
