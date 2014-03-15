@@ -10,8 +10,6 @@
 		5A033F68188313AC00BFD687 /* CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A033F67188313AC00BFD687 /* CollectionView.m */; };
 		5A033F6B1883249D00BFD687 /* CollectionRV.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A033F6A1883249D00BFD687 /* CollectionRV.m */; };
 		5A08D6FA1846B04A0041A41C /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08D6F91846B04A0041A41C /* Cell.m */; };
-		5A0A8E9E18B4014B0056B985 /* M13ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A8E9B18B4014B0056B985 /* M13ProgressView.m */; };
-		5A0A8E9F18B4014B0056B985 /* M13ProgressViewPie.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0A8E9D18B4014B0056B985 /* M13ProgressViewPie.m */; };
 		5A15744018D2462B00749316 /* StartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A15743F18D2462B00749316 /* StartVC.m */; };
 		5A1A5DCA189E7E7A00DF30F6 /* DropBoxManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1A5DC9189E7E7A00DF30F6 /* DropBoxManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5A34AC7F1885BECB00CB7D28 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A34AC7E1885BECB00CB7D28 /* PhotoCell.m */; };
@@ -26,9 +24,6 @@
 		5A3FCEDE184B904D00413F6E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A3FCEDB184B904D00413F6E /* Localizable.strings */; };
 		5A3FCEE1184BC9E800413F6E /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FCEE0184BC9E800413F6E /* Settings.m */; };
 		5A3FCEE4184D2E9800413F6E /* RevealVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FCEE3184D2E9800413F6E /* RevealVC.m */; };
-		5A5627D118B1281A00851BAE /* M13ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5627CE18B1281A00851BAE /* M13ProgressHUD.m */; };
-		5A5627D218B1281A00851BAE /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5627D018B1281A00851BAE /* UIImage+ImageEffects.m */; };
-		5A5627D518B1298100851BAE /* M13ProgressViewRing.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5627D418B1298100851BAE /* M13ProgressViewRing.m */; };
 		5A64111E1847D7D5009AB22A /* passport_australia@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6410FE1847D7D5009AB22A /* passport_australia@2x.png */; };
 		5A64111F1847D7D5009AB22A /* passport_belarus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6410FF1847D7D5009AB22A /* passport_belarus@2x.png */; };
 		5A6411201847D7D5009AB22A /* passport_belg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A6411001847D7D5009AB22A /* passport_belg@2x.png */; };
@@ -66,6 +61,11 @@
 		5A6C3B661896EE4B0065B115 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6C3B651896EE4B0065B115 /* SystemConfiguration.framework */; };
 		5A6C3B681896EE5C0065B115 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6C3B671896EE5C0065B115 /* libc++.dylib */; };
 		5A717D50188DC72300D1774F /* LoginCRV.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A717D4F188DC72300D1774F /* LoginCRV.m */; };
+		5A7450F718D4508900B12242 /* M13ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7450F418D4508900B12242 /* M13ProgressHUD.m */; };
+		5A7450F818D4508900B12242 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7450F618D4508900B12242 /* UIImage+ImageEffects.m */; };
+		5A74510D18D4509300B12242 /* M13ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7450FA18D4509300B12242 /* M13ProgressView.m */; };
+		5A74511218D4509300B12242 /* M13ProgressViewPie.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A74510418D4509300B12242 /* M13ProgressViewPie.m */; };
+		5A74511318D4509300B12242 /* M13ProgressViewRing.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A74510618D4509300B12242 /* M13ProgressViewRing.m */; };
 		5AA46C4117FB21B0008EE800 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4017FB21B0008EE800 /* Foundation.framework */; };
 		5AA46C4317FB21B0008EE800 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4217FB21B0008EE800 /* CoreGraphics.framework */; };
 		5AA46C4517FB21B0008EE800 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA46C4417FB21B0008EE800 /* UIKit.framework */; };
@@ -315,10 +315,6 @@
 		5A033F6A1883249D00BFD687 /* CollectionRV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionRV.m; sourceTree = "<group>"; };
 		5A08D6F81846B04A0041A41C /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
 		5A08D6F91846B04A0041A41C /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
-		5A0A8E9A18B4014B0056B985 /* M13ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M13ProgressView.h; sourceTree = "<group>"; };
-		5A0A8E9B18B4014B0056B985 /* M13ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M13ProgressView.m; sourceTree = "<group>"; };
-		5A0A8E9C18B4014B0056B985 /* M13ProgressViewPie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M13ProgressViewPie.h; sourceTree = "<group>"; };
-		5A0A8E9D18B4014B0056B985 /* M13ProgressViewPie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M13ProgressViewPie.m; sourceTree = "<group>"; };
 		5A15743E18D2462B00749316 /* StartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartVC.h; path = "Start screen/StartVC.h"; sourceTree = "<group>"; };
 		5A15743F18D2462B00749316 /* StartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartVC.m; path = "Start screen/StartVC.m"; sourceTree = "<group>"; };
 		5A1A5DC8189E7E7A00DF30F6 /* DropBoxManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropBoxManager.h; sourceTree = "<group>"; };
@@ -339,12 +335,6 @@
 		5A3FCEE0184BC9E800413F6E /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		5A3FCEE2184D2E9800413F6E /* RevealVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RevealVC.h; sourceTree = "<group>"; };
 		5A3FCEE3184D2E9800413F6E /* RevealVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RevealVC.m; sourceTree = "<group>"; };
-		5A5627CD18B1281A00851BAE /* M13ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M13ProgressHUD.h; sourceTree = "<group>"; };
-		5A5627CE18B1281A00851BAE /* M13ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M13ProgressHUD.m; sourceTree = "<group>"; };
-		5A5627CF18B1281A00851BAE /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
-		5A5627D018B1281A00851BAE /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
-		5A5627D318B1298100851BAE /* M13ProgressViewRing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M13ProgressViewRing.h; sourceTree = "<group>"; };
-		5A5627D418B1298100851BAE /* M13ProgressViewRing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M13ProgressViewRing.m; sourceTree = "<group>"; };
 		5A6410FE1847D7D5009AB22A /* passport_australia@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_australia@2x.png"; sourceTree = "<group>"; };
 		5A6410FF1847D7D5009AB22A /* passport_belarus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_belarus@2x.png"; sourceTree = "<group>"; };
 		5A6411001847D7D5009AB22A /* passport_belg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passport_belg@2x.png"; sourceTree = "<group>"; };
@@ -383,6 +373,16 @@
 		5A6C3B671896EE5C0065B115 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		5A717D4E188DC72300D1774F /* LoginCRV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginCRV.h; sourceTree = "<group>"; };
 		5A717D4F188DC72300D1774F /* LoginCRV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginCRV.m; sourceTree = "<group>"; };
+		5A7450F318D4508900B12242 /* M13ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = M13ProgressHUD.h; path = HUD/M13ProgressHUD.h; sourceTree = "<group>"; };
+		5A7450F418D4508900B12242 /* M13ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = M13ProgressHUD.m; path = HUD/M13ProgressHUD.m; sourceTree = "<group>"; };
+		5A7450F518D4508900B12242 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "HUD/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		5A7450F618D4508900B12242 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "HUD/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		5A7450F918D4509300B12242 /* M13ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = M13ProgressView.h; path = ProgressViews/M13ProgressView.h; sourceTree = "<group>"; };
+		5A7450FA18D4509300B12242 /* M13ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = M13ProgressView.m; path = ProgressViews/M13ProgressView.m; sourceTree = "<group>"; };
+		5A74510318D4509300B12242 /* M13ProgressViewPie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = M13ProgressViewPie.h; path = ProgressViews/M13ProgressViewPie.h; sourceTree = "<group>"; };
+		5A74510418D4509300B12242 /* M13ProgressViewPie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = M13ProgressViewPie.m; path = ProgressViews/M13ProgressViewPie.m; sourceTree = "<group>"; };
+		5A74510518D4509300B12242 /* M13ProgressViewRing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = M13ProgressViewRing.h; path = ProgressViews/M13ProgressViewRing.h; sourceTree = "<group>"; };
+		5A74510618D4509300B12242 /* M13ProgressViewRing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = M13ProgressViewRing.m; path = ProgressViews/M13ProgressViewRing.m; sourceTree = "<group>"; };
 		5AA46C3D17FB21B0008EE800 /* podZamkom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = podZamkom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AA46C4017FB21B0008EE800 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5AA46C4217FB21B0008EE800 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -748,16 +748,8 @@
 		5A5627CC18B1281A00851BAE /* Progress */ = {
 			isa = PBXGroup;
 			children = (
-				5A0A8E9A18B4014B0056B985 /* M13ProgressView.h */,
-				5A0A8E9B18B4014B0056B985 /* M13ProgressView.m */,
-				5A0A8E9C18B4014B0056B985 /* M13ProgressViewPie.h */,
-				5A0A8E9D18B4014B0056B985 /* M13ProgressViewPie.m */,
-				5A5627D318B1298100851BAE /* M13ProgressViewRing.h */,
-				5A5627D418B1298100851BAE /* M13ProgressViewRing.m */,
-				5A5627CD18B1281A00851BAE /* M13ProgressHUD.h */,
-				5A5627CE18B1281A00851BAE /* M13ProgressHUD.m */,
-				5A5627CF18B1281A00851BAE /* UIImage+ImageEffects.h */,
-				5A5627D018B1281A00851BAE /* UIImage+ImageEffects.m */,
+				5A7450F218D4506F00B12242 /* ProgressViews */,
+				5A7450F118D4505900B12242 /* HUD */,
 			);
 			path = Progress;
 			sourceTree = "<group>";
@@ -800,6 +792,30 @@
 				5A361EF11848D70700DA3AFB /* passport_uk@2x.png */,
 			);
 			path = passports;
+			sourceTree = "<group>";
+		};
+		5A7450F118D4505900B12242 /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				5A7450F318D4508900B12242 /* M13ProgressHUD.h */,
+				5A7450F418D4508900B12242 /* M13ProgressHUD.m */,
+				5A7450F518D4508900B12242 /* UIImage+ImageEffects.h */,
+				5A7450F618D4508900B12242 /* UIImage+ImageEffects.m */,
+			);
+			name = HUD;
+			sourceTree = "<group>";
+		};
+		5A7450F218D4506F00B12242 /* ProgressViews */ = {
+			isa = PBXGroup;
+			children = (
+				5A7450F918D4509300B12242 /* M13ProgressView.h */,
+				5A7450FA18D4509300B12242 /* M13ProgressView.m */,
+				5A74510318D4509300B12242 /* M13ProgressViewPie.h */,
+				5A74510418D4509300B12242 /* M13ProgressViewPie.m */,
+				5A74510518D4509300B12242 /* M13ProgressViewRing.h */,
+				5A74510618D4509300B12242 /* M13ProgressViewRing.m */,
+			);
+			name = ProgressViews;
 			sourceTree = "<group>";
 		};
 		5AA46C3417FB21B0008EE800 = {
@@ -1983,7 +1999,6 @@
 				5A033F6B1883249D00BFD687 /* CollectionRV.m in Sources */,
 				5AC89ACE1840B9A000164B51 /* AppDelegate.m in Sources */,
 				5AC89AD51840B9A000164B51 /* main.m in Sources */,
-				5A0A8E9E18B4014B0056B985 /* M13ProgressView.m in Sources */,
 				5A033F68188313AC00BFD687 /* CollectionView.m in Sources */,
 				5AC89A221840B9A000164B51 /* CardType.m in Sources */,
 				5AC89A251840B9A000164B51 /* PickerObject.m in Sources */,
@@ -2004,10 +2019,9 @@
 				5AC89AD31840B9A000164B51 /* PasswordVC.m in Sources */,
 				5AC89A171840B9A000164B51 /* NoteVC.m in Sources */,
 				5A34AC7F1885BECB00CB7D28 /* PhotoCell.m in Sources */,
+				5A74510D18D4509300B12242 /* M13ProgressView.m in Sources */,
 				5AE1C7DE188D8B0800079943 /* BankAccountCRV.m in Sources */,
 				5A08D6FA1846B04A0041A41C /* Cell.m in Sources */,
-				5A5627D518B1298100851BAE /* M13ProgressViewRing.m in Sources */,
-				5A5627D218B1281A00851BAE /* UIImage+ImageEffects.m in Sources */,
 				5AC89A191840B9A000164B51 /* NewPassportVC.m in Sources */,
 				5AC89A1A1840B9A000164B51 /* PassportVC.m in Sources */,
 				5AC89A0E1840B9A000164B51 /* BankAccountVC.m in Sources */,
@@ -2023,12 +2037,13 @@
 				5AC89A3A1840B9A000164B51 /* KeychainItemWrapper.m in Sources */,
 				5AC89A241840B9A000164B51 /* CurrencyType.m in Sources */,
 				5AC89A311840B9A000164B51 /* DBSelect.m in Sources */,
+				5A7450F718D4508900B12242 /* M13ProgressHUD.m in Sources */,
+				5A74511318D4509300B12242 /* M13ProgressViewRing.m in Sources */,
 				5AC89A1E1840B9A000164B51 /* ViewAppearance.m in Sources */,
 				5AC89AD41840B9A000164B51 /* SettingsVC.m in Sources */,
 				5AB54AE01889DD77008E2035 /* GGFullScreenImageViewController.m in Sources */,
 				5AC89A271840B9A000164B51 /* TextField.m in Sources */,
 				5AC89A111840B9A000164B51 /* CardVC.m in Sources */,
-				5A0A8E9F18B4014B0056B985 /* M13ProgressViewPie.m in Sources */,
 				5AC3FE90187DC438005C009A /* SWRevealViewController.m in Sources */,
 				5AAA161C189959E9000C3365 /* SyncVC.m in Sources */,
 				5AC89A1D1840B9A000164B51 /* ShowVC.m in Sources */,
@@ -2038,8 +2053,8 @@
 				5AAA1626189C2BAA000C3365 /* Sync.m in Sources */,
 				5AAA1629189C48D2000C3365 /* NSString+Hash.m in Sources */,
 				5AC89A0D1840B9A000164B51 /* NewBankAccountVC.m in Sources */,
+				5A7450F818D4508900B12242 /* UIImage+ImageEffects.m in Sources */,
 				5AC89AEE1842266B00164B51 /* RNBlurModalView.m in Sources */,
-				5A5627D118B1281A00851BAE /* M13ProgressHUD.m in Sources */,
 				5A3FCEE1184BC9E800413F6E /* Settings.m in Sources */,
 				5AC89AD11840B9A000164B51 /* NewDocVC.m in Sources */,
 				5AC89A341840B9A000164B51 /* CreditCard.m in Sources */,
@@ -2047,6 +2062,7 @@
 				5AE1C7D7188C4F9200079943 /* CardCRV.m in Sources */,
 				5AC89A381840B9A000164B51 /* Passport.m in Sources */,
 				5AC89A2E1840B9A000164B51 /* DBDelete.m in Sources */,
+				5A74511218D4509300B12242 /* M13ProgressViewPie.m in Sources */,
 				5AC89A211840B9A000164B51 /* CardColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

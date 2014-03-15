@@ -42,8 +42,8 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    if ([_dropboxSyncDelegate respondsToSelector:@selector(stopSyncing)])
-        [_dropboxSyncDelegate stopSyncing];
+//    if ([_dropboxSyncDelegate respondsToSelector:@selector(stopSyncing)])
+//        [_dropboxSyncDelegate stopSyncing];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -107,6 +107,7 @@
         [Settings setDefaultLanguage];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PasswordVC *passwordView = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
+    
     if (NO == [Settings isNotFirstAppRun] ) //если первый запуск, то показываем форму в режиме установка пароля
     {
         passwordView = [passwordView initForAction:PasscodeActionSet];
@@ -122,9 +123,8 @@
     }
     passwordView.delegate = self;
     
-    
     [self.window.rootViewController presentViewController:passwordView
-                                                 animated:YES
+                                                 animated:NO
                                                completion:nil];
 }
 

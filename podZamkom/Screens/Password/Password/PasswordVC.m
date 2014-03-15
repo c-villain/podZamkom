@@ -39,9 +39,10 @@
 
 - (IBAction) showHelp: (id)sender
 {
-    PasswordHelpVC *help = [[PasswordHelpVC alloc] initWithNibName:@"PasswordHelpVC" bundle:nil];
-    
-    [self.navigationController presentViewController:help animated:YES completion:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PasswordHelpVC *help = [storyboard instantiateViewControllerWithIdentifier:@"helpVC"];
+
+    [self presentViewController:help animated:YES completion:nil];
 }
 
 - (id)initForAction:(PasscodeAction)action
